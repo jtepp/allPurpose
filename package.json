@@ -1,0 +1,16 @@
+{
+  "name": "syllabusFunction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "netlify-lambda build src",
+    "serve": "netlify-lambda serve src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "netlify-lambda": "^2.0.0"
+  }
+}
