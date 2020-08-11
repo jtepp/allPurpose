@@ -1,13 +1,20 @@
 export async function handler(event, context) {
 const url = require('url')
 var s = event.queryStringParameters["a"].toLowerCase()
-// if(s.contains("TBD"))
-// console.log(s)
+
+//deal with TBD
 if(s.includes("tbd"))
 return {
   statusCode: 200,
   body: "TBD"
 }
+
+//deal with quarter
+if(s.includes("quarter"))return {
+  statusCode: 200,
+  body: "TBD"
+}
+
 //default year to 2020
 if(!s.match(/\d{4}/)) s="2020 "+s //add 2020 if no year found
 
@@ -28,6 +35,7 @@ if(s.includes('late')) s=s.replace('late','sep 20')
 
 //deal with mid-
 if(s.includes('mid-')) s=s.replace('mid-','15 ')
+
 
   try {
     let r = new Date(s).toDateString()
