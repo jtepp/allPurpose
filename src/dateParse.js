@@ -1,13 +1,17 @@
 export async function handler(event, context) {
-let s = window.location.search
+const url = require('url')
+const s = event.queryStringParameters["a"]
   try {
-  if(s!=""){
+  if(s){
+    let r = new Date(s).toDateString()
     return {
       statusCode: 200,
-      body: new Date(s.replace('?',''))
-    } }else {return {
+      body: r
+    } }else {
+      let r = new Date(s).toDateString()
+      return {
       statusCode: 200,
-      body: new Date(event.body)
+      body: r
     }}
   } catch (e){
       return {
