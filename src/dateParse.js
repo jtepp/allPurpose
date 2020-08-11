@@ -16,7 +16,7 @@ if(s.includes("quarter"))return {
 }
 
 //default year to 2020
-if(!s.match(/\d{4}/)) s="2020 "+s //add 2020 if no year found
+if(!s.match(/\d{4}/)) s=+new Date().getFullYear()+" "+s //add 2020 if no year found
 
 //deal with NET
 if(s.includes('net')) s=s.replace('net','')
