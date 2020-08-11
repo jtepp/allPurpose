@@ -26,6 +26,9 @@ if(s.includes('early')) s=s.replace('early','01 01')
 //deal with late
 if(s.includes('late')) s=s.replace('late','sep 20')
 
+//deal with mid-
+if(s.includes('mid-')) s=s.replace('mid-','15 ')
+
   try {
     let r = new Date(s).toDateString()
     return {
