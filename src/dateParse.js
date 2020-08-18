@@ -15,8 +15,10 @@ if(s.includes("quarter"))return {
   body: "TBD"
 }
 
+
+
 //default year to 2020
-if(!s.match(/\d{4}/)) s=+new Date().getFullYear()+" "+s //add 2020 if no year found
+if(!s.match(/\d{4}/)) s=new Date().getFullYear()+" "+s //add 2020 if no year found
 
 //deal with NET
 if(s.includes('net')) s=s.replace('net','')
@@ -25,6 +27,13 @@ if(s.includes('net')) s=s.replace('net','')
 if(s.match(/\d\/\d/)){
   let x = s.match(/(?<=\d)\/\d/)
  s = s.replace(x,'')
+}
+
+//deal with Aug. 31/Sept. 1
+if(s.match(/.+?\d\/.+?\d/)){
+let ss = s.replace('2020 ','')
+let x = ss.match(/(.+?\d)\/(.+?\d)/)
+s = '2020 '+x[1]
 }
 
 //deal with early
