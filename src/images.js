@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
     .catch(error => ({ statusCode: 422, body: String(error) }));
     
     else if (event.queryStringParameters["b64"]!=undefined)//give b64
-    return fetch('https://www.google.com/search?q='+event.queryStringParameters["q"], { headers: {} })
+    return fetch('https://www.google.com/search?q=images+for+'+event.queryStringParameters["q"], { headers: {} })
     .then(response => response.text())
     .then(data => ({
             statusCode: 200,
