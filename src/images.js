@@ -34,7 +34,7 @@ exports.handler = async (event, context) => {
     .then(response => response.text())
     .then(data => ({
             statusCode: 200,
-            body: [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?=")/g)].slice(slyce)[offset]})
+            body: [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?=")/g)][0].slice(slyce)[offset]})
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));
     
@@ -43,6 +43,6 @@ exports.handler = async (event, context) => {
     .then(response => response.text())
     .then(data => ({
             statusCode: 200,
-            body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?=')/g)][offset].split('\\').join('').slice(slyce)[offset]}))
+            body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?=')/g)][0].split('\\').join('').slice(slyce)[offset]}))
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
