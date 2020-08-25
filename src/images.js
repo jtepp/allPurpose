@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
             slyce = -1
         }
         else 
-        offset = Number(offset)
+        offset = Number(event.queryStringParameters["offset"])
     }
         
 //         //give img
