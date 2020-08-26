@@ -24,15 +24,15 @@ export async function handler(event, context) {
     if(s.includes('net')) s=s.replace('net','')
     
     //deal with 26/27
-    if(s.match(/\d\/\d/)){
-      let x = s.match(/(?<=\d)\/\d/)
+    if(s.match(/\d+\/\d+/)){
+      let x = s.match(/(?<=\d+)\/\d+/)
      s = s.replace(x,'')
     }
     
     //deal with Aug. 31/Sept. 1
-    if(s.match(/.+?\d+\/.+?\d+/)){
+    if(s.match(/.+?\d\/.+?\d/)){
     let ss = s.replace('2020 ','')
-    let x = ss.match(/(.+?\d\/)(.+?\d+)/)
+    let x = ss.match(/(.+?\d)\/(.+?\d)/)
     s = '2020 '+x[1]
     }
     
