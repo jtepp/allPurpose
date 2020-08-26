@@ -44,10 +44,10 @@ exports.handler = async (event, context) => {
     .then(response => response.text())
     .then(data => {
         
-            offset %= [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?=')/g)].length
+            offset %= [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].length
         return ({
             statusCode: 200,
-            body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?=')/g)].slice(slyce)[offset][0].split('\\').join('')})}
+            body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].slice(slyce)[offset][0].split('\\').join('')})}
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
