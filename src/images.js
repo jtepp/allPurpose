@@ -32,10 +32,10 @@ exports.handler = async (event, context) => {
     return fetch(API_ENDPOINT, { headers: {} })
     .then(response => response.text())
     .then(data => {
-        offset %= [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?=")/g)][0].slice(slyce)[offset].length
+        offset %= [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?='|")/g)][0].slice(slyce)[offset].length
         return ({
             statusCode: 200,
-            body: [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?=")/g)][0].slice(slyce)[offset]})}
+            body: [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?='|")/g)][0].slice(slyce)[offset]})}
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));
     
@@ -47,7 +47,7 @@ exports.handler = async (event, context) => {
             offset %= [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].length
         return ({
             statusCode: 200,
-            body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].slice(slyce)[offset][0].split('\\').join('')})}
+            body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].slice(slyce)[offset][0].split('\\x3d').join('').split('\\').join('')})}
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
