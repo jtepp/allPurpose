@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
             mission = {
                 value1: `${name.join(" • ")}`,
                 value2: `${launchTime} on ${date}`,
-                value3: "https://allpurpose.netlify.app/resources/"+imgName(name[0]),
+                value3: "https://allpurpose.netlify.app/resources/"+imgName(name[0].toLowerCase()),
             }
         
             else mission = {
@@ -50,7 +50,7 @@ function special(input){
 function imgName(name) {
 
 
-    switch (name.toLowercase()) {
+    switch (name) {
         case name.match(/ariane|vega/):
             return "arianespace-logo"
             
