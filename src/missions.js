@@ -8,8 +8,8 @@ exports.handler = async (event, context) => {
     .then(response => response.text())
     .then(data => {
         
-        const name = special(data.match(/(mission">).+?(?=<)/)).split(' • ')
-        const date = special(data.match(/(?<=launchdate">).+?(?=<)/))
+        const name = special(data.match(/(?<=mission">).+?(?=\<)/)).split(' • ')
+        const date = special(data.match(/(?<=launchdate">).+?(?=\<)/))
         let launchTime = special(data.match(/(?<=Launch (window|time|period):<\/span> ).+?(?=<span)/))
         // if (launchTime.match(/\d{2}:\d{2} (a.m.|p.m.)/)) launchTime = launchTime.match(/\d{2}:\d{2} (a.m.|p.m.)/)
         const description = special(data.match(/(?<=<div class="missdescrip">).+?(?= \[<span)/))
@@ -32,5 +32,5 @@ exports.handler = async (event, context) => {
 };
 
 function special(input){
-    return String(input).split('&#8220;').join('\"').split('&#8221;').join('\"').split('&#8217;').join('\'').split('<U>').join('')
+    return String(input).split('&#8220;').join('\"').split('&#8221;').join('\"').split('&#8217;').join('\'').split('<U>').join('').split('</U>').join('')
 }
