@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
             mission = {
                 value1: `${name.join(" - ")}`,
                 value2: `${launchTime} on ${date}`,
-                value3: "https://allpurpose.netlify.app/resources/"+imgName(name[0].toLowerCase()),
+                value3: "https://allpurpose.netlify.app/resources/"+imgName(name[0].toLowerCase())+".png",
             }
         
             else mission = {
