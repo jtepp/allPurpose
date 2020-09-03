@@ -16,7 +16,6 @@ exports.handler = async (event, context) => {
         const description = special(data.match(/(?<=<div class="missdescrip">).+?(?= \[<span)/))
         let mission = {}
 
-        let name = rocket.lowercased()
         
 
 
