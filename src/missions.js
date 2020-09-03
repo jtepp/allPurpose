@@ -51,40 +51,39 @@ function special(input){
 function imgName(name) {
 
 
-    switch (name) {
-        case name.match(/ariane|vega/):
+
+        if (name.match(/ariane|vega/))
             return "arianespace-logo"
-            break;
-        case name.match(/rocket \d+.\d+/):
+            
+            else if (name.match(/rocket \d+.\d+/))
             return "astra-logo"
-            break;
-        case name.match(/cz-|lm-|shenzou|long march/):
+            
+            else if (name.match(/cz-|lm-|shenzou|long march/))
             return "cnsa-logo"
-            break;
-        case name.match(/slv/):
+            
+            else if (name.match(/slv/))
             return "isro-logo"
-            break;
-        case name.match(/antares|cygnus|pegasus|minotaur|peacekeeper/):
+            
+            else if (name.match(/antares|cygnus|pegasus|minotaur|peacekeeper/))
             return "orbital-logo"
-            break;
-        case name.match(/electron|photon/):
+            
+            else if (name.match(/electron|photon/))
             return "rocketlab-logo"
-            break;
-        case name.match(/soyuz|angara/):
+            
+            else if (name.match(/soyuz|angara/))
             return "roscosmos-logo"
-            break;
-        case name.match(/falcon/):
+            
+            else if (name.match(/falcon/))
             return "spacex-logo"
-            break;
-        case name.match(/delta|atlas|vulcan|centaur/):
+            
+            else if (name.match(/delta|atlas|vulcan|centaur/))
             return "ula-logo"
-            break;
-        case name.match(/launcherone/):
+            
+            else if (name.match(/launcherone/))
             return "virgin-logo"
-            break;
-        default:
+            
+            else
             return "rocket-icon"
-            break;
-        }
+            
 
 }
