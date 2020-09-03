@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
             if (event.queryStringParameters["ifttt"])
             mission = {
                 value1: `${name.join(" - ")}`,
-                value2: `${launchTime.replace(',time',' ').replace(',window',' ').replace(',period',' ')}on ${date}`,
+                value2: `${launchTime} on ${date}`,
                 value3: "https://allpurpose.netlify.app/resources/"+imgName(name[0].toLowerCase()),
             }
         
@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
             rocket: name[0],
             payload: name[1],
             date: date,
-            time: launchTime.replace(',time',' ').replace(',window',' ').replace(',period',' '),
+            time: launchTime,
             description: description
         }
 
