@@ -12,7 +12,8 @@ exports.handler = async (event, context) => {
         const name = special(data.match(/(?<=mission">).+?(?=\<)/)).split(' • ')
         const date = special(data.match(/(?<=launchdate">).+?(?=\<)/))
         let launchTime = special(data.match(/(?<=Launch (window|time|period):<\/span> ).+?(?=<span)/))
-        // if (launchTime.match(/\d{2}:\d{2} (a.m.|p.m.)/)) launchTime = launchTime.match(/\d{2}:\d{2} (a.m.|p.m.)/)
+        const exact = /(\d+:\d+ (a.m.|p.m.))|(\d+:\d+:\d+ (a.m.|p.m.))/
+        if (launchTime.match(exact)) launchTime = launchTime.match(exact)[0]
         const description = special(data.match(/(?<=<div class="missdescrip">).+?(?= \[<span)/))
         let mission = {}
 
@@ -21,8 +22,8 @@ exports.handler = async (event, context) => {
 
             if (event.queryStringParameters["ifttt"])
             mission = {
-                value1: `${name.join(" • ")}`,
-                value2: `${launchTime} on ${date}`,
+                value1: `${name.join(" - ")}`,
+                value2: `${launchTime.replace(',time',' ').replace(',window',' ').replace(',period',' ')}on ${date}`,
                 value3: "https://allpurpose.netlify.app/resources/"+imgName(name[0].toLowerCase()),
             }
         
@@ -30,7 +31,7 @@ exports.handler = async (event, context) => {
             rocket: name[0],
             payload: name[1],
             date: date,
-            time: launchTime,
+            time: launchTime.replace(',time',' ').replace(',window',' ').replace(',period',' '),
             description: description
         }
 
@@ -44,7 +45,7 @@ exports.handler = async (event, context) => {
 };
 
 function special(input){
-    return String(input).split('&#8220;').join('\"').split('&#8221;').join('\"').split('&#8217;').join('\'').split('<U>').join('').split('</U>').join('')
+    return String(input).split('&#8220;').join('\"').split('&#8221;').join('\"').split('&#8217;').join('\'').split('<U>').join('').split('</U>').join('').split('))').join(')')
 }
 
 function imgName(name) {
