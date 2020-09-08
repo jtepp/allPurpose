@@ -14,7 +14,7 @@ const sort = event.queryStringParameters["sort"]
         var r = data["data"]["children"]
             for (let i = 0; i<limit; i++){
                const p = r[i]["data"]
-               posts.push(new Post(p.title, p["author"], p.ups, p.selftext, p.url, p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')))
+               posts.push(new Post(p.title, p["author"], p.subreddit, p.ups, p.selftext, p.url, p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')))
            }
         return ({
             statusCode: 200,
@@ -25,9 +25,10 @@ const sort = event.queryStringParameters["sort"]
 };
 
 class Post {
-    constructor(title, author, ups, text, url, image){
+    constructor(title, author, sub, ups, text, url, image){
         this.title = title
         this.author = author
+        this.sub = sub
         this.ups = ups
         this.text = text
         this.url = url
