@@ -12,7 +12,7 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
     return fetch(API_ENDPOINT, { headers: {} })
     .then(response => response.json())
     .then(data => {
-        console.log(firstImg)
+        // console.log(firstImg)
         var posts = []
         var d = data["data"]
         if (verify) return ({ //checks if subreddit returns more than 0 children
