@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     const limit = event.queryStringParameters["limit"] || 1
 const sub = event.queryStringParameters["sub"]
 const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
-const firstImg = event.queryStringParameters["firstImg"]
+// const firstImg = event.queryStringParameters["firstImg"]
     const API_ENDPOINT = "https://reddit.com/r/"+sub+"/"+sort[0]+".json?"+sort[1]
     
     return fetch(API_ENDPOINT, { headers: {} })
@@ -20,24 +20,28 @@ const firstImg = event.queryStringParameters["firstImg"]
             body: `${d["dist"] != 0}`
         })
         var r = d["children"]
+        var fImg = undefined;
             for (let i = offset; i<d["dist"]; i++){
-                if (posts.length >= limit && !firstImg) return ({
+                if (posts.length >= limit && fImg != undefined) {
+                    posts.unshift(fImg)
+                    return ({
                     statusCode: 200,
                     body: JSON.stringify(posts)
-                })
+                })}
 
                const p = r[i]["data"]
                const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')))
                
-
+                if ((p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')) && fImg == undefined)
+                    fImg = post
                if(!r.pinned) posts.push(post)
-               if (firstImg && (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))) return ({
-                statusCode: 200,
-                body: JSON.stringify([post])
-            })
+            //    if (firstImg && (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))) return ({
+            //     statusCode: 200,
+            //     body: JSON.stringify([post])
+            // })
             if(i == d["dist"]-1) return ({
                 statusCode: 200,
-                body: JSON.stringify([post])
+                body: JSON.stringify([fImg,post])
             }) 
            }
         return ({
