@@ -1,20 +1,39 @@
 import fetch from "node-fetch";
 
 exports.handler = async (event, context) => {
-    
+    const verify = event.queryStringParameters["verify"] 
+    const offset = event.queryStringParameters["offset"] 
     const limit = event.queryStringParameters["limit"] || 1
 const sub = event.queryStringParameters["sub"]
 const sort = event.queryStringParameters["sort"]
+const firstImg = event.queryStringParameters["firstImg"]
     const API_ENDPOINT = "https://reddit.com/r/"+sub+"/"+sort+".json"
     
     return fetch(API_ENDPOINT, { headers: {} })
     .then(response => response.json())
     .then(data => {
+        
         var posts = []
-        var r = data["data"]["children"]
-            for (let i = 0; i<limit; i++){
+        var d = data["data"]
+        if (verify) return ({ //checks if subreddit returns more than 0 children
+            statusCode: 200,
+            body: `${d["dist"] != 0}`
+        })
+        var r = d["children"]
+            for (let i = offset; i<d["dist"]; i++){
+                if (posts.length > limit) return ({
+                    statusCode: 200,
+                    body: JSON.stringify(posts)
+                })
+
                const p = r[i]["data"]
-               posts.push(new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))))
+               const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')))
+               if (firstImg && post.image) return ({
+                statusCode: 200,
+                body: JSON.stringify([post])
+            })
+
+               if(!r.pinned) posts.push(post)
            }
         return ({
             statusCode: 200,
