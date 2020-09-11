@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 exports.handler = async (event, context) => {
     const verify = event.queryStringParameters["verify"] 
-    const offset = event.queryStringParameters["offset"] 
+    const offset = event.queryStringParameters["offset"] || 0
     const limit = event.queryStringParameters["limit"] || 1
 const sub = event.queryStringParameters["sub"]
 const sort = event.queryStringParameters["sort"]
@@ -12,7 +12,7 @@ const firstImg = event.queryStringParameters["firstImg"]
     return fetch(API_ENDPOINT, { headers: {} })
     .then(response => response.json())
     .then(data => {
-        
+        console.log(firstImg)
         var posts = []
         var d = data["data"]
         if (verify) return ({ //checks if subreddit returns more than 0 children
@@ -21,24 +21,30 @@ const firstImg = event.queryStringParameters["firstImg"]
         })
         var r = d["children"]
             for (let i = offset; i<d["dist"]; i++){
-                if (posts.length > limit) return ({
+                if (posts.length >= limit && !firstImg) return ({
                     statusCode: 200,
                     body: JSON.stringify(posts)
                 })
 
                const p = r[i]["data"]
                const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')))
-               if (firstImg && post.image) return ({
+               
+
+               if(!r.pinned) posts.push(post)
+               if (firstImg && (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))) return ({
                 statusCode: 200,
                 body: JSON.stringify([post])
             })
-
-               if(!r.pinned) posts.push(post)
+            if(i == d["dist"]-1) return ({
+                statusCode: 200,
+                body: JSON.stringify([post])
+            }) 
            }
         return ({
             statusCode: 200,
             body: JSON.stringify(posts)
-        })}
+        })
+    }
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
