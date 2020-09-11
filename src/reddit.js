@@ -5,7 +5,7 @@ exports.handler = async (event, context) => {
     const offset = event.queryStringParameters["offset"] || 0
     const limit = event.queryStringParameters["limit"] || 1
 const sub = event.queryStringParameters["sub"]
-const sort = event.queryStringParameters["sort"]
+const sort = event.queryStringParameters["sort"].replace('!','?')
 const firstImg = event.queryStringParameters["firstImg"]
     const API_ENDPOINT = "https://reddit.com/r/"+sub+"/"+sort+".json"
     
