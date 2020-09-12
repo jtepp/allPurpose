@@ -30,7 +30,7 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
                 })}
 
                const p = r[i]["data"]
-               const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')))
+               const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')), "https://reddit.com"+p.permalink)
                
                 if ((p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')) && fImg == undefined)
                     fImg = post
@@ -54,7 +54,7 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
 };
 
 class Post {
-    constructor(title, author, sub, ups, text, url, image){
+    constructor(title, author, sub, ups, text, url, image, link){
         this.title = title
         this.author = author
         this.sub = sub
@@ -62,6 +62,7 @@ class Post {
         this.text = text
         this.url = url
         this.image = image
+        this.link = link
     }
 
 }
