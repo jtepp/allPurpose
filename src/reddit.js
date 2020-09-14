@@ -30,7 +30,7 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
                 })}
 
                const p = r[i]["data"]
-               const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')), "https://reddit.com"+p.permalink)
+               const post = new Post(p.title, p["author"], p.subreddit, String(p.ups), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')), "://reddit.com"+p.permalink)
                
                 if ((p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')) && fImg == undefined)
                     fImg = post
