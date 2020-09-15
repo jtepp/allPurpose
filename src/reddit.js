@@ -63,6 +63,8 @@ class Post {
         this.url = url
         this.image = image
         this.link = link
+        this.short = "u/"+author
+        this.long = "r/"+sub+" • u/"+author
     }
 
 }
