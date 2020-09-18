@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "encoding": "^0.1.13",
+    "js-ago": "^1.0.2",
     "netlify-lambda": "^2.0.0",
     "node-fetch": "^2.6.0"
   }
