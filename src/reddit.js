@@ -1,5 +1,6 @@
-import fetch from "node-fetch"
 import js_ago from 'js-ago'
+import fetch from "node-fetch"
+
 
 exports.handler = async (event, context) => {
     const verify = event.queryStringParameters["verify"] 
@@ -31,6 +32,17 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
                 })}
 
                const p = r[i]["data"]
+            //     if (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))
+            //     {
+                    
+            //     }
+            //    var col;
+
+
+            //         col = "#000000"
+
+           
+
                const post = new Post(p.title, p["author"], p.subreddit, String(p.score), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')), "://reddit.com"+p.permalink, js_ago(p.created_utc), p.thumbnail)
                
                 if ((p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')) && fImg == undefined)
