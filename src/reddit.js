@@ -79,7 +79,7 @@ class Post {
         this.short = "u/"+author
         this.long = "r/"+sub+" • u/"+author
         this.time = time
-        this.hasThumb = thumb != "self"
+        this.hasThumb = String(thumb != "self" && thumb != "default")
         this.thumb = thumb
     }
 
