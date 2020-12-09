@@ -46,8 +46,10 @@ exports.handler = async (event, context) => {
 class Account {
     constructor(name, balance, native, id){
         this.name = name
-        this.balance = balance
-        this.native = native
+        this.cryptoName = balance["currency"]
+        this.cryptoAmount = balance["amount"]
+        this.realName = native_balance["currency"]
+        this.realAmount = native_balance["amount"]
         this.id = id
     }
 }
