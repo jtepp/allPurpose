@@ -48,8 +48,8 @@ class Account {
         this.name = name
         this.cryptoName = balance["currency"]
         this.cryptoAmount = balance["amount"]
-        this.realName = native_balance["currency"]
-        this.realAmount = native_balance["amount"]
+        this.realName = native["currency"]
+        this.realAmount = native["amount"]
         this.id = id
     }
 }
