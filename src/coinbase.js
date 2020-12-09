@@ -1,4 +1,5 @@
 var coinbase = require( "coinbase")
+//read only keys, don't try messing with them lol
 const mykey = 'C03pZ0mAghpNz57R'
 const mysecret = '4BMpY5woIlEiYh7RGmKhNgokNnepqnoz'
 var Client = coinbase.Client
