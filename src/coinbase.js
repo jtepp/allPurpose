@@ -1,21 +1,19 @@
 var coinbase = require( "coinbase")
 //read only keys, don't try messing with them lol
-const mykey = 'C03pZ0mAghpNz57R'
-const mysecret = '4BMpY5woIlEiYh7RGmKhNgokNnepqnoz'
 var Client = coinbase.Client
-var client = new Client({apiKey:mykey, apiSecret:mysecret, strictSSL: false})
-
-
-const IDs = [   '30b4a69a-411c-51b1-b5c7-0f401c14904a',
-                '08bb18ee-f550-51fc-b015-ef5b06dae8e3', 
-                'f4a370eb-f647-504c-b696-3195390f277b',
-                '9fd0ffbe-70bf-5499-80b3-d0d7cf7e998d'
-            ]
-
 
 exports.handler = async (event, context) => {
+    const mykey = event.queryStringParameters["key"] ?? ""
+    const mysecret = event.queryStringParameters["secret"] ?? ""
+    if (mykey == "" || mykey == undefined || mysecret == "" || mysecret == undefined) {
+        return ({
+            statusCode: 400,
+            body: "error"
+        })
+    }
+    var client = new Client({apiKey:mykey, apiSecret:mysecret, strictSSL: false})
     var a = []
-
+        try {
     // for (var id in IDs) {
         await new Promise((resolve, reject) => {client.getAccounts({},function (err, accounts) {
                 if (err != null) {
@@ -41,7 +39,12 @@ exports.handler = async (event, context) => {
         statusCode: 200,
         body: JSON.stringify(a)
     })
-    
+    } catch {
+        return ({
+            statusCode: 400,
+            body: "error"
+        })
+    }
 }
 
 class Account {
