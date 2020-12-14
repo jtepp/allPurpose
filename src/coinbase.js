@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
                     console.log(false)
                 }
                 accounts.forEach((acct)=>{
-                    console.log(acct.balance)
+                    // console.log(acct.balance)
                     a.push(new Account(acct.name, "0",acct.balance, acct.native_balance, acct.id))}
                     )
                 
@@ -31,9 +31,7 @@ exports.handler = async (event, context) => {
             await new Promise((resolve)=>{
                 a.forEach((acct)=>{
                     client.getBuyPrice({'currencyPair':`${acct.cryptoName}-${acct.realName}`}, function(err,price){
-                        console.log(`${acct.cryptoName}-${acct.realName}`)
-                        a.buy = price.data.amount
-                        // console.log(price)
+                        acct.buy = price.data.amount
                     })
                 })
                 resolve()
