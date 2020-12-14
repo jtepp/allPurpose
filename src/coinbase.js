@@ -33,6 +33,7 @@ exports.handler = async (event, context) => {
                     client.getBuyPrice({'currencyPair':`${acct.cryptoName}-${acct.realName}`}, function(err,price){
                         console.log(`${acct.cryptoName}-${acct.realName}`)
                         a.buy = price.data.amount
+                        // console.log(price)
                     })
                 })
                 resolve()
