@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
     var client = new Client({apiKey:mykey, apiSecret:mysecret, strictSSL: false})
     var a = []
         try {
-    // for (var id in IDs) {
+
         await new Promise((resolve, reject) => {client.getAccounts({},function (err, accounts) {
                 if (err != null) {
                     console.log(err)
@@ -26,10 +26,19 @@ exports.handler = async (event, context) => {
                     )
                 
                 resolve()
-            })}
+            })} )
+
+            await new Promise((resolve)=>{
+                a.forEach((acct)=>{
+                    client.getBuyPrice({'currencyPair':a.cryptoName+'-'+a.realName}, function(err,price){
+                        a.buy = price.data.amount
+                    })
+                })
+                
+            })
             
             
-            )
+           
         // }
        
    
@@ -50,6 +59,7 @@ exports.handler = async (event, context) => {
 class Account {
     constructor(name, balance, native, id){
         this.name = name
+        this.buy = buy
         this.cryptoName = balance["currency"]
         this.cryptoAmount = balance["amount"]
         this.realName = native["currency"]
