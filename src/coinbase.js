@@ -30,11 +30,12 @@ exports.handler = async (event, context) => {
 
             await new Promise((resolve)=>{
                 a.forEach((acct)=>{
-                    client.getBuyPrice({'currencyPair':a.cryptoName+'-'+a.realName}, function(err,price){
+                    client.getBuyPrice({'currencyPair':`${acct.cryptoName}-${acct.realName}`}, function(err,price){
+                        console.log(`${acct.cryptoName}-${acct.realName}`)
                         a.buy = price.data.amount
                     })
                 })
-                
+                resolve()
             })
             
             
