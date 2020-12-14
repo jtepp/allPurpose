@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
                 }
                 accounts.forEach((acct)=>{
                     console.log(acct.balance)
-                    a.push(new Account(acct.name, acct.balance, acct.native_balance, acct.id))}
+                    a.push(new Account(acct.name, "0",acct.balance, acct.native_balance, acct.id))}
                     )
                 
                 resolve()
@@ -57,7 +57,7 @@ exports.handler = async (event, context) => {
 }
 
 class Account {
-    constructor(name, balance, native, id){
+    constructor(name, buy, balance, native, id){
         this.name = name
         this.buy = buy
         this.cryptoName = balance["currency"]
