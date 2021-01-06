@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+.name, .try {
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 30pt;
+    color: white;
+    padding: 20px;
+}
+
+
+body { 
+    background: black;
+    /* animation: flow 4s ease-in-out 0s infinite; */
+}
+
+@keyframes flow {
+    0% {
+        background: #000000;
+    }
+    50% {
+        background: #141414;
+    }
+    100% {
+        background: #000000;
+    }
+}
+
+@media(max-width: 700px){
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+    .name, .try {
+        font-family: sans-serif;
+        font-weight: 700;
+        font-size: 60pt;
+        color: white;
+        padding: 20px;
+    }
+}
