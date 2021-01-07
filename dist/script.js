@@ -16,3 +16,5 @@ for (l of "Tepperman"){
     header.appendChild(e)
     i++
 }
+const w = document.createElement("div").innerHTML = window.screen.width
+header.appendChild()
