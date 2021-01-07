@@ -71,9 +71,9 @@ document.getElementById('datetest').onclick = async ()=>{
     .then(data => 
              document.getElementById('datetext').innerText = data
         )
-        .catch(err=> document.getElementById('datetext').innerText = "Please enter a valid date")
+        .catch(err=> document.getElementById('datetext').innerText = "Invalid Date")
 }
-else document.getElementById('datetext').innerText = "Please enter a valid date"
+else document.getElementById('datetext').innerText = "Invalid Date"
 }
 
 

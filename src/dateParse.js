@@ -1,6 +1,6 @@
 export async function handler(event, context) {
     var s = event.queryStringParameters["a"].toLowerCase()
-
+    s = noSuffix(s)
     //deal with TBD
     if(s.includes("tbd"))
     return {
