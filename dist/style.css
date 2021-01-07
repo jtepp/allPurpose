@@ -19,7 +19,8 @@ header {
     justify-content: space-between;
 }
 
-#namebox {
+.nb {
+    cursor: pointer;
     font-weight: 700;
     font-size: 30pt;
     color: grey;
@@ -28,11 +29,17 @@ header {
     flex-direction: column;
 }
 
+#namebox2 {
+    opacity: 0;
+    cursor: default;
+}
+
+
 #first, #last {
     flex-direction: row;
 }
 
-x{
+x {
     animation: flow 4s linear infinite;
 }
 
@@ -101,6 +108,7 @@ textarea {
     margin: 10px 40px;
     width: 80%;
     height: auto;
+    resize: vertical;
 }
 
 p {
@@ -131,6 +139,11 @@ p {
 input {
     width: 50%;
 }
+
+#games{
+    margin: 40px;
+}
+
 @media(max-width: 730px){
     .functionsbox {
         width: 80%;

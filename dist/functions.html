@@ -13,11 +13,17 @@
 
     <body>
         <header class="name">
-            <span id="namebox">
+            <span id="namebox" class="nb" onclick="window.location = 'index.html'">
                 <span id="first"></span>
                 <span id="last"></span>
             </span>
+            <span id="tt"></span>
+            <span id="namebox2" class="nb">
+                <span id="first2"></span>
+                <span id="last2"></span>
+            </span>
         </header>
+
 
         <br>
         <br>
@@ -33,7 +39,7 @@
                 <p>
                     This function is for an app called <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a> which I worked on over the summer of 2020. Calling the function will return data for the soonest upcoming rocket launch. This includes satellites, rovers, astronauts, etc.
                 </p>
-                <textarea name="missions" id="missionstext" readonly ></textarea>
+                <textarea  id="missionstext" readonly ></textarea>
             </div>
             
             <!-- Coordinates -->
@@ -50,7 +56,7 @@
                 <br>
                 <span style="margin-left: 40px;">Location: </span><input type="text" name="coordsearch" id="coordsearch">
                 <br>
-                <textarea name="missions" id="coordstext" readonly ></textarea>
+                <textarea  id="coordstext" readonly ></textarea>
             </div>
             
             <!-- Images -->
@@ -84,7 +90,24 @@
                 <br>
                 <span style="margin-left: 40px;">Date: </span><input type="text" name="datesearch" id="datesearch">
                 <br>
-                <textarea name="missions" id="datetext" readonly ></textarea>
+                <textarea id="datetext" readonly ></textarea>
+            </div>
+            
+            <!-- Reddit -->
+
+            <div class="functionsbox">
+                
+                <div class="vertcent">
+                    <span class="h2" style="margin-left:40px; padding-right: 20px;">Reddit</span><button class="test" id="redtest">Test</button>
+                </div>
+                <p>
+                    This function was made for <a href="https://github.com/jtepp/widgit">Widgit</a>, an app I made in the summer of 2020 which allows you to create and fully customize an iOS 14 home screen widget for reddit posts. Calling this function will return the top reddit post in any subreddit. <br> <br>
+                    The function can also be given an offset value to skip the first few posts, different ways to sort the posts, or specified limits of the amount of posts to return.
+                </p>
+                <br>
+                <span style="margin-left: 40px;">Subreddit: </span><input type="text" name="redsearch" id="redsearch">
+                <br>
+                <textarea  id="redtext" readonly ></textarea>
             </div>
             
 

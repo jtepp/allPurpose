@@ -1,13 +1,14 @@
-const header = document.body.querySelector("header")
 const len = "JacobTepperman's".length
 const inputs = document.getElementsByTagName('input')
 const tipcircles = document.getElementsByClassName("tipcircle")
 const coordSearch = document.getElementById('coordsearch')
 const imgSearch = document.getElementById('imgsearch')
 const dateSearch = document.getElementById('datesearch')
-const nb = document.getElementById('namebox')
+const redSearch = document.getElementById('redsearch')
 const first = document.getElementById('first')
 const last = document.getElementById('last')
+const first2 = document.getElementById('first2')
+const last2 = document.getElementById('last2')
 var i = 0
 
 for (l of "Jacob"){
@@ -26,8 +27,23 @@ for (l of "Tepperman's"){
 }
 const u = document.createElement("u")
 u.innerHTML = "Functions"
-header.appendChild(u)
-header.appendChild(document.createElement('span'))
+document.getElementById('tt').appendChild(u)
+
+for (l of "Jacob"){
+    const e = document.createElement("xa")
+    e.innerHTML = l
+    e.style.animationDelay = i-len+"s"
+    first2.appendChild(e)
+    i++
+}
+for (l of "Tepperman's"){
+    const e = document.createElement("xa")
+    e.innerHTML = l
+    e.style.animationDelay = i-len+"s"
+    last2.appendChild(e)
+    i++
+}
+
 
 refreshTooltips()
 document.getElementById('allfunctions').onscroll = refreshTooltips
@@ -74,6 +90,25 @@ document.getElementById('datetest').onclick = async ()=>{
         .catch(err=> document.getElementById('datetext').innerText = "Invalid Date")
 }
 else document.getElementById('datetext').innerText = "Invalid Date"
+}
+
+
+
+
+
+document.getElementById('redtest').onclick = async ()=>{
+    if (redSearch.value != '') {
+    return await fetch("https://allpurpose.netlify.app/.netlify/functions/reddit?sort=top&limit=1&sub="+redSearch.value)
+    .then(res => res.text())
+    .then(data => 
+             {
+                if (data == "[]") document.getElementById('redtext').innerText = "Invalid Subreddit"
+                else document.getElementById('redtext').innerText = JSON.stringify(JSON.parse(data)[0])
+            }
+        )
+        .catch(err=> document.getElementById('redtext').innerText = "Invalid Subreddit")
+}
+else document.getElementById('redtext').innerText = "Invalid Subreddit"
 }
 
 
