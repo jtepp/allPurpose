@@ -1,8 +1,10 @@
 const header = document.body.querySelector("header")
 const len = "JacobTepperman's".length
+const inputs = document.getElementsByTagName('input')
 const tipcircles = document.getElementsByClassName("tipcircle")
 const coordSearch = document.getElementById('coordsearch')
 const imgSearch = document.getElementById('imgsearch')
+const dateSearch = document.getElementById('datesearch')
 const nb = document.getElementById('namebox')
 const first = document.getElementById('first')
 const last = document.getElementById('last')
@@ -62,6 +64,18 @@ else document.getElementById('imgimg').src = ""
 }
 
 
+document.getElementById('datetest').onclick = async ()=>{
+    if (dateSearch.value != '') {
+    return await fetch("https://allpurpose.netlify.app/.netlify/functions/dateParse?a="+dateSearch.value)
+    .then(res => res.text())
+    .then(data => 
+             document.getElementById('datetext').innerText = data
+        )
+        .catch(err=> document.getElementById('datetext').innerText = "Please enter a valid date")
+}
+else document.getElementById('datetext').innerText = "Please enter a valid date"
+}
+
 
 
 
@@ -91,3 +105,9 @@ function returnTooltip(x,y,text){
 }
 
 
+// for (n of inputs) {
+//     n.setAttribute('')
+// }
+document.getElementById('datesearch').onkeypress = (ev)=>{
+    if (ev.keyCode = 13) document.getElementById('datetest').click()
+}

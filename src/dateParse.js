@@ -1,6 +1,5 @@
 export async function handler(event, context) {
-    const url = require('url')
-    var s = event.queryStringParameters["a"].toLowerCase()
+    var s = noSuffix(event.queryStringParameters["a"].toLowerCase())
     
     //deal with TBD
     if(s.includes("tbd"))
@@ -62,4 +61,8 @@ export async function handler(event, context) {
             body: e
           } 
         }
+      }
+
+      function noSuffix(s) {
+        return s.split('th').joiin('').split('rd').joiin('').split('st').joiin('').split('nd').joiin('')
       }
