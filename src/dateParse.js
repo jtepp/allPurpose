@@ -50,6 +50,10 @@ export async function handler(event, context) {
         let r = new Date(s).toDateString()
         return {
           statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+            "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+          },
           body: r
         }
       } catch (e){

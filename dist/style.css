@@ -56,7 +56,6 @@ u {
 }
 
 h2, .h2 {
-    /* padding: 20px; */
     font-size: 20pt;
     font-weight: bold;
 }
@@ -66,6 +65,25 @@ h2, .h2 {
     color: white;
     border-radius: 10px;
     padding: 4px;
+}
+
+
+.test {
+    background-color: #0a84ff;
+    color: white;
+    border-radius: 10px;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.vertcent {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+textarea {
+    margin: 10px 40px;
 }
 
 @keyframes flow {

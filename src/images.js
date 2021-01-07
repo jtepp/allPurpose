@@ -35,6 +35,10 @@ exports.handler = async (event, context) => {
         offset %= [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?='|")/g)][0].slice(slyce)[offset].length
         return ({
             statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+            },
             body: [...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?='|")/g)][0].slice(slyce)[offset]})}
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));
@@ -47,6 +51,10 @@ exports.handler = async (event, context) => {
             offset %= [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].length
         return ({
             statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+            },
             body: [...data.matchAll(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g)].slice(slyce)[offset][0].split('\\x3d').join('').split('\\').join('')})}
             )
     .catch(error => ({ statusCode: 422, body: String(error) }));

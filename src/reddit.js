@@ -19,6 +19,10 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
         var d = data["data"]
         if (verify) return ({ //checks if subreddit returns more than 0 children
             statusCode: 200,
+            headers: {
+              "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+              "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+            },
             body: `${d["dist"] != 0}`
         })
         var r = d["children"]
@@ -28,6 +32,10 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
                     posts.unshift(fImg)
                     return ({
                     statusCode: 200,
+                    headers: {
+                        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+                    },
                     body: JSON.stringify(posts)
                 })}
 
@@ -54,11 +62,19 @@ const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
             // })
             if(i == d["dist"]-1) return ({
                 statusCode: 200,
+                headers: {
+                    "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                    "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+                },
                 body: JSON.stringify([fImg,post])
             }) 
            }
         return ({
             statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+            },
             body: JSON.stringify(posts)
         })
     }

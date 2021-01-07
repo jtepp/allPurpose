@@ -34,6 +34,15 @@ for (i of tipcircles){
     i.setAttribute("onmouseout","document.body.removeChild(document.getElementsByClassName('tip')[0])")
 }
 
+document.getElementById('missionstest').onclick = async ()=>{
+    return await fetch("https://allpurpose.netlify.app/.netlify/functions/missions")
+    .then(res => res.json())
+    .then(data => document.getElementById('missionstext').innerHTML = data)
+}
+
+
+
+
 
 function returnTooltip(x,y,text){
     const t = document.createElement('tt')
