@@ -16,5 +16,6 @@ for (l of "Tepperman"){
     header.appendChild(e)
     i++
 }
-const w = document.createElement("div").innerHTML = document.body.clientWidth
-header.appendChild()
+const w = document.createElement("div")
+w.innerHTML = document.body.clientWidth
+header.appendChild(w)
