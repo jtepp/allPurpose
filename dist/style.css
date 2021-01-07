@@ -144,6 +144,10 @@ input {
     margin: 40px;
 }
 
+.gamebox {
+    transform: scale(0.8);
+}
+
 @media(max-width: 730px){
     .functionsbox {
         width: 80%;
