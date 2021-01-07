@@ -1,3 +1,10 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+body { 
+    background: #fafafa;
+}
+
 #flextry {
     display: flex;
     flex-direction: column;
@@ -6,28 +13,30 @@
 }
 
 .name {
-    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 30pt;
     color: grey;
     padding: 20px;
 }
 
-x {
+x{
     animation: flow 4s linear infinite;
+}
+
+u {
+    font-size: 40pt;
+    color: black;
 }
 
 .try {
     cursor: default;
     transition: all 400ms ease-in-out;
-    /* font-family: 'Varela Round', sans-serif; */
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: grey;
     font-size: 20pt;
     width: fit-content;
     padding: 20px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     background-color: #ffffff;
     box-shadow:  8px 8px 16px #adadad,
@@ -46,22 +55,17 @@ x {
     inset -8px -8px 6px #f0f0f0;
 }
 
-
-body { 
-    background: #fafafa;
-    /* animation: breathe 4s ease-in-out 0s infinite; */
+h2, .h2 {
+    /* padding: 20px; */
+    font-size: 20pt;
+    font-weight: bold;
 }
 
-@keyframes breathe {
-    0% {
-        background: #161616;
-    }
-    50% {
-        background: #303030;
-    }
-    100% {
-        background: #161616;
-    }
+.tip {
+    background-color: #0a84ff;
+    color: white;
+    border-radius: 10px;
+    padding: 4px;
 }
 
 @keyframes flow {
