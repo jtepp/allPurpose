@@ -64,5 +64,5 @@ export async function handler(event, context) {
       }
 
       function noSuffix(s) {
-        return s.split('th').joiin('').split('rd').joiin('').split('st').joiin('').split('nd').joiin('')
+        return s.split('th').join('').split('rd').join('').split('st').join('').split('nd').join('')
       }
