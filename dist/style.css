@@ -2,8 +2,10 @@
     font-family: 'Roboto', sans-serif;
 }
 body { 
-    background: #fdfdfd;
+    background: #e6e6e6;
     color: black;
+    transition: all 0.5s ease-in-out;
+
 }
 
 
@@ -107,6 +109,19 @@ h2, .h2 {
     justify-items: center;
 }
 
+a {
+    color: rgb(25, 25, 160);
+}
+
+a:visited {
+    color: rgb(25, 25, 160);
+
+}
+
+textarea, input {
+    background-color: white;
+}
+
 textarea {
     margin: 10px 40px;
     width: 80%;
@@ -134,8 +149,8 @@ p {
     padding: 20px 0;
     border-radius: 20px;
     background-color: #dbdbdb;
-    box-shadow: inset 9px 9px 18px #b5b5b5,
-                inset -9px -9px 18px #ffffff;
+    box-shadow: inset 9px 9px 10px #b5b5b5,
+                inset -9px -9px 10px #ffffff;
     /* margin-left: 20px; */
     
     margin-bottom: 20px;
@@ -273,6 +288,7 @@ hr {
 
 @media(prefers-color-scheme:dark){
     body {
+        transition: all 0.5s ease-in-out;
         background: rgb(29, 29, 29);
         color: white;
     }
@@ -300,5 +316,36 @@ hr {
         -8px -8px 16px transparent,
         inset 8px 8px 6px #111,
         inset -8px -8px 6px #333;
+    }
+    .tipcircle {
+        filter: invert(1);
+    }
+    .functionsbox, .site, #games {
+        padding: 20px 0;
+        border-radius: 20px;
+        background-color: #222;
+        box-shadow: inset 9px 9px 10px #111,
+                    inset -9px -9px 10px #333;
+        /* margin-left: 20px; */
+        
+        margin-bottom: 20px;
+    }
+    a {
+        color: rgb(150, 150, 252);
+    }
+    
+    a:visited {
+        color: rgb(150, 150, 252);
+    }
+    
+    textarea, input {
+        background-color: black;
+    }
+
+    .site {
+        padding: 0 20px;
+        padding-bottom: 20px;
+        max-width: calc(50% - 80px);
+        margin: 20px 20px;
     }
 }
