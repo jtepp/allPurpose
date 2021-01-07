@@ -222,6 +222,12 @@ hr {
         
         max-width: 40%;
     }
+    .gamebox {
+        display: none;
+    }
+    .gamebox::after {
+        content: "Looks like your screen is a bit too small for this game. Click the name to play on Khan Academy.";
+    }
 }
 
 @media (min-width: 730px) and (max-width: 930px){
