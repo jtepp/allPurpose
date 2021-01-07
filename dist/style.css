@@ -1,44 +1,92 @@
-header {
+#flextry {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.name, .try {
-    font-family: sans-serif;
+.name {
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 30pt;
-    color: white;
+    color: grey;
     padding: 20px;
+}
+
+x {
+    animation: flow 4s linear infinite;
+}
+
+.try {
+    cursor: default;
+    transition: all 400ms ease-in-out;
+    /* font-family: 'Varela Round', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: grey;
+    font-size: 20pt;
+    width: fit-content;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow:  8px 8px 16px #adadad,
+    -8px -8px 16px #ffffff,
+    inset 8px 8px 16px transparent,
+    inset -8px -8px 16px transparent;
+    
+}
+
+.try:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+    box-shadow:  8px 8px 16px transparent,
+    -8px -8px 16px transparent,
+    inset 8px 8px 6px #adadad,
+    inset -8px -8px 6px #f0f0f0;
 }
 
 
 body { 
-    background: black;
-    /* animation: flow 4s ease-in-out 0s infinite; */
+    background: #fafafa;
+    /* animation: breathe 4s ease-in-out 0s infinite; */
+}
+
+@keyframes breathe {
+    0% {
+        background: #161616;
+    }
+    50% {
+        background: #303030;
+    }
+    100% {
+        background: #161616;
+    }
 }
 
 @keyframes flow {
     0% {
-        background: #000000;
+        color: red;
+    }
+    12.5% {
+        color: blueviolet;
+    }
+    25% {
+        color: indigo;
+    }
+    37.5% {
+        color: blue;
     }
     50% {
-        background: #141414;
+        color: green;
+    }
+    62.5% {
+        color: #ccbf02;
+    }
+    75% {
+        color: orangered;
     }
     100% {
-        background: #000000;
-    }
-}
-
-@media(max-width: 700px){
-    header {
-        display: flex;
-        flex-direction: column;
-    }
-    .name, .try {
-        font-family: sans-serif;
-        font-weight: 700;
-        font-size: 60pt;
-        color: white;
-        padding: 20px;
+        color: red;
     }
 }
