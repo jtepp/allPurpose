@@ -104,10 +104,3 @@ function returnTooltip(x,y,text){
     return t
 }
 
-
-// for (n of inputs) {
-//     n.setAttribute('')
-// }
-document.getElementById('datesearch').onkeypress = (ev)=>{
-    if (ev.keyCode = 13) document.getElementById('datetest').click()
-}

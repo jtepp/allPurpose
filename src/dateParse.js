@@ -1,6 +1,6 @@
 export async function handler(event, context) {
-    var s = noSuffix(event.queryStringParameters["a"].toLowerCase())
-    const url = require('url')
+    var s = event.queryStringParameters["a"].toLowerCase()
+
     //deal with TBD
     if(s.includes("tbd"))
     return {
