@@ -48,6 +48,7 @@ u {
     font-size: 40pt;
     color: black;
     transform: translate(-50%,0);
+	-webkit-transform: translate(-50%,0);
     font-weight: 300;
 }
 
@@ -163,6 +164,7 @@ hr {
 
 .gamebox {
     transform: scale(0.8);
+	-webkit-transform: scale(0.8);
 }
 
 #gh {
@@ -210,6 +212,7 @@ hr {
         font-size: 40pt;
         color: black;
         transform: translate(0,0);
+	-webkit-transform: translate(0,0);
         font-weight: 300;
     }
     #allsites {
