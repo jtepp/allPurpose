@@ -5,6 +5,7 @@ body {
     background: #fafafa;
 }
 
+
 #flextry {
     display: flex;
     flex-direction: column;
@@ -12,11 +13,23 @@ body {
     width: 100%;
 }
 
-.name {
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#namebox {
     font-weight: 700;
     font-size: 30pt;
     color: grey;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#first, #last {
+    flex-direction: row;
 }
 
 x{
@@ -26,6 +39,7 @@ x{
 u {
     font-size: 40pt;
     color: black;
+    transform: translate(-50%,0);
 }
 
 .try {
@@ -76,7 +90,7 @@ h2, .h2 {
     cursor: pointer;
 }
 
-.vertcent {
+.vertcent, header {
     display: flex;
     align-items: center;
     justify-items: center;
@@ -84,6 +98,29 @@ h2, .h2 {
 
 textarea {
     margin: 10px 40px;
+    width: auto;
+}
+
+p {
+    margin: 0px 40px;
+}
+
+#allfunctions {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    overflow-x: scroll;
+    margin: -8px;
+}
+
+.functionsbox {
+    padding: 20px 0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: inset 9px 9px 18px #b5b5b5,
+                inset -9px -9px 18px #ffffff;
+    margin-left: 20px;
+    min-width: 0%;
 }
 
 @keyframes flow {

@@ -13,19 +13,67 @@
 
     <body>
         <header class="name">
+            <span id="namebox">
+                <span id="first"></span>
+                <span id="last"></span>
+            </span>
         </header>
 
         <br>
         <br>
-        <div class="vertcent">
-            <span class="tipcircle" tip="Mission data was sourced from www.spaceflightnow.com" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
-            <span class="h2" style="padding-right: 20px;">Missions</span><button class="test" id="missionstest">Test</button>
+        <div id="allfunctions">
+
+            <!-- Missions -->
+            <div class="functionsbox">
+                
+                <div class="vertcent">
+                    <span class="tipcircle" tip="Mission data was sourced from spaceflightnow.com" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
+                    <span class="h2" style="padding-right: 20px;">Missions</span><button class="test" id="missionstest">Test</button>
+                </div>
+                <p>
+                    This function is for an app called <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a> which I worked on over the summer of 2020. Calling the function will return data for the soonest upcoming rocket launch. This includes satellites, rovers, astronauts, etc.
+                </p>
+                <textarea name="missions" id="missionstext" readonly id="" rows="10"></textarea>
+            </div>
+            
+            <!-- Coordinates -->
+
+            <div class="functionsbox">
+                
+                <div class="vertcent">
+                    <span class="tipcircle" tip="Coordinates data was sourced from opencagedata.com" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
+                    <span class="h2" style="padding-right: 20px;">Coordinates</span><button class="test" id="coordstest">Test</button>
+                </div>
+                <p>
+                    This function was also made for <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a>. Calling this function will return the longitude and latitude for any location by name, in a format that can be easily read and parsed by Apple's Swift MapKit
+                </p>
+                <br>
+                <span style="margin-left: 40px;">Location: </span><input type="text" name="coordsearch" id="coordsearch">
+                <br>
+                <textarea name="missions" id="coordstext" readonly id="" rows="7"></textarea>
+            </div>
+            
+            <!-- Images -->
+
+            <div class="functionsbox">
+                
+                <div class="vertcent">
+                    <span class="tipcircle" tip="Images are sourced from Google" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
+                    <span class="h2" style="padding-right: 20px;">Images</span><button class="test" id="imgtest">Test</button>
+                </div>
+                <p>
+                    This function was also made for <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a>. Calling this function will return the base 64 encoded data for a low quality image based on your search. The function can also return the URL for the image.
+                </p>
+                <br>
+                <span style="margin-left: 40px;">Search: </span><input type="text" name="imgsearch" id="imgsearch">
+                <br>
+                <img style="margin: 10px 40px;" alt="Image will appear here" id="imgimg">
+            </div>
+            
+
+
+
         </div>
-        <textarea name="missions" id="missionstext" editable=false id="" cols="30" rows="12"></textarea>
-        
-        
-
-
         <script src="functions.js"></script>
     </body>
 </html>
