@@ -150,7 +150,7 @@ p {
     border-radius: 20px;
     background-color: #dbdbdb;
     box-shadow: inset 9px 9px 10px #b5b5b5,
-                inset -9px -9px 10px #ffffff;
+                inset -4px -4px 5px #ffffff;
     /* margin-left: 20px; */
     
     margin-bottom: 20px;
@@ -325,7 +325,7 @@ hr {
         border-radius: 20px;
         background-color: #222;
         box-shadow: inset 9px 9px 10px #111,
-                    inset -9px -9px 10px #333;
+                    inset -4px -4px 5px #333;
         /* margin-left: 20px; */
         
         margin-bottom: 20px;
@@ -348,4 +348,12 @@ hr {
         max-width: calc(50% - 80px);
         margin: 20px 20px;
     }
+    #games{
+        margin: 40px;
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }
