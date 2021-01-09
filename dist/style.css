@@ -120,6 +120,7 @@ a:visited {
 
 textarea, input {
     background-color: white;
+    color: black;
 }
 
 textarea {
@@ -340,6 +341,7 @@ hr {
     
     textarea, input {
         background-color: black;
+        color: white;
     }
 
     .site {

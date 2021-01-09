@@ -46,7 +46,9 @@ for (l of "Tepperman's"){
 
 
 refreshTooltips()
-document.getElementById('allfunctions').onscroll = refreshTooltips
+
+document.onscroll = () => refreshTooltips()
+document.onresize = () => refreshTooltips()
 
 document.getElementById('missionstest').onclick = async ()=>{
     return await fetch("https://allpurpose.netlify.app/.netlify/functions/missions")
