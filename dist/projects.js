@@ -20,7 +20,7 @@ for (l of "Tepperman's"){
     i++
 }
 const u = document.createElement("u")
-u.innerHTML = "Sites"
+u.innerHTML = "Projects"
 document.getElementById('tt').appendChild(u)
 
 for (l of "Jacob"){
