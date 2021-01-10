@@ -221,6 +221,11 @@ hr {
     align-items: center;
 }
 
+.siteheader > img {
+    width: 30px;
+    height: 30px;
+}
+
 @media(max-width: 730px){
     .functionsbox {
         width: 80%;
