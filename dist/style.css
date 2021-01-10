@@ -125,7 +125,7 @@ textarea, input {
 
 textarea {
     margin: 10px 40px;
-    width: calc(100% - 40px);
+    width: calc(100% - 80px);
     height: auto;
     resize: vertical;
 }
