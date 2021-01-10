@@ -244,17 +244,15 @@ hr {
     header {
         flex-direction: column;
         justify-content: center;
+        margin-bottom: 80px;
     }
     #namebox2 {
         display: none;
     }
 
     u {
-        font-size: 40pt;
-        color: black;
         transform: translate(0,0);
-	-webkit-transform: translate(0,0);
-        font-weight: 300;
+	    -webkit-transform: translate(0,0);
     }
     #allsites {
         margin-top: -100px;
