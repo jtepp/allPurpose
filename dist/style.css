@@ -125,7 +125,7 @@ textarea, input {
 
 textarea {
     margin: 10px 40px;
-    width: 80%;
+    width: calc(100% - 40px);
     height: auto;
     resize: vertical;
 }
@@ -144,7 +144,9 @@ p {
     margin: 0px -8px;
 }
 
-
+.functionsbox {
+    max-width: 400px;
+}
 
 .functionsbox, .site, #games {
     padding: 20px 0;
