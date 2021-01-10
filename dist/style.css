@@ -244,7 +244,7 @@ hr {
     header {
         flex-direction: column;
         justify-content: center;
-        margin-bottom: 80px;
+        /* margin-bottom: 120px; */
     }
     #namebox2 {
         display: none;
