@@ -212,7 +212,7 @@ hr {
 .site {
     padding: 0 20px;
     padding-bottom: 20px;
-    max-width: 400px;
+    max-width: 420px;
     margin: 20px 20px;
 }
 
@@ -224,10 +224,16 @@ hr {
 }
 
 .siteheader > img {
+    transition: all ease 0.5s;
     width: 40px;
     height: 40px;
     border-radius: 5px;
     overflow: hidden;
+    filter: drop-shadow(1px 1px 2px #333);
+}
+
+.siteheader > img:hover {
+    filter: drop-shadow(5px 5px 5px #333);
 }
 
 @media(max-width: 730px){
@@ -239,7 +245,6 @@ hr {
         flex-direction: column;
         justify-content: center;
     }
-
     #namebox2 {
         display: none;
     }
@@ -365,7 +370,7 @@ hr {
     .site {
         padding: 0 20px;
         padding-bottom: 20px;
-        max-width: 400px;
+        max-width: 420px;
         margin: 20px 20px;
     }
     #games{
