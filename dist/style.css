@@ -237,6 +237,11 @@ hr {
         flex-direction: column;
         justify-content: center;
     }
+
+    #namebox2 {
+        display: none;
+    }
+    
     u {
         font-size: 40pt;
         color: black;
