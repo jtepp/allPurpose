@@ -378,5 +378,11 @@ hr {
         flex-direction: column;
         align-items: center;
     }
+    .siteheader > img {
+        filter: drop-shadow(1px 1px 2px #aaa);
+    }
     
+    .siteheader > img:hover {
+        filter: drop-shadow(5px 5px 5px #aaa);
+    }
 }
