@@ -23,13 +23,22 @@ exports.handler = async (event, context) => {
                     console.log(false)
                 }
                 accounts.forEach(async (acct)=>{
-                    a.push(new Account(acct.name, `${parseFloat(acct.native_balance.amount)/parseFloat(acct.balance.amount)}` ,acct.balance, acct.native_balance, acct.id))}
+                    a.push(new Account(acct.name, `${parseFloat(acct.native_balance.amount)/parseFloat(acct.balance.amount)}` ,acct.balance, acct.native_balance, acct.id,
+                    
+                    await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=CAD&include_24hr_change=true')
+                    .then(res => res.json())
+                    .then(data => data[0]["cad_24h_change"])
+                    
+                    
+                    ))}
                     )
                 
                 resolve()
             })} )
            
-    
+   
+
+
     return ({
         statusCode: 200,
         headers: {
@@ -48,7 +57,7 @@ exports.handler = async (event, context) => {
 }
 
 class Account {
-    constructor(name, buy, balance, native, id){
+    constructor(name, buy, balance, native, id, change){
         this.name = name
         this.buy = buy
         this.cryptoName = balance["currency"]
@@ -56,5 +65,6 @@ class Account {
         this.realName = native["currency"]
         this.realAmount = native["amount"]
         this.id = id
+        this.change = change
     }
 }
