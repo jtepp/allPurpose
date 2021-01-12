@@ -70,5 +70,5 @@ class Account {
 async function getChange() {
     return await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=CAD&include_24hr_change=true')
     .then(res => res.json())
-    .then(data => data[0]["cad_24h_change"])
+    .then(data => data['ethereum']["cad_24h_change"])
 }
