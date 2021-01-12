@@ -25,9 +25,7 @@ exports.handler = async (event, context) => {
                 accounts.forEach(async (acct)=>{
                     a.push(new Account(acct.name, `${parseFloat(acct.native_balance.amount)/parseFloat(acct.balance.amount)}` ,acct.balance, acct.native_balance, acct.id,
                     
-                    await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=CAD&include_24hr_change=true')
-                    .then(res => res.json())
-                    .then(data => data[0]["cad_24h_change"])
+        10
                     
                     
                     ))}
@@ -67,4 +65,10 @@ class Account {
         this.id = id
         this.change = change
     }
+}
+
+async function getChange() {
+    return await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=CAD&include_24hr_change=true')
+    .then(res => res.json())
+    .then(data => data[0]["cad_24h_change"])
 }
