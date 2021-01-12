@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
                     console.log(false)
                 }
                 accounts.forEach(async (acct)=>{
-                    a.push(new Account(acct.name, `${parseFloat(acct.native_balance.amount)/parseFloat(acct.balance.amount)}` ,acct.balance, acct.native_balance, acct.id, 0))}
+                    a.push(new Account(acct.name, `${parseFloat(acct.native_balance.amount)/parseFloat(acct.balance.amount)}` ,acct.balance, acct.native_balance, acct.id))}
                     )
                 
                 resolve()
@@ -50,7 +50,7 @@ exports.handler = async (event, context) => {
 }
 
 class Account {
-    constructor(name, buy, balance, native, id, change){
+    constructor(name, buy, balance, native, id){
         this.name = name
         this.buy = buy
         this.cryptoName = balance["currency"]
@@ -58,7 +58,6 @@ class Account {
         this.realName = native["currency"]
         this.realAmount = native["amount"]
         this.id = id
-        this.change = change
     }
 }
 
