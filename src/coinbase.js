@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
                 accounts.forEach(async (acct)=>{
                     a.push(new Account(acct.name, `${parseFloat(acct.native_balance.amount)/parseFloat(acct.balance.amount)}` ,acct.balance, acct.native_balance, acct.id,
                     
-        10
+       await getChange()
                     
                     
                     ))}
