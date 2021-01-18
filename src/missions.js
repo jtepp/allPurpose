@@ -21,11 +21,11 @@ exports.handler = async (event, context) => {
 
 
             if (event.queryStringParameters["ifttt"])
-            mission = {
+            {mission = {
                 value1: `${name.join(" - ")}`,
                 value2: `${launchTime} on ${date}`,
                 value3: "https://allpurpose.netlify.app/resources/"+imgName(name.join(" - ").toLowerCase())+".png",
-            }
+            }}
         
             else mission = {
             rocket: name[0],
@@ -60,34 +60,34 @@ function imgName(name) {
             return "arianespace-logo"
             
             else if (name.match(/rocket \d+.\d+/))
-            return "astra-logo"
+            {return "astra-logo"}
             
             else if (name.match(/cz-|lm-|shenzou|long march/))
-            return "cnsa-logo"
+            {return "cnsa-logo"}
             
             else if (name.match(/slv/))
-            return "isro-logo"
+            {return "isro-logo"}
             
             else if (name.match(/antares|cygnus|pegasus|minotaur|peacekeeper/))
-            return "orbital-logo"
+            {return "orbital-logo"}
             
             else if (name.match(/electron|photon/))
-            return "rocketlab-logo"
+            {return "rocketlab-logo"}
             
             else if (name.match(/soyuz|angara/))
-            return "roscosmos-logo"
+            {return "roscosmos-logo"}
             
             else if (name.match(/falcon/))
-            return "spacex-logo"
+            {return "spacex-logo"}
             
             else if (name.match(/delta|atlas|vulcan|centaur/))
-            return "ula-logo"
+            {return "ula-logo"}
             
             else if (name.match(/launcherone/))
-            return "virgin-logo"
+            {return "virgin-logo"}
             
             else
-            return "rocket-icon"
+            {return "rocket-icon"}
             
 
 }
