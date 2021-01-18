@@ -17,7 +17,9 @@
     "js-ago": "^1.0.2",
     "netlify-lambda": "^2.0.0",
     "node-fetch": "^2.6.1",
-    "puppeteer": "^5.5.0",
     "puppeteer-core": "^5.5.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^5.5.0"
   }
 }
