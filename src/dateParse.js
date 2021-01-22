@@ -2,11 +2,11 @@ export async function handler(event, context) {
     var s = event.queryStringParameters["a"].toLowerCase()
     s = noSuffix(s)
     //deal with TBD
-    if(s.includes("tbd"))
+    if (s.includes("tbd")){
     return {
       statusCode: 200,
       body: "TBD"
-    }
+    }}
     
     //deal with quarter
     if(s.includes("quarter"))return {
@@ -42,7 +42,7 @@ export async function handler(event, context) {
     if(s.includes('late')) s=s.replace('late','sep 20')
     
     //deal with mid-
-    if(s.includes('mid-')) s=s.replace('mid-','15 ')
+    if(s.includes('mid-')) {s=s.replace('mid-','15 ')}
     
     
       try {

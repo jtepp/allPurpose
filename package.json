@@ -11,12 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chrome-aws-lambda": "^5.5.0",
     "coinbase": "^2.0.8",
+    "email": "^0.2.6",
     "encoding": "^0.1.13",
     "js-ago": "^1.0.2",
     "netlify-lambda": "^2.0.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "sendmail": "^1.6.1"
   },
   "devDependencies": {}
 }
