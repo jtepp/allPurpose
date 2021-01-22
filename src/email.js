@@ -18,6 +18,7 @@ export async function handler(event, context) {
         subject: "TEST",
         text: "SDFOIDSJF"
     }
+    console.log(true)
 
     transporter.sendMail(options, (err, info)=>{
         if (err) {
@@ -27,6 +28,7 @@ export async function handler(event, context) {
         console.log("Sent: "+info.response)
     })
 
+    console.log(false)
 
 return {
     statusCode: 200,
