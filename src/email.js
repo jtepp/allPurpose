@@ -1,4 +1,4 @@
-export async function handler(event, context) {
+export function handler(event, context, callback) {
 
   const nodemailer = require('nodemailer');
   var msg = "a"
@@ -26,20 +26,29 @@ export async function handler(event, context) {
   transporter.sendMail(mailOptions, function(error, info){
     console.log(JSON.stringify(info))
     if (error) {
-      msg = error
-    } else {
-     msg = "success"
-      }
+      callback(null, {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+          "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+        },
+        body: JSON.stringify(error)
+      })
+      
+    }
+    callback(null, {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+      },
+      body: "success"
+    })
       
   });
-  return {
-    statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-      "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-    },
-    body: "success"
-  }
+
+
+  
 }
 
 function valid(email){
