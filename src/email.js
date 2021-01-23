@@ -24,12 +24,13 @@ export async function handler(event, context) {
   };
 
   transporter.sendMail(mailOptions, function(error, info){
+    console.log(JSON.stringify(info))
     if (error) {
       msg = error
     } else {
      msg = "success"
       }
-      console.log(JSON.stringify(info))
+      
   });
   return {
     statusCode: 200,
