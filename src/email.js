@@ -2,7 +2,7 @@ export function handler(event, context, callback) {
 
   const nodemailer = require('nodemailer');
   var msg = "a"
-  let recipient = valid(event.queryStringParameters["r"]) ||  "jtepp@icloud.com"
+  let recipient = valid(event.queryStringParameters["r"]) ||  "iconsrequestservice@gmail.com"
   let sub = event.queryStringParameters["s"] || "no subject"
   let txt = event.queryStringParameters["t"] || ""
   let h = event.queryStringParameters["h"] || ""
