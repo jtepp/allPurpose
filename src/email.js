@@ -33,8 +33,10 @@ export async function handler(event, context) {
 }
 
 function valid(email){
-  if (email.match(/.+?@.+?\..+?/g) != null){
-    return email;
+  if (email) {
+    if (email.match(/.+?@.+?\..+?/g) != null){
+      return email;
+    }
   }
   return null
 }
