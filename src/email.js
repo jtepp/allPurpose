@@ -1,8 +1,11 @@
 export async function handler(event, context) {
 
   const nodemailer = require('nodemailer');
-
-  let recipient = valid(event.queryStringParameters["r"]) || "jtepp@icloud.com"
+  var msg = "a"
+  let recipient = valid(event.queryStringParameters["r"]) ||  "jtepp@icloud.com"
+  let sub = event.queryStringParameters["s"] || "no subject"
+  let txt = event.queryStringParameters["t"] || ""
+  let h = event.queryStringParameters["h"] || ""
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -15,37 +18,27 @@ export async function handler(event, context) {
   var mailOptions = {
     from: 'Your Icons Order <iconsrequestservice@gmail.com>',
     to: recipient,
-    subject: 'Sending Email using Node.js',
-    text: `Hi Smartherd, thank you for your nice Node.js tutorials.
-            I will donate 50$ for this course. Please send me payment options.`
-    // html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'        
+    subject: sub,
+    text: txt,
+    html: h        
   };
 
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      return {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-          "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-        },
-        body: JSON.stringify(error)
-      }
-      
+      msg = error
     } else {
-      return {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-          "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-        },
-        body: "success"
+     msg = "success"
       }
       
-    }
   });
-
-
+  return {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+      "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+    },
+    body: "success"
+  }
 }
 
 function valid(email){
