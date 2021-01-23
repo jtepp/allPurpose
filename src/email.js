@@ -13,7 +13,7 @@ export async function handler(event, context) {
   });
 
   var mailOptions = {
-    from: 'iconsrequestservice@gmail.com',
+    from: 'Your Icons Order <iconsrequestservice@gmail.com>',
     to: recipient,
     subject: 'Sending Email using Node.js',
     text: `Hi Smartherd, thank you for your nice Node.js tutorials.
@@ -23,9 +23,25 @@ export async function handler(event, context) {
 
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      console.log(error);
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+          "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+        },
+        body: JSON.stringify(error)
+      }
+      
     } else {
-      console.log('success');
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+          "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+        },
+        body: "success"
+      }
+      
     }
   });
 
