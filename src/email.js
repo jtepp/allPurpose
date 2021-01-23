@@ -29,7 +29,7 @@ export async function handler(event, context) {
     } else {
      msg = "success"
       }
-      
+      console.log(JSON.stringify(info))
   });
   return {
     statusCode: 200,
