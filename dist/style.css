@@ -229,11 +229,11 @@ hr {
     height: 40px;
     border-radius: 5px;
     overflow: hidden;
-    filter: drop-shadow(1px 1px 2px #333);
+    filter: drop-shadow(0px 0px 3px #333);
 }
 
-.siteheader > img:hover {
-    filter: drop-shadow(5px 5px 5px #333);
+#snapcode:hover{
+    transform: scale(100%);
 }
 
 @media(max-width: 730px){
@@ -379,10 +379,6 @@ hr {
         align-items: center;
     }
     .siteheader > img {
-        filter: drop-shadow(1px 1px 2px #aaa);
-    }
-    
-    .siteheader > img:hover {
-        filter: drop-shadow(5px 5px 5px #aaa);
+        filter: drop-shadow(0px 0px 3px #aaa);
     }
 }
