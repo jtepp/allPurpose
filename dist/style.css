@@ -109,13 +109,8 @@ h2, .h2 {
     justify-items: center;
 }
 
-a {
-    color: rgb(25, 25, 160);
-}
-
-a:visited {
-    color: rgb(25, 25, 160);
-
+a, a:visited {
+    color: black;
 }
 
 textarea, input {
@@ -370,12 +365,8 @@ hr {
         
         margin-bottom: 20px;
     }
-    a {
-        color: rgb(150, 150, 252);
-    }
-    
-    a:visited {
-        color: rgb(150, 150, 252);
+    a, a:visited {
+        color: white;
     }
     
     textarea, input {
