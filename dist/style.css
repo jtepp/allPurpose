@@ -233,7 +233,7 @@ hr {
 }
 
 #snapcode:hover{
-    transform: scale(100%);
+    transform: scale(5);
 }
 
 @media(max-width: 730px){
