@@ -236,6 +236,24 @@ hr {
     transform: scale(5);
 }
 
+#socialbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialitem{
+    cursor: pointer;
+    width: 40px;
+    filter: invert(0);
+    margin: 10px;
+}
+
+#copyright{
+    margin-top: 80px;
+}
+
 @media(max-width: 730px){
     .functionsbox {
         width: 80%;
@@ -380,5 +398,8 @@ hr {
     }
     .siteheader > img {
         filter: drop-shadow(0px 0px 3px #aaa);
+    }
+    .socialitem{
+        filter: invert(1);
     }
 }
