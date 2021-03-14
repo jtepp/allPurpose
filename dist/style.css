@@ -387,7 +387,7 @@ hr {
         align-items: center;
     }
     .siteheader > img {
-        filter: drop-shadow(0px 0px 3px #aaa);
+        filter: drop-shadow(0px 0px 3px #111);
     }
     .socialitem{
         filter: invert(1);
