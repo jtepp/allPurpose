@@ -147,10 +147,9 @@ p {
     padding: 20px 0;
     border-radius: 20px;
     background-color: #dbdbdb;
-    box-shadow: inset 9px 9px 10px #b5b5b5,
-                inset -4px -4px 5px #ffffff;
+    /* box-shadow: inset 9px 9px 10px #b5b5b5,
+                inset -4px -4px 5px #ffffff; */
     /* margin-left: 20px; */
-    
     margin-bottom: 20px;
 }
 
@@ -359,8 +358,8 @@ hr {
         padding: 20px 0;
         border-radius: 20px;
         background-color: #222;
-        box-shadow: inset 9px 9px 10px #111,
-                    inset -4px -4px 5px #333;
+        /* box-shadow: inset 9px 9px 10px #111,
+                    inset -4px -4px 5px #333; */
         /* margin-left: 20px; */
         
         margin-bottom: 20px;
