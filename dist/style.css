@@ -395,9 +395,17 @@ hr {
 }
 
 
+.sitecard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
+.sitecard a {
+    text-decoration: none;
+}
 
-.sitecard > .tallimg {
+.sitecard .tallimg {
     width: 200px;
     overflow: hidden;
     border-radius: 10px;
