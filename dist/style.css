@@ -393,3 +393,12 @@ hr {
         filter: invert(1);
     }
 }
+
+
+
+
+.sitecard > .tallimg {
+    width: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+}
