@@ -207,11 +207,12 @@ hr {
 }
 
 #allsites {
-    justify-content: center;
     margin: 20px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #snapcode:hover{
@@ -236,76 +237,10 @@ hr {
     margin-top: 80px;
 }
 
-@media(max-width: 730px){
-    .functionsbox {
-        width: 80%;
-        min-width: 272px;
-    }
 
-    header {
-        flex-direction: column;
-        justify-content: center;
-        /* margin-bottom: 120px; */
-    }
-
-    .name c {
-        top: 130px;
-    }
-
-    #allfunctions {
-        margin-top: 60px;
-    }
-
-    #gamestop {
-        margin-top: 100px;
-    }
-    .gamebox {
-        display: none;
-    }
-}
-
-@media (min-width: 730px) and (max-width: 1300px){
-    .functionsbox {
-        
-        max-width: 40%;
-    }
-}
-@media (max-width: 580px){
-    #allsites {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
-@keyframes flow {
-    0% {
-        color: red;
-    }
-    12.5% {
-        color: blueviolet;
-    }
-    25% {
-        color: indigo;
-    }
-    37.5% {
-        color: blue;
-    }
-    50% {
-        color: green;
-    }
-    62.5% {
-        color: #ccbf02;
-    }
-    75% {
-        color: orangered;
-    }
-    100% {
-        color: red;
-    }
-}
 
 .sitecard {
+    margin: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -458,4 +393,77 @@ pp {
     font-size: 10pt;
     padding: 0.5em;
     /* word-wrap: break-word; */
+    max-height: 150px;
+    text-align: left;
 }
+
+
+@media(max-width: 730px){
+    .functionsbox {
+        width: 80%;
+        min-width: 272px;
+    }
+
+    header {
+        flex-direction: column;
+        justify-content: center;
+        /* margin-bottom: 120px; */
+    }
+
+    .name c {
+        top: 130px;
+    }
+
+    #allfunctions {
+        margin-top: 60px;
+    }
+
+    #gamestop {
+        margin-top: 100px;
+    }
+    .gamebox {
+        display: none;
+    }
+}
+
+@media (min-width: 730px) and (max-width: 1300px){
+    .functionsbox {
+        
+        max-width: 40%;
+    }
+}
+@media (max-width: 580px){
+    #allsites {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@keyframes flow {
+    0% {
+        color: red;
+    }
+    12.5% {
+        color: blueviolet;
+    }
+    25% {
+        color: indigo;
+    }
+    37.5% {
+        color: blue;
+    }
+    50% {
+        color: green;
+    }
+    62.5% {
+        color: #ccbf02;
+    }
+    75% {
+        color: orangered;
+    }
+    100% {
+        color: red;
+    }
+}
+
