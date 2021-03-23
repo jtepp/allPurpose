@@ -271,14 +271,21 @@ hr {
     margin-top: 0.5em;
 }
 
-.tallimg {
-    width: 160px;
+.siteimg {
     overflow: hidden;
     border-radius: 10px;
 }
 
-.sitecard:hover .tallimg {
+.sitecard:hover .siteimg {
     box-shadow: #00000055 0px 0px 8px 8px;
+}
+
+.tallimg {
+    width: 160px;
+}
+
+.wideimg {
+    height: 285px;
 }
 
 .back {
@@ -291,6 +298,10 @@ hr {
     height: 100%;
     transform: scale(0.4, 0.4) translateY(-25px);
     border-radius: 20px;
+}
+
+.wideback {
+    width: calc(70% + 10px);
 }
 
 .sitecard:hover .back{
@@ -406,7 +417,6 @@ pp {
     max-height: 150px;
     text-align: left;
 }
-
 
 @media(max-width: 730px){
     .functionsbox {
