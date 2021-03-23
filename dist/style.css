@@ -8,6 +8,7 @@
     --blue: #0a84ff;
     --green: #34c759;
     --red: #ff3b30;
+    --yellow: #ffc800;
 }
 body { 
     background: #161616;
@@ -240,7 +241,7 @@ hr {
 
 
 .sitecard {
-    margin: 20px;
+    margin: 0 10% 80px 10%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -341,6 +342,10 @@ hr {
     background-color: var(--blue);
 }
 
+.snap {
+    background-color: var(--yellow);
+}
+
 .website {
     background-color: var(--red);
 }
@@ -391,8 +396,9 @@ pp {
     background-color: #222;
     border-radius: 10px;
     font-size: 10pt;
+    line-height: 1.4em;
     padding: 0.5em;
-    /* word-wrap: break-word; */
+    word-wrap: break-word;
     max-height: 150px;
     text-align: left;
 }
