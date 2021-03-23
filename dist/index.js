@@ -4,14 +4,14 @@ const first = document.getElementById('first')
 const last = document.getElementById('last')
 var i = 0
 
-for (l of "Jacob"){
+for (let l of "Jacob"){
     const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i-len+"s"
     first.appendChild(e)
     i++
 }
-for (l of "Tepperman"){
+for (let l of "Tepperman"){
     const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i-len+"s"
