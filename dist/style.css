@@ -169,7 +169,7 @@ p {
     max-width: 400px;
 }
 
-.functionsbox, .site, #games {
+.functionsbox, #games {
     padding: 20px 0;
     border-radius: 20px;
     background-color: #000;
@@ -206,50 +206,12 @@ hr {
 	-webkit-transform: scale(0.8);
 }
 
-/* #gh {
-    background: linear-gradient(135deg, rgba(221, 221, 221, 0.301), rgba(51, 10, 83, 0.432));
-}
-
-#dm {
-    background: linear-gradient(135deg, rgba(221, 221, 221, 0.301), rgba(97, 9, 9, 0.432), rgba(8, 54, 155, 0.432), rgba(129, 7, 119, 0.432));
-}
-
-#dj {
-    background: linear-gradient(135deg, rgba(221, 221, 221, 0.301), rgba(97, 9, 9, 0.432));
-} */
-
 #allsites {
     justify-content: center;
     margin: 20px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.site > p {
-    margin: 0;
-}
-.site {
-    padding: 0 20px;
-    padding-bottom: 20px;
-    max-width: 420px;
-    margin: 20px 20px;
-}
-
-.siteheader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.siteheader > img {
-    transition: all ease 0.5s;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    overflow: hidden;
-    filter: drop-shadow(0px 0px 3px #111);
 }
 
 #snapcode:hover{
@@ -296,11 +258,6 @@ hr {
 
     #gamestop {
         margin-top: 100px;
-    }
-
-    .site {
-        
-        min-width: 200px;
     }
     .gamebox {
         display: none;
@@ -429,7 +386,6 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue);
     /* margin-left: 4px; */
     margin-top: 10px;
 
@@ -440,6 +396,18 @@ hr {
     font-size: 10pt;
     font-weight: 600;
     transform: rotate(315deg);
+}
+
+.iosandroid {
+    background-color: var(--green);
+}
+
+.ios {
+    background-color: var(--blue);
+}
+
+.website {
+    background-color: var(--red);
 }
 
 pp {
