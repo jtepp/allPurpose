@@ -102,8 +102,8 @@ else document.getElementById('redtext').innerText = "Invalid Subreddit"
 
 function refreshTooltips() {
     for (i of tipcircles) {
-        t = i.getAttribute('tip')
-        r = i.getBoundingClientRect()
+        let t = i.getAttribute('tip')
+        let r = i.getBoundingClientRect()
         const e = "returnTooltip(" + (r.x + 20) + "," + (r.y - 30) + ",'" + t + "')"
         i.setAttribute("onmouseover", "document.body.appendChild(" + e + ")")
         i.setAttribute("onmouseout", "document.body.removeChild(document.getElementsByClassName('tip')[0])")
