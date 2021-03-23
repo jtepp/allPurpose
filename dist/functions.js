@@ -93,7 +93,10 @@ else document.getElementById('redtext').innerText = "Invalid Subreddit"
 }
 
 
-
+for (let f of document.getElementsByTagName("form")){
+    f.onsubmit = (e)=>{e.preventDefault(); f.children[0].children[2].click()}
+    
+}
 
 
 
