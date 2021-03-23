@@ -413,7 +413,7 @@ hr {
 }
 
 .platformtag {
-    transition: all ease-in 0.2s;
+    transition: opacity ease-in 0.2s;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -436,9 +436,9 @@ pp {
     padding: 0;
 }
 
-/* .sitecard:hover .platformtag {
-    transform: rotate(270deg);
-} */
+.sitecard:hover .platformtag {
+    opacity: 0;
+}
 
 
 
