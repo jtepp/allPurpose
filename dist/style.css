@@ -302,6 +302,7 @@ hr {
 
 .wideback {
     width: calc(70% + 10px);
+    height: 90%;
 }
 
 .sitecard:hover .back{
@@ -456,6 +457,7 @@ pp {
     #allsites {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 }
 
