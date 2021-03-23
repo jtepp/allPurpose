@@ -447,6 +447,11 @@ pp {
     .gamebox {
         display: none;
     }
+
+    .wideimg {
+        width: 320px;
+        height: 190px;
+    }
 }
 
 @media (min-width: 730px) and (max-width: 1300px){
