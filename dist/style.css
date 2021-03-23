@@ -338,6 +338,7 @@ hr {
 }
 
 .sitecard {
+    position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -345,12 +346,56 @@ hr {
     justify-content: center;
 }
 
-.sitecard a {
-    text-decoration: none;
+.front {
+    z-index: 1;
+    top: 0;
+    transition: transform ease-in 0.2s;
+    transform: scale(1);
 }
 
-.sitecard .tallimg {
-    width: 200px;
+.sitecard h3{
+    transition: opacity ease-in 0.2s;
+    margin-top: 0.5em;
+}
+
+.tallimg {
+    width: 160px;
     overflow: hidden;
     border-radius: 10px;
+}
+
+.back {
+    transition: transform ease-in 0.2s;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    background-color: #000;
+    width: 120%;
+    height: 100%;
+    transform: scale(0.4, 0.4) translateY(-25px);
+    border-radius: 20px;
+}
+
+.sitecard:hover .back{
+    transform: scale(1);
+}
+
+.sitecard:hover .front {
+    transform: scale(0.5) translateY(-80%);
+    box-shadow: #00000055 0px 0px 5px 5px;
+}
+
+.sitecard:hover .frontname {
+    opacity: 0;
+}
+
+.backname {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+}
+
+.sitecard:hover .backname {
+    opacity: 1;
 }
