@@ -58,21 +58,30 @@ coordSearch.onkeydown = (e)=>{
     }
 }
 
+//images
 
+document.getElementById('imgtestbutton').onclick = async ()=>{
+    if (imgSearch.innerText != '') {
+    return await fetch("https://allpurpose.netlify.app/.netlify/functions/images?q="+imgSearch.innerText+"&b64")
+    .then(res => res.text())
+    .then(data => 
+             document.getElementById('imgimg').src = "data:image/jpeg;charset=utf-8;base64,"+data
+        )
+        .catch( err => document.getElementById('imgimg').src = "")
 
-// document.getElementById('imgtest').onclick = async ()=>{
-//     if (imgSearch.value != '') {
-//     return await fetch("https://allpurpose.netlify.app/.netlify/functions/images?q="+imgSearch.value+"&b64")
-//     .then(res => res.text())
-//     .then(data => 
-//              document.getElementById('imgimg').src = "data:image/jpeg;charset=utf-8;base64,"+data
-//         )
-//         .catch( err => document.getElementById('imgimg').src = "")
+}
+else document.getElementById('imgimg').src = ""
+}
+document.getElementById('imgtesttitle').onclick = ()=>{
+    document.getElementById('imgtestbutton').click()
+}
 
-// }
-// else document.getElementById('imgimg').src = ""
-// }
-
+imgSearch.onkeydown = (e)=>{
+    if (e.keyCode == 13) {
+        e.preventDefault()
+        document.getElementById('imgtestbutton').click()
+    }
+}
 
 // document.getElementById('datetest').onclick = async ()=>{
 //     if (dateSearch.value != '') {

@@ -146,7 +146,8 @@ p {
 
 #allfunctions {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
+    row-gap: 100px;
     /* max-width: 100vw; */
     overflow-x: scroll;
     justify-content: space-evenly;
@@ -419,6 +420,7 @@ pp {
     background-color: black;
     padding: 10px 20px 5px 10px;
     color: white;
+    height: 216.31px;
 }
 
 .testbutton {
@@ -434,7 +436,7 @@ pp {
     width: fit-content;
 }
 
-.functionscard textarea {
+.functionscard textarea, .textarea {
     position: relative;
     width: 190px;
     resize: none;
@@ -442,6 +444,20 @@ pp {
     border: none;
     padding: 0.5em;
     z-index: 1;
+}
+
+#imgimg {
+    transform: translateY(-50%);
+    width: fit-content;
+    height: fit-content;
+    font-family: monospace;
+}
+
+.textarea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .full {
@@ -545,6 +561,11 @@ pp {
 
 @media(max-width: 1100px){
     #allsites {
+        grid-template-columns: auto;
+    }
+}
+@media(max-width: 970px){
+    #allfunctions {
         grid-template-columns: auto;
     }
 }
