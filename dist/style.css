@@ -110,17 +110,6 @@ h2, .h2 {
     font-weight: bold;
 }
 
-.tip {
-    background-color: var(--blue);
-    color: white;
-    border-radius: 10px;
-    padding: 4px;
-}
-
-.tipcircle {
-    filter: invert(1);
-}
-
 .test {
     padding: 2px;
     background-color: var(--blue);
@@ -155,14 +144,9 @@ p {
     margin: 0px -8px;
 }
 
-.functionsbox {
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-}
 
 
-.functionsbox, #games {
+#games {
     padding: 20px 0;
     border-radius: 20px;
     background-color: #000;
@@ -556,7 +540,6 @@ pp {
 
 .expandcont:hover .hiddenexpand {
     transform: translate(33%, -50%) scale(0.8);
-    
 }
 
 @media(max-width: 1100px){
@@ -570,11 +553,6 @@ pp {
     }
 }
 @media(max-width: 730px){
-    .functionsbox {
-        width: 80%;
-        min-width: 272px;
-    }
-
     header {
         flex-direction: column;
         justify-content: center;
@@ -610,13 +588,6 @@ pp {
     .wideimg {
         width: 320px;
         height: 190px;
-    }
-}
-
-@media (min-width: 730px) and (max-width: 1300px){
-    .functionsbox {
-        
-        max-width: 40%;
     }
 }
 @media (max-width: 580px){
