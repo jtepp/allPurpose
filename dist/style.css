@@ -404,8 +404,12 @@ pp {
     line-height: 1.4em;
     padding: 0.5em;
     word-wrap: break-word;
-    max-height: 150px;
+    max-height: 120px;
     text-align: left;
+}
+
+.wideback > .sitetext {
+    top: 35%;
 }
 
 .functionscard {
@@ -552,6 +556,16 @@ pp {
         justify-content: center;
         align-items: center;
         /* margin-bottom: 120px; */
+    }
+
+    .sitecard .wideback {
+        width: 90%;
+        height: 100%;
+    }
+
+    .wideback > .sitetext {
+        top: 30%;
+        max-height: 100px;
     }
 
     .name c {
