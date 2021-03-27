@@ -32,89 +32,59 @@
         <br>
         <div id="allfunctions">
 
-            <!-- Missions -->
+            <form class="functionscard">
+                <div class="front">
+                    <div class="covercont">
+                    <button class="testbutton" id="missionstestbutton"></button>
+                    <div class="h2" id="missionstesttitle">Missions</div>
+                    <textarea class="code full" id="missionstext" readonly ></textarea>
+                    </div>
+                    <div class="expandcont">
+                        <img src="resources/chevron.png" alt=">" class="chevron-right">
+                        <div class="hiddenexpand">
+                            <p>
+                                This function is for an app called <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a> which I worked on over the summer of 2020. Calling the function will return data for the soonest upcoming rocket launch. This includes satellites, rovers, astronauts, etc.<br><br>Mission data was sourced from <a href="spaceflightnow.com">spaceflightnow.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
-            
-            <form class="functionsbox">
+            <form class="functionscard">
+                <div class="front">
+                    <div class="covercont">
+                        <button class="testbutton" id="coordstestbutton"></button>
+                        <div class="h2" id="coordstesttitle">Coordinates</div>
+                        <div class="functionsinput" id=“coordsearch” contenteditable>hello</div>
+                        <textarea class="code result" id="coordstext"  readonly></textarea>
+                    </div>
+                    <div class="expandcont">
+                        <img src="resources/chevron.png" alt=">" class="chevron-right">
+                        <div class="hiddenexpand">
+                            <p>
+                                This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the longitude and latitude for any location by name, in a format that can be easily read and parsed by Apple’s Swift MapKit.<br><br>Coordinates data was sourced from <a href="opencagedata.com">opencagedata.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- <form class=“functionsbox”>
                 
-                <div class="vertcent" style="margin-bottom: 10px;">
-                    <span class="tipcircle" tip="Mission data was sourced from spaceflightnow.com" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
-                    <span class="h2" style="padding-right: 20px;">Missions</span><button type="submit" class="test" id="missionstest">Test</button>
+                <div class=“vertcent” style=“margin-bottom: 10px;”>
+                    <span class=“tipcircle” tip=“Coordinates data was sourced from opencagedata.com” style=“padding-left: 10px; padding-right: 10px;”><img src=“resources/i.png” alt=“(i)” style=“width: 20px; height: 20px;”></span>
+                    <span class=“h2” style=“padding-right: 20px;”>Coordinates</span><button type=“submit” class=“test” id=“coordstest”>Test</button>
                 </div>
                 <p>
-                    This function is for an app called <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a> which I worked on over the summer of 2020. Calling the function will return data for the soonest upcoming rocket launch. This includes satellites, rovers, astronauts, etc.
+                    This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the longitude and latitude for any location by name, in a format that can be easily read and parsed by Apple’s Swift MapKit
                 </p>
-                <textarea  id="missionstext" readonly ></textarea>
-            </form>
-            
-            <!-- Coordinates -->
-
-            <form class="functionsbox">
-                
-                <div class="vertcent" style="margin-bottom: 10px;">
-                    <span class="tipcircle" tip="Coordinates data was sourced from opencagedata.com" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
-                    <span class="h2" style="padding-right: 20px;">Coordinates</span><button type="submit" class="test" id="coordstest">Test</button>
+                <br>
+                <div class=“functionsinput”>
+                    <span style=“margin-left: 40px;”>Location: </span><input type=“text” name=“coordsearch” id=“coordsearch”>
                 </div>
-                <p>
-                    This function was also made for <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a>. Calling this function will return the longitude and latitude for any location by name, in a format that can be easily read and parsed by Apple's Swift MapKit
-                </p>
                 <br>
-                <span style="margin-left: 40px;">Location: </span><input type="text" name="coordsearch" id="coordsearch">
-                <br>
-                <textarea  id="coordstext" readonly ></textarea>
+                <textarea  id=“coordstext” readonly ></textarea>
             </form>
-            
-            <!-- Images -->
-
-            <form class="functionsbox">
-                
-                <div class="vertcent" style="margin-bottom: 10px;">
-                    <span class="tipcircle" tip="Images are sourced from Google" style="padding-left: 20px;"><img src="resources/i.png" alt="(i)" style="width: 20px; height: 20px;"></span>
-                    <span class="h2" style="padding-right: 20px;">Images</span><button type="submit" class="test" id="imgtest">Test</button>
-                </div>
-                <p>
-                    This function was also made for <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a>. Calling this function will return the base 64 encoded data for a low quality image based on your search. The function can also return the URL for the image.
-                </p>
-                <br>
-                <span style="margin-left: 40px;">Search: </span><input type="text" name="imgsearch" id="imgsearch">
-                <br>
-                <img style="margin: 10px 40px;" alt="Image will appear here" id="imgimg">
-            </form>
-            
-            <!-- DateParse -->
-
-            <form class="functionsbox">
-                
-                <div class="vertcent" style="margin-bottom: 10px;">
-                    <span class="h2" style="margin-left:40px; padding-right: 20px;">DateParse</span><button type="submit" class="test" id="datetest">Test</button>
-                </div>
-                <p>
-                    This function was also made for <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a>. Calling this function will return the inputted date in a uniform format which can be easily parsed by Swift.</br></br>
-                    The editor for the <a href="https://github.com/wildchild9/rocketeer">Rocketeer</a> source data often made inconsistencies in their date formatting, causing Swift to crash our app. This function helped maintain a consistent and future proof date formatting process.
-                </p>
-                <br>
-                <span style="margin-left: 40px;">Date: </span><input type="text" name="datesearch" id="datesearch">
-                <br>
-                <textarea id="datetext" readonly ></textarea>
-            </form>
-            
-            <!-- Reddit -->
-
-            <form class="functionsbox">
-                
-                <div class="vertcent" style="margin-bottom: 10px;">
-                    <span class="h2" style="margin-left:40px; padding-right: 20px;">Reddit</span><button type="submit" class="test" id="redtest">Test</button>
-                </div>
-                <p>
-                    This function was made for <a href="https://github.com/jtepp/widgit">Widgit</a>, an app I made in the summer of 2020 which allows you to create and fully customize an iOS 14 home screen widget for reddit posts. Calling this function will return the top reddit post in any subreddit. <br> <br>
-                    The function can also be given an offset value to skip the first few posts, different ways to sort the posts, or specified limits of the amount of posts to return.
-                </p>
-                <br>
-                <span style="margin-left: 40px;">Subreddit: </span><input type="text" name="redsearch" id="redsearch">
-                <br>
-                <textarea  id="redtext" readonly ></textarea>
-            </form>
-            
+             -->
 
 
 
