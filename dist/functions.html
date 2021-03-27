@@ -89,26 +89,66 @@
                 </div>
             </div>
             
+            <div class="functionscard">
+                <div class="front">
+                    <div class="covercont">
+                        <button class="testbutton" id="datetestbutton"></button>
+                        <div class="h2" id="datetesttitle">Dateparse</div>
+                        <div class="functionsinput code" id="datesearch" contenteditable ph="Date..."></div>
+                        <textarea class="code result" id="datetext"  readonly></textarea>
+                    </div>
+                    <div class="expandcont">
+                        <img src="resources/chevron.png" alt=">" class="chevron-right">
+                        <div class="hiddenexpand">
+                            <p>
+                                This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the inputted date in a uniform format which can be easily parsed by Swift.</br></br>The editor for the <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a> source data often made inconsistencies in their date formatting, causing Swift to crash our app. This function helped maintain a consistent and future proof date formatting process.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            
+            <div class="functionscard">
+                <div class="front">
+                    <div class="covercont">
+                        <button class="testbutton" id="redtestbutton"></button>
+                        <div class="h2" id="redtesttitle">Reddit</div>
+                        <div class="functionsinput code" id="redsearch" contenteditable ph="Subreddit..."></div>
+                        <textarea class="code result" id="redtext"  readonly></textarea>
+                    </div>
+                    <div class="expandcont">
+                        <img src="resources/chevron.png" alt=">" class="chevron-right">
+                        <div class="hiddenexpand">
+                            <p>
+                                This function was made for <a href=“https://github.com/jtepp/widgit”>Widgit</a>, an app I made in the summer of 2020 which allows you to create and fully customize an iOS 14 home screen widget for <a href="https://reddit.com">Reddit</a> posts. Calling this function will return the top post in any subreddit.<br><br>The function can also be given an offset value to skip the first few posts, different ways to sort the posts, or specified limits of the amount of posts to return.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <!-- 
+            
+<!--             
+
             <form class=“functionsbox”>
                 
                 <div class=“vertcent” style=“margin-bottom: 10px;”>
-                    <span class=“tipcircle” tip=“Images are sourced from Google” style=“padding-left: 10px; padding-right: 10px;”><img src=“resources/i.png” alt=“(i)” style=“width: 20px; height: 20px;”></span>
-                    <span class=“h2” style=“padding-right: 20px;”>Images</span><button type=“submit” class=“test” id=“imgtest”>Test</button>
+                    <span class=“h2” style=“margin-left:40px; padding-right: 20px;”>Reddit</span><button type=“submit” class=“test” id=“redtest”>Test</button>
                 </div>
                 <p>
-                    This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the base 64 encoded data for a low quality image based on your search. The function can also return the URL for the image.
+                    This function was made for <a href=“https://github.com/jtepp/widgit”>Widgit</a>, an app I made in the summer of 2020 which allows you to create and fully customize an iOS 14 home screen widget for reddit posts. Calling this function will return the top reddit post in any subreddit. <br> <br>
+                    The function can also be given an offset value to skip the first few posts, different ways to sort the posts, or specified limits of the amount of posts to return.
                 </p>
                 <br>
                 <div class=“functionsinput”>
-                    <span style=“margin-left: 40px;”>Search: </span><input type=“text” name=“imgsearch” id=“imgsearch”>
+                    <span style=“margin-left: 40px;”>Subreddit: </span><input type=“text” name=“redsearch” id=“redsearch”>
                 </div>
                 <br>
-                <img style=“margin: 10px 40px;” alt=“Image will appear here” id=“imgimg”>
+                <textarea  id=“redtext” readonly ></textarea>
             </form>
-             -->
+ -->
+
 
 
 

@@ -486,7 +486,7 @@ pp {
 
 .functionsinput {
     width: calc(203.31px - 16.0px);
-    overflow-x: scroll;
+    overflow-y: scroll;
     height: 1rem;
     position: relative;
     z-index: 1;
