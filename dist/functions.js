@@ -23,12 +23,7 @@ for (let l of "Tepperman's"){
     last.appendChild(e)
     i++
 }
-
-refreshTooltips()
-
-document.onscroll = () => refreshTooltips()
-document.onresize = () => refreshTooltips()
-
+//missions
 document.getElementById('missionstestbutton').onclick = async ()=>{
     return await fetch("https://allpurpose.netlify.app/.netlify/functions/missions")
     .then(res => res.json())
@@ -40,9 +35,10 @@ document.getElementById('missionstesttitle').onclick = async ()=>{
     .then(data => document.getElementById('missionstext').innerText = JSON.stringify(data))
 }
 
+//coords
 document.getElementById('coordstestbutton').onclick = async ()=>{
     if (coordSearch.value != '') {
-    return await fetch("https://allpurpose.netlify.app/.netlify/functions/coordinates?a="+coordSearch.value)
+    return await fetch("https://allpurpose.netlify.app/.netlify/functions/coordinates?a="+coordSearch.innerText)
     .then(res => res.text())
     .then(data => 
              document.getElementById('coordstext').innerText = data
@@ -51,17 +47,18 @@ document.getElementById('coordstestbutton').onclick = async ()=>{
 }
 else document.getElementById('coordstext').innerText = "Please enter a valid location name"
 }
-document.getElementById('coordstesttitle').onclick = async ()=>{
-    if (coordSearch.value != '') {
-    return await fetch("https://allpurpose.netlify.app/.netlify/functions/coordinates?a="+coordSearch.value)
-    .then(res => res.text())
-    .then(data => 
-             document.getElementById('coordstext').innerText = data
-        )
-        .catch(err=> document.getElementById('coordstext').innerText = "Please enter a valid location name")
+document.getElementById('coordstesttitle').onclick = ()=>{
+    document.getElementById('coordstestbutton').click()
 }
-else document.getElementById('coordstext').innerText = "Please enter a valid location name"
+
+coordSearch.onkeydown = (e)=>{
+    if (e.keyCode == 13) {
+        e.preventDefault()
+        document.getElementById('coordstestbutton').click()
+    }
 }
+
+
 
 // document.getElementById('imgtest').onclick = async ()=>{
 //     if (imgSearch.value != '') {
@@ -107,35 +104,3 @@ else document.getElementById('coordstext').innerText = "Please enter a valid loc
 // }
 // else document.getElementById('redtext').innerText = "Invalid Subreddit"
 // }
-
-
-for (let f of document.getElementsByTagName("form")){
-    f.onsubmit = (e)=>{e.preventDefault(); f.children[0].children[0].click()}
-    
-}
-
-
-
-
-
-
-function refreshTooltips() {
-    for (i of tipcircles) {
-        let t = i.getAttribute('tip')
-        let r = i.getBoundingClientRect()
-        const e = "returnTooltip(" + (r.x + 20) + "," + (r.y - 30) + ",'" + t + "')"
-        i.setAttribute("onmouseover", "document.body.appendChild(" + e + ")")
-        i.setAttribute("onmouseout", "document.body.removeChild(document.getElementsByClassName('tip')[0])")
-    }
-}
-
-function returnTooltip(x,y,text){
-    const t = document.createElement('tt')
-    t.innerHTML = text
-    t.style.position = "fixed"
-    t.style.top = y+"px"
-    t.style.left = x+"px"
-    t.classList.add('tip')
-    return t
-}
-
