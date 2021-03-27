@@ -594,6 +594,9 @@ pp {
     #allsites {
         width: 100%;
     }
+    .functionscard {
+        margin-right: 30vw;
+    }
 }
 
 
