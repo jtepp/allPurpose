@@ -79,7 +79,7 @@ u {
 }
 
 .try {
-    cursor: default;
+    cursor: pointer;
     transition: all 400ms ease-in-out;
     font-weight: 500;
     color: white;
