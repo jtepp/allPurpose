@@ -34,7 +34,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .cont2 {
@@ -64,4 +64,8 @@ body {
     margin-top: 100px;
     border-radius: 40px;
     box-shadow: 10px 10px black;
+}
+
+a, a:visited {
+    color: white;
 }
