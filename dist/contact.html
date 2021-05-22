@@ -13,6 +13,22 @@
 
     </head>
 
+    <style>
+        .guide-body {
+            background-color: #161616;
+            color: white;
+            padding: .5em;
+            border-radius: 1em;
+        }
+        .guide-header {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        form {
+            text-align: left;
+        }
+    </style>
+
     <body>
         <header>
             <span id="namebox" class="nb" onclick="window.location = '/'">
@@ -21,42 +37,44 @@
                 <title>Contact | Jacob Tepperman</title>
             </span>
         </header>
+        <center>
+            <form style="margin-left:40px; width: 40%;" action="/" method="post" name="contact" data-netlify="true" netlify netlify-honeypot="honeypot"
+            class="formstuff" style="width: 40vw;">
+            <input type="text" name="honeypot" id="honeypot" style="visibility: hidden;">
 
-        <form style="margin-left:40px; width: 40%;" action="/" method="post" name="contact" data-netlify="true" netlify netlify-honeypot="honeypot"
-        class="formstuff" style="width: 40vw;">
-        <input type="text" name="honeypot" id="honeypot" style="visibility: hidden;">
+            <div class="guide-tile" id="nm">
+                <h3 class="guide-header"><label for="name">Your name:</label></h3>
+                <input class="guide-body" style="width: 300px;" type="text" name="name" id="name"
+                    placeholder="Last name, First name">
+            </div>
 
-        <div class="guide-tile" id="nm">
-            <h3 class="guide-header"><label for="name">Your name:</label></h3>
-            <input class="guide-body" style="width: 300px;" type="text" name="name" id="name"
-                placeholder="Last name, First name">
-        </div>
-
-        <div class="guide-tile" id="em">
-            <h3 class="guide-header"><label for="email">Email:</label></h3>
-            <input class="guide-body" type="email" name="email" id="email" placeholder="you@email.com" required>
-        </div>
-
-
+            <div class="guide-tile" id="em">
+                <h3 class="guide-header"><label for="email">Email:</label></h3>
+                <input class="guide-body" type="email" name="email" id="email" placeholder="you@email.com" required>
+            </div>
 
 
 
-        <div class="guide-tile" id="msg">
-            <h3 class="guide-header"><label for="message">Message</label></h1>
-                <textarea  style="margin:0; resize: none;" class="guide-body" style="text-align: left;" name="message" id="message" cols="30"
-                    rows="10" required></textarea>
-        </div>
+
+
+            <div class="guide-tile" id="msg">
+                <h3 class="guide-header"><label for="message">Message</label></h1>
+                    <textarea  style="margin:0; resize: none;" class="guide-body" style="text-align: left;" name="message" id="message" cols="30"
+                        rows="10" required></textarea>
+            </div>
 
 
 
-        <div data-netlify-recaptcha></div>
+            <div data-netlify-recaptcha></div>
 
 
-        <div class="about-cont">
-            <input type="submit" class="test" style="padding-top: 0;" value="Submit" style="cursor:pointer;">
-        </div>
+            <div class="about-cont">
+                <input type="submit" class="test" style="padding-top: 0;" value="Submit" style="cursor:pointer;">
+            </div>
 
-    </form>
+        </form>
+    </center>
+
 
     <center id="copyright">
         © Jacob Tepperman 2021
