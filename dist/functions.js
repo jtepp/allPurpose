@@ -1,4 +1,4 @@
-const len = "JacobTepperman's".length
+const len = "JacobTepperman".length
 const inputs = document.getElementsByTagName('input')
 const tipcircles = document.getElementsByClassName("tipcircle")
 const coordSearch = document.getElementById('coordsearch')
@@ -16,7 +16,7 @@ for (let l of "Jacob"){
     first.appendChild(e)
     i++
 }
-for (let l of "Tepperman's"){
+for (let l of "Tepperman"){
     const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i-len+"s"
