@@ -629,3 +629,10 @@ pp {
     }
 }
 
+
+a > v {
+    font-size: 0.5em;
+    border-radius: 1em;
+    background-color: var(--blue);
+    padding: 4px;
+}
