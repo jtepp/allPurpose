@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #cfe2e6;
+    font-family: "Montserrat";
+    padding: 8px;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    font-weight: 700;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}
