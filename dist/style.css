@@ -251,6 +251,8 @@ hr {
 .siteimg {
     overflow: hidden;
     border-radius: 10px;
+    box-shadow: #00000055 0px 0px 0px 0px;
+    transition: box-shadow ease-in 0.2s;
 }
 
 .sitecard:hover .siteimg {
