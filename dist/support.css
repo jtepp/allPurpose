@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 :root {
     --transform: transform ease-in 0.2s;
     --blue: #0a84ff;
@@ -10,7 +11,8 @@
     --red: #ff3b30;
     --yellow: #ffc800;
 }
-body { 
+
+body {
     background: #161616;
     color: white;
     transition: all 0.5s ease-in-out;
@@ -30,7 +32,7 @@ body {
     clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 0% 60%);
 }
 
-.cont{
+.cont {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,15 +47,15 @@ body {
     flex-direction: column;
 }
 
-.cont2 > p {
+.cont2>p {
     margin: 10px
 }
 
-.cont2 > h1 {
+.cont2>h1 {
     margin: 10px
 }
 
-.cont2 > h2 {
+.cont2>h2 {
     margin: 6px
 }
 
@@ -65,6 +67,11 @@ body {
     box-shadow: 10px 10px black;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: white;
+}
+
+h1 {
+    margin-top: 20px
 }
