@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset=“UTF-8”>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jtepp/allPurpose@Home/dist/alexander/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Teachers | Alexander Academy</title>
+</head>
+
+<body>
+
+    <div id="main-container">
+
+
+        <div id="teaching-staff-header">
+            <h1>Teaching Staff</h1>
+        </div>
+
+        <div id="filter-cont">
+
+            <div class="filter-button" id="People" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed">
+                    <div class="filter-item-container" selected=true>
+                        <div id="All-people" class="filter-item-text">All</div>
+                    </div>
+                    <div class="filter-item-container" selected=false>
+                        <div id="Admin-people" class="filter-item-text">Admin</div>
+                    </div>
+                    <div class="filter-item-container" selected=false>
+                        <div id="Tutor-people" class="filter-item-text">Tutor</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="filter-button" id="Subject" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed" id="subjects">
+                    <div id="All-subjects" class="filter-item-container" selected=true>
+                        <div lass="filter-item-text">All</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="filter-button" id="School" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed" id="schools">
+                    <div id="All-schools" class="filter-item-container" selected=true>
+                        <div class="filter-item-text">All</div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="filter-button" id="Location" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed">
+                    <div id="All-people" class="filter-item-container" selected=true>
+                        <div class="filter-item-text">All</div>
+                    </div>
+                    <div id="In-person-people" class="filter-item-container" selected=false>
+                        <div class="filter-item-text">In-person</div>
+                    </div>
+                    <div id="Online-people" class="filter-item-container" selected=false>
+                        <div class="filter-item-text">Online</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="filter-reset-line">
+            <p>Viewing 8 of 8 results.&nbsp;</p>
+            <div class="link-button">Reset all filters.</div>
+        </div>
+        <div id="tutor-container">
+
+        </div>
+    </div>
+
+
+
+    <div id="sheet-back" class="closed">
+        <div id="sheet-container">
+            <div id="sheet-header">
+                <div id="sheet-name"></div>
+                <div id="sheet-school" class="oblique"></div>
+            </div>
+            <div id="sheet-body">
+                <div id="sheet-body-images">
+                    <img src="" alt="top" id="sheet-pic-top" class="sheet-pic">
+                    <img src="" alt="alt" id="sheet-pic-alt" class="sheet-pic">
+                </div>
+                <div id="sheet-body-content">
+                    <div id="sheet-body-about" field="About">
+                    </div>
+                    <div id="sheet-body-subjects" field="Teaching Subjects">
+                    </div>
+                </div>
+            </div>
+            <div id="sheet-close" onclick="closeSheet()"></div>
+            <div id="sheet-request-tutor" class="oblique">
+                Request Tutor Online
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/jtepp/allPurpose@Home/dist/alexander/script.js"></script>
+</body>
+
+</html>
