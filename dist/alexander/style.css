@@ -34,21 +34,21 @@
     font-family: 'TradeGothicLTDstd';
     font-weight: 200;
     font-style: normal;
-    src: url('TradeGothicLTStd-Light.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/allpurpose/Home/dist/alexander/TradeGothicLTStd-Light.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 700;
     font-style: normal;
-    src: url('TradeGothicLTStd-Bold.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/allpurpose/Home/dist/alexander/TradeGothicLTStd-Bold.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 400;
     font-style: oblique;
-    src: url('TradeGothicLTStd-Obl.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/allpurpose/Home/dist/alexander/TradeGothicLTStd-Obl.otf')
 }
 
 body {
