@@ -34,7 +34,7 @@ var allSchools = []
 var allTutors = [...Array(Math.floor(16 + Math.random() * 10))].map(() => new Tutor()) //make list of tutors
 
 processTutors(allTutors, true)
-
+filterTutors()
 
 document.body.onclick = function (e) {
 
