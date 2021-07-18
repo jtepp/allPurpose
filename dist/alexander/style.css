@@ -17,7 +17,8 @@
     --background: #fff;
     --black: #333333;
     --border: #CBCBCB;
-    --accent: #fafafa
+    --accent: #fafafa;
+    --transition: 0.3s ease-out;
 }
 
 
@@ -130,6 +131,7 @@ body {
 }
 
 .filter-menu {
+    display: flex;
     max-width: 219px;
     min-width: 219px;
     position: absolute;
@@ -137,7 +139,6 @@ body {
     border: 1px solid var(--border);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
-    bottom: -7px;
     transform: translate(-1px, 100%);
     height: fit-content;
     flex-direction: column;
@@ -145,6 +146,7 @@ body {
     user-select: none;
     overflow: hidden;
     z-index: 2;
+    transition: opacity var(--transition), bottom var(--transition);
 }
 
 /* stop overlapping if multiple menus open */
@@ -164,13 +166,14 @@ body {
     z-index: 3;
 }
 
-.filter-menu.fmopen {
-    display: flex;
+.filter-menu.fmclosed {
+    bottom: 0px;
+    opacity: 0;
 }
 
-.filter-menu.fmclosed,
-.closed {
-    display: none;
+.filter-menu.fmopen {
+    bottom: -7px;
+    opacity: 1;
 }
 
 .filter-item-container {
@@ -329,13 +332,14 @@ body {
 
 .tutor-cell {
     width: 220px;
-    height: 220px;
+    height: auto;
     margin-top: 150px;
     font-size: 18px;
     position: relative;
     cursor: pointer;
+    box-shadow: none;
+    min-width: 150px;
 }
-
 
 .tutor-cell::before {
     position: absolute;
@@ -355,19 +359,39 @@ body {
 }
 
 .tutor-cell>img {
-    width: 220px;
-    height: 220px;
+    position: relative;
+    top: 6px;
+    width: 100%;
+    min-width: 150px;
+    height: auto;
     border-radius: 50%;
     overflow: hidden;
+    transition: box-shadow var(--transition), top var(--transition);
+}
+
+.tutor-cell>img:hover {
+    position: relative;
+    top: 0;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+@media (max-width: 1055px) {
+    .tutor-cell {
+        width: calc(33% - 83px);
+    }
+}
+
+@media (max-width: 935px) {
+    .tutor-cell {
+        width: 150px;
+    }
 }
 
 .oblique {
     font-style: oblique;
 }
 
-.open {
-    display: flex;
-}
 
 #sheet-back {
     position: fixed;
@@ -377,20 +401,22 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     overflow: scroll;
-    /* pointer-events: none; */
+    display: flex;
+    transition: opacity var(--transition);
 }
 
 #sheet-container {
     overflow: scroll;
     position: relative;
-    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
     padding: 65px;
     border-radius: 10px;
-    min-width: fit-content;
+    /* min-width: fit-content; */
     max-height: 80vh;
+    max-width: 60vw;
+    transition: top var(--transition);
 }
 
 #sheet-name {
@@ -503,4 +529,22 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+
+.open {
+    opacity: 1;
+}
+
+.closed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.open #sheet-container {
+    top: 50%;
+}
+
+.closed #sheet-container {
+    top: calc(50% + 10vh);
 }

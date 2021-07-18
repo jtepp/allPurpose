@@ -46,7 +46,7 @@ document.body.onclick = function (e) {
 
         for (el of e.target.parentNode.children) {
             if (el != e.target) {
-                el.children[1].classList.remove("fmdopen")
+                el.children[1].classList.remove("fmopen")
                 el.children[1].classList.add("fmclosed")
             }
         }
