@@ -249,13 +249,13 @@ function returnDropdownText(name) {
 }
 
 function closeSheet() {
-    document.getElementById("sheet-back").classList.remove("open")
-    document.getElementById("sheet-back").classList.add("closed")
+    document.getElementById("sheet-back").classList.remove("sopen")
+    document.getElementById("sheet-back").classList.add("sclosed")
 }
 
 function showSheet() {
-    document.getElementById("sheet-back").classList.remove("closed")
-    document.getElementById("sheet-back").classList.add("open")
+    document.getElementById("sheet-back").classList.remove("sclosed")
+    document.getElementById("sheet-back").classList.add("sopen")
 }
 
 

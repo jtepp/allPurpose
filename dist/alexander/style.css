@@ -549,19 +549,19 @@ body {
 }
 
 
-.open {
+.sopen {
     opacity: 1;
 }
 
-.closed {
+.sclosed {
     opacity: 0;
     pointer-events: none;
 }
 
-.open #sheet-container {
+.sopen #sheet-container {
     top: 50%;
 }
 
-.closed #sheet-container {
+.sclosed #sheet-container {
     top: calc(50% + 10vh);
 }
