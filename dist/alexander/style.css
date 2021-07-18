@@ -169,6 +169,7 @@ body {
 .filter-menu.fmclosed {
     bottom: 0px;
     opacity: 0;
+    pointer-events: none;
 }
 
 .filter-menu.fmopen {
