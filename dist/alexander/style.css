@@ -119,6 +119,7 @@ body {
     padding-left: 12px;
     max-height: 30px;
     overflow-y: scroll;
+    margin-bottom: -5px;
 }
 
 .triangle-down {
