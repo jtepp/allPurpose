@@ -17,7 +17,7 @@ class Tutor {
             "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
             "English": randomSlice(["Creative Writing", "Shakespeare", "Literature", "Public Speaking", "Spelling"], 3),
             "Science": randomSlice(["Biology", "Chemistry", "Physics", "Biology"], 2),
-            "History": [randomElement(["World History", "United States History", "Ancient Civilizations"])],
+            "History": [randomElement(["World History", "United States6", "Civilizations"])],
             "SAT/ACT": [randomElement(["SAT", "ACT"])]
         }
         this.imgurl = "https://raw.githubusercontent.com/jtepp/allPurpose/Home/dist/alexander/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"

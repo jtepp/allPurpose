@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10% 20% 10% 20%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#hover1>img {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+}
+
+#hover1:hover>img {
+    top: -6px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+#hover2>img {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    transition: transform var(--transition);
+}
+
+#hover2:hover>img {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+#hover3>img {
+    position: relative;
+    top: 0;
+}
+
+#hover3>#shadow {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity ease-in-out 200ms;
+}
+
+#hover3:hover>#shadow {
+    /* width: 80%; */
+    opacity: 0.6;
+}
+
+
+#hover3:hover>img {
+    top: -16px;
+}
+
+#hover4>img {
+    border: 10px solid transparent;
+}
+
+#hover4:hover>img {
+    border: 10px solid black;
+    transition: border ease-in-out 200ms;
+}
+
+#imgcont {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 220px;
+    height: 220px;
+}
+
+#hover5>#imgcont>img {
+    transform: translate(-50%, -50%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transition: width var(--transition);
+}
+
+#hover5:hover>#imgcont>img {
+    width: 120%;
+}
