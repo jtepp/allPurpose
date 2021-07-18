@@ -380,11 +380,21 @@ body {
     .tutor-cell {
         width: calc(33% - 83px);
     }
+
+    #tutor-container {
+        justify-content: space-between;
+    }
 }
 
 @media (max-width: 935px) {
     .tutor-cell {
         width: 150px;
+    }
+}
+
+@media (max-width: 770px) {
+    #tutor-container {
+        justify-content: center;
     }
 }
 
