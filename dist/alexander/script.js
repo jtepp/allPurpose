@@ -38,7 +38,7 @@ filterTutors()
 
 document.body.onclick = function (e) {
 
-    if (e.target.classList.contains("open")) {
+    if (e.target.classList.contains("sopen")) {
         closeSheet()
     }
 

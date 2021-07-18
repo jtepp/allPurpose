@@ -565,3 +565,10 @@ body {
 .sclosed #sheet-container {
     top: calc(50% + 10vh);
 }
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
