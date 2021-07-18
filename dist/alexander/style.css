@@ -207,7 +207,8 @@ body {
 
 
 .filter-dropdown-header {
-    height: 25px;
+    min-height: 25px;
+    max-height: 25px;
     width: 100%;
     background: #fff;
     position: relative;
