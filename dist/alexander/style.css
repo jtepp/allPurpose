@@ -432,6 +432,7 @@ body {
 
 #sheet-container.scontent {
     min-width: 255px;
+    max-width: 605px;
 }
 
 #sheet-container.srequest {
@@ -472,8 +473,6 @@ body {
     display: flex;
     flex-direction: row;
     gap: 9%;
-
-
 }
 
 .sheet-pic {
@@ -690,6 +689,10 @@ body {
 .request-dropdown::after {
     content: attr(selected);
 }
+
+
+
+
 
 .sopen {
     opacity: 1;
