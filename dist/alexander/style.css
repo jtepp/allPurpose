@@ -140,6 +140,7 @@ body {
 .request-menu {
     width: 100%;
     left: 0;
+    z-index: 2;
 }
 
 .filter-menu,
@@ -189,15 +190,15 @@ body {
     background: var(--accent);
 }
 
-.filter-item-dropdown>.filter-item-container {
+.filter-item-dropdown>.filter-item-container,
+.request-item-dropdown>.request-item-container {
     background: var(--accent);
 }
 
-.filter-item-dropdown>.filter-item-container:hover {
+.filter-item-dropdown>.filter-item-container:hover,
+.request-item-dropdown>.request-item-container:hover {
     background: var(--border);
 }
-
-
 
 
 .filter-item-text,
@@ -206,7 +207,8 @@ body {
 }
 
 
-.filter-dropdown-header {
+.filter-dropdown-header,
+.request-dropdown-header {
     /* min-height: 25px;
     max-height: 25px; */
     width: 100%;
@@ -220,11 +222,13 @@ body {
 }
 
 
-.filter-dropdown-header:hover {
+.filter-dropdown-header:hover,
+.request-dropdown-header:hover {
     background: #CBCBCB;
 }
 
-.fidclosed::after {
+.fidclosed::after,
+.ridclosed::after {
     position: absolute;
     content: "";
     display: inline-block;
@@ -240,7 +244,8 @@ body {
     pointer-events: none;
 }
 
-.fidopen::after {
+.fidopen::after,
+.ridopen::after {
     position: absolute;
     content: "";
     display: inline-block;
@@ -257,17 +262,20 @@ body {
 }
 
 
-.filter-item-dropdown {
+.filter-item-dropdown,
+.request-item-dropdown {
     position: relative;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
 }
 
-.filter-item-dropdown.fidclosed {
+.filter-item-dropdown.fidclosed,
+.request-item-dropdown.ridclosed {
     max-height: 0px;
 }
 
-.filter-item-dropdown.fidopen {
+.filter-item-dropdown.fidopen,
+.request-item-dropdown.ridopen {
     min-height: 25px;
 }
 
@@ -275,17 +283,20 @@ body {
     display: none;
 }
 
-.filter-item-checkbox {
+.filter-item-checkbox,
+.request-item-checkbox {
     font-size: 18px;
     pointer-events: none;
 }
 
-.filter-item-dropdown .filter-item-checkbox {
+.filter-item-dropdown .filter-item-checkbox,
+.request-item-dropdown .request-item-checkbox {
     padding-left: 20px;
 }
 
 
-.filter-item-checkbox[checked=false]::before {
+.filter-item-checkbox[checked=false]::before,
+.request-item-checkbox[checked=false]::before {
     position: absolute;
     top: calc(50% - 4px);
     left: 181px;
@@ -299,7 +310,8 @@ body {
     overflow: hidden;
 }
 
-.filter-item-checkbox[checked=true]::before {
+.filter-item-checkbox[checked=true]::before,
+.request-item-checkbox[checked=true]::before {
     position: absolute;
     top: calc(50% - 4px);
     left: 181px;
@@ -716,7 +728,10 @@ body {
 }
 
 
-
+#tutorreq {
+    max-height: 150px;
+    overflow-y: scroll;
+}
 
 
 .sopen {

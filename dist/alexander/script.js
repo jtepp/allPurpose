@@ -126,6 +126,13 @@ document.body.onclick = function (e) {
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
     }
 
+    if (e.target.classList.contains("request-dropdown-header")) { // Click on dropdown to toggle
+        toggleClassOpenClosed(e.target.nextSibling, "rid")
+    } else if (e.target.classList.contains("request-item-container") && e.target.children[0].classList.contains("request-item-checkbox")) { //click checkbox to toggle
+        toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "tutor")
+    }
+
+
     if (e.target.classList.contains("link-button")) { // Click on reset button to reset all filters
         setFalseExceptAll()
         filterTutors()
@@ -150,6 +157,8 @@ function toggleAttributeCheckBox(element, attr, usage) {
             removeElementFromArray(chosenSubjects, element.innerText)
         } else if (usage == "school") {
             removeElementFromArray(chosenSchools, element.innerText)
+        } else if (usage == "tutor") {
+            removeElementFromArray(chosenTutors, element.innerText)
         }
     } else {
         element.setAttribute(attr, "true")
@@ -157,6 +166,8 @@ function toggleAttributeCheckBox(element, attr, usage) {
             chosenSubjects.push(element.innerText)
         } else if (usage == "school") {
             chosenSchools.push(element.innerText)
+        } else if (usage == "tutor") {
+            chosenTutors.push(element.innerText)
         }
     }
     if (usage == "subject") {
@@ -176,6 +187,14 @@ function toggleAttributeCheckBox(element, attr, usage) {
         } else {
             document.getElementById("School").setAttribute("selected", chosenSchools.length < 3 ? chosenSchools.join(", ") : `${chosenSchools[0]}, ...`)
             document.getElementById("All-schools").setAttribute("selected", "false")
+        }
+    } else if (usage == "tutor") {
+        if (chosenTutors.length == 0) {
+            document.getElementById("tutordrop").setAttribute("selected", "All")
+            document.getElementById("All-tutorsreq").setAttribute("selected", "true")
+        } else {
+            document.getElementById("tutordrop").setAttribute("selected", chosenTutors.length < 3 ? chosenTutors.join(", ") : `${chosenTutors[0]}, ${chosenTutors[1]}, ...`)
+            document.getElementById("All-tutorreq").setAttribute("selected", "false")
         }
     }
     filterTutors()
@@ -246,39 +265,50 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         let c = document.getElementById("subjects")
         c.innerHTML = ""
         c.appendChild(returnAllButton("subjects"))
+        let sur = document.getElementById("subjectreq")
+        sur.innerHTML = ""
+        sur.appendChild(returnAllButton("subjectreq"))
         for (let s in allSubjects) { // subjects
             c.appendChild(returnDropdownHeader(s))
             c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
+            sur.appendChild(returnDropdownHeader(s, true))
+            sur.appendChild(returnDropdownItemsAdded(allSubjects[s], true))
         }
 
         let s = document.getElementById("schools")
         s.innerHTML = ""
         s.appendChild(returnAllButton("schools"))
+        let tur = document.getElementById("tutorreq")
+        tur.innerHTML = ""
+        tur.appendChild(returnAllButton("tutorreq"))
         for (let v of allSchools) { // schools
             s.appendChild(returnDropdownCheck(v))
+        }
+        for (let tut of allTutors) { //req tutors
+            tur.appendChild(returnDropdownCheck(tut.name, true))
         }
     }
     document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results&nbsp;`
 }
 
-function returnDropdownHeader(name) {
+function returnDropdownHeader(name, request) {
     let dropdownHeader = document.createElement("div")
-    dropdownHeader.classList.add("filter-dropdown-header")
+    dropdownHeader.classList.add((request ? "request" : "filter") + "-dropdown-header")
     dropdownHeader.innerText = name
     return dropdownHeader
 }
 
-function returnDropdownItemsAdded(classes, check) {
+function returnDropdownItemsAdded(classes, request) {
     let dropdown = document.createElement("div")
-    dropdown.classList.add("filter-item-dropdown")
-    dropdown.classList.add("fidclosed")
+    dropdown.classList.add((request ? "request" : "filter") + "-item-dropdown")
+    dropdown.classList.add((request ? "rid" : "fid") + "closed")
 
     for (let c of classes) {
         let classcont = document.createElement("div")
-        classcont.classList.add("filter-item-container")
+        classcont.classList.add((request ? "request" : "filter") + "-item-container")
 
         let classItem = document.createElement("div")
-        classItem.classList.add("filter-item-checkbox")
+        classItem.classList.add((request ? "request" : "filter") + "-item-checkbox")
         classItem.innerHTML = c
         classItem.setAttribute("checked", "false")
 
@@ -304,13 +334,13 @@ function returnDropdownText(name) {
 
 }
 
-function returnDropdownCheck(name) {
+function returnDropdownCheck(name, request) {
     let schoolcont = document.createElement("div")
-    schoolcont.classList.add("filter-item-container")
+    schoolcont.classList.add((request ? "request" : "filter") + "-item-container")
     schoolcont.setAttribute("selected", "false")
 
     let schoolitem = document.createElement("div")
-    schoolitem.classList.add("filter-item-checkbox")
+    schoolitem.classList.add((request ? "request" : "filter") + "-item-checkbox")
     schoolitem.setAttribute("checked", "false")
     schoolitem.innerHTML = name
 
