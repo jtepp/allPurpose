@@ -66,6 +66,26 @@ document.body.onclick = function (e) {
         }
     }
 
+    if (e.target.classList.contains("request-dropdown")) { // Click on request-dropdown button toggle request menu and turn others off
+
+        for (el of document.getElementsByClassName("request-dropdown")) {
+            if (el.children[1] != e.target.children[1]) {
+                el.children[1].classList.remove("rmopen")
+                el.children[1].classList.add("rmclosed")
+            }
+        }
+
+        toggleClassOpenClosed(e.target.children[1], "rm")
+
+
+    } else if (!e.target.classList.toString().includes("dropdown") && !e.target.classList.toString().includes("item")) {
+        for (el of document.getElementsByClassName("request-dropdown")) {
+            el.children[1].classList.remove("rmopen")
+            el.children[1].classList.add("rmclosed")
+        }
+    }
+
+
     if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-text")) { // Click on filter item text to change the text
 
         let newText = e.target.children[0].innerText

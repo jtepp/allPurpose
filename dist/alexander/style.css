@@ -129,11 +129,21 @@ body {
     border-width: 8px 7px 0 7px;
     border-color: #000000 transparent transparent transparent;
     margin-right: 12px;
+    pointer-events: none;
 }
 
 .filter-menu {
     max-width: 219px;
     min-width: 219px;
+}
+
+.request-menu {
+    width: 100%;
+    left: 0;
+}
+
+.filter-menu,
+.request-menu {
     position: absolute;
     bottom: -7px;
     background: #FFFFFF;
@@ -167,23 +177,27 @@ body {
     z-index: 3;
 }
 
-.filter-menu.fmclosed {
+.filter-menu.fmclosed,
+.request-menu.rmclosed {
     display: none;
 }
 
-.filter-menu.fmopen {
+.filter-menu.fmopen,
+.request-menu.rmopen {
     display: flex;
 }
 
-.filter-item-container {
+.filter-item-container,
+.request-item-container {
     position: relative;
-    width: 220px;
+    width: 400px;
     cursor: pointer;
     background: #fff;
     padding: 11px 0 10px 13px;
 }
 
-.filter-item-container:hover {
+.filter-item-container:hover,
+.request-item-container:hover {
     background: #CBCBCB;
 }
 
@@ -202,7 +216,8 @@ body {
 
 
 
-.filter-item-text {
+.filter-item-text,
+.request-item-text {
     pointer-events: none;
 }
 
