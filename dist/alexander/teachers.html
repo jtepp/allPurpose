@@ -120,7 +120,8 @@
 
                     <div class="request-row">
 
-                        <div class="request-med request-dropdown request-box" selected="Select..." field="Subject *">
+                        <div class="request-med request-dropdown request-box" selected="Select..." field="Subject *"
+                            id="subjectdrop">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed" id="subjectreq">
                                 <div class="request-item-container">
@@ -132,11 +133,15 @@
                         </div>
                         <div class="request-short request-dropdown request-box" selected="Select..." field="Location *">
                             <div class="triangle-down"></div>
-                            <div class="request-menu rmclosed">
-                                <div class="request-item-container">
-                                    <div class="request-item-text">
-                                        All
-                                    </div>
+                            <div class="request-menu rmclosed" id="locationreq">
+                                <div id="All-people" class="request-item-container" selected=true>
+                                    <div class="request-item-text">All</div>
+                                </div>
+                                <div id="In-person-people" class="request-item-container" selected=false>
+                                    <div class="request-item-text">In-person</div>
+                                </div>
+                                <div id="Online-people" class="request-item-container" selected=false>
+                                    <div class="request-item-text">Online</div>
                                 </div>
                             </div>
                         </div>

@@ -29,6 +29,7 @@ class Tutor {
 }
 
 var chosenSubjects = []
+var chosenTutors = []
 var chosenSchools = []
 var allSubjects = {}
 var allSchools = []
@@ -104,7 +105,6 @@ document.body.onclick = function (e) {
         if (e.target.id == "All-subjects") {
             chosenSubjects = []
             document.getElementById("Subject").setAttribute("selected", "All")
-            console.log(true)
             for (let c of document.getElementsByClassName("filter-item-checkbox")) {
                 if (c.parentNode.parentNode.classList.contains("filter-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
                     c.setAttribute("checked", "false")
@@ -126,10 +126,37 @@ document.body.onclick = function (e) {
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
     }
 
+    if (e.target.classList.contains("request-item-container") && e.target.children[0].classList.contains("request-item-text")) { // Click on request item text to change the text
+        let newText = e.target.children[0].innerText
+
+        e.target.parentNode.parentNode.setAttribute("selected", newText)
+
+    }
+    if (e.target.id == "All-subjectreq") {
+        chosenSubjects = []
+        document.getElementById("subjectdrop").setAttribute("selected", "All")
+        console.log(false)
+        for (let c of document.getElementsByClassName("request-item-checkbox")) {
+            if (c.parentNode.parentNode.classList.contains("request-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
+                c.setAttribute("checked", "false")
+        }
+        filterTutors()
+    }
+    if (e.target.id == "All-tutorreq") {
+        chosenTutors = []
+        document.getElementById("tutordrop").setAttribute("selected", "All")
+        console.log(false)
+        for (let c of document.getElementsByClassName("request-item-checkbox")) {
+            if (!c.parentNode.parentNode.classList.contains("request-item-dropdown")) // turns off all non nested checkboxes which is just what school uses (maybe fix this soon...)
+                c.setAttribute("checked", "false")
+        }
+        filterTutors()
+    }
+
     if (e.target.classList.contains("request-dropdown-header")) { // Click on dropdown to toggle
         toggleClassOpenClosed(e.target.nextSibling, "rid")
     } else if (e.target.classList.contains("request-item-container") && e.target.children[0].classList.contains("request-item-checkbox")) { //click checkbox to toggle
-        toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "tutor")
+        toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("request-item-dropdown")) ? "subject" : "tutor")
     }
 
 
@@ -191,9 +218,9 @@ function toggleAttributeCheckBox(element, attr, usage) {
     } else if (usage == "tutor") {
         if (chosenTutors.length == 0) {
             document.getElementById("tutordrop").setAttribute("selected", "All")
-            document.getElementById("All-tutorsreq").setAttribute("selected", "true")
+            document.getElementById("All-tutorreq").setAttribute("selected", "true")
         } else {
-            document.getElementById("tutordrop").setAttribute("selected", chosenTutors.length < 3 ? chosenTutors.join(", ") : `${chosenTutors[0]}, ${chosenTutors[1]}, ...`)
+            document.getElementById("tutordrop").setAttribute("selected", chosenTutors.length < 2 ? chosenTutors.join(", ") : `${chosenTutors[0]}, ...`)
             document.getElementById("All-tutorreq").setAttribute("selected", "false")
         }
     }
@@ -267,7 +294,7 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         c.appendChild(returnAllButton("subjects"))
         let sur = document.getElementById("subjectreq")
         sur.innerHTML = ""
-        sur.appendChild(returnAllButton("subjectreq"))
+        sur.appendChild(returnAllButton("subjectreq"), true)
         for (let s in allSubjects) { // subjects
             c.appendChild(returnDropdownHeader(s))
             c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
@@ -280,7 +307,7 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         s.appendChild(returnAllButton("schools"))
         let tur = document.getElementById("tutorreq")
         tur.innerHTML = ""
-        tur.appendChild(returnAllButton("tutorreq"))
+        tur.appendChild(returnAllButton("tutorreq"), true)
         for (let v of allSchools) { // schools
             s.appendChild(returnDropdownCheck(v))
         }
@@ -446,14 +473,14 @@ function removeElementFromArray(arr, elem) {
     }
 }
 
-function returnAllButton(idsuffix) {
+function returnAllButton(idsuffix, request) {
     const d = document.createElement("div")
-    d.classList.add("filter-item-container")
+    d.classList.add((request ? "request" : "filter") + "-item-container")
     d.setAttribute("selected", "true")
     d.id = "All-" + idsuffix
 
     const a = document.createElement("div")
-    a.classList.add("filter-item-text")
+    a.classList.add((request ? "request" : "filter") + "-item-text")
     a.innerHTML = "All"
 
     d.appendChild(a)
