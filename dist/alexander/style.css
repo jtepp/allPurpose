@@ -301,7 +301,7 @@ body {
 .filter-item-checkbox[checked=false]::before {
     position: absolute;
     top: calc(50% - 4px);
-    right: 51px;
+    left: 181px;
     transform: translateY(-50%);
     content: "";
     width: 15px;
@@ -315,7 +315,7 @@ body {
 .filter-item-checkbox[checked=true]::before {
     position: absolute;
     top: calc(50% - 4px);
-    right: 51px;
+    left: 181px;
     transform: translateY(-50%);
     content: "";
     width: 15px;
