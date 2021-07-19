@@ -12,12 +12,12 @@ class Tutor {
         this.school = randomElement(["Yale", "Duke", "Georgia Tech", "Harvard", "Columbia", "MIT", "Stanford"])
         this.sat = Math.floor(150 + Math.random() * 1) * 10
         this.act = Math.floor(30 + Math.random() * 9)
-        this.about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua onsectetur adipiscing elit, sed do adipiscing elit, sed do eiusmod tempor incididu ut labore et dolore magna aliqua onsectetur ghnmm nmk jojojoonsectetur adipiscing elit, sed do eiumod. magna aliquanninii onsectetur adipiscing elit, sed d eiusmod. Lornininiem ipsum lorem ooipu"
+        this.about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua onsectetur adipiscing elit, sed do adipiscing elit, sed do eiusmod tempor incididu ut labore et dolore magna aliqua onsectetur ghnmm nmk"
         this.subjects = {
             "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
             "English": randomSlice(["Creative Writing", "Shakespeare", "Literature", "Public Speaking", "Spelling"], 3),
             "Science": randomSlice(["Biology", "Chemistry", "Physics", "Biology"], 2),
-            "History": [randomElement(["World History", "United States6", "Civilizations"])],
+            "History": [randomElement(["World History", "United States", "Civilizations"])],
             "SAT/ACT": [randomElement(["SAT", "ACT"])]
         }
         this.imgurl = "https://raw.githubusercontent.com/jtepp/allPurpose/Home/dist/alexander/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"
@@ -344,22 +344,34 @@ function fillSheet(tutor) {
 
     // fill sheet
     name.innerText = tutor.name
-    school.innerText = `${tutor.school}${tutor.sat ? "   SAT "+tutor.sat : ""}${tutor.act ? "   ACT "+tutor.act : ""}`
-
+    school.innerText = `${tutor.school}`
+    //${tutor.sat ? "   SAT "+tutor.sat : ""}${tutor.act ? "   ACT "+tutor.act : ""}
     topimg.src = tutor.imgurl
     altimg.src = tutor.altimgurl
 
     about.innerText = tutor.about
 
-    for (let s in tutor.subjects) {
-        if (tutor.subjects[s].length > 0) {
-            let cell = document.createElement("div")
-            cell.innerHTML = tutor.subjects[s].join(", ")
-            cell.setAttribute("subject", s)
-            cell.classList.add("subject-cell")
-            subjects.appendChild(cell)
-        }
-    }
+    // for (let s in tutor.subjects) {
+    //     if (tutor.subjects[s].length > 0) {
+    //         let cell = document.createElement("div")
+    //         cell.innerHTML = tutor.subjects[s].join(", ")
+    //         cell.setAttribute("subject", s)
+    //         cell.classList.add("subject-cell")
+    //         subjects.appendChild(cell)
+    //     }
+    // }
+
+    const ts = document.createElement("div")
+    ts.setAttribute("field", "Tutoring Subjects")
+    ts.innerText = Object.values(tutor.subjects).flat().join(", ")
+
+    const sat = document.createElement("div")
+    sat.setAttribute("field", "SAT/ACTs")
+
+    sat.innerHTML = `${tutor.sat ? tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? tutor.act : ""}`
+
+    subjects.appendChild(sat)
+    subjects.appendChild(ts)
 
 }
 
@@ -388,6 +400,9 @@ function randomSlice(arr, n) {
     let result = []
     while (result.length < n) {
         let index = Math.floor(Math.random() * arr.length)
+        if (!result.includes(arr[index])) {
+            result.push(arr[index])
+        }
         result.push(arr[index])
     }
     return result

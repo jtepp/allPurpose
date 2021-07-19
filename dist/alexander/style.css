@@ -427,14 +427,15 @@ body {
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 10px;
-    max-height: 80vh;
+    max-height: 70vh;
     max-width: 80vw;
     transition: top var(--transition);
+    height: fit-content;
 }
 
 #sheet-container.scontent {
     min-width: 255px;
-    max-width: 605px;
+    max-width: 700px;
 }
 
 #sheet-container.srequest {
@@ -442,17 +443,16 @@ body {
 }
 
 #sheet-content-container {
-    padding: 65px;
+    padding: 50px;
 }
 
 #sheet-name {
-    font-size: 36px;
     color: var(--maroon);
     font-weight: bold;
+    font-size: 20px;
 }
 
 #sheet-school {
-    font-size: 24px;
     color: var(--black);
 }
 
@@ -461,25 +461,29 @@ body {
     flex-direction: column;
     gap: 16px;
     margin-bottom: 50px;
-    align-items: center;
+    align-items: left;
+    font-size: 18px;
 }
 
 #sheet-body {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 67px;
     overflow: scroll;
+    margin-bottom: 40px;
+
 }
 
 #sheet-body-images {
     display: flex;
-    flex-direction: row;
-    gap: 9%;
+    flex-direction: column;
+    gap: 25px;
+    max-height: fit-content;
+
 }
 
 .sheet-pic {
-
-    width: min(44%, 266px);
+    width: max(100px, 12vw);
     height: auto;
     border-radius: 10px;
 }
@@ -488,13 +492,12 @@ body {
 #sheet-body-content {
     display: flex;
     flex-direction: column;
-    gap: 120px;
-    font-size: 18px;
-    margin-bottom: 138px;
+    gap: 40px;
+    font-size: 16px;
     /* max-width: 432px; */
 }
 
-#sheet-body-content>div {
+#sheet-body-about {
     position: relative;
     margin-top: 44px;
 }
@@ -508,19 +511,39 @@ body {
     font-weight: bold;
 }
 
+#sheet-body-subjects {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #sheet-body-subjects>div {
+    margin-top: 25px;
+    position: relative;
+}
+
+#sheet-body-subjects>div::before {
+    content: attr(field);
+    position: absolute;
+    top: -25px;
+    font-size: 18px;
+    color: var(--black);
+    font-weight: bold;
+}
+
+/* #sheet-body-subjects>div {
     position: relative;
     margin-top: 25px;
     padding-bottom: 25px;
     color: var(--black);
-}
+} */
 
-#sheet-body-subjects>div::before {
+/* #sheet-body-subjects>div:not(.subject-cell)::before {
     content: attr(subject);
     position: absolute;
     top: -25px;
     font-weight: bold;
-}
+} */
 
 
 
