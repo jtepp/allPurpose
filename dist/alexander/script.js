@@ -29,6 +29,7 @@ class Tutor {
 }
 
 var chosenSubjects = []
+var chosenSchools = []
 var allSubjects = {}
 var allSchools = []
 var allTutors = [...Array(Math.floor(16 + Math.random() * 10))].map(() => new Tutor()) //make list of tutors
@@ -105,7 +106,16 @@ document.body.onclick = function (e) {
             document.getElementById("Subject").setAttribute("selected", "All")
             console.log(true)
             for (let c of document.getElementsByClassName("filter-item-checkbox")) {
-                c.setAttribute("checked", "false")
+                if (c.parentNode.parentNode.classList.contains("filter-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
+                    c.setAttribute("checked", "false")
+            }
+        }
+        if (e.target.id == "All-schools") {
+            chosenSchools = []
+            document.getElementById("School").setAttribute("selected", "All")
+            for (let c of document.getElementsByClassName("filter-item-checkbox")) {
+                if (!c.parentNode.parentNode.classList.contains("filter-item-dropdown")) // turns off all non nested checkboxes which is just what school uses (maybe fix this soon...)
+                    c.setAttribute("checked", "false")
             }
         }
 
@@ -113,7 +123,7 @@ document.body.onclick = function (e) {
     } else if (e.target.classList.contains("filter-dropdown-header")) { // Click dropdown header to toggle 
         toggleClassOpenClosed(e.target.nextSibling, "fid")
     } else if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-checkbox")) { //click checkbox to toggle
-        toggleAttributeCheckBox(e.target.children[0], "checked")
+        toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
     }
 
     if (e.target.classList.contains("link-button")) { // Click on reset button to reset all filters
@@ -133,20 +143,40 @@ function toggleClassOpenClosed(element, pre) {
 }
 
 
-function toggleAttributeCheckBox(element, attr) {
+function toggleAttributeCheckBox(element, attr, usage) {
     if (element.getAttribute(attr) == "true") {
         element.setAttribute(attr, "false")
-        removeElementFromArray(chosenSubjects, element.innerText)
+        if (usage == "subject") {
+            removeElementFromArray(chosenSubjects, element.innerText)
+        } else if (usage == "school") {
+            removeElementFromArray(chosenSchools, element.innerText)
+        }
     } else {
         element.setAttribute(attr, "true")
-        chosenSubjects.push(element.innerText)
+        if (usage == "subject") {
+            chosenSubjects.push(element.innerText)
+        } else if (usage == "school") {
+            chosenSchools.push(element.innerText)
+        }
     }
-    if (chosenSubjects.length == 0) {
-        document.getElementById("Subject").setAttribute("selected", "All")
-        document.getElementById("All-subjects").setAttribute("selected", "true")
-    } else {
-        document.getElementById("Subject").setAttribute("selected", chosenSubjects.join(", "))
-        document.getElementById("All-subjects").setAttribute("selected", "false")
+    if (usage == "subject") {
+        if (chosenSubjects.length == 0) {
+            document.getElementById("Subject").setAttribute("selected", "All")
+            document.getElementById("All-subjects").setAttribute("selected", "true")
+        } else {
+
+            document.getElementById("Subject").setAttribute("selected", chosenSubjects.length < 3 ? chosenSubjects.join(", ") : `${chosenSubjects[0]}, ...`)
+            document.getElementById("All-subjects").setAttribute("selected", "false")
+
+        }
+    } else if (usage == "school") {
+        if (chosenSchools.length == 0) {
+            document.getElementById("School").setAttribute("selected", "All")
+            document.getElementById("All-schools").setAttribute("selected", "true")
+        } else {
+            document.getElementById("School").setAttribute("selected", chosenSchools.length < 3 ? chosenSchools.join(", ") : `${chosenSchools[0]}, ...`)
+            document.getElementById("All-schools").setAttribute("selected", "false")
+        }
     }
     filterTutors()
 }
@@ -225,7 +255,7 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         s.innerHTML = ""
         s.appendChild(returnAllButton("schools"))
         for (let v of allSchools) { // schools
-            s.appendChild(returnDropdownText(v))
+            s.appendChild(returnDropdownCheck(v))
         }
     }
     document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results&nbsp;`
@@ -266,6 +296,22 @@ function returnDropdownText(name) {
 
     let schoolitem = document.createElement("div")
     schoolitem.classList.add("filter-item-text")
+    schoolitem.innerHTML = name
+
+    schoolcont.appendChild(schoolitem)
+
+    return schoolcont
+
+}
+
+function returnDropdownCheck(name) {
+    let schoolcont = document.createElement("div")
+    schoolcont.classList.add("filter-item-container")
+    schoolcont.setAttribute("selected", "false")
+
+    let schoolitem = document.createElement("div")
+    schoolitem.classList.add("filter-item-checkbox")
+    schoolitem.setAttribute("checked", "false")
     schoolitem.innerHTML = name
 
     schoolcont.appendChild(schoolitem)
@@ -324,8 +370,8 @@ function filterTutors() {
     const currentLocation = document.getElementById("Location").getAttribute("selected")
 
     let givenTutors = allTutors.filter(tutor => {
-        const tSchool = currentSchool == "All" ? true : tutor.school == currentSchool
-        const tSubjects = currentSubject == "All" ? true : currentSubject.split(", ").every(subject => {
+        const tSchool = currentSchool == "All" ? true : chosenSchools.includes(tutor.school)
+        const tSubjects = currentSubject == "All" ? true : chosenSubjects.every(subject => {
             return Object.values(tutor.subjects).flat().includes(subject)
         })
         const tLocation = currentLocation == "All" ? true : currentLocation.toLowerCase() == tutor.location

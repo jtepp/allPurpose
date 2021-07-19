@@ -160,22 +160,6 @@ body {
     transition: opacity var(--transition), bottom var(--transition);
 }
 
-/* stop overlapping if multiple menus open */
-#People>.filter-menu {
-    z-index: 6;
-}
-
-#Subject>.filter-menu {
-    z-index: 5;
-}
-
-#School>.filter-menu {
-    z-index: 4;
-}
-
-#Location>.filter-menu {
-    z-index: 3;
-}
 
 .filter-menu.fmclosed,
 .request-menu.rmclosed {
@@ -292,9 +276,12 @@ body {
 }
 
 .filter-item-checkbox {
-    padding-left: 20px;
     font-size: 18px;
     pointer-events: none;
+}
+
+.filter-item-dropdown .filter-item-checkbox {
+    padding-left: 20px;
 }
 
 
