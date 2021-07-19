@@ -42,6 +42,11 @@ document.body.onclick = function (e) {
         closeSheet()
     }
 
+    if (e.target.id == "sheet-request-tutor") {
+        document.getElementById("sheet-container").classList.toggle("srequest")
+        document.getElementById("sheet-container").classList.toggle("scontent")
+    }
+
     if (e.target.classList.contains("filter-button")) { // Click on filter button toggle filter menu and turn others off
 
         for (el of e.target.parentNode.children) {
@@ -51,7 +56,7 @@ document.body.onclick = function (e) {
             }
         }
 
-        toggleClass(e.target.children[1], "fm")
+        toggleClassOpenClosed(e.target.children[1], "fm")
 
 
     } else if (!e.target.classList.toString().includes("filter")) { // Close all filters if target has nothing to do with filters
@@ -86,7 +91,7 @@ document.body.onclick = function (e) {
 
 
     } else if (e.target.classList.contains("filter-dropdown-header")) { // Click dropdown header to toggle 
-        toggleClass(e.target.nextSibling, "fid")
+        toggleClassOpenClosed(e.target.nextSibling, "fid")
     } else if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-checkbox")) { //click checkbox to toggle
         toggleAttributeCheckBox(e.target.children[0], "checked")
     }
@@ -97,7 +102,7 @@ document.body.onclick = function (e) {
     }
 }
 
-function toggleClass(element, pre) {
+function toggleClassOpenClosed(element, pre) {
     if (element.classList.contains(pre + "closed")) {
         element.classList.remove(pre + "closed")
         element.classList.add(pre + "open")
@@ -106,6 +111,7 @@ function toggleClass(element, pre) {
         element.classList.remove(pre + "open")
     }
 }
+
 
 function toggleAttributeCheckBox(element, attr) {
     if (element.getAttribute(attr) == "true") {

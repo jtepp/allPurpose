@@ -83,29 +83,75 @@
     </div>
 
 
+    <!--  -->
+    <div id="sheet-back" class="sopen">
+        <!--  -->
+        <div id="sheet-container" class="srequest">
+            <div id="sheet-content-container">
 
-    <div id="sheet-back" class="sclosed">
-        <div id="sheet-container">
-            <div id="sheet-header">
-                <div id="sheet-name"></div>
-                <div id="sheet-school" class="oblique"></div>
-            </div>
-            <div id="sheet-body">
-                <div id="sheet-body-images">
-                    <img src="" alt="top" id="sheet-pic-top" class="sheet-pic">
-                    <img src="" alt="alt" id="sheet-pic-alt" class="sheet-pic">
+                <div id="sheet-header">
+                    <div id="sheet-name"></div>
+                    <div id="sheet-school" class="oblique"></div>
                 </div>
-                <div id="sheet-body-content">
-                    <div id="sheet-body-about" field="About">
+                <div id="sheet-body">
+                    <div id="sheet-body-images">
+                        <img src="" alt="top" id="sheet-pic-top" class="sheet-pic">
+                        <img src="" alt="alt" id="sheet-pic-alt" class="sheet-pic">
                     </div>
-                    <div id="sheet-body-subjects" field="Teaching Subjects">
+                    <div id="sheet-body-content">
+                        <div id="sheet-body-about" field="About">
+                        </div>
+                        <div id="sheet-body-subjects" field="Teaching Subjects">
+                        </div>
                     </div>
                 </div>
+                <div id="sheet-request-tutor" class="oblique">
+                    Request Tutor Online
+                </div>
             </div>
+            <div id="sheet-request-container">
+                <div id="sheet-request-header">
+                    <div id="request-header-top">Requesting a Tutor</div>
+                    <div id="request-header-bot">Please fill out the information below and we will contact you.</div>
+                </div>
+                <form action="" id="request-form">
+                    <div class="request-long request-box" field="Parent Name *" contenteditable></div>
+                    <div class="request-long request-box" field="Parent Email *" contenteditable></div>
+                    <div class="request-long request-box" field="Parent Cell *" contenteditable></div>
+
+                    <div class="request-row">
+
+                        <div class="request-med request-dropdown request-box" selected="Select..." field="Subject *">
+                            <div class="triangle-down"></div>
+                        </div>
+                        <div class="request-short request-dropdown request-box" selected="Select..." field="Grade *">
+                            <div class="triangle-down"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="request-row">
+
+
+                        <div class="request-med request-dropdown request-box" selected="Select..." field="Tutor *">
+                            <div class="triangle-down"></div>
+
+                        </div>
+                        <div class="request-short request-dropdown request-box" selected="Select..."
+                            field="Preferred Meeting Time *">
+                            <div class="triangle-down"></div>
+                        </div>
+                    </div>
+
+                    <div class="textarea-before" field="Message"></div>
+                    <textarea class="request-message" contenteditable></textarea>
+                </form>
+                <div id="sheet-request-tutor" class="oblique">
+                    Request Tutor Online
+                </div>
+            </div>
+
             <div id="sheet-close" onclick="closeSheet()"></div>
-            <div id="sheet-request-tutor" class="oblique">
-                Request Tutor Online
-            </div>
         </div>
 
     </div>
