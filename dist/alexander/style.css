@@ -360,6 +360,7 @@ body {
     cursor: pointer;
     box-shadow: none;
     min-width: 120px;
+    transition: transform var(--transition);
 }
 
 .tutor-cell::before {
@@ -386,10 +387,9 @@ body {
     overflow: hidden;
     transform: scale(1);
     -webkit-transform: scale(1);
-    transition: transform var(--transition);
 }
 
-.tutor-cell:hover>img {
+.tutor-cell:hover {
     transform: scale(1.1);
 }
 
