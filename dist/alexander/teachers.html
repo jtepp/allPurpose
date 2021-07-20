@@ -61,10 +61,10 @@
                     <div id="All-location" class="filter-item-container" selected=true>
                         <div class="filter-item-text">All</div>
                     </div>
-                    <div id="In-person-people" class="filter-item-container" selected=false>
+                    <div id="In-person-location" class="filter-item-container" selected=false>
                         <div class="filter-item-text">In-person</div>
                     </div>
-                    <div id="Online-people" class="filter-item-container" selected=false>
+                    <div id="Online-location" class="filter-item-container" selected=false>
                         <div class="filter-item-text">Online</div>
                     </div>
                 </div>
@@ -83,9 +83,9 @@
 
 
     <!--  -->
-    <div id="sheet-back" class="sopen">
+    <div id="sheet-back" class="sclosed">
         <!--  -->
-        <div id="sheet-container" class="srequest">
+        <div id="sheet-container" class="scontent">
             <div id="sheet-content-container">
 
                 <div id="sheet-header">
@@ -120,7 +120,7 @@
 
                     <div class="request-row">
 
-                        <div class="request-med request-dropdown request-box" selected="Select..." field="Subject *"
+                        <div class="request-med request-dropdown request-box" selected="All" field="Subject *"
                             id="subjectdrop">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed" id="subjectsreq">
@@ -131,16 +131,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="request-short request-dropdown request-box" selected="Select..." field="Location *">
+                        <div class="request-short request-dropdown request-box" selected="All" field="Location *"
+                            id="locationdrop">
                             <div class="triangle-down"></div>
-                            <div class="request-menu rmclosed" id="locationreq">
-                                <div id="All-people" class="request-item-container" selected=true>
+                            <div class="request-menu rmclosed">
+                                <div id="All-locationreq" class="request-item-container" selected=true>
                                     <div class="request-item-text">All</div>
                                 </div>
-                                <div id="In-person-people" class="request-item-container" selected=false>
+                                <div id="In-person-locationreq" class="request-item-container" selected=false>
                                     <div class="request-item-text">In-person</div>
                                 </div>
-                                <div id="Online-people" class="request-item-container" selected=false>
+                                <div id="Online-locationreq" class="request-item-container" selected=false>
                                     <div class="request-item-text">Online</div>
                                 </div>
                             </div>
@@ -150,7 +151,7 @@
                     <div class="request-row">
 
 
-                        <div class="request-med request-dropdown request-box" selected="Select..." field="Tutor *"
+                        <div class="request-med request-dropdown request-box" selected="All" field="Tutor *"
                             id="tutordrop">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed" id="tutorsreq">
@@ -161,7 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="request-short request-dropdown request-box" selected="Select..."
+                        <div class="request-short request-dropdown request-box" selected="All"
                             field="Preferred Meeting Time *">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed">

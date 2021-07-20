@@ -439,7 +439,7 @@ body {
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 10px;
-    max-height: 70vh;
+    max-height: 80vh;
     max-width: 80vw;
     transition: top var(--transition);
     height: fit-content;
@@ -498,6 +498,7 @@ body {
     width: max(100px, 12vw);
     height: auto;
     border-radius: 10px;
+    max-width: 200px;
 }
 
 
@@ -728,7 +729,7 @@ body {
 }
 
 
-#tutorreq {
+#tutorsreq {
     max-height: 150px;
     overflow-y: scroll;
 }

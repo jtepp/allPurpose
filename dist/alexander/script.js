@@ -93,10 +93,22 @@ document.body.onclick = function (e) {
         let newText = e.target.children[0].innerText
 
         e.target.parentNode.parentNode.setAttribute("selected", newText)
-        document.getElementById(e.target.id + "req").parentNode.parentNode.setAttribute("selected", newText)
+
+        if (e.target.id.includes("location")) {
+            document.getElementById("locationdrop").setAttribute("selected", newText)
+
+            for (let el of document.getElementById("locationdrop").children[1].children) {
+                el.setAttribute("selected", false)
+            }
+
+            document.getElementById(e.target.id + "req").setAttribute("selected", true)
+
+        }
+
 
 
         filterTutors()
+
         if (e.target.parentNode != null) {
             for (let el of e.target.parentNode.children) {
                 el.setAttribute('selected', 'false')
@@ -142,6 +154,23 @@ document.body.onclick = function (e) {
         let newText = e.target.children[0].innerText
 
         e.target.parentNode.parentNode.setAttribute("selected", newText)
+
+
+        for (let el of e.target.parentNode.children) {
+            el.setAttribute("selected", false)
+        }
+
+        e.target.setAttribute("selected", true)
+
+        // change filter stuff here too
+
+        if (e.target.parentNode.parentNode.id == "locationdrop") {
+            document.getElementById("Location").setAttribute("selected", newText)
+            for (let el of document.getElementById("Location").children[1].children) {
+                el.setAttribute("selected", false)
+            }
+            document.getElementById(e.target.id.replace("req", "")).setAttribute("selected", true)
+        }
 
     }
     if (e.target.id == "All-subjectsreq") {
@@ -273,6 +302,21 @@ function setFalseExceptAll(onlyCheckboxes) {
         el.setAttribute('checked', 'false')
         chosenSubjects = []
     }
+
+    for (let el of document.getElementsByClassName("request-item-container")) {
+        if (el.getAttribute("selected") == "true" && el.children[0].innerText != "All") {
+            el.setAttribute('selected', 'false')
+        }
+    }
+    //set all elements of request-dropdown to attribuute selected = All
+    for (let el of document.getElementsByClassName("request-dropdown")) {
+        el.setAttribute('selected', 'All')
+    }
+    for (let el of document.getElementsByClassName("request-item-checkbox")) {
+        el.setAttribute('checked', 'false')
+        chosenSubjects = []
+    }
+
 }
 
 
@@ -412,6 +456,10 @@ function returnDropdownCheck(name, request) {
 function closeSheet() {
     document.getElementById("sheet-back").classList.remove("sopen")
     document.getElementById("sheet-back").classList.add("sclosed")
+    setTimeout(() => {
+        document.getElementById("sheet-container").classList.remove("srequest")
+        document.getElementById("sheet-container").classList.add("scontent")
+    }, 300)
 }
 
 function showSheet() {
@@ -457,7 +505,7 @@ function fillSheet(tutor) {
     const sat = document.createElement("div")
     sat.setAttribute("field", "SAT/ACTs")
 
-    sat.innerHTML = `${tutor.sat ? tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? tutor.act : ""}`
+    sat.innerHTML = `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
 
     subjects.appendChild(sat)
     subjects.appendChild(ts)
