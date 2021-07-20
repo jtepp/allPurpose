@@ -243,8 +243,9 @@ document.body.onclick = function (e) {
     }
 
 
-    // on any click, change disabled button, dont emphasize tho
-    if (e.target.id != "sheet-request-tutor-request") {
+    //choosing a container option refreshes the button
+
+    if (e.target.classList.contains("request-item-container")) {
         const mandatoryFields = document.querySelectorAll("[field$='*']")
         const allFilled = Object.values(mandatoryFields).map(x => x.innerText != "" || x.getAttribute("selected") != "Select...")
 
