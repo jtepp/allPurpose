@@ -12,9 +12,6 @@ prep(b2, "red")
 
 function prep(el, an, timeout) {
     el.onclick = () => {
-        if (el != b2) {
-            box.classList.remove("red")
-        }
         box.classList.add(an)
         if (timeout) {
             setTimeout(() => {
