@@ -51,7 +51,7 @@ document.body.onclick = function (e) {
 
     if (e.target.classList.contains("filter-button")) { // Click on filter button toggle filter menu and turn others off
 
-        for (el of e.target.parentNode.children) {
+        for (let el of e.target.parentNode.children) {
             if (el != e.target) {
                 el.children[1].classList.remove("fmopen")
                 el.children[1].classList.add("fmclosed")
@@ -70,7 +70,7 @@ document.body.onclick = function (e) {
 
     if (e.target.classList.contains("request-dropdown")) { // Click on request-dropdown button toggle request menu and turn others off
 
-        for (el of document.getElementsByClassName("request-dropdown")) {
+        for (let el of document.getElementsByClassName("request-dropdown")) {
             if (el.children[1] != e.target.children[1]) {
                 el.children[1].classList.remove("rmopen")
                 el.children[1].classList.add("rmclosed")
@@ -81,7 +81,7 @@ document.body.onclick = function (e) {
 
 
     } else if (!e.target.classList.toString().includes("dropdown") && !e.target.classList.toString().includes("item")) {
-        for (el of document.getElementsByClassName("request-dropdown")) {
+        for (let el of document.getElementsByClassName("request-dropdown")) {
             el.children[1].classList.remove("rmopen")
             el.children[1].classList.add("rmclosed")
         }
@@ -89,10 +89,12 @@ document.body.onclick = function (e) {
 
 
     if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-text")) { // Click on filter item text to change the text
-
+        // make this affect request too
         let newText = e.target.children[0].innerText
 
         e.target.parentNode.parentNode.setAttribute("selected", newText)
+        document.getElementById(e.target.id + "req").parentNode.parentNode.setAttribute("selected", newText)
+
 
         filterTutors()
         if (e.target.parentNode != null) {
@@ -107,6 +109,10 @@ document.body.onclick = function (e) {
             document.getElementById("Subject").setAttribute("selected", "All")
             for (let c of document.getElementsByClassName("filter-item-checkbox")) {
                 if (c.parentNode.parentNode.classList.contains("filter-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
+                    c.setAttribute("checked", "false")
+            }
+            for (let c of document.getElementsByClassName("request-item-checkbox")) {
+                if (c.parentNode.parentNode.classList.contains("request-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
                     c.setAttribute("checked", "false")
             }
         }
@@ -124,6 +130,12 @@ document.body.onclick = function (e) {
         toggleClassOpenClosed(e.target.nextSibling, "fid")
     } else if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-checkbox")) { //click checkbox to toggle
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
+        for (let el of document.getElementsByClassName("request-item-checkbox")) {
+            if (el.innerHTML == e.target.children[0].innerHTML) {
+                toggleAttributeCheckBox(el, "checked", "subject")
+            }
+        }
+
     }
 
     if (e.target.classList.contains("request-item-container") && e.target.children[0].classList.contains("request-item-text")) { // Click on request item text to change the text
@@ -132,20 +144,23 @@ document.body.onclick = function (e) {
         e.target.parentNode.parentNode.setAttribute("selected", newText)
 
     }
-    if (e.target.id == "All-subjectreq") {
+    if (e.target.id == "All-subjectsreq") {
         chosenSubjects = []
         document.getElementById("subjectdrop").setAttribute("selected", "All")
-        console.log(false)
         for (let c of document.getElementsByClassName("request-item-checkbox")) {
             if (c.parentNode.parentNode.classList.contains("request-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
                 c.setAttribute("checked", "false")
         }
+        document.getElementById("All-subjects").parentNode.parentNode.setAttribute("selected", "All")
+        for (let c of document.getElementsByClassName("filter-item-checkbox")) {
+            if (c.parentNode.parentNode.classList.contains("filter-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
+                c.setAttribute("checked", "false")
+        }
         filterTutors()
     }
-    if (e.target.id == "All-tutorreq") {
+    if (e.target.id == "All-tutorsreq") {
         chosenTutors = []
         document.getElementById("tutordrop").setAttribute("selected", "All")
-        console.log(false)
         for (let c of document.getElementsByClassName("request-item-checkbox")) {
             if (!c.parentNode.parentNode.classList.contains("request-item-dropdown")) // turns off all non nested checkboxes which is just what school uses (maybe fix this soon...)
                 c.setAttribute("checked", "false")
@@ -157,6 +172,13 @@ document.body.onclick = function (e) {
         toggleClassOpenClosed(e.target.nextSibling, "rid")
     } else if (e.target.classList.contains("request-item-container") && e.target.children[0].classList.contains("request-item-checkbox")) { //click checkbox to toggle
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("request-item-dropdown")) ? "subject" : "tutor")
+
+        for (let el of document.getElementsByClassName("filter-item-checkbox")) {
+            if (el.innerHTML == e.target.children[0].innerHTML) {
+                toggleAttributeCheckBox(el, "checked", "subject")
+            }
+        }
+
     }
 
 
@@ -190,21 +212,31 @@ function toggleAttributeCheckBox(element, attr, usage) {
     } else {
         element.setAttribute(attr, "true")
         if (usage == "subject") {
-            chosenSubjects.push(element.innerText)
+            if (!chosenSubjects.includes(element.innerText)) {
+                chosenSubjects.push(element.innerText)
+            }
         } else if (usage == "school") {
-            chosenSchools.push(element.innerText)
+            if (!chosenSchools.includes(element.innerText)) {
+                chosenSchools.push(element.innerText)
+            }
         } else if (usage == "tutor") {
-            chosenTutors.push(element.innerText)
+            if (!chosenTutors.includes(element.innerText)) {
+                chosenTutors.push(element.innerText)
+            }
         }
     }
     if (usage == "subject") {
         if (chosenSubjects.length == 0) {
             document.getElementById("Subject").setAttribute("selected", "All")
+            document.getElementById("subjectdrop").setAttribute("selected", "All")
             document.getElementById("All-subjects").setAttribute("selected", "true")
+            document.getElementById("All-subjectsreq").setAttribute("selected", "true")
         } else {
 
-            document.getElementById("Subject").setAttribute("selected", chosenSubjects.length < 3 ? chosenSubjects.join(", ") : `${chosenSubjects[0]}, ...`)
+            document.getElementById("Subject").setAttribute("selected", chosenSubjects.length < 2 ? chosenSubjects.join(", ") : `${chosenSubjects[0]},...`)
+            document.getElementById("subjectdrop").setAttribute("selected", chosenSubjects.length < 2 ? chosenSubjects.join(", ") : `${chosenSubjects[0]},...`)
             document.getElementById("All-subjects").setAttribute("selected", "false")
+            document.getElementById("All-subjectsreq").setAttribute("selected", "false")
 
         }
     } else if (usage == "school") {
@@ -212,16 +244,16 @@ function toggleAttributeCheckBox(element, attr, usage) {
             document.getElementById("School").setAttribute("selected", "All")
             document.getElementById("All-schools").setAttribute("selected", "true")
         } else {
-            document.getElementById("School").setAttribute("selected", chosenSchools.length < 3 ? chosenSchools.join(", ") : `${chosenSchools[0]}, ...`)
+            document.getElementById("School").setAttribute("selected", chosenSchools.length < 2 ? chosenSchools.join(", ") : `${chosenSchools[0]},...`)
             document.getElementById("All-schools").setAttribute("selected", "false")
         }
     } else if (usage == "tutor") {
         if (chosenTutors.length == 0) {
             document.getElementById("tutordrop").setAttribute("selected", "All")
-            document.getElementById("All-tutorreq").setAttribute("selected", "true")
+            document.getElementById("All-tutorsreq").setAttribute("selected", "true")
         } else {
-            document.getElementById("tutordrop").setAttribute("selected", chosenTutors.length < 2 ? chosenTutors.join(", ") : `${chosenTutors[0]}, ...`)
-            document.getElementById("All-tutorreq").setAttribute("selected", "false")
+            document.getElementById("tutordrop").setAttribute("selected", chosenTutors.length < 2 ? chosenTutors.join(", ") : `${chosenTutors[0]},...`)
+            document.getElementById("All-tutorsreq").setAttribute("selected", "false")
         }
     }
     filterTutors()
@@ -292,9 +324,9 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         let c = document.getElementById("subjects")
         c.innerHTML = ""
         c.appendChild(returnAllButton("subjects"))
-        let sur = document.getElementById("subjectreq")
+        let sur = document.getElementById("subjectsreq")
         sur.innerHTML = ""
-        sur.appendChild(returnAllButton("subjectreq"), true)
+        sur.appendChild(returnAllButton("subjectsreq", true))
         for (let s in allSubjects) { // subjects
             c.appendChild(returnDropdownHeader(s))
             c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
@@ -305,9 +337,9 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         let s = document.getElementById("schools")
         s.innerHTML = ""
         s.appendChild(returnAllButton("schools"))
-        let tur = document.getElementById("tutorreq")
+        let tur = document.getElementById("tutorsreq")
         tur.innerHTML = ""
-        tur.appendChild(returnAllButton("tutorreq"), true)
+        tur.appendChild(returnAllButton("tutorsreq", true))
         for (let v of allSchools) { // schools
             s.appendChild(returnDropdownCheck(v))
         }
@@ -460,7 +492,6 @@ function randomSlice(arr, n) {
         if (!result.includes(arr[index])) {
             result.push(arr[index])
         }
-        result.push(arr[index])
     }
     return result
 }
