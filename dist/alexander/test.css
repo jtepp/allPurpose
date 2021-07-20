@@ -146,3 +146,22 @@ body {
     background: #fff;
     font-size: 14px;
 }
+
+.bounce.unfilled-box::after {
+    animation: bounce-animation 100ms infinite;
+    animation-iteration-count: 1;
+}
+
+@keyframes bounce-animation {
+    0% {
+        top: 50%;
+    }
+
+    50% {
+        top: 45%;
+    }
+
+    100% {
+        top: 50%;
+    }
+}
