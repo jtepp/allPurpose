@@ -575,6 +575,8 @@ body {
     border-radius: 10px;
     cursor: pointer;
     font-size: 22px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 #sheet-close {
