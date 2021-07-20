@@ -86,3 +86,63 @@ body {
 #hover5:hover>#imgcont>img {
     width: 120%;
 }
+
+
+
+
+#column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+#column-container>button {
+    padding: 8px 14px;
+    font-size: 18px;
+}
+
+#empty-box {
+    position: relative;
+    width: 200px;
+    padding: 8px 14px;
+    transition: background var(--transition);
+}
+
+.shake-animation {
+    animation: shake 200ms linear infinite;
+    animation-iteration-count: 2;
+}
+
+@keyframes shake {
+    33% {
+        transform: translateX(5%);
+    }
+
+    66% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.red {
+    background: #ad000088;
+}
+
+.unfilled-box::after {
+    content: "This field still needs to be filled out";
+    color: var(--black);
+    width: max-content;
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    padding: 4px;
+    color: #333;
+    border: #333 1px solid;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 14px;
+}

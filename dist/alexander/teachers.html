@@ -83,9 +83,9 @@
 
 
     <!--  -->
-    <div id="sheet-back" class="sclosed">
+    <div id="sheet-back" class="sopen">
         <!--  -->
-        <div id="sheet-container" class="scontent">
+        <div id="sheet-container" class="srequest">
             <div id="sheet-content-container">
 
                 <div id="sheet-header">
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="sheet-request-tutor" class="oblique">
+                <div id="sheet-request-tutor-content" class="sheet-request-tutor oblique">
                     Request Tutor Online
                 </div>
             </div>
@@ -162,7 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="request-short request-dropdown request-box" selected="All"
+                        <div class="request-short request-dropdown request-box" selected="Select..."
                             field="Preferred Meeting Time *">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed">
@@ -175,12 +175,16 @@
                         </div>
                     </div>
 
-                    <div class="textarea-before" field="Message"></div>
-                    <textarea class="request-message" contenteditable></textarea>
+                    <!-- <div class="textarea-before" field="Message"></div>
+                    <textarea class="request-message" contenteditable></textarea> -->
                 </form>
-                <div id="sheet-request-tutor" class="oblique">
+                <div id="sheet-request-tutor-request" class="sheet-request-tutor oblique disabled-button">
                     Request Tutor Online
                 </div>
+            </div>
+
+            <div id="sheet-thanks-container">
+                Thank you, we will contact you soon.
             </div>
 
             <div id="sheet-close" onclick="closeSheet()"></div>

@@ -44,9 +44,17 @@ document.body.onclick = function (e) {
         closeSheet()
     }
 
-    if (e.target.id == "sheet-request-tutor") {
-        document.getElementById("sheet-container").classList.toggle("srequest")
-        document.getElementById("sheet-container").classList.toggle("scontent")
+    if (e.target.classList.contains("sheet-request-tutor") && !e.target.classList.contains("disabled-button")) {
+        if (document.getElementById("sheet-container").classList.contains("scontent")) { //go from content to request
+            document.getElementById("sheet-container").classList.remove("scontent")
+            document.getElementById("sheet-container").classList.add("srequest")
+        } else if (document.getElementById("sheet-container").classList.contains("srequest")) { //go from request to thanks
+            document.getElementById("sheet-container").classList.remove("srequest")
+            document.getElementById("sheet-container").classList.add("sthanks")
+        } else if (document.getElementById("sheet-container").classList.contains("sthanks")) { //go from thanks to content
+            document.getElementById("sheet-container").classList.remove("sthanks")
+            document.getElementById("sheet-container").classList.add("scontent")
+        }
     }
 
     if (e.target.classList.contains("filter-button")) { // Click on filter button toggle filter menu and turn others off
@@ -89,7 +97,7 @@ document.body.onclick = function (e) {
 
 
     if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-text")) { // Click on filter item text to change the text
-        // make this affect request too
+
         let newText = e.target.children[0].innerText
 
         e.target.parentNode.parentNode.setAttribute("selected", newText)
@@ -235,9 +243,38 @@ document.body.onclick = function (e) {
     }
 
 
+    // on any click, change disabled button, dont emphasize tho
+    if (e.target.id != "sheet-request-tutor-request") {
+        const mandatoryFields = document.querySelectorAll("[field$='*']")
+        const allFilled = Object.values(mandatoryFields).map(x => x.innerText != "" || x.getAttribute("selected") != "Select...")
+
+
+        if (allFilled.every(x => x)) {
+            document.getElementById("sheet-request-tutor-request").classList.remove("disabled-button")
+        } else {
+            document.getElementById("sheet-request-tutor-request").classList.add("disabled-button")
+
+        }
+    }
+
+
     if (e.target.classList.contains("link-button")) { // Click on reset button to reset all filters
         setFalseExceptAll()
         filterTutors()
+    }
+}
+
+document.body.oninput = function (e) { // checking that mandatory fields are filled
+    const mandatoryFields = document.querySelectorAll("[field$='*']")
+    const allFilled = Object.values(mandatoryFields).map(x => x.innerText != "" || x.getAttribute("selected") != "Select...")
+
+    // remove empty box emphasis class
+
+    if (allFilled.every(x => x)) {
+        document.getElementById("sheet-request-tutor-request").classList.remove("disabled-button")
+    } else {
+        document.getElementById("sheet-request-tutor-request").classList.add("disabled-button")
+        // add empty box emphasis class
     }
 }
 
@@ -482,6 +519,7 @@ function closeSheet() {
     document.getElementById("sheet-back").classList.add("sclosed")
     setTimeout(() => {
         document.getElementById("sheet-container").classList.remove("srequest")
+        document.getElementById("sheet-container").classList.remove("sthanks")
         document.getElementById("sheet-container").classList.add("scontent")
     }, 300)
 }
