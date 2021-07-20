@@ -119,21 +119,34 @@ document.body.onclick = function (e) {
         if (e.target.id == "All-subjects") {
             chosenSubjects = []
             document.getElementById("Subject").setAttribute("selected", "All")
-            for (let c of document.getElementsByClassName("filter-item-checkbox")) {
-                if (c.parentNode.parentNode.classList.contains("filter-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
-                    c.setAttribute("checked", "false")
+            document.getElementById("subjectdrop").setAttribute("selected", "All")
+
+            for (let el of e.target.parentNode.children) {
+                if (el.classList.contains("filter-item-dropdown")) {
+
+                    for (let elem of el.children) {
+                        elem.children[0].setAttribute("checked", "false")
+                    }
+                }
             }
-            for (let c of document.getElementsByClassName("request-item-checkbox")) {
-                if (c.parentNode.parentNode.classList.contains("request-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
-                    c.setAttribute("checked", "false")
+
+            for (let el of document.getElementById(e.target.id + "req").parentNode.children) {
+                if (el.classList.contains("request-item-dropdown")) {
+
+                    for (let elem of el.children) {
+                        elem.children[0].setAttribute("checked", "false")
+                    }
+                }
             }
+            filterTutors()
+
         }
         if (e.target.id == "All-schools") {
             chosenSchools = []
             document.getElementById("School").setAttribute("selected", "All")
-            for (let c of document.getElementsByClassName("filter-item-checkbox")) {
-                if (!c.parentNode.parentNode.classList.contains("filter-item-dropdown")) // turns off all non nested checkboxes which is just what school uses (maybe fix this soon...)
-                    c.setAttribute("checked", "false")
+            for (let c of e.target.parentNode.children) {
+                if (c != e.target)
+                    c.children[0].setAttribute("checked", "false")
             }
         }
 
@@ -175,24 +188,35 @@ document.body.onclick = function (e) {
     }
     if (e.target.id == "All-subjectsreq") {
         chosenSubjects = []
+        document.getElementById("Subject").setAttribute("selected", "All")
         document.getElementById("subjectdrop").setAttribute("selected", "All")
-        for (let c of document.getElementsByClassName("request-item-checkbox")) {
-            if (c.parentNode.parentNode.classList.contains("request-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
-                c.setAttribute("checked", "false")
+
+        for (let el of e.target.parentNode.children) {
+            if (el.classList.contains("request-item-dropdown")) {
+
+                for (let elem of el.children) {
+                    elem.children[0].setAttribute("checked", "false")
+                }
+            }
         }
-        document.getElementById("All-subjects").parentNode.parentNode.setAttribute("selected", "All")
-        for (let c of document.getElementsByClassName("filter-item-checkbox")) {
-            if (c.parentNode.parentNode.classList.contains("filter-item-dropdown")) //turns off all nested checkboxes which is just what subject uses
-                c.setAttribute("checked", "false")
+
+        for (let el of document.getElementById(e.target.id.replace("req", "")).parentNode.children) {
+            if (el.classList.contains("request-item-dropdown")) {
+
+                for (let elem of el.children) {
+                    elem.children[0].setAttribute("checked", "false")
+                }
+            }
         }
+
         filterTutors()
     }
     if (e.target.id == "All-tutorsreq") {
         chosenTutors = []
         document.getElementById("tutordrop").setAttribute("selected", "All")
-        for (let c of document.getElementsByClassName("request-item-checkbox")) {
-            if (!c.parentNode.parentNode.classList.contains("request-item-dropdown")) // turns off all non nested checkboxes which is just what school uses (maybe fix this soon...)
-                c.setAttribute("checked", "false")
+        for (let c of e.target.parentNode.children) {
+            if (c != e.target)
+                c.children[0].setAttribute("checked", "false")
         }
         filterTutors()
     }
