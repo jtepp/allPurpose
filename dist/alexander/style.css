@@ -677,6 +677,7 @@ body {
     height: 36px;
     color: var(--black);
     font-size: 18px;
+    transition: background var(--transition);
 }
 
 .request-box::before {
@@ -756,7 +757,35 @@ body {
     color: var(--black);
 }
 
+.unfilled-box {
+    animation: shake 200ms linear infinite;
+    animation-iteration-count: 2;
+}
 
+@keyframes shake {
+    33% {
+        transform: translateX(5%);
+    }
+
+    66% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.red {
+    background: #ad000088;
+}
+
+[selected="Select..."].unfilled-box::after {
+    content: "Required field";
+    color: var(--black);
+    width: max-content;
+    color: #333;
+}
 
 
 .sopen {

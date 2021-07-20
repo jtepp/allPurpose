@@ -55,6 +55,15 @@ document.body.onclick = function (e) {
             document.getElementById("sheet-container").classList.remove("sthanks")
             document.getElementById("sheet-container").classList.add("scontent")
         }
+    } else if (e.target.classList.contains("sheet-request-tutor")) {
+
+        const mandatoryFields = document.querySelectorAll("[field$='*']")
+        // add empty box emphasis class
+        mandatoryFields.forEach(qel => {
+            if (qel.getAttribute("selected") == "Select..." || (qel.innerText == "" && qel.getAttribute("selected") == null)) {
+                ["red", "unfilled-box"].forEach(x => qel.classList.add(x))
+            }
+        })
     }
 
     if (e.target.classList.contains("filter-button")) { // Click on filter button toggle filter menu and turn others off
@@ -243,18 +252,20 @@ document.body.onclick = function (e) {
     }
 
 
-    //choosing a container option refreshes the button
 
+    //choosing a container option refreshes the button
     if (e.target.classList.contains("request-item-container")) {
         const mandatoryFields = document.querySelectorAll("[field$='*']")
-        const allFilled = Object.values(mandatoryFields).map(x => x.innerText != "" || x.getAttribute("selected") != "Select...")
+        const allFilled = Object.values(mandatoryFields).map(x => !(x.getAttribute("selected") == "Select..." || (x.innerText == "" && x.getAttribute("selected") == null)))
 
+        mandatoryFields.forEach(qel => {
+            ["red", "unfilled-box"].forEach(x => qel.classList.remove(x))
+        })
 
         if (allFilled.every(x => x)) {
             document.getElementById("sheet-request-tutor-request").classList.remove("disabled-button")
         } else {
             document.getElementById("sheet-request-tutor-request").classList.add("disabled-button")
-
         }
     }
 
@@ -265,17 +276,20 @@ document.body.onclick = function (e) {
     }
 }
 
+
+
 document.body.oninput = function (e) { // checking that mandatory fields are filled
     const mandatoryFields = document.querySelectorAll("[field$='*']")
-    const allFilled = Object.values(mandatoryFields).map(x => x.innerText != "" || x.getAttribute("selected") != "Select...")
+    const allFilled = Object.values(mandatoryFields).map(x => !(x.getAttribute("selected") == "Select..." || (x.innerText == "" && x.getAttribute("selected") == null)))
 
-    // remove empty box emphasis class
+    mandatoryFields.forEach(qel => {
+        ["red", "unfilled-box"].forEach(x => qel.classList.remove(x))
+    })
 
     if (allFilled.every(x => x)) {
         document.getElementById("sheet-request-tutor-request").classList.remove("disabled-button")
     } else {
         document.getElementById("sheet-request-tutor-request").classList.add("disabled-button")
-        // add empty box emphasis class
     }
 }
 
