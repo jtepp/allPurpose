@@ -1,0 +1,120 @@
+:root {
+    --half-flip-time: 250ms;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 700px;
+    border: 1px solid #333;
+    transition: transform ease-in-out calc(var(--half-flip-time) + var(--half-flip-time));
+    z-index: 1;
+}
+
+#p1 {
+    transform-origin: left;
+    border-radius: 0 5px 5px 0;
+    left: 33.3%;
+}
+
+#p2 {
+    transform-origin: right;
+    border-radius: 5px 0 0 5px;
+    left: -33.3%;
+}
+
+#p3 {
+    z-index: 0;
+}
+
+
+.page>div {
+    position: absolute;
+    display: flex;
+    transition: z-index linear 0s;
+    transition-delay: var(--half-flip-time);
+
+}
+
+.front {
+    z-index: 10;
+}
+
+.back {
+    z-index: 9;
+    transform: rotateY(180deg);
+}
+
+.front {
+    background-color: #f00;
+}
+
+.back {
+    background-color: #0f0;
+}
+
+.page.flipped,
+#book.flipped .page {
+    transform: rotateY(180deg);
+}
+
+
+#book.flipped .back {
+    z-index: 9;
+}
+
+#book.flipped .front {
+    z-index: 10;
+}
+
+
+.page.flipped>.back {
+    z-index: 10;
+}
+
+.page.flipped>.front {
+    z-index: 9;
+}
+
+#book.flipped #p3 {
+    transform: rotateY(0deg);
+}
+
+#book.flipped #p3>.back {
+    z-index: 10;
+}
+
+#book.flipped #p3>.front {
+    z-index: 9;
+}
+
+
+.top {
+    z-index: 2;
+}
+
+#book {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    transform-origin: center;
+    transition: transform ease-in-out calc(var(--half-flip-time) + var(--half-flip-time));
+}
+
+#book.flipped {
+    transform: rotateY(180deg);
+}
