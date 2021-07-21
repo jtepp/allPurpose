@@ -1,5 +1,5 @@
 :root {
-    --half-flip-time: 250ms;
+    --flip-duration: 400ms;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
     width: 350px;
     height: 700px;
     border: 1px solid #333;
-    transition: transform ease-in-out calc(var(--half-flip-time) + var(--half-flip-time));
+    transition: transform ease-in-out var(--flip-duration);
     z-index: 1;
 }
 
@@ -44,7 +44,7 @@ body {
     position: absolute;
     display: flex;
     transition: z-index linear 0s;
-    transition-delay: var(--half-flip-time);
+    transition-delay: calc(var(--flip-duration) / 2);
 
 }
 
@@ -112,7 +112,7 @@ body {
     width: fit-content;
     height: fit-content;
     transform-origin: center;
-    transition: transform ease-in-out calc(var(--half-flip-time) + var(--half-flip-time));
+    transition: transform ease-in-out var(--flip-duration);
 }
 
 #book.flipped {
