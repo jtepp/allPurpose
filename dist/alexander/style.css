@@ -441,7 +441,7 @@ body {
     border-radius: 10px;
     max-height: 80vh;
     max-width: 80vw;
-    transition: top var(--transition);
+    transition: top var(--transition), transform var(--transition);
     height: fit-content;
 }
 
@@ -799,15 +799,28 @@ body {
     pointer-events: none;
 }
 
-.sopen #sheet-container {
+/* .sopen #sheet-container {
     top: 50%;
 }
 
 .sclosed #sheet-container {
     top: calc(50% + 10vh);
+} */
+
+/* square open transition instead */
+
+#sheet-container {
+    top: 50%;
 }
 
+.sopen #sheet-container {
+    transform: translate(-50%, -50%) scale(1);
+}
 
+.sclosed #sheet-container {
+    transition: transform 0s;
+    transform: translate(-50%, -50%) scale(0);
+}
 
 .preload * {
     -webkit-transition: none !important;
