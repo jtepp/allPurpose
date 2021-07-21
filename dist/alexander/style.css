@@ -783,7 +783,7 @@ body {
 }
 
 [selected="Select..."].unfilled-box::after {
-    content: "Required field";
+    content: "";
     color: var(--black);
     width: max-content;
     color: #333;
