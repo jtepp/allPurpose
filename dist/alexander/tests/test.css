@@ -174,6 +174,10 @@ a:visited {
     color: blue;
 }
 
+a {
+    display: inline-block;
+}
+
 #link1 {
     text-decoration: none;
     position: relative;
@@ -200,31 +204,23 @@ a:visited {
 } */
 
 #link2 {
-    transition: font-size var(--transition);
+    transform: translateY(0);
+    transition: transform var(--transition);
 }
 
 #link2:hover {
-    font-size: x-large;
+    transform: translateY(-5px);
 }
 
 #link3 {
-    position: relative;
-    user-select: none;
-    color: transparent;
+    transition: transform var(--transition);
+    transform: scale(1);
 }
 
-#link3::before {
-    user-select: all;
-    top: -2px;
-    content: attr(value);
-    color: blue;
-    position: absolute;
-    transition: top var(--transition);
-    text-decoration: underline;
+#link3:hover {
+    transform: scale(1.05);
 }
 
-
-
-#link3:hover::before {
-    top: calc(-10px);
+#link4 {
+    transform: scale(10);
 }
