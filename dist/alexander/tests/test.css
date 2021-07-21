@@ -165,3 +165,66 @@ body {
         top: 50%;
     }
 }
+
+p {
+    font-size: larger;
+}
+
+a:visited {
+    color: blue;
+}
+
+#link1 {
+    text-decoration: none;
+    position: relative;
+}
+
+#link1::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 0px;
+    width: 0;
+    height: 2px;
+    background: blue;
+    transition: width var(--transition);
+}
+
+#link1:hover::after {
+    width: 100%;
+}
+
+/* #link2 {
+    transform: scale(1);
+    transition: transform var(--transition);
+} */
+
+#link2 {
+    transition: font-size var(--transition);
+}
+
+#link2:hover {
+    font-size: x-large;
+}
+
+#link3 {
+    position: relative;
+    user-select: none;
+    color: transparent;
+}
+
+#link3::before {
+    user-select: all;
+    top: -2px;
+    content: attr(value);
+    color: blue;
+    position: absolute;
+    transition: top var(--transition);
+    text-decoration: underline;
+}
+
+
+
+#link3:hover::before {
+    top: calc(-10px);
+}
