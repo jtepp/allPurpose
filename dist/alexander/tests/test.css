@@ -221,8 +221,43 @@ a {
     transform: scale(1.05);
 }
 
+
 #link4 {
-    transform: scale(10);
+    text-decoration: none;
+}
+
+#link4:hover {
+    text-decoration: underline;
+}
+
+#link5 {
+    color: rgb(0, 0, 83);
+}
+
+#link5:hover {
+    color: rgb(46, 46, 255);
+}
+
+#link6:hover {
+    animation: pulse 200ms linear;
+}
+
+#link7:hover {
+    color: white;
+    background: blue;
+    border-radius: 10%;
+    padding: 6px;
+    margin: -6px;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 
