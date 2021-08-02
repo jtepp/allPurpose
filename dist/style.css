@@ -10,12 +10,20 @@
     --green: #34c759;
     --red: #ff3b30;
     --yellow: #ffc800;
+    --light-grey: #a0a0a0;
+    --picker-bg: #3d3c42;
+    --picker-over: rgba(184, 184, 184, 0.25);
+    --picker-padding: 2px;
+    --over-left-purpose: 0px;
+    --over-left-platform: 0px;
 }
 
 body {
     background: #161616;
     color: white;
     /* transition: all 0.5s ease-in-out; */
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -138,12 +146,14 @@ p {
 }
 
 #allfunctions {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     row-gap: 100px;
+    column-gap: 100px;
     /* max-width: 100vw; */
     overflow-x: scroll;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 0px -8px;
 }
@@ -186,9 +196,11 @@ hr {
 
 #allsites {
     /* margin: 30px 0px; */
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-    justify-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #snapcode {
@@ -330,19 +342,19 @@ hr {
     transform: rotate(315deg);
 }
 
-.iosandroid {
+[iosandroid] .platformtag {
     background-color: var(--green);
 }
 
-.ios {
+[ios] .platformtag {
     background-color: var(--blue);
 }
 
-.snap {
+[snap] .platformtag {
     background-color: var(--yellow);
 }
 
-.website {
+[web] .platformtag {
     background-color: var(--red);
 }
 
@@ -552,11 +564,11 @@ pp {
     transform: translate(33%, -50%) scale(0.8);
 }
 
-@media(max-width: 1100px) {
+/* @media(max-width: 1100px) {
     #allsites {
         grid-template-columns: auto;
     }
-}
+} */
 
 @media(max-width: 970px) {
     #allfunctions {
@@ -651,12 +663,108 @@ pp {
 
 
 a>v {
-    font-size: 0.5em;
+    font-size: 0.6em;
+    padding: 2px 6px;
     border-radius: 1em;
     background-color: var(--blue);
-    padding: 4px;
+}
+
+a>jj {
+    font-size: 0.6em;
+    padding: 2px 6px;
+    border-radius: 1em;
+    background-color: #fff;
+    color: black;
 }
 
 #splliticon {
     box-shadow: 0px 0px 1px 0px white;
+}
+
+/* Picker */
+
+picker {
+    align-self: center;
+    position: relative;
+    background: var(--picker-bg);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    padding: var(--picker-padding);
+    margin-bottom: 60px;
+}
+
+picker:last-of-type {
+    margin-bottom: 80px;
+}
+
+picker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    border-radius: 6px;
+    transition: left 200ms ease-out;
+    background: var(--picker-over);
+    width: 100px;
+    height: calc(100% - calc(var(--picker-padding) + var(--picker-padding)));
+    margin: var(--picker-padding);
+    pointer-events: none;
+}
+
+#picker-purpose::after {
+    left: var(--over-left-purpose);
+}
+
+#picker-platform::after {
+    left: var(--over-left-platform);
+}
+
+
+picker>.picker-item {
+    text-align: center;
+    width: 100px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+picker>.picker-item::after {
+    content: attr(value);
+    width: 100%;
+    pointer-events: none;
+}
+
+/* purpose */
+
+picker[value="Personal"]+picker+#allsites>:not(.sitecard[personal]) {
+    display: none;
+}
+
+picker[value="Work"]+picker+#allsites>:not(.sitecard[work]) {
+    display: none;
+}
+
+picker[value="School"]+picker+#allsites>:not(.sitecard[school]) {
+    display: none;
+}
+
+/* platform */
+
+picker[value="Web"]+#allsites>:not(.sitecard[web]) {
+    display: none;
+}
+
+picker[value="iOS"]+#allsites>:not(.sitecard[ios]) {
+    display: none;
+}
+
+picker[value="Snapchat"]+#allsites>:not(.sitecard[snap]) {
+    display: none;
+}
+
+picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]) {
+    display: none;
 }
