@@ -18,7 +18,8 @@
     --over-left-platform: 0px;
 }
 
-body {
+body,
+#notHead {
     background: #161616;
     color: white;
     /* transition: all 0.5s ease-in-out; */
