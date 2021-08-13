@@ -1,4 +1,8 @@
 const coordSearch = document.getElementById('coordsearch')
+const imgSearch = document.getElementById('imgsearch')
+const dateSearch = document.getElementById('datesearch')
+const redSearch = document.getElementById('redsearch')
+
 //missions
 document.getElementById('missionstestbutton').onclick = async () => {
     return await fetch("https://allpurpose.netlify.app/.netlify/functions/missions")
