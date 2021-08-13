@@ -1,3 +1,4 @@
+const coordSearch = document.getElementById('coordsearch')
 //missions
 document.getElementById('missionstestbutton').onclick = async () => {
     return await fetch("https://allpurpose.netlify.app/.netlify/functions/missions")
