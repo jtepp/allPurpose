@@ -14,3 +14,7 @@ function addScript(page) {
     script.src = +page + ".js"
     document.body.appendChild(script)
 }
+
+document.getElementById("sidebar-button").onclick = function () {
+    document.getElementById("sidebar").classList.toggle("sidebar-opened")
+}

@@ -45,15 +45,17 @@
         <br>
         <br>
         <br>
-
-        <div id="socialbox">
+        <style>
+            #copyright {}
+        </style>
+        <!-- <div class="socialbox">
             <img class="socialitem" src="resources/linkedin.png" alt="linkedin"
                 onclick="window.location.href = `https://www.linkedin.com/in/jtepp/`">
             <img class="socialitem" src="resources/github.png" alt="github"
                 onclick="window.location.href = `https://www.github.com/jtepp`">
             <img class="socialitem" src="resources/mail.png" alt="mail"
                 onclick="window.location.href = `mailto:jtepp@icloud.com`">
-        </div>
+        </div> -->
 
         <center id="copyright">
             © Jacob Tepperman 2021
@@ -61,18 +63,47 @@
 
     </div>
 
+
     <div id="sidebar">
-        <div class="sidebar-item" id="sidebar-home"></div>
-        <div class="sidebar-item" id="sidebar-projects"></div>
-        <div class="sidebar-item" id="sidebar-functions"></div>
-        <div class="sidebar-item" id="sidebar-games"></div>
-        <div class="sidebar-item" id="sidebar-contact"></div>
+        <div id="sidebar-item-cont">
+            <div class="sidebar-item" id="sidebar-home" current>
+                <img class="sidebar-item-img" src="resources/sidebar/home.svg" alt="">
+                <a class="sidebar-item-link" href="/">Home</a>
+            </div>
+            <div class="sidebar-item" id="sidebar-projects">
+                <img class="sidebar-item-img" src="resources/sidebar/projects.svg" alt="">
+                <a class="sidebar-item-link" href="/projects">Projects</a>
+            </div>
+            <div class="sidebar-item" id="sidebar-functions">
+                <img class="sidebar-item-img" src="resources/sidebar/functions.svg" alt="">
+                <a class="sidebar-item-link" href="/functions">Functions</a>
+            </div>
+            <div class="sidebar-item" id="sidebar-games">
+                <img class="sidebar-item-img" src="resources/sidebar/games.svg" alt="">
+                <a class="sidebar-item-link" href="/games">Games</a>
+            </div>
+            <div class="sidebar-item" id="sidebar-contact">
+                <img class="sidebar-item-img" src="resources/sidebar/contact.svg" alt="">
+                <a class="sidebar-item-link" href="/contact">Contact</a>
+            </div>
+        </div>
+        <div class="socialbox">
+            <img class="socialitem" src="resources/linkedin.png" alt="linkedin"
+                onclick="window.location.href = `https://www.linkedin.com/in/jtepp/`">
+            <img class="socialitem" src="resources/github.png" alt="github"
+                onclick="window.location.href = `https://www.github.com/jtepp`">
+            <img class="socialitem" src="resources/mail.png" alt="mail"
+                onclick="window.location.href = `mailto:jtepp@icloud.com`">
+        </div>
     </div>
+    <div id="sidebar-button">
+        <div id="sidebar-button-midline"></div>
+    </div>
+    <div id="sidebar-back"></div>
 
     <script src="index.js"></script>
     <script src="name.js"></script>
     <script src="sidebar.js"></script>
-
 </body>
 
 </html>
