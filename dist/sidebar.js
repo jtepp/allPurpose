@@ -48,4 +48,5 @@ document.querySelector("[current]").onmouseleave = function () {
 
 for (let el of document.getElementsByClassName("preload")) {
     el.classList.remove("preload")
+    console.log(el.id)
 }
