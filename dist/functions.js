@@ -1,23 +1,23 @@
-let len = "JacobTepperman".length
-let inputs = document.getElementsByTagName('input')
-let tipcircles = document.getElementsByClassName("tipcircle")
-let coordSearch = document.getElementById('coordsearch')
-let imgSearch = document.getElementById('imgsearch')
-let dateSearch = document.getElementById('datesearch')
-let redSearch = document.getElementById('redsearch')
-let first = document.getElementById('first')
-let last = document.getElementById('last')
+const len = "JacobTepperman".length
+const inputs = document.getElementsByTagName('input')
+const tipcircles = document.getElementsByClassName("tipcircle")
+const coordSearch = document.getElementById('coordsearch')
+const imgSearch = document.getElementById('imgsearch')
+const dateSearch = document.getElementById('datesearch')
+const redSearch = document.getElementById('redsearch')
+const first = document.getElementById('first')
+const last = document.getElementById('last')
 var i = 0
 
 for (let l of "Jacob") {
-    let e = document.createElement("x")
+    const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i - len + "s"
     first.appendChild(e)
     i++
 }
 for (let l of "Tepperman") {
-    let e = document.createElement("x")
+    const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i - len + "s"
     last.appendChild(e)

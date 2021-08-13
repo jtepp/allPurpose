@@ -1,19 +1,19 @@
-let len = "JacobTepperman".length
-let first = document.getElementById('first')
-let last = document.getElementById('last')
+const len = "JacobTepperman".length
+const first = document.getElementById('first')
+const last = document.getElementById('last')
 var i = 0
 
-for (let l of "Jacob") {
-    let e = document.createElement("x")
+for (let l of "Jacob"){
+    const e = document.createElement("x")
     e.innerHTML = l
-    e.style.animationDelay = i - len + "s"
+    e.style.animationDelay = i-len+"s"
     first.appendChild(e)
     i++
 }
-for (let l of "Tepperman") {
-    let e = document.createElement("x")
+for (let l of "Tepperman"){
+    const e = document.createElement("x")
     e.innerHTML = l
-    e.style.animationDelay = i - len + "s"
+    e.style.animationDelay = i-len+"s"
     last.appendChild(e)
     i++
 }

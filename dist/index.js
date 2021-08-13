@@ -1,18 +1,18 @@
-let header = document.body.querySelector("header")
-let len = "JacobTepperman".length
-let first = document.getElementById('first')
-let last = document.getElementById('last')
+const header = document.body.querySelector("header")
+const len = "JacobTepperman".length
+const first = document.getElementById('first')
+const last = document.getElementById('last')
 var i = 0
 
 for (let l of "Jacob") {
-    let e = document.createElement("x")
+    const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i - len + "s"
     first.appendChild(e)
     i++
 }
 for (let l of "Tepperman") {
-    let e = document.createElement("x")
+    const e = document.createElement("x")
     e.innerHTML = l
     e.style.animationDelay = i - len + "s"
     last.appendChild(e)
@@ -32,7 +32,7 @@ function changePage(page) {
 
 function addScript(page) {
     document.querySelector("script").remove()
-    let script = document.createElement('script')
+    const script = document.createElement('script')
     script.src = "/" + page + ".js"
     document.body.appendChild(script)
 }
