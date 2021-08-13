@@ -1,23 +1,3 @@
-const len = "JacobTepperman".length
-const first = document.getElementById('first')
-const last = document.getElementById('last')
-var i = 0
-
-for (let l of "Jacob") {
-    const e = document.createElement("x")
-    e.innerHTML = l
-    e.style.animationDelay = i - len + "s"
-    first.appendChild(e)
-    i++
-}
-for (let l of "Tepperman") {
-    const e = document.createElement("x")
-    e.innerHTML = l
-    e.style.animationDelay = i - len + "s"
-    last.appendChild(e)
-    i++
-}
-
 //picker
 for (let el of document.getElementsByClassName("picker-item")) {
     el.onclick = () => {

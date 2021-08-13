@@ -1,135 +1,153 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset=“UTF-8”>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-        <link rel="stylesheet" href="style.css">
-        <title>Functions | Jacob Tepperman</title>
-    </head>
+<head>
+    <meta charset=“UTF-8”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-    <body>
-        <header class="name">
-            <span id="namebox" class="nb" onclick="window.location = '/'">
-                <span id="first"></span>
-                <span id="last"></span>
-            </span>
-            <c>
-                <h1>Functions</h2>
-            </c>
-            
-        </header>
+    <link rel="stylesheet" href="style.css">
+    <title>Functions | Jacob Tepperman</title>
+</head>
+
+<body>
+    <header class="name">
+        <span id="namebox" class="nb" onclick="window.location = '/'">
+            <span id="first"></span>
+            <span id="last"></span>
+        </span>
+        <c>
+            <h1>Functions</h2>
+        </c>
+
+    </header>
 
 
-        <br>
-        <br>
-        <div id="allfunctions">
+    <br>
+    <br>
+    <div id="allfunctions">
 
-            <div class="functionscard">
-                <div class="front">
-                    <div class="covercont">
+        <div class="functionscard">
+            <div class="front">
+                <div class="covercont">
                     <button class="testbutton" id="missionstestbutton"></button>
                     <div class="h2" id="missionstesttitle">Missions</div>
-                    <textarea class="code full" id="missionstext" readonly ></textarea>
-                    </div>
-                    <div class="expandcont">
-                        <img src="resources/chevron.png" alt=">" class="chevron-right">
-                        <div class="hiddenexpand">
-                            <p>
-                                This function is for an app called <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a> which I worked on over the summer of 2020. Calling the function will return data for the soonest upcoming rocket launch. This includes satellites, rovers, astronauts, etc.<br><br>Mission data was sourced from <a href="spaceflightnow.com">Spaceflight Now</a>
-                            </p>
-                        </div>
+                    <textarea class="code full" id="missionstext" readonly></textarea>
+                </div>
+                <div class="expandcont">
+                    <img src="resources/chevron.png" alt=">" class="chevron-right">
+                    <div class="hiddenexpand">
+                        <p>
+                            This function is for an app called <a
+                                href=“https://github.com/wildchild9/rocketeer”>Rocketeer </a> which I worked on over the
+                                summer of 2020. Calling the function will return data for the soonest upcoming rocket
+                                launch. This includes satellites, rovers, astronauts, etc.<br><br>Mission data was
+                                sourced from <a href="spaceflightnow.com">Spaceflight Now</a>
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="functionscard">
-                <div class="front">
-                    <div class="covercont">
-                        <button class="testbutton" id="coordstestbutton"></button>
-                        <div class="h2" id="coordstesttitle">Coordinates</div>
-                        <div class="functionsinput code" id="coordsearch" contenteditable ph="Location..."></div>
-                        <textarea class="code result" id="coordstext"  readonly></textarea>
-                    </div>
-                    <div class="expandcont">
-                        <img src="resources/chevron.png" alt=">" class="chevron-right">
-                        <div class="hiddenexpand">
-                            <p>
-                                This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the longitude and latitude for any location given by name in a format that can be easily read and parsed by Apple’s Swift MapKit.<br><br>Coordinates data was sourced from <a href="opencagedata.com">OpenCage Geocoding</a>
-                            </p>
-                        </div>
+        <div class="functionscard">
+            <div class="front">
+                <div class="covercont">
+                    <button class="testbutton" id="coordstestbutton"></button>
+                    <div class="h2" id="coordstesttitle">Coordinates</div>
+                    <div class="functionsinput code" id="coordsearch" contenteditable ph="Location..."></div>
+                    <textarea class="code result" id="coordstext" readonly></textarea>
+                </div>
+                <div class="expandcont">
+                    <img src="resources/chevron.png" alt=">" class="chevron-right">
+                    <div class="hiddenexpand">
+                        <p>
+                            This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer
+                                </a>. Calling this function will return the longitude and latitude for any location
+                                given by name in a format that can be easily read and parsed by Apple’s Swift
+                                MapKit.<br><br>Coordinates data was sourced from <a href="opencagedata.com">OpenCage
+                                    Geocoding</a>
+                        </p>
                     </div>
                 </div>
             </div>
-            
-            
-            <div class="functionscard">
-                <div class="front">
-                    <div class="covercont">
-                        <button class="testbutton" id="imgtestbutton"></button>
-                        <div class="h2" id="imgtesttitle">Images</div>
-                        <div class="functionsinput code" id="imgsearch" contenteditable ph="Image..."></div>
-                        <div class="textarea code result"><img src="" alt="Image result will appear here" id="imgimg"></div>
-                    </div>
-                    <div class="expandcont">
-                        <img src="resources/chevron.png" alt=">" class="chevron-right">
-                        <div class="hiddenexpand">
-                            <p>
-                                This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the base 64 encoded data for a low quality image based on your search. The function can also return the URL for the image.<br><br>Images are sourced from <a href="https://images.google.com">Google Images</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="functionscard">
-                <div class="front">
-                    <div class="covercont">
-                        <button class="testbutton" id="datetestbutton"></button>
-                        <div class="h2" id="datetesttitle">Dateparse</div>
-                        <div class="functionsinput code" id="datesearch" contenteditable ph="Date..."></div>
-                        <textarea class="code result" id="datetext"  readonly></textarea>
-                    </div>
-                    <div class="expandcont">
-                        <img src="resources/chevron.png" alt=">" class="chevron-right">
-                        <div class="hiddenexpand">
-                            <p>
-                                This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a>. Calling this function will return the inputted date in a uniform format which can be easily parsed by Swift.</br></br>The editor for the <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer</a> source data often made inconsistencies in their date formatting, causing Swift to crash our app. This function helped maintain a consistent and future proof date formatting process.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            
-            <div class="functionscard">
-                <div class="front">
-                    <div class="covercont">
-                        <button class="testbutton" id="redtestbutton"></button>
-                        <div class="h2" id="redtesttitle">Reddit</div>
-                        <div class="functionsinput code" id="redsearch" contenteditable ph="Subreddit..."></div>
-                        <textarea class="code result" id="redtext"  readonly></textarea>
-                    </div>
-                    <div class="expandcont">
-                        <img src="resources/chevron.png" alt=">" class="chevron-right">
-                        <div class="hiddenexpand">
-                            <p>
-                                This function was made for <a href=“https://github.com/jtepp/widgit”>Widgit</a>, an app I made in the summer of 2020 which allows you to create and fully customize an iOS 14 home screen widget for <a href="https://reddit.com">Reddit</a> posts. Calling this function will return the top post in any subreddit.<br><br>The function can also be given an offset value to skip the first few posts, different ways to sort the posts, or specified limits of the amount of posts to return.
-                            </p>
-                        </div>
+
+        <div class="functionscard">
+            <div class="front">
+                <div class="covercont">
+                    <button class="testbutton" id="imgtestbutton"></button>
+                    <div class="h2" id="imgtesttitle">Images</div>
+                    <div class="functionsinput code" id="imgsearch" contenteditable ph="Image..."></div>
+                    <div class="textarea code result"><img src="" alt="Image result will appear here" id="imgimg"></div>
+                </div>
+                <div class="expandcont">
+                    <img src="resources/chevron.png" alt=">" class="chevron-right">
+                    <div class="hiddenexpand">
+                        <p>
+                            This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer
+                                </a>. Calling this function will return the base 64 encoded data for a low quality image
+                                based on your search. The function can also return the URL for the image.<br><br>Images
+                                are sourced from <a href="https://images.google.com">Google Images</a>
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            
-<!--             
+        <div class="functionscard">
+            <div class="front">
+                <div class="covercont">
+                    <button class="testbutton" id="datetestbutton"></button>
+                    <div class="h2" id="datetesttitle">Dateparse</div>
+                    <div class="functionsinput code" id="datesearch" contenteditable ph="Date..."></div>
+                    <textarea class="code result" id="datetext" readonly></textarea>
+                </div>
+                <div class="expandcont">
+                    <img src="resources/chevron.png" alt=">" class="chevron-right">
+                    <div class="hiddenexpand">
+                        <p>
+                            This function was also made for <a href=“https://github.com/wildchild9/rocketeer”>Rocketeer
+                                </a>. Calling this function will return the inputted date in a uniform format which can
+                                be easily parsed by Swift.</br> </br>The editor for the <a
+                                href=“https://github.com/wildchild9/rocketeer”>Rocketeer </a> source data often made
+                                inconsistencies in their date formatting, causing Swift to crash our app. This function
+                                helped maintain a consistent and future proof date formatting process. </p> </div>
+                                </div> </div> </div> <div class="functionscard">
+                                <div class="front">
+                                    <div class="covercont">
+                                        <button class="testbutton" id="redtestbutton"></button>
+                                        <div class="h2" id="redtesttitle">Reddit</div>
+                                        <div class="functionsinput code" id="redsearch" contenteditable
+                                            ph="Subreddit..."></div>
+                                        <textarea class="code result" id="redtext" readonly></textarea>
+                                    </div>
+                                    <div class="expandcont">
+                                        <img src="resources/chevron.png" alt=">" class="chevron-right">
+                                        <div class="hiddenexpand">
+                                            <p>
+                                                This function was made for <a
+                                                    href=“https://github.com/jtepp/widgit”>Widgit </a>, an app I made in
+                                                    the summer of 2020 which allows you to create and fully customize an
+                                                    iOS 14 home screen widget for <a
+                                                    href="https://reddit.com">Reddit</a> posts. Calling this function
+                                                will return the top post in any subreddit.<br><br>The function can also
+                                                be given an offset value to skip the first few posts, different ways to
+                                                sort the posts, or specified limits of the amount of posts to return.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+
+
+                    <!--             
 
             <form class=“functionsbox”>
                 
@@ -152,11 +170,13 @@
 
 
 
-        </div>
+                </div>
 
-        <center id="copyright">
-            © Jacob Tepperman 2021
-        </center>
-        <script src="functions.js"></script>
-    </body>
+                <center id="copyright">
+                    © Jacob Tepperman 2021
+                </center>
+                <script src="functions.js"></script>
+                <script src="name.js"></script>
+</body>
+
 </html>

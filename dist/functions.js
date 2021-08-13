@@ -1,29 +1,3 @@
-const len = "JacobTepperman".length
-const inputs = document.getElementsByTagName('input')
-const tipcircles = document.getElementsByClassName("tipcircle")
-const coordSearch = document.getElementById('coordsearch')
-const imgSearch = document.getElementById('imgsearch')
-const dateSearch = document.getElementById('datesearch')
-const redSearch = document.getElementById('redsearch')
-const first = document.getElementById('first')
-const last = document.getElementById('last')
-var i = 0
-
-for (let l of "Jacob") {
-    const e = document.createElement("x")
-    e.innerHTML = l
-    e.style.animationDelay = i - len + "s"
-    first.appendChild(e)
-    i++
-}
-for (let l of "Tepperman") {
-    const e = document.createElement("x")
-    e.innerHTML = l
-    e.style.animationDelay = i - len + "s"
-    last.appendChild(e)
-    i++
-}
-
 //missions
 document.getElementById('missionstestbutton').onclick = async () => {
     return await fetch("https://allpurpose.netlify.app/.netlify/functions/missions")
