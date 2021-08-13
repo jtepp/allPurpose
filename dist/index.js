@@ -21,10 +21,17 @@ for (let l of "Tepperman") {
 
 // function to change page without re-rendering
 function changePage(page) {
-    fetch("https://jacobtepperman.com/page/" + page)
+    fetch("/" + page)
         .then(response => response.text())
         .then(text => {
-            console.log(text)
+            document.body.innerHTML = text
+
             window.history.pushState("/" + page, page + " | Jacob Tepperman", "/" + page)
         })
+}
+
+function addScript(page) {
+    const script = document.createElement('script')
+    script.src = "/" + page + ".js"
+    document.body.appendChild(script)
 }
