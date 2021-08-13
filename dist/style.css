@@ -755,7 +755,6 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     display: flex;
     flex-direction: column;
     row-gap: clamp(10px, 6vh, 60px);
-
 }
 
 
@@ -789,6 +788,11 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
 }
 
 @media (min-width: 731px) {
+
+    .socialitem {
+        width: 100%;
+    }
+
     header {
         margin-left: 60px;
     }
@@ -997,6 +1001,11 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     #sidebar.sidebar-opened+#sidebar-button::after {
         transform: rotate(-45deg);
     }
+
+    #sidebar-item-cont {
+        row-gap: 10px, 8vh, 60px;
+    }
+
 }
 
 @media (max-width: 580px) {
