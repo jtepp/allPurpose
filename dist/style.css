@@ -56,7 +56,7 @@ header {
 .name c {
     z-index: 0;
     position: absolute;
-    width: 100vw;
+    width: calc(100% - 120px);
     display: flex;
     align-items: center;
     justify-content: center;
