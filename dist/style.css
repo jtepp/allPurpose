@@ -136,6 +136,10 @@ header {
     justify-items: center;
 }
 
+header {
+    margin-left: 60px;
+}
+
 a,
 a:visited {
     color: white;

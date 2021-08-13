@@ -14,33 +14,33 @@
 
 </head>
 
-<div id="notHead">
-    <style>
-        .guide-body {
-            background-color: #161616;
-            color: white;
-            padding: .5em;
-            border-radius: 1em;
-        }
+<body>
+    <header>
+        <span id="namebox" class="nb" onclick="window.location = '/'">
+            <span id="first"></span>
+            <span id="last"></span>
+            <title>Contact | Jacob Tepperman</title>
+        </span>
+    </header>
+    <div id="notHead">
+        <style>
+            .guide-body {
+                background-color: #161616;
+                color: white;
+                padding: .5em;
+                border-radius: 1em;
+            }
 
-        .guide-header {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
+            .guide-header {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
 
-        form {
-            text-align: left;
-        }
-    </style>
+            form {
+                text-align: left;
+            }
+        </style>
 
-    <body>
-        <header>
-            <span id="namebox" class="nb" onclick="window.location = '/'">
-                <span id="first"></span>
-                <span id="last"></span>
-                <title>Contact | Jacob Tepperman</title>
-            </span>
-        </header>
         <center>
             <form style="margin-left:40px; width: 40%;" action="/" method="post" name="contact" data-netlify="true"
                 netlify netlify-honeypot="honeypot" class="formstuff" style="width: 40vw;">
@@ -86,10 +86,12 @@
             © Jacob Tepperman 2021
         </center>
 
-</div>
+    </div>
 
-<script src="contact.js"></script>
-<script src="name.js"></script>
+    <script src="contact.js"></script>
+    <script src="name.js"></script>
+    <script src="sidebar.js"></script>
+
 </body>
 
 </html>
