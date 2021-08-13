@@ -971,7 +971,7 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
         content: '';
         width: 80%;
         height: 4px;
-        transform-origin: center;
+        transform-origin: left;
         background-color: white;
         border-radius: 4px;
         transition: transform var(--transition),
@@ -995,10 +995,12 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
 
     #sidebar.sidebar-opened+#sidebar-button::before {
         transform: rotate(45deg);
+        top: 10px;
     }
 
     #sidebar.sidebar-opened+#sidebar-button::after {
         transform: rotate(-45deg);
+        bottom: 12px;
     }
 
     #sidebar-item-cont {
