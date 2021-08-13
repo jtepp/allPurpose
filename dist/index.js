@@ -31,6 +31,7 @@ function changePage(page) {
 }
 
 function addScript(page) {
+    document.querySelector("script").remove()
     const script = document.createElement('script')
     script.src = "/" + page + ".js"
     document.body.appendChild(script)

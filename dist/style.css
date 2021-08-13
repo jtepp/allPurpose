@@ -155,7 +155,7 @@ p {
     overflow-x: scroll;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0px 165px;
+    padding: 0px 165px;
 }
 
 
