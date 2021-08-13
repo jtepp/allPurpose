@@ -3,7 +3,7 @@ function changePage(page) {
     fetch("/" + page)
         .then(response => response.text())
         .then(text => {
-            document.body.innerHTML = text
+            document.getElementById("notHead").innerHTML = text
 
             window.history.pushState("/" + page, page + " | Jacob Tepperman", "/" + page)
         })
