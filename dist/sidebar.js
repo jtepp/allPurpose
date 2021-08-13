@@ -45,3 +45,7 @@ document.querySelector("[current]").onmouseleave = function () {
     document.getElementById("sidebar").classList.remove("other-hover")
 
 }
+
+for (let el of document.getElementsByClassName("preload")) {
+    el.classList.remove("preload")
+}

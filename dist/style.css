@@ -1008,3 +1008,10 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
         margin-right: 30vw;
     }
 }
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
