@@ -224,7 +224,6 @@ hr {
 .socialitem {
     cursor: pointer;
     height: clamp(30px, 5.7vh, 40px);
-    width: 100%;
     object-fit: contain;
     object-position: center;
     filter: invert(1);
