@@ -149,8 +149,8 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: max(15%, 170px);
-    column-gap: 100px;
+    row-gap: 100px;
+    column-gap: max(15%, 170px);
     /* max-width: 100vw; */
     overflow-x: scroll;
     justify-content: center;
