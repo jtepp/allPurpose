@@ -18,6 +18,7 @@
     --over-left-platform: 0px;
     --transition: ease-out 200ms;
     --current-index: 1;
+    --picker-item-width: clamp(60px, 15vw, 100px);
 }
 
 body,
@@ -659,7 +660,7 @@ picker::after {
     border-radius: 6px;
     transition: left 200ms ease-out;
     background: var(--picker-over);
-    width: 100px;
+    width: var(--picker-item-width);
     height: calc(100% - calc(var(--picker-padding) + var(--picker-padding)));
     margin: var(--picker-padding);
     pointer-events: none;
@@ -676,7 +677,7 @@ picker::after {
 
 picker>.picker-item {
     text-align: center;
-    width: 100px;
+    width: var(--picker-item-width);
     line-height: 30px;
     cursor: pointer;
 }
@@ -685,6 +686,7 @@ picker>.picker-item::after {
     content: attr(value);
     width: 100%;
     pointer-events: none;
+    font-size: clamp(13px, 2vw, 16px);
 }
 
 /* purpose */
