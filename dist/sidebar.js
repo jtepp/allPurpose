@@ -15,6 +15,33 @@ function addScript(page) {
     document.body.appendChild(script)
 }
 
+document.querySelector(':root').style.setProperty('--current-index', document.querySelector('[current]').getAttribute('index'))
+
+
 document.getElementById("sidebar-button").onclick = function () {
     document.getElementById("sidebar").classList.toggle("sidebar-opened")
+}
+
+document.getElementById("sidebar").onmouseleave = function () {
+    document.getElementById("sidebar").classList.remove("other-hover")
+    document.querySelector(':root').style.setProperty('--current-index', document.querySelector('[current]').getAttribute('index'))
+}
+
+for (let el of document.getElementsByClassName("sidebar-item")) {
+    el.onmouseover = function () {
+        for (let elem of document.getElementsByClassName("sidebar-item")) {
+            elem.classList.remove("other-current")
+        }
+
+        el.classList.add("other-current")
+        document.getElementById("sidebar").classList.add("other-hover")
+
+        document.querySelector(':root').style.setProperty('--current-index', el.getAttribute('index'))
+    }
+}
+
+document.querySelector("[current]").onmouseleave = function () {
+    document.querySelector(':root').style.setProperty('--current-index', document.querySelector('[current]').getAttribute('index'))
+    document.getElementById("sidebar").classList.remove("other-hover")
+
 }

@@ -17,6 +17,7 @@
     --over-left-purpose: 0px;
     --over-left-platform: 0px;
     --transition: ease-out 200ms;
+    --current-index: 10;
 }
 
 body,
@@ -766,6 +767,7 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     font-size: clamp(18px, 4.5vh, 32px);
     height: clamp(26px, 5.7vh, 40px);
     cursor: pointer;
+    column-gap: 10px;
     /* transition: margin-left var(--transition); */
 }
 
@@ -781,7 +783,8 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
 .sidebar-item-img {
     object-fit: contain;
     object-position: center;
-    width: min(100%, 40px);
+    width: 40px;
+    margin-left: 10px;
     height: clamp(26px, 5.7vh, 40px);
 }
 
@@ -815,22 +818,43 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
         transform-origin: left;
         overflow: hidden;
         transition: width var(--transition);
-        margin-left: 10px;
     }
 
     #sidebar:hover .sidebar-item-link {
         width: 100%;
+        /* margin-left: 10px; */
     }
 
-    #sidebar .sidebar-item {
-        /* margin-inline: clamp(5px, 1.4vh, 10px); */
-        margin-inline: 10px;
-    }
+    /* #sidebar .sidebar-item {
+        width: 60px;
+    } */
 
-    [current] {
+
+    #sidebar-item-cont::before {
+        content: "";
+        position: absolute;
+        top: calc(calc(calc(calc(clamp(10px, 6vh, 60px) + clamp(26px, 5.7vh, 40px)) * var(--current-index)) - 2.86vh) - clamp(26px, 5.7vh, 40px));
+        left: 0px;
         border-radius: 4px;
+        background-color: white;
+        width: 100%;
+        height: clamp(26px, 5.7vh, 40px);
+        transition: top var(--transition);
+    }
+
+    #sidebar [current] {
         filter: invert(1);
-        background-color: black;
+    }
+
+
+
+    #sidebar.other-hover [current] {
+        filter: invert(0);
+    }
+
+    #sidebar .sidebar-item:hover,
+    .other-hover .other-current {
+        filter: invert(1);
     }
 }
 
