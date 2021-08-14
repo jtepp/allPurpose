@@ -784,7 +784,6 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     display: flex;
     flex-direction: row;
     column-gap: 10px;
-    width: 100%;
     cursor: pointer;
 }
 
@@ -1036,6 +1035,10 @@ box-icon {
 
     .socialitem {
         padding: 0;
+    }
+
+    .social-item-cont {
+        width: 100%;
     }
 
     .social-item-cont>.sidebar-item-link {
