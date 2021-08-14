@@ -776,6 +776,7 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     width: 40px;
     margin-left: 10px;
     height: clamp(26px, 5.7vh, 40px);
+    filter: invert(1);
 }
 
 @media (min-width: 731px) {
@@ -838,18 +839,18 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     }
 
     #sidebar [current] {
-        filter: invert(0);
+        filter: invert(1);
     }
 
 
 
     #sidebar.other-hover [current] {
-        filter: invert(1);
+        filter: invert(0);
     }
 
     #sidebar .sidebar-item:hover,
     .other-hover .other-current {
-        filter: invert(0);
+        filter: invert(1);
     }
 }
 
