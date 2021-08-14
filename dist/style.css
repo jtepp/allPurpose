@@ -219,6 +219,7 @@ hr {
     object-position: center;
     filter: invert(1);
     margin: 10px;
+    width: clamp(30px, 5.7vh, 40px);
 }
 
 #copyright {
@@ -1002,6 +1003,10 @@ box-icon {
 
     #sidebar-item-cont {
         row-gap: 10px, 8vh, 60px;
+    }
+
+    .socialitem {
+        padding: 0;
     }
 
 }
