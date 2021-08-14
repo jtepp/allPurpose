@@ -843,6 +843,10 @@ box-icon {
         /* width: 100%; */
     }
 
+    .social-item-cont {
+        width: 100%;
+    }
+
     .social-item-cont>.sidebar-item-link {
         margin-left: -10px;
         transform: translateY(10px);
@@ -1035,10 +1039,6 @@ box-icon {
 
     .socialitem {
         padding: 0;
-    }
-
-    .social-item-cont {
-        width: 100%;
     }
 
     .social-item-cont>.sidebar-item-link {
