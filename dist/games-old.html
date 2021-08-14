@@ -28,70 +28,78 @@
 
     </header>
 
+    <p id="gamestop" style="text-align: center;">
+        Welcome to my games!
+        <br>
+        <br>
+        These are all games I wrote in ProcessingJS on <a href="https://khanacademy.org">Khan Academy</a> in 2017/18.
+        You can see all my projects <a href="https://www.khanacademy.org/profile/jtepp/projects">here</a>.
+        <br>
+    </p>
     <div id="notHead">
 
         <div id="games">
-            <div id="arcade">
 
-                <div class="gamebox">
-                    <script id="game-script" src="games/paint.js"></script>
-                </div>
-                <div id="game-picker">
-                    <div class="game-cartridge-cont">
-                        <div class="game-cartridge" title="Ball Fight" f-width="600px" f-height="400px"
-                            url="https://www.khanacademy.org/computer-programming/ball-fight-culminating-game/6286638934687744/embedded?editor=no&buttons=no&author=no&embed=yes">
-                            <img src="games/thumbs/ballfight.png" alt="" class="cartridge-img">
-                            <div class="game-cartridge-overlay"></div>
-                        </div>
-                        <div class="game-description">
-                            Ball Fight is a 2-player game. Use the arrow keys and WASD to control the balls and fight.
-                            Hold shift to select a ball and weapon for player 1.
-                        </div>
-                    </div>
-                    <div class="game-cartridge-cont">
-                        <div class="game-cartridge" title="Cannon" f-width="400px" f-height="400px"
-                            url="https://www.khanacademy.org/computer-programming/cannon/5646330610352128/embedded?editor=no&buttons=no&author=no&embed=yes">
-                            <img src="games/thumbs/cannon.png" alt="" class="cartridge-img">
-                            <div class="game-cartridge-overlay"></div>
-                        </div>
-                        <div class="game-description">
-                            Click to fire cannonballs. Time it right and hit all the ships.
-                        </div>
-                    </div>
-
-                    <div class="game-cartridge-cont">
-                        <div class="game-cartridge" title="Helix Roll" f-width="400px" f-height="600px"
-                            url="https://www.khanacademy.org/computer-programming/helixroll/5995158211952640/embedded?editor=no&buttons=no&author=no&embed=yes">
-                            <img src="games/thumbs/helixroll.png" alt="" class="cartridge-img">
-                            <div class="game-cartridge-overlay"></div>
-                        </div>
-                        <div class="game-description">
-                            Use the left and right arrow keys to fall through the green holes. Move quickly to increase
-                            your multiplier, watch out for the red tiles, they steal points
-                        </div>
-                    </div>
-                </div>
-                <div class="game-cartridge-cont" id="current-game">
-                    <div class="game-cartridge" title="Paint" f-width="600px" f-height="600px"
-                        url="https://www.khanacademy.org/computer-programming/paintprogram-v-20/5116852584349696/embedded?editor=no&buttons=yes&author=yes&embed=yes">
-                        <img src="games/thumbs/paint.png" alt="" class="cartridge-img">
-                        <div class="game-cartridge-overlay"></div>
-                    </div>
-                    <div class="game-description">
-                        Press any key and move the mouse to draw, press alt and click a saved color to overwrite
-                        it, pressing alt also ends the shape when using the dot connect tool
-                    </div>
-                </div>
-            </div>
-            <h3 id="viewallgames"><a href="https://www.khanacademy.org/profile/jtepp/projects">View all my games</a>
+            <h3>
+                <a href="https://www.khanacademy.org/computer-programming/paintprogram-v-20/5116852584349696">Paint
+                    2.0</a>
             </h3>
-            <div id="details">
-                <h4>Controls</h4>
-                <p id="controls">
-                    Press any key and move the mouse to draw, press alt and click a saved color to overwrite it,
-                    pressing alt also ends the shape when using the dot connect tool
-                </p>
+            <pp>
+                Press any key and move the mouse to draw,<br>
+                press alt and click a saved color to overwrite it,<br>
+                pressing alt also ends the shape when using the dot connect tool
+            </pp>
+            <br>
+            <div class="gamebox">
+                <script src="games/paint.js"></script>
             </div>
+
+            <hr>
+            <h3>
+                <a href="https://www.khanacademy.org/computer-programming/helixroll/5995158211952640">Helix Roll</a>
+            </h3>
+            <pp>
+                Use the left and right arrow keys to fall through the green holes. <br>
+                Move quickly to increase your multiplier,
+                watch out for the red tiles, they steal points
+            </pp>
+            <br>
+            <div class="gamebox">
+                <script src="helixroll.js"></script>
+            </div>
+            <hr>
+            <h3>
+                <a href="https://www.khanacademy.org/computer-programming/ball-fight/6286638934687744">Ball Fight</a>
+            </h3>
+            <pp>
+                Ball Fight is a 2-player game. <br>
+                Use the arrow keys and WASD to controll the balls and fight. <br>
+                Hold shift to select a ball and weapon for player 1.
+            </pp>
+            <br>
+            <div class="gamebox">
+                <script src="ballfight.js"></script>
+            </div>
+
+            <hr>
+            <h3>
+                <a href="https://www.khanacademy.org/computer-programming/cannon/5646330610352128">Cannon</a>
+            </h3>
+            <pp>
+                Click to fire cannonballs. <br>
+                Time it right and hit all the ships.
+            </pp>
+            <br>
+            <div class="gamebox">
+                <script src="cannon.js"></script>
+            </div>
+
+            <hr>
+            <pp>
+                <center>See the rest <a href="https://www.khanacademy.org/profile/jtepp/projects">here</a></center>
+            </pp>
+
+
         </div>
 
         <center id="copyright">
