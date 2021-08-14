@@ -779,6 +779,10 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     filter: invert(1);
 }
 
+box-icon {
+    padding: 4px;
+}
+
 @media (min-width: 731px) {
 
     .socialitem {

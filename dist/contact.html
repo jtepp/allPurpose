@@ -91,33 +91,48 @@
     <div id="sidebar" class="preload">
         <div id="sidebar-item-cont">
             <div class="sidebar-item" id="sidebar-home" onclick="window.location.href = '/'" index=1>
-                <img class="sidebar-item-img" src="resources/sidebar/home.svg" alt="">
+                <!-- <img class="sidebar-item-img" src="resources/sidebar/home.svg" alt=""> -->
+                <box-icon type="solid" name="home" class="sidebar-item-img"></box-icon>
                 <a class="sidebar-item-link">Home</a>
             </div>
             <div class="sidebar-item" id="sidebar-projects" onclick="window.location.href = '/projects'" index=2>
-                <img class="sidebar-item-img" src="resources/sidebar/projects.svg" alt="">
+                <!-- <img class="sidebar-item-img" src="resources/sidebar/projects.svg" alt=""> -->
+                <box-icon type="solid" name="file" class="sidebar-item-img"></box-icon>
                 <a class="sidebar-item-link">Projects</a>
             </div>
             <div class="sidebar-item" id="sidebar-functions" onclick="window.location.href = '/functions'" index=3>
-                <img class="sidebar-item-img" src="resources/sidebar/functions.svg" alt="">
+                <!-- <img class="sidebar-item-img" src="resources/sidebar/functions.svg" alt=""> -->
+                <box-icon type="regular" name="network-chart" class="sidebar-item-img"></box-icon>
                 <a class="sidebar-item-link">Functions</a>
             </div>
             <div class="sidebar-item" id="sidebar-games" onclick="window.location.href = '/games'" index=4>
-                <img class="sidebar-item-img" src="resources/sidebar/games.svg" alt="">
+                <!-- <img class="sidebar-item-img" src="resources/sidebar/games.svg" alt=""> -->
+                <box-icon type="solid" name="game" class="sidebar-item-img"></box-icon>
                 <a class="sidebar-item-link">Games</a>
             </div>
             <div class="sidebar-item" id="sidebar-contact" onclick="window.location.href = '/contact'" current index=5>
-                <img class="sidebar-item-img" src="resources/sidebar/contact.svg" alt="">
+                <!-- <img class="sidebar-item-img" src="resources/sidebar/contact.svg" alt=""> -->
+                <box-icon type="solid" name="message-alt-error" class="sidebar-item-img"></box-icon>
                 <a class="sidebar-item-link">Contact</a>
             </div>
         </div>
+
         <div class="socialbox">
-            <img class="socialitem" src="resources/linkedin.png" alt="linkedin"
+            <!-- <img class="socialitem" src="resources/linkedin.png" alt="linkedin"
                 onclick="window.location.href = `https://www.linkedin.com/in/jtepp/`">
-            <img class="socialitem" src="resources/github.png" alt="github"
+                <img class="socialitem" src="resources/github.png" alt="github"
                 onclick="window.location.href = `https://www.github.com/jtepp`">
-            <img class="socialitem" src="resources/mail.png" alt="mail"
-                onclick="window.location.href = `mailto:jtepp@icloud.com`">
+                <img class="socialitem" src="resources/mail.png" alt="mail"
+                onclick="window.location.href = `mailto:jtepp@icloud.com`"> -->
+
+
+
+            <box-icon type="logo" name="linkedin-square" class="socialitem"
+                onclick="window.location.href = `https://www.linkedin.com/in/jtepp/`"></box-icon>
+            <box-icon type="logo" name="github" class="socialitem"
+                onclick="window.location.href = `https://www.github.com/jtepp/`"></box-icon>
+            <box-icon type="solid" name="envelope" class="socialitem"
+                onclick="window.location.href = `mailto:jtepp@icloud.com`"></box-icon>
         </div>
     </div>
     <div id="sidebar-button">
