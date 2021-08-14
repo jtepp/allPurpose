@@ -838,18 +838,18 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
     }
 
     #sidebar [current] {
-        filter: invert(1);
+        filter: invert(0);
     }
 
 
 
     #sidebar.other-hover [current] {
-        filter: invert(0);
+        filter: invert(1);
     }
 
     #sidebar .sidebar-item:hover,
     .other-hover .other-current {
-        filter: invert(1);
+        filter: invert(0);
     }
 }
 
