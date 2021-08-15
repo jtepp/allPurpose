@@ -48,6 +48,7 @@ function swapGames(newGameCont) {
     }, 500)
 
     currentGame.children[0].classList.add("animate-pop")
+    window.scrollTo(0, 0)
     setTimeout(function () {
         currentGame.children[0].classList.remove("animate-pop")
     }, 1000)
