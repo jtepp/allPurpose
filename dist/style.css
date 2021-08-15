@@ -88,7 +88,7 @@ a:visited {
 }
 
 
-u {
+:not(#games)u {
     font-size: 40pt;
     color: white;
     transform: translate(-50%, 0);
@@ -206,14 +206,11 @@ hr {
     margin-top: -20px;
     position: relative;
     z-index: 4;
+    margin-bottom: 20px;
+    font-size: 1em;
 }
 
-#details {
-    margin-block: 20px;
-    max-width: 290px;
-}
-
-#game-picker {
+.game-picker {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -227,7 +224,7 @@ hr {
     column-gap: 20px;
 }
 
-#game-picker::before {
+.game-picker::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -278,7 +275,7 @@ hr {
 .game-cartridge::after {
     position: absolute;
     content: attr(title);
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
     line-height: 190px;
     width: 50%;
@@ -362,10 +359,12 @@ iframe {
 #details {
     width: calc(100% - 40px);
     background-color: rgb(0, 33, 48);
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
     /* overflow: hidden; */
     border-radius: 10px;
+    max-width: 325px;
+    padding: 1px;
 }
 
 #details>p {
@@ -1254,13 +1253,13 @@ box-icon {
     }
 
 
-    #game-picker {
+    .game-picker {
         /* width: calc(100% - 50px); */
         margin-top: 25px;
         margin-bottom: 35px;
     }
 
-    #game-picker::before {
+    .game-picker::before {
         content: '';
         position: absolute;
         top: 50%;
@@ -1295,18 +1294,12 @@ box-icon {
     }
 
     .game-cartridge::after {
-        position: absolute;
-        content: attr(title);
-        font-size: 8px;
-        text-align: center;
+        font-size: 5px;
         line-height: 95px;
-        width: 50%;
         height: calc(100% + 8px);
         border-left: solid 1px #565564;
         border-right: solid 1px #565564;
         transform: translate(-50%, -8px);
-        top: 0%;
-        left: 50%;
     }
 
     .cartridge-img {

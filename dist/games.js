@@ -1,19 +1,20 @@
 const currentGame = document.getElementById('current-game');
 
 function swapGames(newGameCont) {
-    const oldTitle = currentGame.children[0].getAttribute('title');
-    const oldThumb = currentGame.children[0].children[0].getAttribute('src');
-    const oldUrl = currentGame.children[0].getAttribute('url');
-    const oldW = currentGame.children[0].getAttribute('f-width');
-    const oldH = currentGame.children[0].getAttribute('f-height');
-
-    const newTitle = newGameCont.children[0].getAttribute('title');
-    const newThumb = newGameCont.children[0].children[0].getAttribute('src');
-    const newUrl = newGameCont.children[0].getAttribute('url');
-    const newW = newGameCont.children[0].getAttribute('f-width');
-    const newH = newGameCont.children[0].getAttribute('f-height');
-
     setTimeout(() => {
+
+        const oldTitle = currentGame.children[0].getAttribute('title');
+        const oldThumb = currentGame.children[0].children[0].getAttribute('src');
+        const oldUrl = currentGame.children[0].getAttribute('url');
+        const oldW = currentGame.children[0].getAttribute('f-width');
+        const oldH = currentGame.children[0].getAttribute('f-height');
+
+        const newTitle = newGameCont.children[0].getAttribute('title');
+        const newThumb = newGameCont.children[0].children[0].getAttribute('src');
+        const newUrl = newGameCont.children[0].getAttribute('url');
+        const newW = newGameCont.children[0].getAttribute('f-width');
+        const newH = newGameCont.children[0].getAttribute('f-height');
+
         newGameCont.children[0].setAttribute('title', oldTitle);
         newGameCont.children[0].children[0].setAttribute('src', oldThumb);
         newGameCont.children[0].setAttribute('url', oldUrl);
@@ -26,7 +27,7 @@ function swapGames(newGameCont) {
         currentGame.children[0].setAttribute('f-width', newW);
         currentGame.children[0].setAttribute('f-height', newH);
 
-        document.querySelector("iframe").setAttribute('src', newUrl);
+        document.querySelector("iframe").setAttribute('src', `https://www.khanacademy.org/computer-programming${newUrl}embedded?editor=no&buttons=no&author=no&embed=yes`);
         document.querySelector("iframe").style.width = newW;
         document.querySelector("iframe").style.height = newH;
 
@@ -41,6 +42,9 @@ function swapGames(newGameCont) {
         newGameCont.onmouseleave = function () {
             newGameCont.classList.remove("last-game-clicked")
         }
+
+        document.getElementById("control-title").innerHTML = newGameCont.children[0].getAttribute("name") || newTitle;
+
     }, 500)
 
     currentGame.children[0].classList.add("animate-pop")
@@ -49,12 +53,15 @@ function swapGames(newGameCont) {
     }, 1000)
 }
 
-for (let g of document.getElementById("game-picker").children) {
-    g.onclick = (e) => {
-        if (e.target.classList.contains("game-cartridge-cont")) {
-            swapGames(e.target);
-        } else if (e.target.classList.contains("game-cartridge")) {
-            swapGames(e.target.parentElement);
+for (let p of document.getElementsByClassName("game-picker")) {
+
+    for (let g of p.children) {
+        g.onclick = (e) => {
+            if (e.target.classList.contains("game-cartridge-cont")) {
+                swapGames(e.target);
+            } else if (e.target.classList.contains("game-cartridge")) {
+                swapGames(e.target.parentElement);
+            }
         }
-    };
+    }
 }
