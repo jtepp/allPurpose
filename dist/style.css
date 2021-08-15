@@ -257,8 +257,9 @@ hr {
     width: 160px;
     height: 90px;
     background-color: #898997;
-    transition: transform var(--transition);
+    transition: transform var(--transition), box-shadow var(--transition);
     border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 0 black;
 }
 
 .game-cartridge::before {
@@ -304,6 +305,7 @@ hr {
 
 .game-cartridge-cont:hover:not(#current-game)>.game-cartridge {
     transform: translateY(-100%) rotate(-10deg);
+    box-shadow: 0px 0px 10px 0px #000;
 }
 
 .game-cartridge-overlay {
