@@ -949,7 +949,7 @@ picker[value="Android"]+#allsites>:not(.sitecard[android], .sitecard[iosandroid]
 }
 
 .sidebar-item:first-of-type {
-    margin-top: 2.86vh;
+    margin-top: min(25px, 2.86vh);
 }
 
 .sidebar-item-link {
