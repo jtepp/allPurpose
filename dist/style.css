@@ -147,7 +147,8 @@ a:visited {
     color: white;
 }
 
-:not(#details)>p {
+:not(#details)>p,
+:not(.hiddenexpand)p {
     margin: 0px 40px;
 }
 
