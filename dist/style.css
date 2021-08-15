@@ -303,7 +303,7 @@ hr {
     pointer-events: none;
 }
 
-.game-cartridge-cont:hover:not(#current-game)>.game-cartridge {
+.game-cartridge-cont:hover:not(#current-game, .last-game-clicked)>.game-cartridge {
     transform: translateY(-100%) rotate(-10deg);
     box-shadow: 0px 0px 10px 0px #000;
 }
@@ -1354,6 +1354,27 @@ box-icon {
         border-top-left-radius: 25px;
     }
 
+}
+
+.animate-pop {
+    animation: pop 1000ms 1 alternate;
+}
+
+@keyframes pop {
+    0% {
+        transform: translateY(-0%) rotate(0deg);
+        box-shadow: 0px 0px 0px 0px #000;
+    }
+
+    50% {
+        transform: translateY(-100%) rotate(-10deg);
+        box-shadow: 0px 0px 10px 0px #000;
+    }
+
+    100% {
+        transform: translateY(-0%) rotate(0deg);
+        box-shadow: 0px 0px 0px 0px #000;
+    }
 }
 
 .preload * {

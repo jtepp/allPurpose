@@ -13,33 +13,40 @@ function swapGames(newGameCont) {
     const newW = newGameCont.children[0].getAttribute('f-width');
     const newH = newGameCont.children[0].getAttribute('f-height');
 
-    newGameCont.children[0].setAttribute('title', oldTitle);
-    newGameCont.children[0].children[0].setAttribute('src', oldThumb);
-    newGameCont.children[0].setAttribute('url', oldUrl);
-    newGameCont.children[0].setAttribute('f-width', oldW);
-    newGameCont.children[0].setAttribute('f-height', oldH);
+    setTimeout(() => {
+        newGameCont.children[0].setAttribute('title', oldTitle);
+        newGameCont.children[0].children[0].setAttribute('src', oldThumb);
+        newGameCont.children[0].setAttribute('url', oldUrl);
+        newGameCont.children[0].setAttribute('f-width', oldW);
+        newGameCont.children[0].setAttribute('f-height', oldH);
 
-    currentGame.children[0].setAttribute('title', newTitle);
-    currentGame.children[0].children[0].setAttribute('src', newThumb);
-    currentGame.children[0].setAttribute('url', newUrl);
-    currentGame.children[0].setAttribute('f-width', newW);
-    currentGame.children[0].setAttribute('f-height', newH);
+        currentGame.children[0].setAttribute('title', newTitle);
+        currentGame.children[0].children[0].setAttribute('src', newThumb);
+        currentGame.children[0].setAttribute('url', newUrl);
+        currentGame.children[0].setAttribute('f-width', newW);
+        currentGame.children[0].setAttribute('f-height', newH);
 
-    document.querySelector("iframe").setAttribute('src', newUrl);
-    document.querySelector("iframe").style.width = newW;
-    document.querySelector("iframe").style.height = newH;
+        document.querySelector("iframe").setAttribute('src', newUrl);
+        document.querySelector("iframe").style.width = newW;
+        document.querySelector("iframe").style.height = newH;
 
-    document.getElementById("controls").innerHTML = newGameCont.children[1].innerHTML;
-    if (newH == "400px") {
-        document.querySelector(".gamebox").style.paddingBlock = '50px'
-    } else {
-        document.querySelector(".gamebox").style.paddingBlock = '0px'
-    }
-    // if (newW == "400px") {
-    //     document.querySelector(".gamebox").style.marginInline = '0px'
-    // } else {
-    //     document.querySelector(".gamebox").style.marginInline = '0px'
-    // }
+        document.getElementById("controls").innerHTML = newGameCont.children[1].innerHTML;
+        if (newH == "400px") {
+            document.querySelector(".gamebox").style.paddingBlock = '50px'
+        } else {
+            document.querySelector(".gamebox").style.paddingBlock = '0px'
+        }
+
+        newGameCont.classList.add("last-game-clicked")
+        newGameCont.onmouseleave = function () {
+            newGameCont.classList.remove("last-game-clicked")
+        }
+    }, 500)
+
+    currentGame.children[0].classList.add("animate-pop")
+    setTimeout(function () {
+        currentGame.children[0].classList.remove("animate-pop")
+    }, 1000)
 }
 
 for (let g of document.getElementById("game-picker").children) {
