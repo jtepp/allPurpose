@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?Orbitron Variable' rel='stylesheet'>
+
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/wow.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/all.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			if ($(window).width() > 576) {
+				$('.testimonial_slider').addClass('owl-carousel');
+				$('.testimonial_slider').owlCarousel({
+					loop: true,
+					margin: 20,
+					nav: false,
+					autoplay:false,
+					autoplayTimeout: 3000,
+					responsive: {
+						0: {
+							items: 1
+						},
+						600: {
+							items: 2
+						},
+						1000: {
+							items: 3
+						}
+					}
+				});
+			}
+			new WOW().init();
+
+			$(".timeline .container").hover(
+				function () {
+					$(this).addClass("active");
+				},
+				function () {
+					$(this).removeClass("active");
+				}
+			);
+		});
+	</script>
+	
+	<script title="timer">
+		let countDownEnd = false;
+		setInterval(() => {
+		let targetTime = 1633445795402;
+		let now = new Date().getTime();
+		let timeleft = targetTime - now;
+
+		if (timeleft < 0) {
+			countDownEnd = true;
+		}
+
+		// Calculating the days, hours, minutes and seconds left
+		let day = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+		let hour = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		let minute = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+		let second = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+		document.getElementById("day").innerText = day;
+		document.getElementById("hour").innerText = hour;
+		document.getElementById("minute").innerText = minute;
+		document.getElementById("second").innerText = second;
+		}, 1000);
+	</script>
+	
+</head>
+<body>
+
+	<div class="header">
+		<div class="container">
+			<div class="head_top">
+				<a class="navbar-brand" href="#">
+					<span>defiant regime</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="slider-image">
+		<div class="container">
+			<div class="image-section">
+				<div class="heading-text">
+					<div class="text">
+						<h1 class="wow fadeInLeft"><strong>by any means</strong></h1>
+						<p class="sub-text"> collation coming soon. limited quantity available.</p>
+						<p class="slider-text wow fadeInUp ">sign up to access the collection 48 hours early. first <br>
+							50 people will receive a free limited edition defiant lighter.</p>
+					</div>
+				</div>
+				<form class="form slider newsletter">
+					<div class="field">
+						<div class="email required">
+							<input placeholder="my email is"  id="email" type="email" autocomplete="off" >
+						</div>
+						<div class="password required">
+							<input placeholder="don't annoy me, but my mumber is"  type="password"  id="pass" autocomplete="off">
+						</div>
+					</div>
+					<div class="button">
+						<button><i class="fas fa-arrow-right"></i></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="timer">
+		<h2>are you defiant?</h2>
+		<div class="countdown">
+			<div class="countdown-item">
+			  <span id="day" class="text">-</span>
+			  <span>Day</span>
+			</div>
+			<div class="countdown-item">
+			  <span id="hour" class="text">-</span>
+			  <span>Hour</span>
+			</div>
+			<div class="countdown-item">
+			  <span id="minute" class="text">-</span>
+			  <span>Minute</span>
+			</div>
+			<div class="countdown-item">
+			  <span id="second" class="text">-</span>
+			  <span>Second</span>
+			</div>
+			<div class="countdown-left">
+				<span>Left</span>
+			</div>
+		  </div>
+	</div>
+
+	<div class="review-section">
+		<div class="container">
+			<div class="heding-text wow fadeInUp">
+				<div class="image">
+					<img src="./image/google-image.png" alt="">
+				</div>
+				<div class="text">
+					<h2>5.0</h2>
+					<p>Out of
+					<br>5 Stars</p>
+					<div class="star">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+				</div>
+			</div>
+			<div class="testimonial_slider owl-theme">
+				<div class="item">
+					<h2>kaman k</h2>
+					<div class="star">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<p> - 5 out of 5 stars</p>
+					</div>
+					<div class="description">
+						<p>Definitely the best streetwear brand around. Great customer service. Awesome street wear joggers, top quality face masks and overall just great fitting clothes. Frequent giveaways on social media too. Thumbs up from me!</p>
+					</div>
+				</div>
+				<div class="item">
+					<h2>gurmeet m</h2>
+					<div class="star">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<p> - 5 out of 5 stars</p>
+					</div>
+					<div class="description">
+						<p>Purchased both joggers and face mask.Streetwear joggers fitting is perfect andmade with premium quality materials. Fits perfect for my lifestyle here in Toronto, would recommend.</p>
+						<p>Face masks are high quality and is my go to mask for daily outings.</p>
+					</div>
+				</div>
+				<div class="item">
+					<h2>kenneth v</h2>
+					<div class="star">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<p> - 5 out of 5 stars</p>
+					</div>
+					<div class="description">
+						<p>I was looking at streetwear brands in
+							Toronto and came across Defiant Supply.
+							Their streetwear joggers were exactly what I
+							wanted and the quality feels super
+							premium! Really glad I bought the face
+							mask as well, it's way more comfortable
+							than the disposable ones and compliments
+							the pants really well! Overall, I would highly
+							recommend checking them out!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="footer_text">
+				<h1>Stay Connected to Defiant Supply</h1>
+				<p>Follow to be the first to hear when the next drop is available</p>
+				<div class="media_icon">
+					<ul>
+						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+					</ul>
+				</div>
+				<a class="footer_logo" href="#"><img src="image/logo-footer.png"></a>
+				<strong><p class="copyright">© 2021 defiant regime</p></strong>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
