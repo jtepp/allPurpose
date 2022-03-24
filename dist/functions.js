@@ -63,6 +63,13 @@ imgSearch.onkeydown = (e) => {
     }
 }
 
+//NBA
+document.getElementById('nbatestbutton').onclick = async () => {
+    return await fetch("https://larrybirdle.netlify.app/.netlify/functions/random")
+        .then(res => res.json())
+        .then(data => document.getElementById('nbatext').innerText = JSON.stringify(data))
+}
+
 //date
 document.getElementById('datetestbutton').onclick = async () => {
     if (dateSearch.innerText != '') {
