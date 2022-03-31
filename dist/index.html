@@ -17,15 +17,58 @@
 </head>
 
 <body>
-    <header>
+    <header class="name">
         <span id="namebox" class="nb">
             <span id="first"></span>
             <span id="last"></span>
         </span>
+        <!-- <c>
+            <h1>About Me</h2>
+        </c> -->
+
     </header>
+
+    <!-- bigger name -->
+    <style>
+        /* #about-me-info {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: black;
+            margin-top: 100px;
+            width: 360px;
+            margin-inline: auto;
+        } */
+
+        #namebox {
+            font-size: 10vw;
+        }
+
+
+        @media (min-width: 731px) {
+
+            #namebox {
+                margin-left: 220px;
+            }
+
+            #sidebar {
+                width: clamp(180px, 37vh, 260px);
+            }
+
+            #sidebar .sidebar-item-link {
+                width: 80%;
+                /* margin-left: 10px; */
+            }
+
+            #flextry {
+                display: none;
+            }
+
+        }
+    </style>
 
     <div id="notHead">
         <div id="flextry">
+            <br>
 
             <span class="try" onclick="window.location=`projects`">Check out my projects</span>
             <br>
@@ -42,21 +85,12 @@
         </div>
 
         <br>
-        <br>
-        <br>
-        <br>
-        <style>
-            #copyright {}
-        </style>
-        <!-- <div class="socialbox">
-            <img class="socialitem" src="resources/linkedin.png" alt="linkedin"
-                onclick="window.location.href = `https://www.linkedin.com/in/jtepp/`">
-            <img class="socialitem" src="resources/github.png" alt="github"
-                onclick="window.location.href = `https://www.github.com/jtepp`">
-            <img class="socialitem" src="resources/mail.png" alt="mail"
-                onclick="window.location.href = `mailto:jtepp@icloud.com`">
-        </div> -->
+        <!-- <p id="about-me-info">I am a software developer in my second year of computer engineering student at Queen's
+            University. This site is a portfolio of my work from projects done in my free time or for clients, to
+            minigames I made while for fun in high school.</p> -->
 
+        <br>
+        <br>
         <center id="copyright">
             © Jacob Tepperman 2021
         </center>
