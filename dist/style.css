@@ -1011,6 +1011,7 @@ box-icon {
 
     #sidebar:hover+#sidebar-button+#sidebar-back {
         backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
     }
 
     #sidebar>.socialbox {
