@@ -65,6 +65,8 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #namebox {
@@ -987,7 +989,7 @@ box-icon {
 
 
 
-@media (min-width: 731px) {
+@media (min-width: 1171px) {
 
     .socialitem {
         /* width: 100%; */
@@ -1088,7 +1090,7 @@ box-icon {
     }
 }
 
-@media(max-width: 730px) {
+@media(max-width: 1170px) {
     header {
         flex-direction: column;
         justify-content: center;
