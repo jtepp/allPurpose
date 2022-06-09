@@ -1381,3 +1381,15 @@ box-icon {
     -ms-transition: none !important;
     -o-transition: none !important;
 }
+
+#amaresults {
+    width: 203px;
+    height: 146px;
+    background-color: #222;
+    overflow: hidden;
+}
+
+.amaresult-image {
+    margin-top: -70px;
+    margin-bottom: 80px;
+}

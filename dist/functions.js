@@ -2,7 +2,7 @@ const coordSearch = document.getElementById('coordsearch')
 const imgSearch = document.getElementById('imgsearch')
 const dateSearch = document.getElementById('datesearch')
 const redSearch = document.getElementById('redsearch')
-const amaSearch = document.getElementById('redsearch')
+const amaSearch = document.getElementById('amasearch')
 
 //missions
 document.getElementById('missionstestbutton').onclick = async () => {
@@ -109,17 +109,28 @@ document.getElementById('redtestbutton').onclick = async () => {
 
 // amazon
 document.getElementById('amatestbutton').onclick = async () => {
-    if (redSearch.innerText != '') {
+    if (amaSearch.innerText != '') {
         return await fetch("https://allpurpose.netlify.app/.netlify/functions/amazon?q=" + amaSearch.innerText)
-            .then(res => res.text())
+            .then(res => res.json())
             .then(data => {
-                if (data == "[]") document.getElementById('redtext').innerText = "No results found"
-                else {
-
+                console.log(data)
+                if (data.images == "[]") {
+                    document.getElementById('amaresults').innerText = "No results found"
+                } else {
+                    document.getElementById('amaresults').innerHTML = ""
+                    data.images.forEach(element => {
+                        const i = new Image()
+                        i.src = element
+                        i.classList.add('amaresult-image')
+                        document.getElementById('amaresults').appendChild(i)
+                    });
                 }
             })
-            .catch(err => document.getElementById('redtext').innerText = "Invalid search")
-    } else document.getElementById('redtext').innerText = "Invalid search"
+            .catch(err => {
+                document.getElementById('amaresults').innerText = "Invalid search";
+                console.log(err)
+            })
+    } else document.getElementById('amaresults').innerText = "_"
 }
 
 document.getElementById('redtesttitle').onclick = () => {
