@@ -6,7 +6,7 @@ exports.handler = async (event) => {
         .then(res => res.text())
         .then(html => {
             let images = {
-                images: [...matchAll(JSON.stringify(html), /\\\"s-image\\\".+?src=\\\"(.+?)\\\".+?srcset/g)].map(x => x[1])
+                images: [...matchAll(JSON.stringify(html), /\\\"s-image\\\".+?src=\\\"(.+?)\\\".+?srcset/g)].map(x => x[1]).filter(x => x != "https://m.media-amazon.com/images/I/31DkPH3h2nL._SS200_.png"),
             }
 
             return ({

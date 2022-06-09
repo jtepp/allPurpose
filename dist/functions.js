@@ -2,6 +2,7 @@ const coordSearch = document.getElementById('coordsearch')
 const imgSearch = document.getElementById('imgsearch')
 const dateSearch = document.getElementById('datesearch')
 const redSearch = document.getElementById('redsearch')
+const amaSearch = document.getElementById('redsearch')
 
 //missions
 document.getElementById('missionstestbutton').onclick = async () => {
@@ -104,6 +105,21 @@ document.getElementById('redtestbutton').onclick = async () => {
             })
             .catch(err => document.getElementById('redtext').innerText = "Invalid Subreddit")
     } else document.getElementById('redtext').innerText = "Invalid Subreddit"
+}
+
+// amazon
+document.getElementById('amatestbutton').onclick = async () => {
+    if (redSearch.innerText != '') {
+        return await fetch("https://allpurpose.netlify.app/.netlify/functions/amazon?q=" + amaSearch.innerText)
+            .then(res => res.text())
+            .then(data => {
+                if (data == "[]") document.getElementById('redtext').innerText = "No results found"
+                else {
+
+                }
+            })
+            .catch(err => document.getElementById('redtext').innerText = "Invalid search")
+    } else document.getElementById('redtext').innerText = "Invalid search"
 }
 
 document.getElementById('redtesttitle').onclick = () => {
