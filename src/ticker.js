@@ -1,4 +1,15 @@
-exports.handler = (event) => {
+exports.handler = async (event) => {
+
+    const search = Array(...(event.queryStringParameters["q"].toUpperCase()))
+
+
+    let output = []
+
+    Array(5).fill(0).forEach((x, index) => {
+        output.push(search.map(l => letterMap[l][index])) // 
+    })
+
+    // [Array] > [Each strip] > [Each letter's row for that strip]
 
     return ({
         statusCode: 200,
@@ -6,12 +17,12 @@ exports.handler = (event) => {
             "Access-Control-Allow-Origin": "*", // Required for CORS support to work
             "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
         },
-        body: ""
+        body: JSON.stringify(output)
     })
 
 
-
 }
+
 
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
