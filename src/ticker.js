@@ -6,10 +6,12 @@ exports.handler = async (event) => {
     let output = []
 
     Array(5).fill(0).forEach((x, index) => {
-        output.push(search.map(l => letterMap[l][index])) // 
+        const string = search.map(l => letterMap[l][index]).join(",0,")
+        output.push(string.split(',').map(x => parseInt(x)))
     })
 
     // [Array] > [Each strip] > [Each letter's row for that strip]
+    // turn into [Array] > [Each letter's row for that strip, separated by a zero]
 
     return ({
         statusCode: 200,
