@@ -27,7 +27,7 @@ exports.handler = async (event) => {
 
 function innerArrayText(text) {
     // remove first and list characters
-    return text.slice(1, -1)
+    return text.slice(1, -1).split('],[').join('][')
 }
 
 
