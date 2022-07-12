@@ -19,12 +19,16 @@ exports.handler = async (event) => {
             "Access-Control-Allow-Origin": "*", // Required for CORS support to work
             "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
         },
-        body: JSON.stringify(output)
+        body: innerArrayText(JSON.stringify(output))
     })
 
 
 }
 
+function innerArrayText(text) {
+    // remove first and list characters
+    return text.slice(1, -1)
+}
 
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
