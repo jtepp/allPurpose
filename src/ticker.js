@@ -15,6 +15,10 @@ exports.handler = async (event) => {
         case 'waves':
             message = Array(..."{}")
             break;
+        case 'time':
+            const d = new Date()
+            message = Array(...(d.toLocaleTimeString()))
+            break;
         case 'text':
         default:
             message = Array(...(event.queryStringParameters["q"].toUpperCase() + " ."))
