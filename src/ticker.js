@@ -17,6 +17,7 @@ exports.handler = async (event) => {
             break;
         case 'time':
             const d = new Date()
+            d.setHours(d.getHours() - 4) //est time
             message = Array(...(d.toLocaleTimeString().toUpperCase()))
             break;
         case 'text':
@@ -28,7 +29,7 @@ exports.handler = async (event) => {
         message.push(' ', '.')
 
     Array(5).fill(0).forEach((u, index) => {
-        let string = mode == 'waves' ? "" : "0,"
+        let string = mode == 'waves' ? "" : "0,0,0,0,0,"
         string += message.map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
         output.push(string.split(',').map(x => parseInt(x)))
     })
