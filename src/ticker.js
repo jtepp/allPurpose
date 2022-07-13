@@ -13,7 +13,7 @@ exports.handler = async (event) => {
             })
             break;
         case 'waves':
-            message = Array(..."{}")
+            message = Array(..."[]")
             break;
         case 'time':
             const d = new Date()
@@ -420,6 +420,21 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [0, 0, 0, 1],
         [1, 0, 1, 0],
         [0, 1, 0, 0]
+    ],
+    "[": [
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 1, 1],
+        [0, 0, 1, 1, 1],
+        [0, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1]
+    ],
+    "]": [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 0, 0]
     ]
+
 
 }
