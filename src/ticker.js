@@ -28,7 +28,7 @@ exports.handler = async (event) => {
     Array(5).fill(0).forEach((u, index) => {
         let string = mode == 'waves' ? "" : "0,"
         if (mode != 'waves')
-            message.push(Array(..." ."))
+            message.push(' ', '.')
         string += message.map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
         output.push(string.split(',').map(x => parseInt(x)))
     })
