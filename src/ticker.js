@@ -13,7 +13,7 @@ exports.handler = async (event) => {
             })
             break;
         case 'waves':
-            message = "{}"
+            message = Array(..."{}")
             break;
         case 'text':
         default:
