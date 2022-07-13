@@ -1,14 +1,40 @@
+const sportsLive = require('sports-live')
+
 exports.handler = async (event) => {
 
-    const search = Array(...(event.queryStringParameters["q"].toUpperCase()))
+    const mode = event.queryStringParameters.mode;
 
+    let message = []
+
+    switch (mode) {
+        case 'stocks':
+            break;
+        case 'mlb':
+            sportsLive.getAllMatches('baseball', (err, matches) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    let text = ""
+                    matches.forEach(match => {
+                        const score = match.score.split('-')
+                        text += `${match.team1}:${score[0]}-${match.team2}:${score[1]} `
+                    })
+                    message = Array(...text.toUpperCase())
+                }
+            })
+            break;
+        case 'text':
+        default:
+            message = Array(...(event.queryStringParameters["q"].toUpperCase()))
+    }
 
     let output = []
 
-    Array(5).fill(0).forEach((x, index) => {
-        const string = search.map(l => letterMap[l][index]).join(",0,")
+    Array(5).fill(0).forEach((u, index) => {
+        const string = message.map(l => letterMap[l][index]).join(",0,")
         output.push(string.split(',').map(x => parseInt(x)))
     })
+    output = message.join('')
 
     // [Array] > [Each strip] > [Each letter's row for that strip]
     // turn into [Array] > [Each letter's row for that strip, separated by a zero]
