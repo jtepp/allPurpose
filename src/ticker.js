@@ -1,3 +1,4 @@
+import fetch from "node-fetch"
 exports.handler = async (event) => {
 
     const mode = event.queryStringParameters.mode;
@@ -7,6 +8,9 @@ exports.handler = async (event) => {
 
     switch (mode) {
         case 'stocks':
+            await getStocks().then(data => {
+                message = Array(...(data.toUpperCase()))
+            })
             break;
         case 'mlb':
             break;
@@ -39,6 +43,24 @@ exports.handler = async (event) => {
 function innerArrayText(text) {
     // remove first and list characters
     return text.slice(1, -1).split('],[').join('][')
+}
+
+async function getStocks() {
+    const symbols = ['GME', 'AMC', 'TLRY', 'BTC-CAD']
+    let text = ""
+    await fetch(`https://api.twelvedata.com/time_series?symbol=${symbols.join(',')}&interval=1day&outputsize=1&apikey=0e4deeb9c9604b3dbf591e323135ecf4`)
+        .then(res => res.json())
+        .then(data => {
+            Object.keys(data).forEach(key => {
+                const open = data[key]["values"][0]["open"]
+                const close = data[key]["values"][0]["close"]
+                const pctChange = (close - open) / open
+                text += `${key} ${pctChange > 0 ? "+" : ""}${pctChange.toFixed(2)}% `
+            })
+        })
+        .catch(err => console.log(err))
+
+    return text
 }
 
 
@@ -337,12 +359,26 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [0],
         [1]
     ],
+    "+": [
+        [0, 0, 0],
+        [0, 1, 0],
+        [1, 1, 1],
+        [0, 1, 0],
+        [0, 0, 0]
+    ],
     "-": [
         [0, 0, 0],
         [0, 0, 0],
         [1, 1, 1],
         [0, 0, 0],
         [0, 0, 0],
+    ],
+    "%": [
+        [1, 1, 0, 0, 1],
+        [1, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 1, 1],
+        [1, 0, 0, 1, 1]
     ],
     "|": [
         [1],
