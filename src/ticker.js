@@ -17,7 +17,7 @@ exports.handler = async (event) => {
             break;
         case 'time':
             const d = new Date()
-            message = Array(...(d.toLocaleTimeString()))
+            message = Array(...(d.toLocaleTimeString().toUpperCase()))
             break;
         case 'text':
         default:
