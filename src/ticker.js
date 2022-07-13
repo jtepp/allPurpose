@@ -55,7 +55,7 @@ async function getStocks() {
                 const open = data[key]["values"][0]["open"]
                 const close = data[key]["values"][0]["close"]
                 const pctChange = (close - open) / open
-                text += `${key} ${pctChange > 0 ? "+" : ""}${pctChange.toFixed(2)}% `
+                text += `${key}${pctChange > 0 ? "+" : ""}${pctChange.toFixed(2)}% `
             })
         })
         .catch(err => console.log(err))
