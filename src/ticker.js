@@ -21,7 +21,7 @@ exports.handler = async (event) => {
 
 
     Array(5).fill(0).forEach((u, index) => {
-        const string = message.map(l => letterMap[l][index]).join(",0,") + ",0"
+        const string = "0," + message.map(l => letterMap[l][index]).join(",0,")
         output.push(string.split(',').map(x => parseInt(x)))
     })
 
