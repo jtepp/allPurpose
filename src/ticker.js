@@ -25,8 +25,8 @@ exports.handler = async (event) => {
         output.push(string.split(',').map(x => parseInt(x)))
     })
 
-    while (output[0].length % 8 != 0)
-        output.forEach(arr => arr.push(0))
+    // while (output[0].length % 8 != 0)
+    //     output.forEach(arr => arr.push(0))
 
     // [Array] > [Each strip] > [Each letter's row for that strip]
     // turn into [Array] > [Each letter's row for that strip, separated by a zero]
