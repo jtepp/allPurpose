@@ -12,7 +12,8 @@ exports.handler = async (event) => {
                 message = Array(...(data.toUpperCase()))
             })
             break;
-        case 'mlb':
+        case 'waves':
+            message = "{}"
             break;
         case 'text':
         default:
@@ -21,7 +22,8 @@ exports.handler = async (event) => {
 
 
     Array(5).fill(0).forEach((u, index) => {
-        const string = "0," + message.map(l => letterMap[l][index]).join(",0,")
+        let string = mode == 'waves' ? "" : "0,"
+        string += message.map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
         output.push(string.split(',').map(x => parseInt(x)))
     })
 
@@ -396,5 +398,21 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [0, 0, 0],
         [1, 1, 1],
         [0, 0, 0]
+    ],
+    // waves
+    "{": [
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 1, 0],
+        [1, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+    ],
+    "}": [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0]
     ]
+
 }
