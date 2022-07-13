@@ -54,7 +54,7 @@ async function getStocks() {
             Object.keys(data).forEach(key => {
                 const open = data[key]["values"][0]["open"]
                 const close = data[key]["values"][0]["close"]
-                const pctChange = (close - open) / open
+                const pctChange = (close - open) / open * 100
                 text += `${key}${pctChange > 0 ? "+" : ""}${pctChange.toFixed(2)}% `
             })
         })
