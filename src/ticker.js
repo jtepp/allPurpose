@@ -17,7 +17,7 @@ exports.handler = async (event) => {
             break;
         case 'text':
         default:
-            message = Array(...(event.queryStringParameters["q"].toUpperCase()))
+            message = Array(...(event.queryStringParameters["q"].toUpperCase() + " ."))
     }
 
 
