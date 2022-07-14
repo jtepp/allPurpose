@@ -30,7 +30,12 @@ exports.handler = async (event) => {
 
     Array(5).fill(0).forEach((u, index) => {
         let string = mode == 'waves' ? "" : "0,0,0,0,0,"
-        string += message.map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
+        try {
+            string += message.map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
+        } catch (e) {
+            console.log("Probably has a letter that doesnt have a map")
+            console.error(e)
+        }
         output.push(string.split(',').map(x => parseInt(x)))
     })
 
@@ -63,12 +68,17 @@ async function getStocks() {
     await fetch(`https://api.twelvedata.com/time_series?symbol=${symbols.join(',')}&interval=1day&outputsize=1&apikey=0e4deeb9c9604b3dbf591e323135ecf4`)
         .then(res => res.json())
         .then(data => {
-            Object.keys(data).forEach(key => {
-                const open = data[key]["values"][0]["open"]
-                const close = data[key]["values"][0]["close"]
-                const pctChange = (close - open) / open * 100
-                text += `${key}${pctChange > 0 ? "+" : ""}${pctChange.toFixed(2)}% `
-            })
+            if (data.code && data.code == 429) {
+                text = data.message
+            } else {
+                Object.keys(data).forEach(key => {
+                    const open = data[key]["values"][0]["open"]
+                    const close = data[key]["values"][0]["close"]
+                    const pctChange = (close - open) / open * 100
+                    text += `${key}${pctChange > 0 ? "+" : ""}${pctChange.toFixed(2)}% `
+                })
+                console.log(data)
+            }
         })
         .catch(err => console.log(err))
 
@@ -434,7 +444,13 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [1, 1, 1, 0, 0],
         [1, 1, 1, 1, 0],
         [1, 1, 1, 0, 0]
+    ],
+    "/": [
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0],
+        [1, 0, 0]
     ]
-
 
 }
