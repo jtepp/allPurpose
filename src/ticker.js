@@ -8,7 +8,7 @@ exports.handler = async (event) => {
 
     switch (mode) {
         case 'stocks':
-            await getStocks().then(data => {
+            await getStocks(event.queryStringParameters["q"]).then(data => {
                 message = Array(...(data.toUpperCase()))
             })
             break;
@@ -62,8 +62,8 @@ function innerArrayText(text) {
     return text.slice(1, -1).split('],[').join('][')
 }
 
-async function getStocks() {
-    const symbols = ['GME', 'AMC', 'TLRY', 'BTC-CAD']
+async function getStocks(symbolsString) {
+    const symbols = symbolsString.split(',')
     let text = ""
     await fetch(`https://api.twelvedata.com/time_series?symbol=${symbols.join(',')}&interval=1day&outputsize=1&apikey=0e4deeb9c9604b3dbf591e323135ecf4`)
         .then(res => res.json())
