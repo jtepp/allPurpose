@@ -2,18 +2,19 @@ import fetch from "node-fetch"
 exports.handler = async (event) => {
 
     const mode = event.queryStringParameters.mode;
+    const query = event.queryStringParameters["q"]
 
     let message = []
     let output = []
 
     switch (mode) {
         case 'stocks':
-            await getStocks(event.queryStringParameters["q"]).then(data => {
+            await getStocks(query).then(data => {
                 message = Array(...(data.toUpperCase()))
             })
             break;
         case 'waves':
-            message = Array(..."[]")
+            message = Array(...(q == "filled" ? `[]` : `{}`))
             break;
         case 'time':
             const d = new Date()
@@ -22,7 +23,7 @@ exports.handler = async (event) => {
             break;
         case 'text':
         default:
-            message = Array(...(event.queryStringParameters["q"].toUpperCase()))
+            message = Array(...(query.toUpperCase()))
     }
 
     // if (mode != 'waves')
