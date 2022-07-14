@@ -25,8 +25,8 @@ exports.handler = async (event) => {
             message = Array(...(event.queryStringParameters["q"].toUpperCase()))
     }
 
-    if (mode != 'waves')
-        message.push(' ', '.')
+    // if (mode != 'waves')
+    //     message.push(' ', '.')
 
     Array(5).fill(0).forEach((u, index) => {
         let string = mode == 'waves' ? "" : "0,0,0,0,0,"
