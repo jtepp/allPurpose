@@ -22,7 +22,7 @@ exports.handler = async (event) => {
             //     break;
         case 'sports':
             await getSports(query).then(data => {
-                message = Array(...("    " + data.toUpperCase()))
+                message = Array(...(data.toUpperCase()))
                 // const maxPages = Math.ceil(message.length / 200)
                 // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
             })
@@ -41,7 +41,7 @@ exports.handler = async (event) => {
     //     message.push(' ', '.')
 
     Array(5).fill(0).forEach((u, index) => {
-        let string = mode == 'waves' ? "" : "0,0,0,0,0,"
+        let string = Array(..."     ") //mode == 'waves' ? "" : "0,0,0,0,0,"
         try {
             string += message.map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
         } catch (e) {
