@@ -105,7 +105,7 @@ async function getSports(leaguesString, page) {
     const root = parse(html)
 
     const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
-    return headlines.join(' ')
+    return headlines.join(' | ')
 }
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
