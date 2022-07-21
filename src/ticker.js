@@ -6,6 +6,7 @@ exports.handler = async (event) => {
 
     const mode = event.queryStringParameters.mode;
     const query = event.queryStringParameters["q"]
+    const page = event.queryStringParameters["page"]
 
     let message = []
     let output = []
@@ -20,7 +21,7 @@ exports.handler = async (event) => {
             //     message = Array(...(q == "filled" ? `[]` : `{}`))
             //     break;
         case 'sports':
-            await getSports(query).then(data => {
+            await getSports(query, page).then(data => {
                 message = Array(...(data.toUpperCase()))
             })
             break;
@@ -94,21 +95,15 @@ async function getStocks(symbolsString) {
     return text
 }
 
-async function getSports(leaguesString) {
-    const leagues = leaguesString.split(',')
-    let text = ""
+async function getSports(leaguesString, page) {
+    // const leagues = leaguesString.split(',')
     const html = await fetch(`https://www.thescore.com/`)
         .then(res => res.text())
     const root = parse(html)
 
     const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
 
-    text += headlines[0]
-    for (let i = 1; i < headlines.length; i++) {
-        if (text.length + headlines[i].length < 600) {
-            text += ` ${headlines[i]}`
-        }
-    }
+    return headlines[page % headlines.length]
 }
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
