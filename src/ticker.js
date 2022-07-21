@@ -96,13 +96,19 @@ async function getStocks(symbolsString) {
 
 async function getSports(leaguesString) {
     const leagues = leaguesString.split(',')
+    let text = ""
     const html = await fetch(`https://www.thescore.com/`)
         .then(res => res.text())
     const root = parse(html)
 
     const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
 
-    return headlines.join(' | ')
+    text += headlines[0]
+    for (let i = 1; i < headlines.length; i++) {
+        if (text.length + headlines[i].length < 600) {
+            text += ` ${headlines[i]}`
+        }
+    }
 }
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
