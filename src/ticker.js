@@ -97,7 +97,7 @@ async function getStocks(symbolsString) {
     return text
 }
 
-async function getSports(leaguesString, page) {
+async function getSports(leaguesString) {
     const leagues = leaguesString.split(',')
     // let text = ""
     // const html = await fetch(`https://www.thescore.com/`)
@@ -125,10 +125,11 @@ async function getSports(leaguesString, page) {
                 } else if (index > 0) {
                     matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
                         const name = team.childNodes[0].innerText
-                        let score = team.childNodes[1].innerText.split(/\d+ - \d+/).join('')
-
-                        text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "| " : "- ")).split('  ').join(' ')
+                        const score = team.childNodes[1].innerText.split(/\d+ - \d+/).join('')
+                        text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
                     })
+                    const time = matchup.querySelector(".short").innerText.replace(' ET', '')
+                    text += time + " | "
                 }
             }
         })
