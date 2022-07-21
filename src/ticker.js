@@ -30,11 +30,11 @@ exports.handler = async (event) => {
         case 'time':
             const d = new Date()
             d.setHours(d.getHours() - 4) //est time
-            message = Array(...(d.toLocaleTimeString().toUpperCase()))
+            message = d.toLocaleTimeString().toUpperCase()
             break;
         case 'text':
         default:
-            message = Array(...(query.toUpperCase()))
+            message = query.toUpperCase()
     }
 
     // if (mode != 'waves')
