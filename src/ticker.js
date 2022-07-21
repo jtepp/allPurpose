@@ -125,7 +125,7 @@ async function getSports(leaguesString) {
                 } else if (index > 0) {
                     matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
                         const name = team.childNodes[0].innerText
-                        const score = team.childNodes[1].innerText.split(/\d+ - \d+/).join('')
+                        const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
                         text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
                     })
                     const time = matchup.querySelector(".short").innerText.replace(' ET', '')
