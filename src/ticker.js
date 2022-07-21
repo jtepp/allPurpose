@@ -385,11 +385,11 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [0, 1, 0]
     ],
     "9": [
-        [0, 1, 1],
+        [0, 1, 0],
         [1, 0, 1],
         [0, 1, 1],
         [0, 0, 1],
-        [1, 1, 1]
+        [0, 1, 0]
     ],
     " ": [
         [0, 0],
