@@ -182,7 +182,7 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [1, 0, 0]
     ],
     "G": [
-        [0, 1, 1, 1],
+        [0, 1, 1, 0],
         [1, 0, 0, 0],
         [1, 0, 1, 1],
         [1, 0, 0, 1],
@@ -364,7 +364,7 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [1, 1, 0]
     ],
     "6": [
-        [0, 1, 1],
+        [0, 1, 0],
         [1, 0, 0],
         [1, 1, 0],
         [1, 0, 1],
@@ -389,7 +389,7 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [1, 0, 1],
         [0, 1, 1],
         [0, 0, 1],
-        [1, 1, 0]
+        [0, 1, 0]
     ],
     " ": [
         [0, 0],
