@@ -98,14 +98,42 @@ async function getStocks(symbolsString) {
 }
 
 async function getSports(leaguesString, page) {
-    // const leagues = leaguesString.split(',')
-    let text = ""
-    const html = await fetch(`https://www.thescore.com/`)
-        .then(res => res.text())
-    const root = parse(html)
+    const leagues = leaguesString.split(',')
+    // let text = ""
+    // const html = await fetch(`https://www.thescore.com/`)
+    //     .then(res => res.text())
+    // const root = parse(html)
 
-    const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
-    return headlines.join(' | ')
+    // const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
+    // return headlines.join(' | ')
+
+    let text = ""
+
+    if (leagues.includes('mlb')) {
+        const html = await fetch(`https://www.mlb.com/`)
+            .then(res => res.text())
+            .catch(err => console.log(err))
+        const root = parse(html)
+
+        let add = true
+
+        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.forEach((matchup, index) => {
+            if (add) {
+                if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
+                    add = false
+                    // console.log(matchup.innerText)
+                } else if (index > 0) {
+                    matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
+                        const name = team.childNodes[0].innerText
+                        const score = team.childNodes[1].innerText.split(' - ').join(':')
+                        text += `${fixMLB(name)} ${score} ` + (i == 1 ? "| " : "- ")
+                    })
+                }
+            }
+        })
+    }
+    // console.log(text)
+    return text
 }
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
@@ -486,4 +514,14 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
 
 function fixWebText(txt) {
     return txt.split('&#x27;').join("'")
+}
+
+function fixMLB(txt) {
+    // find the last lowercase character
+    var last = txt.length - 1;
+    while (last >= 0 && txt[last] != txt[last].toLowerCase()) {
+        last--;
+    }
+    // return the string from the last lowercase character onward
+    return txt.substring(last + 1);
 }
