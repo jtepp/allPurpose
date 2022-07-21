@@ -21,8 +21,10 @@ exports.handler = async (event) => {
             //     message = Array(...(q == "filled" ? `[]` : `{}`))
             //     break;
         case 'sports':
-            await getSports(query, page).then(data => {
+            await getSports(query).then(data => {
                 message = Array(...(data.toUpperCase()))
+                const maxPages = Math.ceil(message.length / 200)
+                message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
             })
             break;
         case 'time':
@@ -97,13 +99,13 @@ async function getStocks(symbolsString) {
 
 async function getSports(leaguesString, page) {
     // const leagues = leaguesString.split(',')
+    let text = ""
     const html = await fetch(`https://www.thescore.com/`)
         .then(res => res.text())
     const root = parse(html)
 
     const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
-
-    return headlines[page % headlines.length]
+    return headlines.join(' ')
 }
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
