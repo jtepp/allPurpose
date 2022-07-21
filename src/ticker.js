@@ -125,14 +125,19 @@ async function getSports(leaguesString, page) {
                 } else if (index > 0) {
                     matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
                         const name = team.childNodes[0].innerText
-                        const score = team.childNodes[1].innerText.split(' - ').join(':')
+                        let score = team.childNodes[1].innerText.split(/\d+ - \d+/).join('')
+
                         text += `${fixMLB(name)} ${score} ` + (i == 1 ? "| " : "- ")
                     })
                 }
             }
         })
     }
-    // console.log(text)
+
+    while (text.indexOf('  ') != -1) {
+        text = text.replace('  ', ' ')
+    }
+    console.log(text)
     return text
 }
 
