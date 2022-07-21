@@ -23,8 +23,8 @@ exports.handler = async (event) => {
         case 'sports':
             await getSports(query).then(data => {
                 message = Array(...(data.toUpperCase()))
-                const maxPages = Math.ceil(message.length / 200)
-                message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
+                // const maxPages = Math.ceil(message.length / 200)
+                // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
             })
             break;
         case 'time':
