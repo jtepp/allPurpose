@@ -127,15 +127,11 @@ async function getSports(leaguesString, page) {
                         const name = team.childNodes[0].innerText
                         let score = team.childNodes[1].innerText.split(/\d+ - \d+/).join('')
 
-                        text += `${fixMLB(name)} ${score} ` + (i == 1 ? "| " : "- ")
+                        text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "| " : "- ")).split('  ').join(' ')
                     })
                 }
             }
         })
-    }
-
-    while (text.indexOf('  ') != -1) {
-        text = text.replace('  ', ' ')
     }
     console.log(text)
     return text
@@ -395,11 +391,11 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [1, 1, 1]
     ],
     " ": [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0]
     ],
     "!": [
         [1],
