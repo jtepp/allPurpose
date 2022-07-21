@@ -1,4 +1,7 @@
 import fetch from "node-fetch"
+import {
+    parse
+} from 'node-html-parser';
 exports.handler = async (event) => {
 
     const mode = event.queryStringParameters.mode;
@@ -13,8 +16,13 @@ exports.handler = async (event) => {
                 message = Array(...(data.toUpperCase()))
             })
             break;
-        case 'waves':
-            message = Array(...(q == "filled" ? `[]` : `{}`))
+            // case 'waves':
+            //     message = Array(...(q == "filled" ? `[]` : `{}`))
+            //     break;
+        case 'sports':
+            await getSports(query).then(data => {
+                message = Array(...(data.toUpperCase()))
+            })
             break;
         case 'time':
             const d = new Date()
@@ -86,6 +94,16 @@ async function getStocks(symbolsString) {
     return text
 }
 
+async function getSports(leaguesString) {
+    const leagues = leaguesString.split(',')
+    const html = await fetch(`https://www.thescore.com/`)
+        .then(res => res.text())
+    const root = parse(html)
+
+    const headlines = root.querySelectorAll("li[class*='Headline']").map(li => fixWebText(li.innerText))
+
+    return headlines.join(' | ')
+}
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
     "A": [
@@ -454,4 +472,8 @@ const letterMap = { // converting all characters to a 5 pixel tall sprite
         [1, 0, 0]
     ]
 
+}
+
+function fixWebText(txt) {
+    return txt.split('&#x27;').join("'")
 }
