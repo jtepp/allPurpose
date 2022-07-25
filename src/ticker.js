@@ -43,7 +43,7 @@ exports.handler = async (event) => {
     Array(5).fill(0).forEach((u, index) => {
         let string = "     " //mode == 'waves' ? "" : "0,0,0,0,0,"
         try {
-            string += message + "     "
+            string += message // + "     "
             string = Array(...string).map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
         } catch (e) {
             console.log("Probably has a letter that doesnt have a map")
