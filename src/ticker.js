@@ -26,12 +26,12 @@ exports.handler = async (event) => {
             message = d.toLocaleTimeString().toUpperCase()
             break;
         case 'sports':
-            // await getSports(query).then(data => {
-            //     message = data.toUpperCase()
-            //     // const maxPages = Math.ceil(message.length / 200)
-            //     // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
-            // })
-            // break;
+            await getSports(query).then(data => {
+                message = query.toUpperCase()
+                // const maxPages = Math.ceil(message.length / 200)
+                // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
+            })
+            break;
         case 'text':
         default:
             message = query.toUpperCase()
