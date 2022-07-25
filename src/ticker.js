@@ -99,40 +99,35 @@ async function getSports(leaguesString) {
 
     let text = ""
 
-    // if (leagues.includes('mlb')) {
-    //     const html = await fetch(`https://www.mlb.com/`)
-    //         .then(res => res.text())
-    //         .catch(err => console.log(err))
-    //     const root = parse(html)
+    if (leagues.includes('mlb')) {
+        const html = await fetch(`https://www.mlb.com/`)
+            .then(res => res.text())
+            .catch(err => console.log(err))
+        const root = parse(html)
 
-    //     let add = true
+        let add = true
 
-    //     root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.forEach((matchup, index) => {
-    //         if (add) {
-    //             if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
-    //                 add = false
-    //                 // console.log(matchup.innerText)
-    //             } else if (index > 0) {
-    //                 matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
-    //                     const name = team.childNodes[0].innerText
-    //                     const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
-    //                     text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
-    //                 })
-    //                 const time = matchup.querySelector(".short").innerText.replace(' ET', '')
-    //                 text += time + " | "
-    //             }
-    //         }
-    //     })
-    // }
-    await timeout(2000)
-    text = "MLB is currently unavailable"
+        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.forEach((matchup, index) => {
+            if (add) {
+                if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
+                    add = false
+                    // console.log(matchup.innerText)
+                } else if (index > 0) {
+                    matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
+                        const name = team.childNodes[0].innerText
+                        const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
+                        text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
+                    })
+                    const time = matchup.querySelector(".short").innerText.replace(' ET', '')
+                    text += time + " | "
+                }
+            }
+        })
+    }
     console.log(text)
     return text.toUpperCase()
 }
 
-function timeout(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
     "A": [
