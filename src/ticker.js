@@ -20,18 +20,18 @@ exports.handler = async (event) => {
             // case 'waves':
             //     message = Array(...(q == "filled" ? `[]` : `{}`))
             //     break;
-        case 'sports':
-            await getSports(query).then(data => {
-                message = data.toUpperCase()
-                // const maxPages = Math.ceil(message.length / 200)
-                // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
-            })
-            break;
         case 'time':
             const d = new Date()
             d.setHours(d.getHours() - 4) //est time
             message = d.toLocaleTimeString().toUpperCase()
             break;
+        case 'sports':
+            // await getSports(query).then(data => {
+            //     message = data.toUpperCase()
+            //     // const maxPages = Math.ceil(message.length / 200)
+            //     // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
+            // })
+            // break;
         case 'text':
         default:
             message = query.toUpperCase()
