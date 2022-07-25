@@ -26,11 +26,7 @@ exports.handler = async (event) => {
             message = d.toLocaleTimeString().toUpperCase()
             break;
         case 'sports':
-            await getSports(query).then(data => {
-                message = query.toUpperCase()
-                // const maxPages = Math.ceil(message.length / 200)
-                // message = Array(...(data.toUpperCase())).slice((page % maxPages) * 200, (page % maxPages) * 200 + 200)
-            })
+            message = await getSports(query)
             break;
         case 'text':
         default:
@@ -136,7 +132,7 @@ async function getSports(leaguesString) {
         })
     }
     console.log(text)
-    return text
+    return text.toUpperCase()
 }
 
 const letterMap = { // converting all characters to a 5 pixel tall sprite
