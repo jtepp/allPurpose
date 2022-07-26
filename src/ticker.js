@@ -37,7 +37,7 @@ exports.handler = async (event) => {
     //     message.push(' ', '.')
 
     Array(5).fill(0).forEach((u, index) => {
-        let string = "          " //mode == 'waves' ? "" : "0,0,0,0,0,"
+        let string = "         " //mode == 'waves' ? "" : "0,0,0,0,0,"
         try {
             string += message // + "     "
             string = Array(...string).map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
@@ -60,7 +60,7 @@ exports.handler = async (event) => {
             "Access-Control-Allow-Origin": "*", // Required for CORS support to work
             "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
         },
-        body: innerArrayText(JSON.stringify(output))
+        body: innerArrayText(JSON.stringify(output.slice(0, 550)))
     })
 
 
@@ -105,26 +105,27 @@ async function getSports(leaguesString) {
             .catch(err => console.log(err))
         const root = parse(html)
 
-        let add = true
+        let add = root.querySelectorAll('.trk-minisb-sticky-date').length == 2 // if there are two dates, take todays (1) and skip tomorrow (2)
+        // if only one date, take that one
+        // if three dates skip yesterday (1) and take today (2) then skip tomorrow (3)
 
-        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.slice(0, 5).forEach((matchup, index) => {
-            if (add) {
-                if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
-                    add = false
-                    // console.log(matchup.innerText)
-                } else if (index > 0) {
-                    matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
-                        const name = team.childNodes[0].innerText
-                        const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
-                        text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
-                    })
-                    const time = matchup.querySelector(".short").innerText.replace(' ET', '')
-                    text += time + " | "
-                }
+        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.forEach((matchup, index) => {
+            // if (add) {
+            if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
+                add = !add
+                // console.log(matchup.innerText)
+            } else if (index > 0 && add && !matchup.classList._set.has('trk-minisb-sticky-date')) {
+                matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
+                    const name = team.childNodes[0].innerText
+                    const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
+                    text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
+                })
+                const time = matchup.querySelector(".short").innerText.replace(' ET', '')
+                text += time + " | "
             }
+            // }
         })
     }
-    console.log(text)
     return text.toUpperCase()
 }
 
