@@ -60,7 +60,7 @@ exports.handler = async (event) => {
             "Access-Control-Allow-Origin": "*", // Required for CORS support to work
             "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
         },
-        body: innerArrayText(JSON.stringify(output.slice(0, 550)))
+        body: innerArrayText(JSON.stringify(output.slice(0, 500)))
     })
 
 
