@@ -22,7 +22,7 @@ exports.handler = async (event) => {
             //     break;
         case 'time':
             const d = new Date()
-            d.setHours(d.getHours() - 4) //est time
+            d.setHours(d.getHours() + Number(query)) //est time
             message = d.toLocaleTimeString().toUpperCase()
             break;
         case 'sports':
