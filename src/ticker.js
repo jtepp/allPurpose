@@ -107,7 +107,7 @@ async function getSports(leaguesString) {
 
         let add = true
 
-        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.slice(0, 4).forEach((matchup, index) => {
+        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.slice(0, 5).forEach((matchup, index) => {
             if (add) {
                 if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
                     add = false
