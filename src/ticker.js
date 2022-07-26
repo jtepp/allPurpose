@@ -109,19 +109,24 @@ async function getSports(leaguesString) {
         // if only one date, take that one
         // if three dates skip yesterday (1) and take today (2) then skip tomorrow (3)
 
+        let matchTotal = 0
+
         root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.forEach((matchup, index) => {
             // if (add) {
-            if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
-                add = !add
-                // console.log(matchup.innerText)
-            } else if (index > 0 && add && !matchup.classList._set.has('trk-minisb-sticky-date')) {
-                matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
-                    const name = team.childNodes[0].innerText
-                    const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
-                    text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
-                })
-                const time = matchup.querySelector(".short").innerText.replace(' ET', '')
-                text += time + " | "
+            if (matchTotal < 7) {
+                if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
+                    add = !add
+                    // console.log(matchup.innerText)
+                } else if (index > 0 && add && !matchup.classList._set.has('trk-minisb-sticky-date')) {
+                    matchup.querySelectorAll(".MUnBu").forEach((team, i) => {
+                        const name = team.childNodes[0].innerText
+                        const score = team.childNodes[team.childNodes.length - 1].innerText.split(/\d+ - \d+/).join('')
+                        text += (`${fixMLB(name)} ${score} ` + (i == 1 ? "" : "- ")).split('  ').join(' ')
+                    })
+                    const time = matchup.querySelector(".short").innerText.replace(' ET', '')
+                    text += time + " | "
+                    matchTotal++
+                }
             }
             // }
         })
