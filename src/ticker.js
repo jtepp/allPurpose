@@ -37,7 +37,7 @@ exports.handler = async (event) => {
     //     message.push(' ', '.')
 
     Array(5).fill(0).forEach((u, index) => {
-        let string = "         " //mode == 'waves' ? "" : "0,0,0,0,0,"
+        let string = "          " //mode == 'waves' ? "" : "0,0,0,0,0,"
         try {
             string += message // + "     "
             string = Array(...string).map(l => letterMap[l][index]).join(mode == 'waves' ? "," : ",0,")
@@ -107,7 +107,7 @@ async function getSports(leaguesString) {
 
         let add = true
 
-        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.forEach((matchup, index) => {
+        root.querySelector(`[data-mlb-test="controlled-overflow_inner-wrapper"]`).childNodes.slice(0, 4).forEach((matchup, index) => {
             if (add) {
                 if (index > 0 && matchup.classList._set.has('trk-minisb-sticky-date')) {
                     add = false
