@@ -442,6 +442,14 @@ iframe {
     transform: scale(0.5) translateY(-80%);
 }
 
+.sitecard:not(:hover) .front .siteimg {
+    box-shadow: black 0px 0px 20px 0px;
+}
+
+.sitecard:hover .back {
+    box-shadow: black 0px 0px 10px 0px;
+}
+
 .sitecard h3 {
     transition: opacity ease-in 0.2s, var(--transform);
     margin-top: 0.5em;
@@ -467,7 +475,7 @@ iframe {
 }
 
 .back {
-    transition: var(--transform);
+    transition: var(--transform), box-shadow var(--transition);
     z-index: 0;
     position: absolute;
     top: 0;
