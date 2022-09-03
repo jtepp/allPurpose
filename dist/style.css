@@ -431,15 +431,17 @@ iframe {
 }
 
 .front {
+    position: relative;
     z-index: 1;
     top: 0;
-    transition: var(--transform);
+    transition: var(--transform), top var(--transition);
     transform: scale(1);
 }
 
 .sitecard:hover .front {
     pointer-events: none;
-    transform: scale(0.5) translateY(-80%);
+    transform: scale(0.5);
+    top: -50%;
 }
 
 .sitecard:not(:hover) .front .siteimg {
@@ -484,6 +486,18 @@ iframe {
     height: 100%;
     transform: scale(0.4, 0.4) translateY(-25px);
     border-radius: 20px;
+}
+
+#larrybirdle-card .back {
+    background-image: linear-gradient(to bottom right, #b1923d, #EBD885, #816823);
+}
+
+#larrybirdle-card .frontname {
+    background-image: linear-gradient(to bottom right, #8e7530, #c1ac51, #64511a);
+    border-radius: 10px;
+    width: fit-content;
+    margin-inline: auto;
+    padding-inline: 10px;
 }
 
 .wideback {
