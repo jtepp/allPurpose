@@ -823,12 +823,23 @@ a>v {
     background-color: var(--blue);
 }
 
+a {
+    position: relative;
+}
+
 a>jj {
     font-size: 0.6em;
     padding: 2px 6px;
     border-radius: 1em;
     background-color: #fff;
     color: black;
+    width: max-content;
+}
+
+.frontname a>jj {
+    position: absolute;
+    top: 34px;
+    transform: translateX(-50%);
 }
 
 #splliticon {
