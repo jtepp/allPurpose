@@ -836,7 +836,7 @@ a>jj {
     width: max-content;
 }
 
-.frontname a>jj {
+#oooh-card .frontname a>jj {
     position: absolute;
     top: 34px;
     transform: translateX(-50%);
