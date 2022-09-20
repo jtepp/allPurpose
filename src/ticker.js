@@ -45,7 +45,7 @@ exports.handler = async (event) => {
             console.log("Probably has a letter that doesnt have a map")
             console.error(e)
         }
-        output.push(string.split(',').map(x => parseInt(x)))
+        output.push(string.split(',').map(x => parseInt(x)).reverse())
     })
 
     // while (output[0].length % 8 != 0)
