@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "react-scripts build",
+    "build": "react-scripts build && netlify-lambda build func-src",
     "serve": "netlify-lambda serve func-src",
     "start": "react-scripts start",
     "test": "react-scripts test",
