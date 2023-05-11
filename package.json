@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build src",
-    "serve": "netlify-lambda serve src"
+    "build": "netlify-lambda build func-src",
+    "serve": "netlify-lambda serve func-src"
   },
   "keywords": [],
   "author": "",
