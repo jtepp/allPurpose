@@ -1,0 +1,36 @@
+:root {
+    --shiny-primary: white;
+    --shiny-secondary: grey;
+}
+
+.shiny-text {
+
+    background-image: linear-gradient(-80deg, var(--shiny-primary) 30%, var(--shiny-secondary) 40%, var(--shiny-primary) 70%);
+    background-size: 400% 100%;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-slide 10s linear infinite;
+    width: max-content;
+    height: max-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 00px;
+}
+
+.shiny-text > h1 {
+    font-size: 80px;
+}
+
+@keyframes gradient-slide {
+    0% {
+        background-position-x: 0%;
+    }
+
+    100% {
+        background-position-x: 100%;
+    }
+    
+}
