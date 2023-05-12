@@ -7,7 +7,8 @@ import { randomElement } from './utils';
 import Main from './components/main';
 
 export const pages = [
-  {name: "Projects", path: "/", width: 60},
+  {name: "Home", path: "/", width: 60},
+  {name: "Projects", path: "#projects-section", width: 60},
   {name: "Minigames", path: "/minigames", width: 80},
   {name: "Functions", path: "/functions", width: 72},
   {name: "Contact", path: "/contact", width: 58}

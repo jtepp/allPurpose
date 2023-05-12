@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import Section from './section';
 import Cutout from './cutout';
+import ScrollButton from './scrollButton';
 
 function Home(props) {
-    useEffect(() => {
-        props.setActiveIndex(0)
-    }, [])
 
     return ( 
-        <Cutout id='home' collowScroll={true} backgroundColor="#303030" followScroll={true}>
-            <Section id='home'
+        <Cutout id='home' backgroundColor="#303030" followScroll={true}>
+            <Section id='home' onRender={() => {
+                    props.setActiveIndex(0)
+            }}            
             //activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
             //</Cutout>hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex}
                 >
@@ -20,10 +20,15 @@ function Home(props) {
               </div>
 
               <div id="home-bottom">
+                    <ScrollButton target="#project-section"/>
                   <h2>
                       Scroll down to view my projects
                   </h2>
               </div>
+            </Section>
+
+            <Section id='projects'>
+                <h1>Projects!</h1>
             </Section>
         </Cutout>
      );

@@ -55,8 +55,14 @@ function Header(props) {
     }
 
     window.onresize = setHeaderLine
+    
 
-    useEffect(setHeaderLine, [props.activeIndex, props.hoverIndex])
+    useEffect(() => {
+        setHeaderLine()
+        document.querySelector("#home").addEventListener("scroll", () => {
+            console.log(document.querySelector("#home").scrollTop)
+        })
+    }, [props.activeIndex, props.hoverIndex])
 
     const headerItems = pages.map((page, index) => {
         const id = page.name.toLowerCase()+"-header-link"
