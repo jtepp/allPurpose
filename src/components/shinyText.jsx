@@ -18,8 +18,8 @@ const colorPairs = [
   ];
 
 Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
-    document.querySelector(':root').style.setProperty(`--shiny-${key}`, value)
-    console.log(`--shiny-${key}: ${value}`)
+    document.querySelector(':root').style.setProperty(`--${key}`, value)
+    console.log(`--${key}: ${value}`)
 })
   
 

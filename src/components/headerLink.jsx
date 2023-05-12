@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function HeaderLink(props) {
     return ( 
-        <NavLink to={props.path} id={props.id} onClick={props.onClick} style={() => {
+        <NavLink to={props.path} id={props.id} onClick={props.onClick} onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} style={() => {
             return {
               width: props.width
             }

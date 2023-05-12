@@ -12,7 +12,9 @@ function Home() {
                 </div>
 
                 <div id="home-bottom">
-                    <h2></h2>
+                    <h2>
+                        Scroll down to view my projects
+                    </h2>
                 </div>
             </ShinyText>
         </section>

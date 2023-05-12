@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { pages } from '..';
 import HeaderLink from './headerLink';
-import ShinyText from './shinyText';
+import CutoutText from './cutoutText';
 import '../css/header.css'
 
 
@@ -20,10 +20,16 @@ function Header() {
     }
 
     const calculateHeaderLineOffset = () => {
+        let index = 0;
+        if (hoverIndex > -1) {
+            index = hoverIndex
+        } else {
+            index = activeIndex
+        }
         const gap = calculateGapSize()
         let offset = gap/2
-        offset += activeIndex * gap
-        for (let i = 0; i < activeIndex; i++) {
+        offset += index * gap
+        for (let i = 0; i < index; i++) {
             offset += pages[i].width
         }
 
@@ -40,35 +46,69 @@ function Header() {
         return 0
 
     }
-    const [activeIndex, setActiveIndex] = useState(initialIndex())
+    let [activeIndex, setActiveIndex] = useState(initialIndex())
+    let [hoverIndex, setHoverIndex] = useState(-1)
+
+    
 
     const setHeaderLine = () => {
+        let index = 0;
+        if (hoverIndex > -1) {
+            index = hoverIndex
+        } else {
+            index = activeIndex
+
+            const headerLineBack = document.getElementById("header-line-back")
+        headerLineBack.style.left = calculateHeaderLineOffset() + "px"
+        headerLineBack.style.width = pages[index].width + "px"
+        }
         const headerLine = document.getElementById("header-line")
         headerLine.style.left = calculateHeaderLineOffset() + "px"
-        headerLine.style.width = pages[activeIndex].width + "px"
+        headerLine.style.width = pages[index].width + "px"
+        
+        
     }
 
     window.onresize = setHeaderLine
 
-    useEffect(setHeaderLine, [activeIndex])
+    useEffect(setHeaderLine, [activeIndex, hoverIndex])
 
     const headerItems = pages.map((page, index) => {
         const id = page.name.toLowerCase()+"-header-link"
         return (
-            <HeaderLink name={page.name} onClick={() => setActiveIndex(index)} path={page.path} width={page.width} id={id} key={id}/>
+            <HeaderLink name={page.name} onClick={() => {
+                setActiveIndex(index)
+                setHoverIndex(-1)
+            }} onMouseEnter={() => {
+                setHoverIndex(index)
+            }} onMouseLeave={() => {
+                setHoverIndex(-1)
+            }} path={page.path} width={page.width} id={id} key={id}/>
         )
     })
+
+
+    const setHeaderAccent = (e) => {
+        const headerAccent = document.getElementById("header-color-accent")
+        headerAccent.style.left = e.clientX + "px"
+        headerAccent.style.top = e.clientY + "px"
+    }
+
+    document.body.onmousemove = setHeaderAccent
 
     
 
 
     return ( 
-        <div id="header">
-            <ShinyText id="header-content">
+        <div id="header-container">
+            <div id="header-color-strip"></div>
+            <div id="header-color-accent"></div>
+            <div id="header-line-back"></div>
+            <CutoutText id="header">
                 {headerItems}
-            </ShinyText>
-            <div id="header-line">
-        </div>
+                <div id="header-line">
+                </div>
+            </CutoutText>
         </div>
      );
 }
