@@ -11,8 +11,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #161616;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

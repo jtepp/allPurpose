@@ -1,0 +1,39 @@
+#header .shiny-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header-link {
+    color: transparent;
+    transition: color 0.5s ease-out;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    color: white;
+}
+
+.header-link.active {
+    color: white;
+}
+
+
+#header {
+    background-color: black;
+    padding-block: 10px;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#header-line {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+}

@@ -8,6 +8,13 @@ import Home from './components/home';
 import Base from './components/base';
 import Projects from './components/projects';
 
+export const pages = [
+  {name: "Projects", path: "/", width: 60},
+  {name: "Minigames", path: "/minigames", width: 80},
+  {name: "Functions", path: "/functions", width: 72},
+  {name: "Contact", path: "/contact", width: 58}
+]
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
