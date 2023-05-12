@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Section from './section';
 import Cutout from './cutout';
 
-function Home() {
+function Home(props) {
+    useEffect(() => {
+        props.setActiveIndex(0)
+    }, [])
+
     return ( 
         <Cutout id='home' collowScroll={true} backgroundColor="#303030" followScroll={true}>
-            <Section id='home'>
+            <Section id='home'
+            //activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
+            //</Cutout>hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex}
+                >
               <div id='home-name'>
                   <h1>Jacob</h1>
                   <h1>Tepperman</h1>

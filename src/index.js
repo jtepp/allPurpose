@@ -3,12 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './css/index.css';
 import './css/fonts.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Section from './components/section';
-import Base from './components/base';
-import Cutout from './components/cutout';
 import { randomElement } from './utils';
-import Home from './components/home';
+import Main from './components/main';
 
 export const pages = [
   {name: "Projects", path: "/", width: 60},
@@ -41,13 +37,7 @@ Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Base>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Base>
-    </BrowserRouter>
+    <Main />
   </React.StrictMode>
 );
 

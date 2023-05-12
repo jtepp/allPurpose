@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { pages } from '..';
 import HeaderLink from './headerLink';
 import Cutout from './cutout';
