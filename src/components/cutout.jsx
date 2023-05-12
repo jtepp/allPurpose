@@ -9,18 +9,24 @@ function Cutout(props) {
     
         root.style.setProperty("--accent-x", e.clientX + "px")
         root.style.setProperty("--accent-y", e.clientY + "px")
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        root.style.setProperty("--accent-scroll-x", e.clientX + scrollLeft + "px")
+        root.style.setProperty("--accent-scroll-y", e.clientY + scrollTop + "px")
     }
+
     
     document.body.onmousemove = moveAccent
 
     return ( 
         <div id={props.id + "-container"} style={{
             zIndex: 10,
-            position: 'relative',
-            overflow: 'hidden'
+            position: 'relative'
             }}>
             <div className={"color-strip"}></div>
-            <div className={"color-accent"}></div>
+            <div className={props.followScroll ? "color-accent follow-scroll" : "color-accent"}></div>
             {props.upperLevel}
             <div className="cutout" id={props.id} style={
                 {

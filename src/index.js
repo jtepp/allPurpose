@@ -8,6 +8,7 @@ import Section from './components/section';
 import Base from './components/base';
 import Cutout from './components/cutout';
 import { randomElement } from './utils';
+import Home from './components/home';
 
 export const pages = [
   {name: "Projects", path: "/", width: 60},
@@ -43,8 +44,7 @@ root.render(
     <BrowserRouter>
       <Base>
         <Routes>
-          <Route path="/" element={<Section id='home'>
-          </Section>} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Base>
     </BrowserRouter>

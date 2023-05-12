@@ -34,25 +34,7 @@ function Header(props) {
         }
 
         return offset
-    }
-
-    // const initialIndex = () => {
-    //     const path = window.location.pathname
-    //     for (let i = 0; i < pages.length; i++) {
-    //         if (pages[i].path === path) {
-    //             return i
-    //         }
-    //     }
-    //     return 0
-
-    // }
-    // let [activeIndex, setActiveIndex] = useState(0)
-    // let [hoverIndex, setHoverIndex] = useState(-1)
-
-    // useEffect(() => {
-    //     setActiveIndex(initialIndex())
-    // }, [])
-    
+    }    
 
     const setHeaderLine = () => {
         let index = 0;

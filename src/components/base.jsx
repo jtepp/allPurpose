@@ -17,10 +17,10 @@ function Base(props) {
     }
     let [activeIndex, setActiveIndex] = useState(0)
     let [hoverIndex, setHoverIndex] = useState(-1)
-
     useEffect(() => {
         setActiveIndex(initialIndex())
     }, [])
+    
 
     return ( 
         <div id="base">

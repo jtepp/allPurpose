@@ -2,32 +2,3 @@
     display: flex;
     flex-direction: column;
 }
-
-
-#home-name > * {
-    width: 100%;
-    height: max-content;
-    padding-left: 40px;
-    display: flex;
-    flex-direction: column;
-}
-
-#home {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 40px);
-    justify-content: space-between;
-}
-
-#home-name-title {
-    margin-left: 17px;
-    margin-top: 15px;
-}
-
-#home-bottom {
-    margin-top: 100vh
-}
-
-#home-name h1 {
-    font-size: 80px;
-}

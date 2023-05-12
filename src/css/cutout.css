@@ -1,6 +1,9 @@
 :root {
     --accent-x: -200px;
     --accent-y: -200px;
+
+    --accent-scroll-x: -200px;
+    --accent-scroll-y: -200px;
 }
 
 .cutout {
@@ -30,4 +33,9 @@
     background-color: var(--secondary);
     box-shadow: 0px 0px 80px 80px var(--secondary);
     translate: -50% -50%;
+}
+
+.color-accent.follow-scroll {
+    top: var(--accent-scroll-y);
+    left: var(--accent-scroll-x);
 }

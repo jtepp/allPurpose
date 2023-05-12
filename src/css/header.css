@@ -36,9 +36,10 @@
 }
 
 #header-container {
-    position: sticky;
+    position: sticky !important;
     top: 0;
     overflow: hidden;
+    z-index: 11 !important;
 }
 
 
