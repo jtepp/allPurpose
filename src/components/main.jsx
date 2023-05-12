@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Base from './base';
 import Home from './home';
 import { pages } from '..';
+import Minigames from './minigames';
 
 function Main() {
     const initialIndex = () => {
@@ -28,6 +29,7 @@ function Main() {
                 <Routes>
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex}/>} />
+                <Route path="/minigames" element={<Minigames/>}/>
                 </Routes>
             </Base>
          </BrowserRouter>

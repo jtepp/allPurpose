@@ -59,15 +59,12 @@ function Header(props) {
 
     useEffect(() => {
         setHeaderLine()
-        document.querySelector("#home").addEventListener("scroll", () => {
-            console.log(document.querySelector("#home").scrollTop)
-        })
     }, [props.activeIndex, props.hoverIndex])
 
     const headerItems = pages.map((page, index) => {
         const id = page.name.toLowerCase()+"-header-link"
         return (
-            <HeaderLink name={page.name} onClick={() => {
+            <HeaderLink name={page.name} scroll={page.scroll} onClick={() => {
                 props.setActiveIndex(index)
                 props.setHoverIndex(-1)
             }} onMouseEnter={() => {

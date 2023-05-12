@@ -5,6 +5,23 @@ import ScrollButton from './scrollButton';
 
 function Home(props) {
 
+    useEffect(() => {
+        props.setActiveIndex((document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
+
+        document.querySelector("#home").addEventListener("scroll", () => {
+            if (document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) {
+                props.setActiveIndex(1)
+            } else {
+                props.setActiveIndex(0)
+            }
+        })
+
+        if (window.location.hash == "#projects-section") {
+            if (document.querySelector("#projects-section"))
+                document.querySelector("#projects-section").scrollIntoView();
+        }
+    }, [])
+
     return ( 
         <Cutout id='home' backgroundColor="#303030" followScroll={true}>
             <Section id='home' onRender={() => {
@@ -20,7 +37,7 @@ function Home(props) {
               </div>
 
               <div id="home-bottom">
-                    <ScrollButton target="#project-section"/>
+                    <ScrollButton target="#projects-section"/>
                   <h2>
                       Scroll down to view my projects
                   </h2>
@@ -29,6 +46,11 @@ function Home(props) {
 
             <Section id='projects'>
                 <h1>Projects!</h1>
+                <div id="projects-container">
+                    <div className='project'>
+                        <p>hello</p>
+                    </div>
+                </div>
             </Section>
         </Cutout>
      );
