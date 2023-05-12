@@ -1,10 +1,16 @@
-import React from 'react'
-import ShinyText from './shinyText';
+import React, { useEffect } from 'react'
+import Cutout from './cutout';
 
-function Home() {
+function Section(props) {
+
+    useEffect(() => {
+        console.log("Section mounted")
+    })
+
     return ( 
-        <section id='home-section'>
-            <ShinyText id='home-section-inner'>
+        <section id={props.id+'-section'}>
+           
+           <Cutout id='home' backgroundColor="#303030">
                 <div id='home-name'>
                     <h1>Jacob</h1>
                     <h1>Tepperman</h1>
@@ -16,9 +22,9 @@ function Home() {
                         Scroll down to view my projects
                     </h2>
                 </div>
-            </ShinyText>
+            </Cutout>
         </section>
      );
 }
 
-export default Home;
+export default Section;

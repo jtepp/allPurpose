@@ -4,9 +4,10 @@ import './css/index.css';
 import './css/fonts.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './components/home';
+import Section from './components/section';
 import Base from './components/base';
-import Projects from './components/projects';
+import Cutout from './components/cutout';
+import { randomElement } from './utils';
 
 export const pages = [
   {name: "Projects", path: "/", width: 60},
@@ -17,13 +18,33 @@ export const pages = [
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const colorPairs = [
+  { primary: 'red', secondary: 'darkorange' },
+  { primary: 'darkorange', secondary: 'yellow' },
+  { primary: 'yellow', secondary: 'limegreen' },
+  { primary: 'limegreen', secondary: 'cyan' },
+  { primary: 'cyan', secondary: 'blue' },
+  { primary: 'cornflowerblue', secondary: 'darkseagreen' },
+  { primary: 'magenta', secondary: 'red' },
+  { primary: 'orchid', secondary: 'white' },
+  { primary: 'gold', secondary: 'darkred' },
+  { primary: 'teal', secondary: 'olive' },
+  { primary: 'coral', secondary: 'turquoise' },
+  { primary: 'salmon', secondary: 'navajowhite' }
+];
+
+Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
+  document.querySelector(':root').style.setProperty(`--${key}`, value)
+  console.log(`--${key}: ${value}`)
+})
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Base>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/" element={<Section id='home'>
+          </Section>} />
         </Routes>
       </Base>
     </BrowserRouter>
