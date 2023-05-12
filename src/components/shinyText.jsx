@@ -26,7 +26,7 @@ Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
 function ShinyText(props) {
 
     return ( 
-        <div className="shiny-text">
+        <div className="shiny-text" id={props.id}>
             {props.children}
         </div>
      )

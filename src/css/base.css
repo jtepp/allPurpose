@@ -14,9 +14,14 @@
     flex-direction: column;
 }
 
-section#home-section {
+#home-section-inner {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
+}
+
+#home-name-title {
+    margin-left: 17px;
+    margin-top: 15px;
 }
