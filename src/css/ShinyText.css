@@ -6,25 +6,19 @@
 .shiny-text {
 
     background-image: linear-gradient(-80deg, var(--shiny-primary) 45%, var(--shiny-secondary) 50%, var(--shiny-primary) 55%);
-    background-size: 400vw 100%;
+    background-size: 250vw 100%;
 
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient-slide 15s linear infinite;
+    animation: gradient-slide 10s linear infinite;
 }
 
-.shiny-text > h1 {
+#home-name h1 {
     font-size: 80px;
 }
 
-#home-name > .shiny-text {
-    width: max-content;
-    height: max-content;
 
-    display: flex;
-    flex-direction: column;
-}
 
 
 

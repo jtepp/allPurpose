@@ -10,7 +10,7 @@ const colorPairs = [
     { primary: 'cyan', secondary: 'blue' },
     { primary: 'cornflowerblue', secondary: 'darkseagreen' },
     { primary: 'magenta', secondary: 'red' },
-    { primary: 'purple', secondary: 'pink' },
+    { primary: 'orchid', secondary: 'white' },
     { primary: 'gold', secondary: 'darkred' },
     { primary: 'teal', secondary: 'olive' },
     { primary: 'coral', secondary: 'turquoise' },

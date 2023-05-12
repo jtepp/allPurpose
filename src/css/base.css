@@ -4,7 +4,14 @@
 }
 
 #home-name {
-    margin-left: 40px;
+}
+
+#home-name > * {
+    width: 100%;
+    height: max-content;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 section#home-section {

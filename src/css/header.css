@@ -1,4 +1,4 @@
-#header .shiny-text {
+#header > * {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,6 +9,7 @@
     color: transparent;
     transition: color 0.5s ease-out;
     text-decoration: none;
+    text-align: center;
 }
 
 .header-link:hover {
@@ -27,6 +28,8 @@
     position: sticky;
     top: 0;
     z-index: 10;
+
+    box-shadow: 0px 0px 100px 10px #ffffff10;
 }
 
 #header-line {
@@ -36,4 +39,5 @@
     width: 10px;
     height: 2px;
     background-color: white;
+    transition: left 0.5s ease-out, width 0.5s ease-out;
 }
