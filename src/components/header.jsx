@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { pages } from '..';
 import HeaderLink from './headerLink';
 import Cutout from './cutout';
@@ -19,7 +19,7 @@ function Header(props) {
         
     }
 
-    const calculateHeaderLineOffset = () => {
+    const calculateHeaderLineOffset = useCallback(() => {
         let index = 0;
         if (props.hoverIndex > -1) {
             index = props.hoverIndex
@@ -34,9 +34,9 @@ function Header(props) {
         }
 
         return offset
-    }    
+    }, [props.activeIndex, props.hoverIndex])    
 
-    const setHeaderLine = () => {
+    const setHeaderLine = useCallback(() => {
         let index = 0;
         if (props.hoverIndex > -1) {
             index = props.hoverIndex
@@ -52,14 +52,14 @@ function Header(props) {
         headerLine.style.width = pages[index].width + "px"
         
         
-    }
+    }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset])
 
     window.onresize = setHeaderLine
     
 
     useEffect(() => {
         setHeaderLine()
-    }, [props.activeIndex, props.hoverIndex])
+    }, [setHeaderLine])
 
     const headerItems = pages.map((page, index) => {
         const id = page.name.toLowerCase()+"-header-link"

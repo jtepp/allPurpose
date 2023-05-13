@@ -7,7 +7,7 @@ function ScrollButton(props) {
             if (document.querySelector(props.target))
                 document.querySelector(props.target).scrollIntoView({behavior: 'smooth'});
         }}>
-            <img src={roundedChevronDown}/>
+            <img src={roundedChevronDown} alt='scroll down'/>
         </div>
      );
 }

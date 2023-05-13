@@ -16,11 +16,11 @@ function Home(props) {
             }
         })
 
-        if (window.location.hash == "#projects-section") {
+        if (window.location.hash === "#projects-section") {
             if (document.querySelector("#projects-section"))
                 document.querySelector("#projects-section").scrollIntoView();
         }
-    }, [])
+    }, [props])
 
     return ( 
         <Cutout id='home' backgroundColor="#303030" followScroll={true}>
