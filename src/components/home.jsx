@@ -52,9 +52,9 @@ function Home(props) {
                     <h1>PROJECTS</h1>
                 </Section>
             </Cutout>
-            {/* <div id="projects-content">
+            <div id="projects-content">
                 <h2>content</h2>
-            </div> */}
+            </div>
         </div>
 
      );

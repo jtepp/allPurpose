@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './css/index.css';
 import './css/fonts.css';
 import reportWebVitals from './reportWebVitals';
-import { randomElement } from './utils';
 import Main from './components/main';
 
 export const pages = [
@@ -16,25 +15,6 @@ export const pages = [
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const colorPairs = [
-  { primary: 'red', secondary: 'darkorange' },
-  { primary: 'darkorange', secondary: 'yellow' },
-  { primary: 'yellow', secondary: 'limegreen' },
-  { primary: 'limegreen', secondary: 'cyan' },
-  { primary: 'cyan', secondary: 'blue' },
-  { primary: 'cornflowerblue', secondary: 'darkseagreen' },
-  { primary: 'magenta', secondary: 'red' },
-  { primary: 'orchid', secondary: 'white' },
-  { primary: 'gold', secondary: 'darkred' },
-  { primary: 'teal', secondary: 'olive' },
-  { primary: 'coral', secondary: 'turquoise' },
-  { primary: 'salmon', secondary: 'navajowhite' }
-];
-
-Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
-  document.querySelector(':root').style.setProperty(`--${key}`, value)
-  console.log(`--${key}: ${value}`)
-})
 
 root.render(
   <React.StrictMode>
