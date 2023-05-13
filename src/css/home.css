@@ -1,6 +1,6 @@
 #home-name > * {
-    width: 100%;
-    height: max-content;
+    width: fit-content;
+    /* height: max-content; */
     padding-left: 40px;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
 
 }
 
