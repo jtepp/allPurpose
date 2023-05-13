@@ -2,8 +2,8 @@
     --accent-x: -200px;
     --accent-y: -200px;
 
-    --accent-scroll-x: -200px;
-    --accent-scroll-y: -200px;
+    --scroll-x: 0px;
+    --scroll-y: 0px;
 }
 
 .cutout {
@@ -38,6 +38,6 @@
 }
 
 .color-accent.follow-scroll {
-    top: var(--accent-scroll-y);
-    left: var(--accent-scroll-x);
+    /* top: calc(var(--accent-y) + var(--scroll-y));
+    left: calc(var(--accent-x) + var(--scroll-x)); */
 }

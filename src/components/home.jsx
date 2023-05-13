@@ -26,36 +26,38 @@ function Home(props) {
     }, [])
 
     return ( 
-        <div className='flex-col'>
-            <Cutout id='home' backgroundColor="black" followScroll={true}>
-                <Section id='home' onRender={() => {
-                        props.setActiveIndex(0)
-                }}            
-                //activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
-                //</Cutout>hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex}
-                    >
-                <div id='home-name'>
-                    <h1>Jacob</h1>
-                    <h1>Tepperman</h1>
-                    <h2 id='home-name-title'>Software Engineer</h2>
+    
+        <Cutout id='home' backgroundColor="black" followScroll={true}
+            below={
+                <div id="projects-content">
+                    <h2>content</h2>
                 </div>
-
-                <div id="home-bottom">
-                        <ScrollButton target="#projects-section"/>
-                    <h2>
-                        Scroll down to view my projects
-                    </h2>
-                </div>
-                </Section>
-
-                <Section id='projects'>
-                    <h1>PROJECTS</h1>
-                </Section>
-            </Cutout>
-            <div id="projects-content">
-                <h2>content</h2>
+            }
+        >
+            <Section id='home' onRender={() => {
+                    props.setActiveIndex(0)
+            }}            
+            //activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
+            //</Cutout>hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex}
+                >
+            <div id='home-name'>
+                <h1>Jacob</h1>
+                <h1>Tepperman</h1>
+                <h2 id='home-name-title'>Software Engineer</h2>
             </div>
-        </div>
+
+            <div id="home-bottom">
+                    <ScrollButton target="#projects-section"/>
+                <h2>
+                    Scroll down to view my projects
+                </h2>
+            </div>
+            </Section>
+
+            <Section id='projects'>
+                <h1>PROJECTS</h1>
+            </Section>
+        </Cutout>
 
      );
 }

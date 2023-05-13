@@ -8,16 +8,6 @@
     text-align: center;
 }
 
-.header-link:hover {
-    color: white;
-    mix-blend-mode: normal;
-
-}
-
-
-.header-link.active {
-    color: white;
-}
 
 
 #header {
@@ -40,7 +30,7 @@
     width: 100%;
     top: 0;
     overflow: hidden;
-    z-index: 11 !important;
+    z-index: 12 !important;
 }
 
 

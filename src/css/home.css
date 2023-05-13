@@ -77,14 +77,8 @@
 }
 
 
-.color-accent.follow-scroll {
-    top: var(--accent-scroll-y);
-
-}
-
 #projects-section {
-    height: 120vh;
-    mix-blend-mode: normal;
+    height: 100vh;
     isolation: isolate;
     position: relative;
 }
@@ -97,6 +91,10 @@
 
 #projects-content {
     width: 100vw;
-    height: 400px;
+    height: 100vh;
     background-color: white;
+    position: absolute;
+    z-index: 9;
+    top: calc(100vh - var(--scroll-y));
+    left: 0px;
 }
