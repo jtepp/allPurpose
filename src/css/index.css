@@ -9,7 +9,7 @@ a, a:visited, a:hover, a:active {
 }
 
 body {
-  font-family: BlinkMacSystemFont, 'SF Pro Display';
+  font-family: BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #161616;
