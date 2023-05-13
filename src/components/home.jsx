@@ -27,7 +27,7 @@ function Home(props) {
 
     return ( 
         <div className='flex-col'>
-            <Cutout id='home' backgroundColor="#303030" followScroll={true}>
+            <Cutout id='home' backgroundColor="black" followScroll={true}>
                 <Section id='home' onRender={() => {
                         props.setActiveIndex(0)
                 }}            
