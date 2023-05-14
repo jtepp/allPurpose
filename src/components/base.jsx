@@ -27,6 +27,10 @@ function Base(props) {
             document.querySelector(':root').style.setProperty(`--${key}`, value)
             console.log(`--${key}: ${value}`)
         })
+
+        setTimeout(() => {
+            document.querySelector(':root').style.setProperty('--color-transition-time', '3s')
+        }, 1000)
     }
 
     useEffect(() => {
@@ -34,7 +38,7 @@ function Base(props) {
     }, [])
   
     useEffect(() => {
-        const interval = setInterval(setRandomColor, 10000);
+        const interval = setInterval(setRandomColor, 8000);
   
         return () => clearInterval(interval);
     }, []);

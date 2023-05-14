@@ -1,0 +1,21 @@
+#projects-section {
+    height: calc(100vh - 40px);
+    isolation: isolate;
+    position: relative;
+}
+
+.project {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+}
+
+#projects-content {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    z-index: 9;
+    top: calc(100vh - var(--scroll-y));
+    left: 0px;
+}

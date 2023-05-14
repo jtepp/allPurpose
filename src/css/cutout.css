@@ -4,6 +4,8 @@
 
     --scroll-x: 0px;
     --scroll-y: 0px;
+
+    --blend-transition: 0s;
 }
 
 .cutout {
@@ -20,7 +22,7 @@
     left: 0;
     z-index: 1;
     background-color: var(--primary);
-    transition: background-color 3s ease;
+    transition: background-color var(--color-transition-time) ease;
 }
 
 .color-accent {
@@ -34,7 +36,8 @@
     background-color: var(--secondary);
     box-shadow: 0px 0px 80px 80px var(--secondary);
     translate: -50% -50%;
-    transition: background-color 3s ease, box-shadow 3s ease;
+    transition: background-color var(--color-transition-time) ease,
+    box-shadow var(--color-transition-time) ease;
 }
 
 .color-accent.follow-scroll {

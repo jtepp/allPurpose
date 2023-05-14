@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Section from './section';
 import Cutout from './cutout';
 import ScrollButton from './scrollButton';
+import ProjectsSection from './projectsSection';
 
 function Home(props) {
 
@@ -54,9 +55,7 @@ function Home(props) {
             </div>
             </Section>
 
-            <Section id='projects'>
-                <h1>PROJECTS</h1>
-            </Section>
+            <ProjectsSection />
         </Cutout>
 
      );
