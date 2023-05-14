@@ -6,18 +6,15 @@ import { randomElement } from '../utils';
 
     
 const colorPairs = [
-    { primary: 'red', secondary: 'darkorange' },
+    { primary: 'firebrick', secondary: 'darkorange' },
     { primary: 'darkorange', secondary: 'yellow' },
-    { primary: 'yellow', secondary: 'limegreen' },
-    { primary: 'limegreen', secondary: 'cyan' },
-    { primary: 'cyan', secondary: 'blue' },
-    { primary: 'cornflowerblue', secondary: 'darkseagreen' },
-    { primary: 'magenta', secondary: 'red' },
-    { primary: 'orchid', secondary: 'white' },
-    { primary: 'gold', secondary: 'darkred' },
-    { primary: 'teal', secondary: 'olive' },
-    { primary: 'coral', secondary: 'turquoise' },
-    { primary: 'salmon', secondary: 'navajowhite' }
+    { primary: 'goldenrod', secondary: 'palegoldenrod' },
+    { primary: 'seagreen', secondary: 'limegreen' },
+    { primary: 'royalblue', secondary: 'mediumturquoise' },
+    { primary: 'blueviolet', secondary: 'orchid' },
+    { primary: 'mediumorchid', secondary: 'violet' },
+    { primary: 'teal', secondary: 'skyblue' },
+    { primary: 'tomato', secondary: 'lightsalmon' }
   ];
 
 function Base(props) {
