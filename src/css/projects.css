@@ -4,16 +4,12 @@
     position: relative;
 }
 
-.project {
-    width: 200px;
-    height: 200px;
-    background-color: white;
-}
 
 #projects-title {
     font-size: 50px;
     margin-left: 40px;
     padding-block: 5px;
+    height: 60px;
 }
 
 #projects-back {
@@ -24,4 +20,26 @@
     z-index: 9;
     top: calc(100vh + 110px - var(--scroll-y));
     left: 0px;
+}
+
+#projects-content {
+    height: calc(100vh - 165px);
+    padding-bottom: 55px;
+}
+
+#projects-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.project {
+    width: 200px;
+    height: 400px;
+    color: white;
+    background-color: var(--primary);
+    transition: background-color var(--color-transition-time) ease;
+    padding: 20px;
+    border-radius: 20px;
 }
