@@ -78,7 +78,7 @@
 
 
 #projects-section {
-    height: 100vh;
+    height: calc(100vh - 40px);
     isolation: isolate;
     position: relative;
 }
