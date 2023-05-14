@@ -30,8 +30,7 @@ function Home(props) {
     
         <Cutout id='home' backgroundColor="black" followScroll={true}
             below={
-                <div id="projects-content">
-                    <h2>content</h2>
+                <div id="projects-back">
                 </div>
             }
         >

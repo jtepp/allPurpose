@@ -10,12 +10,18 @@
     background-color: white;
 }
 
-#projects-content {
+#projects-title {
+    font-size: 50px;
+    margin-left: 40px;
+    padding-block: 5px;
+}
+
+#projects-back {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 110px);
     background-color: white;
     position: absolute;
     z-index: 9;
-    top: calc(100vh - var(--scroll-y));
+    top: calc(100vh + 110px - var(--scroll-y));
     left: 0px;
 }

@@ -1,5 +1,5 @@
 import '../css/cutout.css'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
   
 
 function Cutout(props) {
@@ -11,7 +11,7 @@ function Cutout(props) {
         root.style.setProperty("--accent-y", e.clientY + "px")
     }
     
-    const moveScroll = (e) => {
+    const moveScroll = useCallback((e) => {
         const root = document.querySelector(":root")
 
         const scrollTop = document.getElementById(props.id).scrollTop;
@@ -19,12 +19,12 @@ function Cutout(props) {
 
         root.style.setProperty("--scroll-x", scrollLeft + "px")
         root.style.setProperty("--scroll-y", scrollTop + "px")
-    }
+    }, [props.id])
     
     useEffect(() => {
         document.body.onmousemove = moveAccent
         document.getElementById(props.id).onscroll = moveScroll
-    }, [props.id])
+    }, [props.id, moveScroll])
 
     return ( 
         <div id={props.id + "-container"} style={{

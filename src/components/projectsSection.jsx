@@ -5,7 +5,7 @@ import '../css/projects.css'
 function ProjectsSection() {
     return ( 
         <Section id='projects'>
-                <h1>PROJECTS</h1>
+                <h1 id='projects-title'>Projects</h1>
         </Section>
      );
 }
