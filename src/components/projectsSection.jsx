@@ -1,6 +1,7 @@
 import React from 'react'
 import Section from './section';
 import '../css/projects.css'
+import Project from './project';
 
 function ProjectsSection() {
     return ( 
@@ -9,10 +10,7 @@ function ProjectsSection() {
 
                 <div id='projects-content'>
                     <div id="projects-container">
-                        <div className="project">
-                            <h2>Project 1</h2>
-                            <p>Project 1 description</p>
-                        </div>
+                        <Project id='test' />
                     </div>
                 </div>
         </Section>

@@ -34,7 +34,15 @@
     align-items: center;
 }
 
+.project-container {
+    width: 240px;
+    height: 440px;
+}
+
 .project {
+    --rotate-x: 0deg;
+    --rotate-y: 0deg;
+
     width: 200px;
     height: 400px;
     color: white;
@@ -42,4 +50,9 @@
     transition: background-color var(--color-transition-time) ease;
     padding: 20px;
     border-radius: 20px;
+    box-shadow: 0px -1px 8px 0px #ffffff80;
+
+    transform: perspective(500px)
+        rotateX(var(--rotate-x))
+        rotateY(var(--rotate-y));
 }
