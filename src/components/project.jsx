@@ -1,44 +1,50 @@
 import React from 'react'
-import { constrain } from '../utils'
 
 function Project(props) {
     const handleMouseMove = (e) => {
         const container = document.getElementById(props.id + '-container')
+        const el = document.getElementById(props.id)
 
-        const mouseX = e.clientX - container.offsetLeft
+        const mouseX = e.clientX - container.offsetLeft + container.parentNode.scrollLeft
         const mouseY = e.clientY - container.offsetTop
-        const width = container.offsetWidth
-        const height = container.offsetHeight
-        const percentY = Math.round(mouseX / width * 100) - 50
-        const percentX = Math.round(mouseY / height * 100) - 50
+        const width = container.offsetWidth 
+        const height = container.offsetHeight 
+        const percentY = Math.round(mouseX / width * 100)
+        const percentX = -1*(Math.round(mouseY / height * 100) - 50)
 
-        const variance = 10
+        console.log(percentX, percentY)
 
-        let x = percentX * variance / 100
-        let y = percentY * variance / 100
+        const rotateVariance = 10
 
-        x = constrain(x, variance, -variance)
-        y = constrain(y, variance, -variance)
+        let x = percentX * rotateVariance / 100
+        let y = percentY * rotateVariance / 100
 
-        console.log(x, y)
+        // console.log(x, y)
 
-        document.getElementById(props.id).style.setProperty('--rotate-x', x + 'deg')
-        document.getElementById(props.id).style.setProperty('--rotate-y', y + 'deg')
+        el.style.setProperty('--rotate-x', x + 'deg')
+        el.style.setProperty('--rotate-y', y + 'deg')
+        
+        el.style.setProperty('--shadow-x', -y + 'px')
+        el.style.setProperty('--shadow-y', x + 'px')
     }
 
     const handleMouseLeave = (e) => {
-        document.getElementById(props.id).style.setProperty('--rotate-x', '0deg')
-        document.getElementById(props.id).style.setProperty('--rotate-y', '0deg')
+        const el = document.getElementById(props.id)
+        el.style.setProperty('--rotate-x', '0deg')
+        el.style.setProperty('--rotate-y', '0deg')
+
+        el.style.setProperty('--shadow-x', '0px')
+        el.style.setProperty('--shadow-y', '0px')
     }
 
     return ( 
-        <div id={props.id + '-container'} className="project-container"
+        <section id={props.id + '-container'} className="project-container"
         onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div id={props.id} className="project">
-                <h2>Project 1</h2>
-                <p>Project 1 description</p>
+                <h2 className='project-title'>{props.title}</h2>
+                <p className='project-description'>{props.description}</p>
             </div>
-        </div>
+        </section>
      );
 }
 
