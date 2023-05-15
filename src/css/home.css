@@ -25,10 +25,9 @@
     scroll-snap-type: y mandatory; 
 }
 
-#home section {
+#home>section {
     scroll-snap-align: start;
     padding-top: 40px;
-
 }
 
 #home-container {
