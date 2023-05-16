@@ -56,23 +56,19 @@
     --rotate-x: 0deg;
     --rotate-y: 0deg;
 
-    --shadow-x: 0px;
-    --shadow-y: 0px;
-
     width: 200px;
     height: 400px;
     color: white;
     background-color: var(--primary);
     padding: 20px;
     border-radius: 20px;
-    box-shadow: var(--shadow-x) var(--shadow-y) 10px 0px #ffffff50;
 
     transform: perspective(500px)
         rotateX(var(--rotate-x))
         rotateY(var(--rotate-y));
 
     transition: background-color var(--color-transition-time) ease,
-    transform 300ms ease-out, box-shadow 300ms ease-out;
+    transform 300ms ease-out;
 
 }
 

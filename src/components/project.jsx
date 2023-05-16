@@ -23,18 +23,12 @@ function Project(props) {
 
         el.style.setProperty('--rotate-x', x + 'deg')
         el.style.setProperty('--rotate-y', y + 'deg')
-        
-        el.style.setProperty('--shadow-x', -y + 'px')
-        el.style.setProperty('--shadow-y', x + 'px')
     }
 
     const handleMouseLeave = (e) => {
         const el = document.getElementById(props.id)
         el.style.setProperty('--rotate-x', '0deg')
         el.style.setProperty('--rotate-y', '0deg')
-
-        el.style.setProperty('--shadow-x', '0px')
-        el.style.setProperty('--shadow-y', '0px')
     }
 
     return ( 
