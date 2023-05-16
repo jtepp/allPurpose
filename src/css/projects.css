@@ -45,6 +45,10 @@
     margin-left: 50%;
 }
 
+.project-container:last-of-type {
+    margin-right: 50%;
+}
+
 .project-container {
     width: 240px;
     height: 440px;
