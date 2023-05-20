@@ -7,8 +7,8 @@ function HeaderLink(props) {
           () => {
             if (props.scroll && document.querySelector(props.scroll)) 
               document.querySelector(props.scroll).scrollIntoView({behavior: 'smooth'})
-            else 
-              props.onClick()
+
+            props.onClick()
           }
         } onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} style={() => {
             return {
