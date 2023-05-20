@@ -40,6 +40,14 @@
     box-shadow var(--color-transition-time) ease;
 }
 
+@media only screen and (max-width: 450px) {
+    .color-accent {
+        transition: background-color var(--color-transition-time) ease,
+        box-shadow var(--color-transition-time) ease,
+        top 100ms ease, left 100ms ease;
+    }
+}
+
 .color-accent.follow-scroll {
     /* top: calc(var(--accent-y) + var(--scroll-y));
     left: calc(var(--accent-x) + var(--scroll-x)); */

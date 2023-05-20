@@ -30,12 +30,14 @@ function Home(props) {
 
     }, [props])
 
-    // useEffect(() => {
-    //     if (window.location.hash === "#projects-section") {
-    //         if (document.querySelector("#projects-section"))
-    //             document.querySelector("#projects-section").scrollIntoView();
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (window.location.hash === "#projects-section") {
+            if (document.querySelector("#projects-section"))
+                document.querySelector("#projects-section").scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+    }, [])
 
     return ( 
         <Cutout id='home' backgroundColor="black" followScroll={true}
