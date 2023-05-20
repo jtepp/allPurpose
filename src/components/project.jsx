@@ -1,6 +1,24 @@
 import React from 'react'
 import { icons } from './home'
 
+const getCurrentProjectIndex = () => {
+    const scrollLeft = document.getElementById("projects-container").scrollLeft
+    const containers = document.querySelectorAll(".project-container")
+
+    let lastIndex = 0
+    for (let i = 1; i < containers.length; i++) {
+        const offsetLeft = containers[i].offsetLeft - window.innerWidth/2
+        const lastOffsetLeft = containers[lastIndex].offsetLeft - window.innerWidth/2
+
+        console.log(offsetLeft, lastOffsetLeft, scrollLeft, i)
+        if (Math.abs(offsetLeft - scrollLeft) > Math.abs(lastOffsetLeft - scrollLeft))
+            return lastIndex
+        else
+            lastIndex = i
+    }
+    return lastIndex   
+}
+
 function Project(props) {
 
     const handleMouseMove = (e) => {
@@ -32,6 +50,8 @@ function Project(props) {
         el.style.setProperty('--rotate-x', '0deg')
         el.style.setProperty('--rotate-y', '0deg')
     }
+
+    
 
     const handleIconClick = (e) => {
         const cont = document.getElementById(props.id + '-container')
