@@ -4,6 +4,9 @@ import Cutout from './cutout';
 import ScrollButton from './scrollButton';
 import '../css/projects.css'
 import Project from './project';
+import { importAll } from '../utils';
+
+export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg)$/))
 
 
 const data = require('../res/projects/projectsData.json')
@@ -12,8 +15,7 @@ const data = require('../res/projects/projectsData.json')
 function Home(props) {
 
     const projects = data.map((project, index) => {
-        return <Project key={index} id={index} title={project.title}
-        description={project.description} platform={project.platform} />
+        return <Project key={index} id={"project-" + index} project={project}/>
     })
 
 

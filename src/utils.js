@@ -5,3 +5,9 @@ export function randomElement(array) {
 export function constrain(value, max, min) {
   return Math.max(Math.min(value, max), min);
 }
+
+export function importAll(r) {
+  let images = {};
+   r.keys().forEach((item, index) => { images[item.replace('./', '').replace(/\.(png|jpe?g|svg)$/, '')] = r(item); });
+  return images
+ }
