@@ -1,4 +1,10 @@
 #base {
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
+}
+
+body {
+    overflow-y: hidden;
+
 }

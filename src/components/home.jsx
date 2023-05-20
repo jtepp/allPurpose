@@ -2,9 +2,20 @@ import React, { useEffect } from 'react'
 import Section from './section';
 import Cutout from './cutout';
 import ScrollButton from './scrollButton';
-import ProjectsSection from './projectsSection';
+import '../css/projects.css'
+import Project from './project';
+
+
+const data = require('../res/projects/projectsData.json')
+
 
 function Home(props) {
+
+    const projects = data.map((project, index) => {
+        return <Project key={index} id={index} title={project.title}
+        description={project.description} platform={project.platform} />
+    })
+
 
     useEffect(() => {
         props.setActiveIndex((document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
@@ -19,15 +30,14 @@ function Home(props) {
 
     }, [props])
 
-    useEffect(() => {
-        if (window.location.hash === "#projects-section") {
-            if (document.querySelector("#projects-section"))
-                document.querySelector("#projects-section").scrollIntoView();
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (window.location.hash === "#projects-section") {
+    //         if (document.querySelector("#projects-section"))
+    //             document.querySelector("#projects-section").scrollIntoView();
+    //     }
+    // }, [])
 
     return ( 
-    
         <Cutout id='home' backgroundColor="black" followScroll={true}
             below={
                 <div id="projects-back">
@@ -57,17 +67,11 @@ function Home(props) {
             <Section id='projects'>
                 <h1 id='projects-title'>Projects</h1>
 
-                {/* <div id='projects-content'>
+                <div id='projects-content'>
                     <div id="projects-container">
                         {projects}
                     </div>
-                </div> */}
-
-                <div style={{
-                    backgroundColor: 'red',
-                    width: '100%',
-                    height: '100vh'
-                }}></div>
+                </div>
             </Section>
         </Cutout>
 

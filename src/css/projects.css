@@ -3,7 +3,9 @@
     isolation: isolate;
     position: relative;
     z-index: 10;
+    overflow-y: hidden;
 }
+
 
 
 #projects-title {
