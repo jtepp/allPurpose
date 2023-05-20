@@ -10,15 +10,21 @@ function ProjectsSection() {
         description={project.description} platform={project.platform} />
     })
     return ( 
-        <Section id='projects'>
+        <div id='projects'>
                 <h1 id='projects-title'>Projects</h1>
 
-                <div id='projects-content'>
+                {/* <div id='projects-content'>
                     <div id="projects-container">
                         {projects}
                     </div>
-                </div>
-        </Section>
+                </div> */}
+
+                <div style={{
+                    backgroundColor: 'red',
+                    width: '100%',
+                    height: '100vh'
+                }}></div>
+        </div>
      );
 }
 

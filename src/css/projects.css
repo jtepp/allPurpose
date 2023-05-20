@@ -2,6 +2,7 @@
     height: calc(100vh - 40px);
     isolation: isolate;
     position: relative;
+    z-index: 10;
 }
 
 
@@ -38,7 +39,7 @@
     flex-wrap: nowrap;
     overflow-x: scroll;
     padding-block: 40px;
-    scroll-snap-type: x mandatory;
+    /* scroll-snap-type: x mandatory; */
 }
 
 .project-container:first-of-type {
@@ -52,7 +53,7 @@
 .project-container {
     width: 240px;
     height: 440px;
-    scroll-snap-align: center;
+    /* scroll-snap-align: center; */
     translate: -50% 0%;
 }
 

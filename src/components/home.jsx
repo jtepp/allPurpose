@@ -54,7 +54,21 @@ function Home(props) {
             </div>
             </Section>
 
-            <ProjectsSection />
+            <Section id='projects'>
+                <h1 id='projects-title'>Projects</h1>
+
+                {/* <div id='projects-content'>
+                    <div id="projects-container">
+                        {projects}
+                    </div>
+                </div> */}
+
+                <div style={{
+                    backgroundColor: 'red',
+                    width: '100%',
+                    height: '100vh'
+                }}></div>
+            </Section>
         </Cutout>
 
      );
