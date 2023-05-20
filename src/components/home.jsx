@@ -20,13 +20,21 @@ function Home(props) {
     useEffect(() => {
         props.setActiveIndex((document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
 
-        document.querySelector("#home").addEventListener("scroll", () => {
+        document.querySelector("#home").onscroll =  () => {
             if (document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) {
                 props.setActiveIndex(1)
             } else {
                 props.setActiveIndex(0)
             }
-        })
+
+            const root = document.querySelector(":root")
+
+            const scrollTop = document.getElementById("home").scrollTop;
+            const scrollLeft = document.getElementById("home").scrollLeft;
+
+            root.style.setProperty("--scroll-x", scrollLeft + "px")
+            root.style.setProperty("--scroll-y", scrollTop + "px")
+        }
 
     }, [props])
 

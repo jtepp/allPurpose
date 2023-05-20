@@ -23,7 +23,7 @@ function Cutout(props) {
     
     useEffect(() => {
         document.body.onmousemove = moveAccent
-        // document.getElementById(props.id).onscroll = moveScroll
+        document.getElementById(props.id).onscroll = moveScroll
     }, [props.id, moveScroll])
 
     return ( 
