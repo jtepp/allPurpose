@@ -12,7 +12,7 @@ function Project(props) {
         const percentY = Math.round(mouseX / width * 100)
         const percentX = -1*(Math.round(mouseY / height * 100) - 50)
 
-        console.log(percentX, percentY)
+        // console.log(percentX, percentY)
 
         const rotateVariance = 10
 
