@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { icons } from './home'
+import { icons, thumbnails } from './home'
 
 function Project(props) {
 
@@ -54,9 +54,13 @@ function Project(props) {
     return ( 
         <section id={'project-' + props.index + '-container'} className={"project-container"}
         onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-            <div id={'project-' + props.index} className="project">
-                <h2 className='project-title'>{props.project.title}</h2>
-                <p className='project-description'>{props.project.description}</p>
+            <div id={'project-' + props.index} className="project" style={{
+                backgroundImage: `url(${thumbnails[props.project.short]})`
+            }}>
+                <div className='project-info closed'>
+                    <h2 className='project-title'>{props.project.title}</h2>
+                    <p className='project-description'>{props.project.description}</p>
+                </div>
             </div>
 
             <div className="project-icon-container"

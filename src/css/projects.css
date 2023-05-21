@@ -60,15 +60,36 @@
     height: 440px;
 }
 
+.project-info {
+    background-color: var(--primary);
+    border-radius: 20px;
+    transition: background-color var(--color-transition-time) ease,
+    padding 300ms ease;
+    /* box-shadow: 0px 0px 10px 0px #00000080; */
+    display: flex;
+    padding: 10px 20px 20px 20px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-info.closed>.project-description {
+    height: 0px;
+    padding: 0px;
+    /* display: none; */
+}
+
+.project-info.open {
+    padding: 10px 20px;
+}
+
 .project {
     --rotate-x: 0deg;
     --rotate-y: 0deg;
 
-    width: 200px;
-    height: 400px;
+    width: 240px;
+    height: 440px;
     color: white;
     background-color: var(--primary);
-    padding: 20px;
     border-radius: 20px;
     transform: perspective(500px)
         rotateX(var(--rotate-x))
@@ -76,12 +97,24 @@
     opacity: 1;
     transition: background-color var(--color-transition-time) ease,
     transform 300ms ease-out, scale 600ms ease, opacity 300ms ease;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 
 .project-description {
-    height: 200px;
+    height: 160px;
     overflow-y: scroll;
+    background-color: #00000080;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+    /* box-shadow: inset 0px 0px 10px 0px #00000080; */
 }
 
 .project-icon-container {

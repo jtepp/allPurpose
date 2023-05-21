@@ -6,7 +6,8 @@ import '../css/projects.css'
 import Project from './project';
 import { importAll } from '../utils';
 
-export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg)$/))
+export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg|gif)$/))
+export const thumbnails = importAll(require.context('../res/projects/thumbnails', false, /\.(png|jpe?g|svg|gif)$/))
 
 
 const data = require('../res/projects/projectsData.json')
