@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Section from './section';
 import Cutout from './cutout';
 import ScrollButton from './scrollButton';
@@ -13,11 +13,50 @@ const data = require('../res/projects/projectsData.json')
 
 
 function Home(props) {
+    const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
+
+
+    const getCurrentProjectIndex = () => {
+        const scrollLeft = document.getElementById("projects-container").scrollLeft
+        const containers = document.querySelectorAll(".project-container")
+
+        let lastIndex = 0
+        for (let i = 1; i < containers.length; i++) {
+            const offsetLeft = containers[i].offsetLeft - window.innerWidth/2
+            const lastOffsetLeft = containers[lastIndex].offsetLeft - window.innerWidth/2
+    
+            // console.log(offsetLeft, lastOffsetLeft, scrollLeft, i)
+            if (Math.abs(offsetLeft - scrollLeft) > Math.abs(lastOffsetLeft - scrollLeft))
+                return lastIndex
+            else
+                lastIndex = i
+        }
+        return lastIndex   
+    }
+
+
+    useEffect(() => {
+        if (window.location.hash === "#projects-section") {
+            if (document.querySelector("#projects-section"))
+                document.querySelector("#projects-section").scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+    }, [])
+
+    useEffect(() => {
+        document.querySelector("#projects-container").onscroll = () => {
+            const index = getCurrentProjectIndex()
+            if (index !== currentProjectIndex) {
+                setCurrentProjectIndex(index)
+            }
+        }
+    }, [currentProjectIndex])
+
 
     const projects = data.map((project, index) => {
-        return <Project key={index} id={"project-" + index} project={project}/>
+        return <Project key={index} index={index} currentProjectIndex={currentProjectIndex} project={project}/>
     })
-
 
     useEffect(() => {
         props.setActiveIndex((document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
@@ -40,14 +79,6 @@ function Home(props) {
 
     }, [props])
 
-    useEffect(() => {
-        if (window.location.hash === "#projects-section") {
-            if (document.querySelector("#projects-section"))
-                document.querySelector("#projects-section").scrollIntoView({
-                    behavior: "smooth"
-                });
-        }
-    }, [])
 
     return ( 
         <Cutout id='home' backgroundColor="black" followScroll={true}

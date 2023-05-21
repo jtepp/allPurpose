@@ -54,10 +54,10 @@
 
 .project-container {
     position: relative;
-    width: 240px;
-    height: 440px;
     scroll-snap-align: center;
     translate: -50% 0%;
+    min-width: 240px;
+    height: 440px;
 }
 
 .project {
@@ -70,15 +70,14 @@
     background-color: var(--primary);
     padding: 20px;
     border-radius: 20px;
-
     transform: perspective(500px)
         rotateX(var(--rotate-x))
         rotateY(var(--rotate-y));
-
+    opacity: 1;
     transition: background-color var(--color-transition-time) ease,
-    transform 300ms ease-out;
-
+    transform 300ms ease-out, scale 600ms ease, opacity 300ms ease;
 }
+
 
 .project-description {
     height: 200px;
@@ -89,12 +88,14 @@
     position: absolute;
     top: -70px;
     left: 50%;
-    translate: -50% 0%;
+    transform: translate(-50%, 0%) scale(1);
     width: 60px;
     height: 60px;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
+    transition: top 300ms ease, transform 300ms ease,
+    width 300ms ease, height 300ms ease;
 }
 
 .project-icon {
@@ -103,3 +104,16 @@
     object-fit: contain;
     object-position: center;
 }
+
+.project-container:not(.current-project-container)>.project {
+    scale: 0.3;
+    opacity: 0;
+}
+
+.project-container:not(.current-project-container)>.project-icon-container {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+}
+
