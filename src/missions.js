@@ -10,11 +10,11 @@ exports.handler = async (event, context) => {
     .then(data => {
         
         const name = special(data.match(/(?<=mission">).+?(?=\<)/)).split(' • ')
-        const date = special(data.match(/(?<=launchdate">).+?(?=\<)/))
-        let launchTime = special(data.match(/(?<=Launch (window|time|period):<\/span> ).+?(?=<span)/))
+        const date = special(data.match(/<span class="launchdate">\n([\s\S]*?)<\/span>/g))
+        let launchTime = special(data.match(/Launch (window|time|period):<\/span>([\s\S]*?)<br>/g))
         const exact = /(\d+:)?(\d+:)?\d+ (a.m.|p.m.)/
         if (launchTime.match(exact)) launchTime = launchTime.match(exact)[0]
-        const description = special(data.match(/(?<=<div class="missdescrip">).+?(?= \[<span)/))
+        const description = special(data.match(/<div class="missdescrip">\n<p>([\s\S]*)<\/p>/g))
         let mission = {}
 
         
