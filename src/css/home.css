@@ -57,6 +57,10 @@
     cursor: pointer;
 }
 
+#scroll-button+h2 {
+    text-align: center;
+}
+
 #scroll-button>img {
     width: 100%;
     height: 100%;

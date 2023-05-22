@@ -35,6 +35,8 @@
 
 #projects-content {
     height: calc(100vh - 165px);
+    /* max-height: calc(100vh - 165px);
+    min-height: calc(100vh - 165px); */
     padding-bottom: 55px;
     display: flex;
     flex-direction: row;
@@ -43,7 +45,6 @@
 }
 
 #projects-container {
-
     display: flex;
     flex-direction: row;
     gap: var(--project-gap);
@@ -192,7 +193,8 @@
 
     #projects-container {
         height: 290px;
-        max-height: 290px;
+        /* min-height: 290px;
+        max-height: 290px; */
         width: 100%;
     }
 
