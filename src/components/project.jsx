@@ -9,7 +9,7 @@ function Project(props) {
             const container = document.getElementById('project-' + props.index + '-container')
             const el = document.getElementById('project-' + props.index)
 
-            const mouseX = e.clientX - container.offsetLeft + container.parentNode.scrollLeft
+            const mouseX = e.clientX - container.offsetLeft + container.parentNode.scrollLeft - container.parentNode.offsetLeft
             const mouseY = e.clientY - container.offsetTop
             const width = container.offsetWidth 
             const height = container.offsetHeight 
@@ -20,10 +20,21 @@ function Project(props) {
 
             const rotateVariance = 10
 
-            let x = percentX * rotateVariance / 100
+            // x and y are flipped. god knows why
+
+            let x = percentX * rotateVariance / 100 + 2.5
             let y = percentY * rotateVariance / 100
 
-            // console.log(x, y)
+            // if (window.innerWidth > 655) {
+            //     y -= 14.7;
+            //     x += 2.5;
+
+            //     // constrain values to one decimal point
+            // }
+            x = Math.round(x * 10) / 10
+            y = Math.round(y * 10) / 10
+
+            console.log(x, y)
 
             el.style.setProperty('--rotate-x', x + 'deg')
             el.style.setProperty('--rotate-y', y + 'deg')
