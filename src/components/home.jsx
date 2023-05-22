@@ -18,13 +18,14 @@ function Home(props) {
 
 
     const getCurrentProjectIndex = () => {
-        const scrollLeft = document.getElementById("projects-container").scrollLeft
+        const projectsContainer = document.getElementById("projects-container")
+        const scrollLeft = projectsContainer.scrollLeft
         const containers = document.querySelectorAll(".project-container")
 
         let lastIndex = 0
         for (let i = 1; i < containers.length; i++) {
-            const offsetLeft = containers[i].offsetLeft - window.innerWidth/2
-            const lastOffsetLeft = containers[lastIndex].offsetLeft - window.innerWidth/2
+            const offsetLeft = containers[i].offsetLeft - projectsContainer.offsetWidth/2
+            const lastOffsetLeft = containers[lastIndex].offsetLeft - projectsContainer.offsetWidth/2
     
             // console.log(offsetLeft, lastOffsetLeft, scrollLeft, i)
             if (Math.abs(offsetLeft - scrollLeft) > Math.abs(lastOffsetLeft - scrollLeft))
