@@ -14,5 +14,5 @@ export function importAll(r) {
 
 
 export const projectScrollWidth = () => {
-  return (window.innerWidth > 655 ? 240 : 120) + 100
+  return (window.innerWidth > 655 ? 240 + 100 : 120 + 50)
 }

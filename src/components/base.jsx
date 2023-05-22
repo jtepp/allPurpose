@@ -20,7 +20,7 @@ function Base(props) {
     function setRandomColor() {
         Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
             document.querySelector(':root').style.setProperty(`--${key}`, value)
-            console.log(`--${key}: ${value}`)
+            // console.log(`--${key}: ${value}`)
         })
 
         setTimeout(() => {

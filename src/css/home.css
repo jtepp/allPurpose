@@ -28,6 +28,8 @@
 #home>section {
     scroll-snap-align: start;
     padding-top: 40px;
+    min-height: 100vh;
+    height: fit-content;
 }
 
 #home-container {

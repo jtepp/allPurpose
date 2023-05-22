@@ -5,7 +5,8 @@
 }
 
 #projects-section {
-    height: calc(100vh - 40px);
+    /* max-height: calc(100vh - 40px); */
+    min-height: calc(100vh - 40px);
     isolation: isolate;
     position: relative;
     z-index: 10;
@@ -34,7 +35,7 @@
 
 
 #projects-content {
-    height: calc(100vh - 165px);
+    min-height: calc(100vh - 165px);
     /* max-height: calc(100vh - 165px);
     min-height: calc(100vh - 165px); */
     padding-bottom: 55px;
@@ -45,6 +46,7 @@
 }
 
 #projects-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     gap: var(--project-gap);
@@ -53,9 +55,25 @@
     overflow-x: scroll;
     overflow-y: hidden;
     max-height: 100%;
+    min-height: calc(var(--project-width) * 440 / 240);
     padding: 70px 0 40px 0;
     scroll-snap-type: x mandatory;
 }
+
+
+
+#projects-container/*.more-right*/::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../res/rounded-chevron-right.png');
+    z-index: 10;
+}
+
 
 .project-container:first-of-type {
     margin-left: 50%;
@@ -163,7 +181,6 @@
 }
 
 
-
 @media (max-width: 655px) {
     #projects-content {
         flex-direction: column-reverse;
@@ -183,8 +200,8 @@
     }
 
     :root {
-        --project-height: 200px;
         --project-width: 120px;
+        --project-gap: 50px;
     }
 
     .project {
@@ -192,9 +209,6 @@
     }
 
     #projects-container {
-        height: 290px;
-        /* min-height: 290px;
-        max-height: 290px; */
         width: 100%;
     }
 
