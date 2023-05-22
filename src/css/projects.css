@@ -16,9 +16,9 @@
 
 #projects-title {
     font-size: 50px;
+    height: 60px;
     margin-left: 40px;
     padding-block: 5px;
-    height: 60px;
 }
 
 #projects-back {
@@ -28,7 +28,9 @@
     position: absolute;
     z-index: 9;
     top: calc(100vh + 110px - var(--scroll-y));
-    left: 0px;
+    right: 0px;
+    clip-path: polygon(100% 0%, 100% 100% , 0% 100%, 0% 110px, 50% 110px, 50% 0%);
+    /* clip-path: polygon(50% 0%, 0% 100%, 100% 100%); */
 }
 
 #projects-content {
@@ -137,8 +139,12 @@
 }
 
 #project-title {
+    font-size: 30px;
+    /* height: 60px; */
 }
 
 #project-description {
     font-weight: 200;
+    height: calc(var(--project-height) - 70px);
+    overflow-y: scroll;
 }
