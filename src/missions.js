@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
         let launchTime = special(getFirst(data.match(/Launch (window|time|period):<\/span>([\s\S]*?)<br>/g)))
         const exact = /(\d+:)?(\d+:)?\d+ (a.m.|p.m.)/
         if (launchTime.match(exact)) launchTime = launchTime.match(exact)[0]
-        const description = special(getFirst(data.match(/<div class="missdescrip">\n<p>([\s\S]*)<\/p>/g)))
+        const description = special(getFirst(data.match(/<div class="missdescrip">\n<p>([\s\S]*?)<\/p>/g)))
         let mission = {}
 
         
