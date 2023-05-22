@@ -34,7 +34,7 @@ function Project(props) {
             x = Math.round(x * 10) / 10
             y = Math.round(y * 10) / 10
 
-            console.log(x, y)
+            // console.log(x, y)
 
             el.style.setProperty('--rotate-x', x + 'deg')
             el.style.setProperty('--rotate-y', y + 'deg')
@@ -59,8 +59,8 @@ function Project(props) {
 
 
         projectsContainer.scrollTo({'left': projectIndex * projectScrollWidth(), 'behavior': 'smooth'})
-
     }
+
 
     return ( 
         <section id={'project-' + props.index + '-container'} className={"project-container"}

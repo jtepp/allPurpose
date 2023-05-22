@@ -34,6 +34,8 @@ function Home(props) {
                     behavior: "smooth"
                 });
         }
+
+
     }, [])
 
     useEffect(() => {
@@ -102,7 +104,13 @@ function Home(props) {
             <Section id='projects'>
                 <h1 id='projects-title'>Projects</h1>
 
-                <div id='projects-content'>
+                <div id='projects-content' className={(currentProjectIndex > 0 ? 'more-left ' : '') + (currentProjectIndex < data.length - 1 ? 'more-right' : '')}>
+                    <div className="projects-content-button" id='left-button'
+                    onClick={() => {
+                        
+
+                    }}></div>
+                    <div className="projects-content-button" id='right-button'></div>
                     <div id="project-info">
                         <h1 id="project-title">
                             {data[currentProjectIndex].title}

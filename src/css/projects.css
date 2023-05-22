@@ -36,6 +36,7 @@
 
 
 #projects-content {
+    position: relative;
     min-height: calc(100vh - 165px);
     /* max-height: calc(100vh - 165px);
     min-height: calc(100vh - 165px); */
@@ -63,17 +64,6 @@
 
 
 
-#projects-container/*.more-right*/::before {
-    content: '';
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-image: url('../res/rounded-chevron-right.png');
-    z-index: 10;
-}
 
 
 .project-container:first-of-type {
@@ -192,7 +182,7 @@
     #projects-back {
         top: calc(100vh + 80px - var(--scroll-y));
         z-index: 9;
-        /* opacity: .5; */
+        /* opacity: 0; */
         --clip-in-top: calc(70px + 40px + 290px);
         --clip-in-bottom: calc(var(--clip-in-top) + 33px);
 
@@ -231,5 +221,33 @@
         font-size: 28px;
         text-align: center;
         max-height: 33px;
+    }
+
+    #projects-content.more-left>#left-button, #projects-content.more-right>#right-button {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc((330px + 35px) / 2);
+        transform: translate(-50%, -50%);
+        background-position-y: 50%;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        z-index: 10;
+        cursor: pointer;
+        border-radius: 50%;
+        backdrop-filter: blur(10px);
+        background-color: #ffffff18;
+    }
+    
+    #projects-content.more-right>#right-button {
+        background-position-x: 60%;
+        left: calc(50% + (var(--project-width) + var(--project-gap)) / 2);
+        background-image: url('../res/rounded-chevron-right.png');
+    }
+    
+    #projects-content.more-left>#left-button {
+        background-position-x: 40%;
+        left: calc(50% - (var(--project-width) + var(--project-gap)) / 2);
+        background-image: url('../res/rounded-chevron-left.png');
     }
 }
