@@ -54,7 +54,7 @@ function special(input){
 
 
 function getFirst(input){
-    if (input.length > 0) return input[0]
+    if (input && input.length > 0) return input[0]
     else return ""
 }
 
