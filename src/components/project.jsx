@@ -47,7 +47,7 @@ function Project(props) {
         const projectIndex = [...document.querySelectorAll(".project-container")].findIndex((el) => el.id === 'project-' + props.index + '-container')
 
 
-        projectsContainer.scrollTo({'left': projectIndex * projectScrollWidth, 'behavior': 'smooth'})
+        projectsContainer.scrollTo({'left': projectIndex * projectScrollWidth(), 'behavior': 'smooth'})
 
     }
 

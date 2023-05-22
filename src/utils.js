@@ -13,4 +13,6 @@ export function importAll(r) {
  }
 
 
-export let projectScrollWidth = (window.innerWidth > 655 ? 240 : 120) + 100
+export const projectScrollWidth = () => {
+  return (window.innerWidth > 655 ? 240 : 120) + 100
+}

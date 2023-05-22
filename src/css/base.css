@@ -8,3 +8,11 @@ body {
     overflow-y: hidden;
 
 }
+
+:root {
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

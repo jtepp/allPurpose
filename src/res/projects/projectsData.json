@@ -21,35 +21,38 @@
         "short": "spllit"
     },
     {
-        "title": "Oooh: Caption This!",
+        "title": "Oooh",
         "url": "https://oooh.tv",
         "description": "Oooh is a new social media platform on the rise which aims to provide a safe space for all (including younger users) and also aims to make content creation easier than ever. <br><br>Oooh has a collection of modules (games, utilities, and other applets) available for their users. These modules can be hosted or joined by anyone. Players can use this platform to compete against eachother or share their favorite things.<br><br>Over the summer of 2022, I worked on the module called Caption This! which is a meme making utility module on Oooh. After my project was completed, I was offered (and accepted) a short extension to work on a similar project for the platform.<br><br> The Oooh platform runs on Unity (currently iOS only), and most of their modules (including the ones I worked on) are written in HTML/CSS/JS",
         "platform": "web",
         "short": "oooh",
         "job": {
             "title": "Game Developer Intern",
+            "project": "Caption This!",
             "year": "2022"
         }
     },
     {
-        "title": "Alexander Academy: Website Redesign",
+        "title": "Alexander Academy",
         "url": "https://alexanderacademy.net",
         "description": "Alexander Academy is a tutoring company based in Atlanta, New York, and Boston.<br><br>Through Pangea.app, I was hired to work on their new site using Webflow and a lot of custom code. While working on this project, I brought several custom components from idea to code, including custom nested dropdown menus with checkboxes, a 3-dimensional tri-fold pamphlet, a custom image lightbox, and more. Most of this project was translating Figma designs to HTML/CSS/JS, though there were several places where my own creativity was implemented.",
         "platform": "web",
         "short": "alexander",
         "job": {
             "title": "Front-End Web Developer",
+            "project": "Website Redesign",
             "year": "2021"
         }
     },
     {
-        "title": "Defiant Regime: Website Redesign",
+        "title": "Defiant Regime",
         "url": "https://defiantregime.com",
         "description": "Defiant Regime is a young, Toronto-based, activist, athleisure clothing brand.<br><br>Through LinkedIn, I was hired as an unpaid-intern to work on their new Webflow/Shopify site for their upcoming “By Any Means” collection. The majority of this project was translating Adobe Xd designs to webpages, but I also set up Shopify integration and a customer email signup form.<br><br>My internship ended as I had to start my next semester of school, but I was offered a paid position which I declined.",
         "platform": "web",
         "short": "defiant",
         "job": {
             "title": "Full-Stack Web Developer",
+            "project": "Website Redesign",
             "year": "2021"
         }
 

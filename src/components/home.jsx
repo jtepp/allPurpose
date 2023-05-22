@@ -19,10 +19,10 @@ function Home(props) {
 
 
     const getCurrentProjectIndex = () => {
-         const projectsContainer = document.getElementById("projects-container")
+        const projectsContainer = document.getElementById("projects-container")
         const scrollLeft = projectsContainer.scrollLeft
 
-       return Math.min(Math.round(scrollLeft / projectScrollWidth), data.length - 1)
+        return Math.min(Math.round(scrollLeft / projectScrollWidth()), data.length - 1)
 
     }
 
