@@ -23,13 +23,13 @@
 
 #projects-back {
     width: 100vw;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 40px);
     background-color: white;
     position: absolute;
     z-index: 9;
-    top: calc(100vh + 110px - var(--scroll-y));
+    top: calc(100vh + 40px - var(--scroll-y));
     right: 0px;
-    clip-path: polygon(100% 0%, 100% 100% , 0% 100%, 0% 130px, 50% 130px, 50% 0%);
+    clip-path: polygon(100% 0px, 100% 100% , 0% 100%, 0% 200px, 50% 200px, 50% 0px);
 }
 
 
@@ -50,6 +50,8 @@
     flex-wrap: nowrap;
     width: 50vw;
     overflow-x: scroll;
+    overflow-y: hidden;
+    max-height: 100%;
     padding: 70px 0 40px 0;
     scroll-snap-type: x mandatory;
 }
@@ -152,6 +154,13 @@
 }
 
 
+#project-description>a {
+    color: var(--secondary);
+    /* text-decoration: solid; */
+    font-weight: 600;
+    transition: color var(--color-transition-time) ease;
+}
+
 
 
 @media (max-width: 655px) {
@@ -162,7 +171,14 @@
     }
 
     #projects-back {
-        clip-path: polygon(100% 0%, 100% 100% , 0% 100%, 0% 0%);
+        z-index: 9;
+        --clip-in-top: calc(70px + 40px + 290px);
+        --clip-in-bottom: calc(var(--clip-in-top) + 33px);
+
+        clip-path: polygon(0% 70px, 230px 70px, 230px 0%, 100% 0%,
+         100% 100%, 0% 100%, 0% var(--clip-in-bottom),
+         100% var(--clip-in-bottom), 100% var(--clip-in-top),
+         0% var(--clip-in-top));
     }
 
     :root {
@@ -195,5 +211,6 @@
     #project-title {
         font-size: 28px;
         text-align: center;
+        max-height: 33px;
     }
 }
