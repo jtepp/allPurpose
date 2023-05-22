@@ -13,11 +13,4 @@ export function importAll(r) {
  }
 
 
-let projectScrollWidth = 0;
-export function getProjectsScrollWidth() {
-    if (projectScrollWidth === 0) {
-      projectScrollWidth = 440 - 100 
-      // console.log(Number(style.getPropertyValue('--project-width')), Number(style.getPropertyValue('--project-gap')))
-    }
-    return projectScrollWidth;
-}
+export let projectScrollWidth = (window.innerWidth > 655 ? 240 : 120) + 100

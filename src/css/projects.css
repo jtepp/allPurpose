@@ -1,5 +1,5 @@
 :root {
-    --project-height: 440px;
+    /* --project-height: 440px; */
     --project-width: 240px;
     --project-gap: 100px;
 }
@@ -32,11 +32,6 @@
     clip-path: polygon(100% 0%, 100% 100% , 0% 100%, 0% 130px, 50% 130px, 50% 0%);
 }
 
-@media (max-width: 655px) {
-    #projects-back {
-        clip-path: polygon(100% 0%, 100% 100% , 0% 100%, 0% 130px, 330px 130px, 330px 0%);
-    }
-}
 
 #projects-content {
     height: calc(100vh - 165px);
@@ -72,7 +67,8 @@
     scroll-snap-align: center;
     translate: -50% 0%;
     min-width: var(--project-width);
-    height: var(--project-height);
+    /* height: var(--project-height); */
+    aspect-ratio: 240 / 440;
 }
 
 .project {
@@ -80,7 +76,8 @@
     --rotate-y: 0deg;
 
     width: var(--project-width);
-    height: var(--project-height);
+    /* height: var(--project-height); */
+    aspect-ratio: 240 / 440;
     color: white;
     background-color: var(--primary);
     border-radius: 20px;
@@ -150,7 +147,41 @@
 
 #project-description {
     font-weight: 400;
-    height: calc(var(--project-height) - 70px);
+    height: calc(var(--project-width) * 440 / 240 - 70px);
     overflow-y: scroll;
 }
 
+
+
+
+@media (max-width: 655px) {
+    #projects-content {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #projects-back {
+        clip-path: polygon(100% 0%, 100% 100% , 0% 100%, 0% 0%);
+    }
+
+    :root {
+        --project-height: 200px;
+        --project-width: 120px;
+    }
+
+    #projects-container {
+        height: 50%;
+    }
+
+    #project-info {
+        height: 50%;
+        padding-top: 0;
+        padding-inline: 0;
+    }
+
+    #project-title {
+        font-size: 28px;
+        text-align: center;
+    }
+}

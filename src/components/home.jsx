@@ -5,7 +5,7 @@ import Cutout from './cutout';
 import ScrollButton from './scrollButton';
 import '../css/projects.css'
 import Project from './project';
-import { getProjectsScrollWidth, importAll } from '../utils';
+import { projectScrollWidth, importAll } from '../utils';
 
 export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg|gif)$/))
 export const thumbnails = importAll(require.context('../res/projects/thumbnails', false, /\.(png|jpe?g|svg|gif)$/))
@@ -22,7 +22,7 @@ function Home(props) {
          const projectsContainer = document.getElementById("projects-container")
         const scrollLeft = projectsContainer.scrollLeft
 
-       return Math.round(scrollLeft / getProjectsScrollWidth())
+       return Math.min(Math.round(scrollLeft / projectScrollWidth), data.length - 1)
 
     }
 
