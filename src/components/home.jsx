@@ -5,7 +5,7 @@ import Cutout from './cutout';
 import ScrollButton from './scrollButton';
 import '../css/projects.css'
 import Project from './project';
-import { projectScrollWidth, importAll } from '../utils';
+import { projectScrollWidth, importAll, scrollToIndex } from '../utils';
 
 export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg|gif)$/))
 export const thumbnails = importAll(require.context('../res/projects/thumbnails', false, /\.(png|jpe?g|svg|gif)$/))
@@ -107,10 +107,13 @@ function Home(props) {
                 <div id='projects-content' className={(currentProjectIndex > 0 ? 'more-left ' : '') + (currentProjectIndex < data.length - 1 ? 'more-right' : '')}>
                     <div className="projects-content-button" id='left-button'
                     onClick={() => {
-                        
-
+                        scrollToIndex(currentProjectIndex - 1)
                     }}></div>
-                    <div className="projects-content-button" id='right-button'></div>
+                    <div className="projects-content-button" id='right-button'
+                    onClick={() => {
+                        scrollToIndex(currentProjectIndex + 1)
+                    }}
+                    ></div>
                     <div id="project-info">
                         <h1 id="project-title">
                             {data[currentProjectIndex].title}

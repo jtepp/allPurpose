@@ -16,3 +16,8 @@ export function importAll(r) {
 export const projectScrollWidth = () => {
   return (window.innerWidth > 655 ? 240 + 100 : 120 + 50)
 }
+
+export const scrollToIndex = (index) => {
+  const projectsContainer = document.getElementById("projects-container")
+  projectsContainer.scrollTo({'left': index * projectScrollWidth(), 'behavior': 'smooth'})
+}

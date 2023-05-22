@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { icons, thumbnails } from './home'
-import { projectScrollWidth } from '../utils'
+import { projectScrollWidth, scrollToIndex } from '../utils'
 
 function Project(props) {
 
@@ -54,11 +54,8 @@ function Project(props) {
     
 
     const handleIconClick = (e) => {
-        const projectsContainer = document.getElementById("projects-container")
         const projectIndex = [...document.querySelectorAll(".project-container")].findIndex((el) => el.id === 'project-' + props.index + '-container')
-
-
-        projectsContainer.scrollTo({'left': projectIndex * projectScrollWidth(), 'behavior': 'smooth'})
+        scrollToIndex(projectIndex)
     }
 
 
