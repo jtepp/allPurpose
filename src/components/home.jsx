@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ReactHTMLParser from 'react-html-parser';
 import Section from './section';
 import Cutout from './cutout';
 import ScrollButton from './scrollButton';
@@ -107,7 +108,7 @@ function Home(props) {
                             {data[currentProjectIndex].title}
                         </h1>
                         <h3 id="project-description">
-                            {data[currentProjectIndex].description}
+                            {ReactHTMLParser(data[currentProjectIndex].description)}
                         </h3>
                     </div>
                     <div id="projects-container">

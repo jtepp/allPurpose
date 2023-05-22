@@ -2,92 +2,56 @@
     {
         "title": "Larry Birdle",
         "url": "https://www.larrybirdle.com",
-        "description": "I started playing Poeltl by Dunk Town but it would only let me play once a day. I realised I could easily recreate the game, so I spent about 4 hours at my desk and came out with Larry Birdle.\nEnjoy!",
+        "description": "I started playing <a href='https://poeltl.dunk.town'>Poeltl</a> by Dunk Town but it would only let me play once a day. I realised I could easily recreate the game, so I spent about 4 hours at my desk and came out with <a href='https://larrybirdle.netlify.app'>Larry Birdle</a>. Enjoy!",
         "platform": "web",
         "short": "larrybirdle"
     },
     {
         "title": "Hedge",
         "url": "https://apps.apple.com/ca/app/hedge-bet-on-yourself/id1626661928",
-        "description": "I made this app in the summer of 2022. With sports betting recently becoming legal in Ontario, almost every ad on TV and the internet was for a betting app. My friends and I being big sports fans decided to try them out and we all quickly learned that there was a lot more to betting on sports than just liking a team or a player.\n\nWhile stuck together in our university house during a pandemic for a whole school year, watching sports and betting became a regular and consistent part of our school lives as we often made jokes and fake bets on each other.\n\nOnce I finished my final exams, I decided I was going to make an app to do all of this for us during the Summer. After 6 days of work, v1.0.0 of Hedge was ready.",
+        "description": "I made this app in the summer of 2022. With sports betting recently becoming legal in Ontario, almost every ad on TV and the internet was for a betting app. My friends and I being big sports fans decided to try them out and we all quickly learned that there was a lot more to betting on sports than just liking a team or a player.<br><br> While stuck together in our university house during a pandemic for a whole school year, watching sports and betting became a regular and consistent part of our school lives as we often made jokes and fake bets on each other. <br><br>Once I finished my final exams, I decided I was going to make an app to do all of this for us during the Summer. After 6 days of work, v1.0.0 of Hedge was ready.",
         "platform": "iOS",
         "short": "hedge"
     },
     {
         "title": "spllit",
         "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
+        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.<br><br>Everyone had said they didn't want to split all bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.<br><br> We came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.<br><br>Thus, 4 long nights of Xcode and Firebase later, came spllit.<br><br>Check out the source code <a href='https://github.com/jtepp/spllit'>here!</a>",
         "platform": "iOS",
         "short": "spllit"
     },
     {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
+        "title": "Oooh: Caption This!",
+        "url": "https://oooh.tv",
+        "description": "Oooh is a new social media platform on the rise which aims to provide a safe space for all (including younger users) and also aims to make content creation easier than ever. <br><br>Oooh has a collection of modules (games, utilities, and other applets) available for their users. These modules can be hosted or joined by anyone. Players can use this platform to compete against eachother or share their favorite things.<br><br>Over the summer of 2022, I worked on the module called Caption This! which is a meme making utility module on Oooh. After my project was completed, I was offered (and accepted) a short extension to work on a similar project for the platform.<br><br> The Oooh platform runs on Unity (currently iOS only), and most of their modules (including the ones I worked on) are written in HTML/CSS/JS",
+        "platform": "web",
+        "short": "oooh",
+        "job": {
+            "title": "Game Developer Intern",
+            "year": "2022"
+        }
     },
     {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
+        "title": "Alexander Academy: Website Redesign",
+        "url": "https://alexanderacademy.net",
+        "description": "Alexander Academy is a tutoring company based in Atlanta, New York, and Boston.<br><br>Through Pangea.app, I was hired to work on their new site using Webflow and a lot of custom code. While working on this project, I brought several custom components from idea to code, including custom nested dropdown menus with checkboxes, a 3-dimensional tri-fold pamphlet, a custom image lightbox, and more. Most of this project was translating Figma designs to HTML/CSS/JS, though there were several places where my own creativity was implemented.",
+        "platform": "web",
+        "short": "alexander",
+        "job": {
+            "title": "Front-End Web Developer",
+            "year": "2021"
+        }
     },
     {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
-    },
-    {
-        "title": "spllit",
-        "url": "https://www.larrybirdle.com",
-        "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.\n\nEveryone had said they didn't want to split bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.\n\nWe came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.\n\nThus, 4 long nights of Xcode and Firebase later, came spllit.\n\nCheck out the source code here!",
-        "platform": "iOS",
-        "short": "spllit"
+        "title": "Defiant Regime: Website Redesign",
+        "url": "https://defiantregime.com",
+        "description": "Defiant Regime is a young, Toronto-based, activist, athleisure clothing brand.<br><br>Through LinkedIn, I was hired as an unpaid-intern to work on their new Webflow/Shopify site for their upcoming “By Any Means” collection. The majority of this project was translating Adobe Xd designs to webpages, but I also set up Shopify integration and a customer email signup form.<br><br>My internship ended as I had to start my next semester of school, but I was offered a paid position which I declined.",
+        "platform": "web",
+        "short": "defiant",
+        "job": {
+            "title": "Full-Stack Web Developer",
+            "year": "2021"
+        }
+
     }
 ]
