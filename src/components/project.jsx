@@ -58,7 +58,9 @@ function Project(props) {
                 backgroundImage: `url(${thumbnails[props.project.short]})`
             }}>
                 <div className='project-info closed'>
-                    <h2 className='project-title'>{props.project.title}</h2>
+                    <h2 className='project-title' onClick={(e) => {
+                        e.target.parentNode.classList.toggle('closed')
+                    }}>{props.project.title}</h2>
                     <p className='project-description'>{props.project.description}</p>
                 </div>
             </div>
