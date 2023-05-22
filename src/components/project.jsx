@@ -47,7 +47,7 @@ function Project(props) {
 
         // console.log(cont.offsetLeft, contcont.scrollLeft, window.innerWidth/2)
 
-        contcont.scrollTo({'left': cont.offsetLeft - window.innerWidth/2, 'behavior': 'smooth'})
+        contcont.scrollTo({'left': cont.offsetLeft - contcont.offsetWidth/2, 'behavior': 'smooth'})
 
     }
 
@@ -57,12 +57,6 @@ function Project(props) {
             <div id={'project-' + props.index} className="project" style={{
                 backgroundImage: `url(${thumbnails[props.project.short]})`
             }}>
-                <div className='project-info closed'>
-                    <h2 className='project-title' onClick={(e) => {
-                        e.target.parentNode.classList.toggle('closed')
-                    }}>{props.project.title}</h2>
-                    <p className='project-description'>{props.project.description}</p>
-                </div>
             </div>
 
             <div className="project-icon-container"
