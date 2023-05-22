@@ -11,3 +11,13 @@ export function importAll(r) {
    r.keys().forEach((item, index) => { images[item.replace('./', '').replace(/\.(png|jpe?g|svg)$/, '')] = r(item); });
   return images
  }
+
+
+let projectScrollWidth = 0;
+export function getProjectsScrollWidth() {
+    if (projectScrollWidth === 0) {
+      projectScrollWidth = 440 - 100 
+      // console.log(Number(style.getPropertyValue('--project-width')), Number(style.getPropertyValue('--project-gap')))
+    }
+    return projectScrollWidth;
+}

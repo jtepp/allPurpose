@@ -1,3 +1,9 @@
+:root {
+    --project-height: 440px;
+    --project-width: 240px;
+    --project-gap: 100px;
+}
+
 #projects-section {
     height: calc(100vh - 40px);
     isolation: isolate;
@@ -30,15 +36,17 @@
     padding-bottom: 55px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
 #projects-container {
+
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: var(--project-gap);
     flex-wrap: nowrap;
+    width: 50vw;
     overflow-x: scroll;
     padding: 70px 0 40px 0;
     scroll-snap-type: x mandatory;
@@ -56,16 +64,16 @@
     position: relative;
     scroll-snap-align: center;
     translate: -50% 0%;
-    min-width: 240px;
-    height: 440px;
+    min-width: var(--project-width);
+    height: var(--project-height);
 }
 
 .project {
     --rotate-x: 0deg;
     --rotate-y: 0deg;
 
-    width: 240px;
-    height: 440px;
+    width: var(--project-width);
+    height: var(--project-height);
     color: white;
     background-color: var(--primary);
     border-radius: 20px;
@@ -77,25 +85,13 @@
     transform 300ms ease-out, scale 600ms ease, opacity 300ms ease;
 
     background-size: cover;
+    background-position: top center;
     background-repeat: no-repeat;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
-
-
-.project-description {
-    height: 160px;
-    overflow-y: scroll;
-    background-color: #00000080;
-    border-radius: 10px;
-    font-size: 15px;
-    padding: 10px;
-    /* box-shadow: inset 0px 0px 10px 0px #00000080; */
-    transition: padding 10ms ease, height 300ms ease;
-}
-
 .project-icon-container {
     position: absolute;
     top: -70px;
@@ -129,3 +125,20 @@
     height: 80px;
 }
 
+
+#project-info {
+    width: calc(50vw - 40px);
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 70px 0 0 40px;
+}
+
+#project-title {
+}
+
+#project-description {
+    font-weight: 200;
+}

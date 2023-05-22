@@ -4,7 +4,7 @@ import Cutout from './cutout';
 import ScrollButton from './scrollButton';
 import '../css/projects.css'
 import Project from './project';
-import { importAll } from '../utils';
+import { getProjectsScrollWidth, importAll } from '../utils';
 
 export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg|gif)$/))
 export const thumbnails = importAll(require.context('../res/projects/thumbnails', false, /\.(png|jpe?g|svg|gif)$/))
@@ -18,22 +18,11 @@ function Home(props) {
 
 
     const getCurrentProjectIndex = () => {
-        const projectsContainer = document.getElementById("projects-container")
+         const projectsContainer = document.getElementById("projects-container")
         const scrollLeft = projectsContainer.scrollLeft
-        const containers = document.querySelectorAll(".project-container")
 
-        let lastIndex = 0
-        for (let i = 1; i < containers.length; i++) {
-            const offsetLeft = containers[i].offsetLeft - projectsContainer.offsetWidth/2
-            const lastOffsetLeft = containers[lastIndex].offsetLeft - projectsContainer.offsetWidth/2
-    
-            // console.log(offsetLeft, lastOffsetLeft, scrollLeft, i)
-            if (Math.abs(offsetLeft - scrollLeft) > Math.abs(lastOffsetLeft - scrollLeft))
-                return lastIndex
-            else
-                lastIndex = i
-        }
-        return lastIndex   
+       return Math.round(scrollLeft / getProjectsScrollWidth())
+
     }
 
 
@@ -113,6 +102,14 @@ function Home(props) {
                 <h1 id='projects-title'>Projects</h1>
 
                 <div id='projects-content'>
+                    <div id="project-info">
+                        <h1 id="project-title">
+                            {data[currentProjectIndex].title}
+                        </h1>
+                        <h3 id="project-description">
+                            {data[currentProjectIndex].description}
+                        </h3>
+                    </div>
                     <div id="projects-container">
                         {projects}
                     </div>

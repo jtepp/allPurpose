@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { icons, thumbnails } from './home'
+import { getProjectsScrollWidth } from '../utils'
 
 function Project(props) {
 
@@ -42,12 +43,11 @@ function Project(props) {
     
 
     const handleIconClick = (e) => {
-        const cont = document.getElementById('project-' + props.index + '-container')
-        const contcont = document.getElementById("projects-container")
+        const projectsContainer = document.getElementById("projects-container")
+        const projectIndex = [...document.querySelectorAll(".project-container")].findIndex((el) => el.id === 'project-' + props.index + '-container')
 
-        // console.log(cont.offsetLeft, contcont.scrollLeft, window.innerWidth/2)
 
-        contcont.scrollTo({'left': cont.offsetLeft - contcont.offsetWidth/2, 'behavior': 'smooth'})
+        projectsContainer.scrollTo({'left': projectIndex * getProjectsScrollWidth(), 'behavior': 'smooth'})
 
     }
 
