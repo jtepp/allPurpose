@@ -8,7 +8,7 @@ export function constrain(value, max, min) {
 
 export function importAll(r) {
   let images = {};
-   r.keys().forEach((item, index) => { images[item.replace('./', '').replace(/\.(png|jpe?g|svg)$/, '')] = r(item); });
+   r.keys().forEach((item, index) => { images[item.replace('./', '').replace(/\.(png|jpe?g|svg|gif)$/, '')] = r(item); });
   return images
  }
 

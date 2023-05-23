@@ -28,6 +28,8 @@ function Home(props) {
 
 
     useEffect(() => {
+
+        console.log(thumbnails)
         if (window.location.hash === "#projects-section") {
             if (document.querySelector("#projects-section"))
                 document.querySelector("#projects-section").scrollIntoView({
