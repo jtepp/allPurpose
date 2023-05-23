@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { icons, thumbnails } from './home'
-import { projectScrollWidth, scrollToIndex } from '../utils'
+import { scrollToIndex } from '../utils'
 
 function Project(props) {
 

@@ -171,6 +171,39 @@
     transition: color var(--color-transition-time) ease;
 }
 
+#projects-content.more-left>#left-button, #projects-content.more-right>#right-button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: calc(50% - 10px);
+    transform: translate(-50%, -50%);
+    background-position-y: 50%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    background-color: #ffffff18;
+}
+
+/*  */
+
+#projects-content.more-right>#right-button {
+    background-position-x: 60%;
+    left: calc(75% + (var(--project-width) + var(--project-gap) / 2) / 2);
+    /* left: calc(50% + (var(--project-width) + var(--project-gap)) / 2); */
+    background-image: url('../res/rounded-chevron-right.png');
+}
+
+#projects-content.more-left>#left-button {
+    background-position-x: 40%;
+    left: calc(75% - (var(--project-width) + var(--project-gap) / 2) / 2);
+    /* left: calc(50% - (var(--project-width) + var(--project-gap)) / 2); */
+    background-image: url('../res/rounded-chevron-left.png');
+}
+
+
 
 @media (max-width: 655px) {
     #projects-content {
@@ -224,30 +257,14 @@
     }
 
     #projects-content.more-left>#left-button, #projects-content.more-right>#right-button {
-        width: 40px;
-        height: 40px;
-        position: absolute;
         top: calc((330px + 35px) / 2);
-        transform: translate(-50%, -50%);
-        background-position-y: 50%;
-        background-size: 50%;
-        background-repeat: no-repeat;
-        z-index: 10;
-        cursor: pointer;
-        border-radius: 50%;
-        backdrop-filter: blur(10px);
-        background-color: #ffffff18;
     }
     
     #projects-content.more-right>#right-button {
-        background-position-x: 60%;
         left: calc(50% + (var(--project-width) + var(--project-gap)) / 2);
-        background-image: url('../res/rounded-chevron-right.png');
     }
     
     #projects-content.more-left>#left-button {
-        background-position-x: 40%;
         left: calc(50% - (var(--project-width) + var(--project-gap)) / 2);
-        background-image: url('../res/rounded-chevron-left.png');
     }
 }
