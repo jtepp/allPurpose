@@ -5,7 +5,7 @@ import Cutout from './cutout';
 import ScrollButton from './scrollButton';
 import '../css/projects.css'
 import Project from './project';
-import { projectScrollWidth, importAll, scrollToIndex } from '../utils';
+import { projectScrollWidth, importAll, scrollToNextProject, scrollToPreviousProject } from '../utils';
 
 export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg|gif)$/))
 export const thumbnails = importAll(require.context('../res/projects/thumbnails', false, /\.(png|jpe?g|svg|gif)$/))
@@ -29,7 +29,7 @@ function Home(props) {
 
     useEffect(() => {
 
-        console.log(thumbnails)
+        // console.log(thumbnails)
         if (window.location.hash === "#projects-section") {
             if (document.querySelector("#projects-section"))
                 document.querySelector("#projects-section").scrollIntoView({
@@ -109,17 +109,23 @@ function Home(props) {
                 <div id='projects-content' className={(currentProjectIndex > 0 ? 'more-left ' : '') + (currentProjectIndex < data.length - 1 ? 'more-right' : '')}>
                     <div className="projects-content-button" id='left-button'
                     onClick={() => {
-                        scrollToIndex(currentProjectIndex - 1)
+                        scrollToPreviousProject()
                     }}></div>
                     <div className="projects-content-button" id='right-button'
                     onClick={() => {
-                        scrollToIndex(currentProjectIndex + 1)
+                        scrollToNextProject()
                     }}
                     ></div>
                     <div id="project-info">
-                        <h1 id="project-title">
-                            {data[currentProjectIndex].title}
-                        </h1>
+                        <div id="project-title-container">
+                            <h1 id="project-title">
+                                {data[currentProjectIndex].title}
+                            </h1>
+                            <h3 id="project-subtitle">
+                                {data[currentProjectIndex].job ? data[currentProjectIndex].job.project : ""}
+                            </h3>
+                        </div>
+
                         <h3 id="project-description">
                             {ReactHTMLParser(data[currentProjectIndex].description)}
                         </h3>

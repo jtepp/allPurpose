@@ -54,7 +54,16 @@ function Header(props) {
         
     }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset])
 
-    window.onresize = setHeaderLine
+    window.onresize = () => {
+        setHeaderLine()
+        // if (window.innerHeight < 460){
+            const back = document.querySelector("#projects-back")
+            back.style.height = document.querySelector("#projects-section").offsetHeight + 'px'
+            back.style.top = `calc(100vh + 40px - var(--scroll-y) + ${window.innerWidth > 655 ? Math.max(0, 460 - window.innerHeight) : 0}px)`
+
+        // }
+
+    }
     
 
     useEffect(() => {

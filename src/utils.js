@@ -21,3 +21,13 @@ export const scrollToIndex = (index) => {
   const projectsContainer = document.getElementById("projects-container")
   projectsContainer.scrollTo({'left': index * projectScrollWidth(), 'behavior': 'smooth'})
 }
+
+export const scrollToNextProject = () => {
+  const projectsContainer = document.getElementById("projects-container")
+  projectsContainer.scrollBy({'left': projectScrollWidth(), 'behavior': 'smooth'})
+}
+
+export const scrollToPreviousProject = () => {
+  const projectsContainer = document.getElementById("projects-container")
+  projectsContainer.scrollBy({'left': -projectScrollWidth(), 'behavior': 'smooth'})
+}

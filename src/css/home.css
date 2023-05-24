@@ -70,7 +70,7 @@
 }
 
 
-@media (max-width: 520px) {
+@media (max-width: 655px) {
     #home-name h1 {
         font-size: 60px;
     }

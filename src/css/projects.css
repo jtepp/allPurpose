@@ -24,11 +24,11 @@
 
 #projects-back {
     width: 100vw;
-    height: calc(100vh - 40px);
+    height: 100vh;
     background-color: white;
-    position: absolute;
-    z-index: 9;
-    /* opacity: .5; */
+    position: fixed;
+    z-index: 19;
+    opacity: .5;
     top: calc(100vh + 40px - var(--scroll-y));
     right: 0px;
     clip-path: polygon(100% 0px, 100% 100% , 0% 100%, 0% 236px, 50% 236px, 50% 0px);
@@ -157,6 +157,12 @@
     font-size: 30px;
 }
 
+#project-subtitle {
+    text-align: center;
+    color: var(--secondary);
+    transition: color var(--color-transition-time) ease;
+}
+
 #project-description {
     font-weight: 400;
     height: calc(var(--project-width) * 440 / 240 - 70px);
@@ -214,8 +220,8 @@
 
     #projects-back {
         top: calc(100vh + 80px - var(--scroll-y));
-        z-index: 9;
-        /* opacity: 0; */
+        z-index: 19;
+        opacity: .5;
         --clip-in-top: calc(70px + 40px + 290px);
         --clip-in-bottom: calc(var(--clip-in-top) + 33px);
 

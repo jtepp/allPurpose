@@ -133,7 +133,7 @@
     {
         "title": "AllPurpose",
         "url": "https://allPurpose.netlify.app/",
-        "description": "This site is what I use to host the majority of <a href='functions.html'>my functions</a>. The project title links to the Github repository because these functions are actually all hosted behind the site you're currently reading.",
+        "description": "This site is what I use to host the majority of <a href='functions'>my functions</a>. The project title links to the Github repository because these functions are actually all hosted behind the site you're currently reading.",
         "platform": ["web"],
         "short": "allpurpose"
     }
