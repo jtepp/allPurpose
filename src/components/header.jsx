@@ -57,14 +57,15 @@ function Header(props) {
     window.onresize = () => {
         setHeaderLine()
         // if (window.innerHeight < 460){
-            const back = document.querySelector("#projects-back")
-            if (back) {
-                back.style.height = document.querySelector("#projects-section").offsetHeight + 'px'
+            // const back = document.querySelector("#projects-back")
+                
+        const root = document.querySelector(":root")
+        if (window.innerWidth > 655) {
+            root.style.setProperty("--PB-wide-height", document.querySelector("#projects-section").offsetHeight + "px")
+            root.style.setProperty("--PB-wide-top", `calc(100vh + 40px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`)
+        }
 
-                if (window.innerWidth > 655) {
-                    back.style.top = `calc(100vh + 40px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`
-                }
-            } 
+
             //  else {
             //     back.style.top = `calc(100vh + 80px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`
             // }
