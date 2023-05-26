@@ -35,8 +35,8 @@
     right: 0px;
     background-color: white;
     position: fixed;
-    z-index: 19;
-    opacity: .5;
+    z-index: 9;
+    /* opacity: .5; */
     clip-path: polygon(100% 0px, 100% 100% , 0% 100%, 0% 236px, 50% 236px, 50% 0px);
 }
 
@@ -227,8 +227,8 @@
     #projects-back {
         top: var(--PB-narrow-top);
         height: var(--PB-narrow-height);
-        z-index: 19;
-        opacity: .5;
+        z-index: 9;
+        /* opacity: .5; */
         --clip-in-top: calc(70px + 40px + 290px);
         --clip-in-bottom: calc(var(--clip-in-top) + 33px);
 

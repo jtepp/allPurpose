@@ -63,6 +63,9 @@ function Header(props) {
         if (window.innerWidth > 655) {
             root.style.setProperty("--PB-wide-height", document.querySelector("#projects-section").offsetHeight + "px")
             root.style.setProperty("--PB-wide-top", `calc(100vh + 40px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`)
+        } else {
+            root.style.setProperty("--PB-narrow-height", document.querySelector("#projects-section").offsetHeight + "px")
+            root.style.setProperty("--PB-narrow-top", `calc(100vh + 80px - var(--scroll-y) + ${Math.max(0, 412 - window.innerHeight)}px)`)
         }
 
 
