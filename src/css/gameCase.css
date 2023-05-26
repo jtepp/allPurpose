@@ -1,0 +1,48 @@
+.case-container {
+    --_thickness: 20px;
+    --_rotate: 0deg;
+    --_front-width: 80px;
+
+    width: 100px;
+    height: 200px;
+    background-color: skyblue;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    /* transform: rotate3d(0, 1, 0, 0deg); */
+}
+
+.case-container * {
+    transition: transform 200ms ease-in;
+}
+
+.case-container:hover {
+    --_rotate: -90deg;
+}
+
+.case-front {
+    position: absolute;
+    top: 0;
+    left: calc(var(--_thickness) * -1 - 20px);
+    width: var(--_front-width);
+    height: 100px;
+    background-color: green;
+    transform: rotateY(calc(90deg + var(--_rotate)))
+    translateX(var(--_thickness))
+    translateZ(20px);
+
+}
+
+.case-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--_thickness);
+    height: 100px;
+    background-color: blue;
+    transform: rotateY(var(--_rotate))
+    /* translateX(-50%) translateY(-50%) */
+    translateZ(var(--_thickness));
+}
