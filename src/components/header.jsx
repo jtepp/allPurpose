@@ -58,8 +58,16 @@ function Header(props) {
         setHeaderLine()
         // if (window.innerHeight < 460){
             const back = document.querySelector("#projects-back")
-            back.style.height = document.querySelector("#projects-section").offsetHeight + 'px'
-            back.style.top = `calc(100vh + 40px - var(--scroll-y) + ${window.innerWidth > 655 ? Math.max(0, 460 - window.innerHeight) : 0}px)`
+            if (back) {
+                back.style.height = document.querySelector("#projects-section").offsetHeight + 'px'
+
+                if (window.innerWidth > 655) {
+                    back.style.top = `calc(100vh + 40px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`
+                }
+            } 
+            //  else {
+            //     back.style.top = `calc(100vh + 80px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`
+            // }
 
         // }
 
