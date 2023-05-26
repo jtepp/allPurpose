@@ -1,5 +1,6 @@
 import React from 'react'
-import { GameCase } from './minigames/gameCase'
+import { GameCase } from './gameCase'
+import "../../css/minigames.css"
 
 function Minigames(props) {
     return ( 

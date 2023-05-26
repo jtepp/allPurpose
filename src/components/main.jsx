@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Base from './base';
 import Home from './home';
 import { pages } from '..';
-import Minigames from './minigames';
+import Minigames from './minigames/minigames';
 
 function Main() {
     const initialIndex = () => {
