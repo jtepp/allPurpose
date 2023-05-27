@@ -37,7 +37,7 @@
     position: fixed;
     z-index: 9;
     /* opacity: .5; */
-    clip-path: polygon(100% 0px, 100% 100% , 0% 100%, 0% 210px, 50% 210px, 50% 0px);
+    clip-path: polygon(100% 0px, 100% 100% , 0% 100%, 0% 195px, 50% 195px, 50% 0px);
 }
 
 
@@ -164,7 +164,6 @@
 }
 
 #project-subtitle {
-    text-align: center;
     color: var(--secondary);
     transition: color var(--color-transition-time) ease;
 }
@@ -270,6 +269,10 @@
         font-size: 28px;
         text-align: center;
         max-height: 33px;
+    }
+    
+    #project-subtitle {
+        text-align: center;
     }
 
     #projects-content.more-left>#left-button, #projects-content.more-right>#right-button {
