@@ -99,6 +99,15 @@
         "controls": "Mouse movement: Move paddle"
     },
     {
+        "title": "Don't Touch the Spikes",
+        "width": "400px",
+        "height": "600px",
+        "url": "/dont-touch-the-spikes/5124835328950272/",
+        "img": "games/thumbs/spikes.png",
+        "description": "Embark on a thrilling challenge of avoiding deadly spikes! Test your reflexes and agility as you navigate through the walls. Use the space bar to make your character hop and try to fly back and forth as many times as possible. How long can you survive without touching the spikes?",
+        "controls": "Space bar: Hop"
+    },
+    {
         "title": "Paint",
         "width": "600px",
         "height": "600px",
