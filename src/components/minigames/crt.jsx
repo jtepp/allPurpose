@@ -12,7 +12,7 @@ export default function CRT(props) {
             <div id="crt-shadow" className='crt-internal'></div>
             <div id="crt-screen-door-rows" className='crt-internal'></div>
             <div id="crt-screen-door-cols" className='crt-internal'></div>
-            <img id='crt-border' src={CRTborder} alt="" />
+            <img draggable="false" id='crt-border' src={CRTborder} alt="" />
         </div>
      );
 }
