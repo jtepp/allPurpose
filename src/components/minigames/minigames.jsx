@@ -4,6 +4,7 @@ import "../../css/minigames.css"
 import Section from '../section';
 import CRT from './CRT';
 import { thumbnails } from '../home';
+import gameData from '../../res/minigames/gameData.json'
 
 function Minigames(props) {
     return ( 

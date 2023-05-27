@@ -1,0 +1,119 @@
+[
+    {
+        "title": "Ball Fight",
+        "width": "600px",
+        "height": "400px",
+        "url": "/ball-fight-culminating-game/6286638934687744/",
+        "img": "games/thumbs/ballfight.png",
+        "description": "Ball Fight is a 2-player game. Use the arrow keys and WASD to control the balls and fight. Hold shift to select a ball and weapon for player 1.",
+        "controls": "Arrow keys, WASD, Shift"
+    },
+    {
+        "title": "Cannon",
+        "width": "400px",
+        "height": "400px",
+        "url": "/cannon/5646330610352128/",
+        "img": "games/thumbs/cannon.png",
+        "description": "Click to fire cannonballs. Time it right and hit all the ships.",
+        "controls": "Mouse click"
+    },
+    {
+        "title": "Helix Roll",
+        "width": "400px",
+        "height": "600px",
+        "url": "/helixroll/5995158211952640/",
+        "img": "games/thumbs/helixroll.png",
+        "description": "Use the left and right arrow keys to fall through the green holes. Move quickly to increase your multiplier, watch out for the red tiles, they steal points.",
+        "controls": "Left arrow key, Right arrow key"
+    },
+    {
+        "title": "Mario Kart",
+        "width": "400px",
+        "height": "400px",
+        "url": "/mario/6497171799048192/",
+        "img": "games/thumbs/mariokart.png",
+        "description": "A classic arcade kart game, using the arrow keys to change lanes. Collect as many coins as you can, and pick up hourglass powerups to slow down the karts. More detailed instructions are available in the game.",
+        "controls": "Arrow keys"
+    },
+    {
+        "title": "Lunar Lander",
+        "width": "400px",
+        "height": "400px",
+        "url": "/lunar-lander/4897487385034752/",
+        "img": "games/thumbs/lunarlander.png",
+        "description": "Press up to boost, and use the left and right arrow keys to control the ship. Avoid the rocks, and try to land on the pad at a safe speed. Press down to reset.",
+        "controls": "Up arrow key, Left arrow key, Right arrow key, Down arrow key"
+    },
+    {
+        "title": "Space Invaders",
+        "width": "400px",
+        "height": "400px",
+        "url": "/array-invaders/5066944437321728/",
+        "img": "games/thumbs/spaceinvaders.png",
+        "description": "Use the arrow keys to move, and the space bar to fire. Destroy the invaders before they get to your ship!",
+        "controls": "Arrow keys, Space bar"
+    },
+    {
+        "title": "Pong",
+        "width": "400px",
+        "height": "400px",
+        "url": "/pong/6458910196137984/",
+        "img": "games/thumbs/pong.png",
+        "description": "A simple 2-player game. Use the arrow keys to move the left, and the WASD keys to move the right.",
+        "controls": "Arrow keys, WASD keys"
+    },
+    {
+        "title": "Archery",
+        "width": "400px",
+        "height": "400px",
+        "url": "/archery/4961238647865344/",
+        "img": "games/thumbs/archery.png",
+        "description": "Hold any key to look through the scope. Align the markers with the wind and distance. Aim for bullseye, and press alt to reset.",
+        "controls": "Any key, Alt"
+    },
+    {
+        "title": "Stick Bridge",
+        "width": "400px",
+        "height": "400px",
+        "url": "/stick-bridge/4811864224595968/",
+        "img": "games/thumbs/stickbridge.png",
+        "description": "Help Mr. Stick cross the level by building him a bridge. Hold any key to start building the bridge, and release once it's long enough. Build one that fits in the perfect zone for bonus points.",
+        "controls": "Any key"
+    },
+    {
+        "title": "Ball Hop",
+        "width": "400px",
+        "height": "400px",
+        "url": "/ball-hop/4733852049244160/",
+        "img": "games/thumbs/ballhop.png",
+        "description": "Bounce the ball on the green tile to stay alive. Get 10 in a row for a bonus life, but lose a life every time you land on a red tile.",
+        "controls": "Mouse click"
+    },
+    {
+        "title": "Ping Pong",
+        "width": "600px",
+        "height": "600px",
+        "url": "/ping-pong/5749196773163008/",
+        "img": "games/thumbs/pingpong.png",
+        "description": "Click to start the game. Move the paddle with your mouse, and hit the ball past the opponent.",
+        "controls": "Mouse click, Mouse movement"
+    },
+    {
+        "title": "Don't Touch the Spikes",
+        "width": "400px",
+        "height": "600px",
+        "url": "/dont-touch-the-spikes/5124835328950272/",
+        "img": "games/thumbs/spikes.png",
+        "description": "Avoid the spikes on all the walls using space to hop. See how many times you can fly back and forth.",
+        "controls": "Space bar"
+    },
+    {
+        "title": "Paint",
+        "width": "600px",
+        "height": "600px",
+        "url": "/paintprogram-v-20/5116852584349696/",
+        "img": "games/thumbs/paint.png",
+        "description": "Press any key and move the mouse to draw, press alt and click a saved color to overwrite it. Pressing alt also ends the shape when using the dot connect tool.",
+        "controls": "Any key, Mouse movement, Alt"
+    }
+]
