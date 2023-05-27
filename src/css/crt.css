@@ -59,10 +59,13 @@
 .crt-text {
     --_pad: min(18vw, calc(680px * 0.18));
 
+    color: #3cd500;
+    -webkit-text-stroke: 1px black;
     /* z-index: 1;
     background-color: red; */
     font-family: 'CRT', 'Courier New', Courier, monospace;
-    font-size: 50px;
+    font-size: 60px;
+    text-align: right;
     /* 680px is width breakpoint */
     padding: var(--_pad);
     width: calc(100% - var(--_pad) * 2);
