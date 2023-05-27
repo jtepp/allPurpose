@@ -1,13 +1,16 @@
 import React from 'react'
 import { GameCase } from './gameCase'
 import "../../css/minigames.css"
+import Section from '../section';
+import CRT from './crt';
 
 function Minigames(props) {
     return ( 
-        <div id="minigames">
-            <h1>MINIGAMESFI:JNES:FKNDKLDJF</h1>
-            <GameCase />
-        </div>
+        <Section id="minigames">
+            <CRT>
+                
+            </CRT>
+        </Section>
      );
 }
 

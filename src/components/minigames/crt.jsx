@@ -1,14 +1,13 @@
 import React from 'react'
 import '../../css/crt.css'
-import CRTborder from '../../images/crt.png'
+import CRTborder from '../../res/minigames/crt-border.png'
+import staticGIF from '../../res/minigames/static.gif'
 
-
-function CRT() {
+export default function CRT() {
     return ( 
         <div id='crt-container'>
-            <img src={CRTborder} alt="" />
+            <img id='crt-img' src={CRTborder} alt="" />
+            <img id='static-gif' src={staticGIF} alt="" />
         </div>
      );
 }
-
-export default CRT;
