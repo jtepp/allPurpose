@@ -10,7 +10,9 @@ function Minigames(props) {
         <Section id="minigames">
             <div id="minigames-content">
                 <CRT>
-                    <img src={thumbnails["larrybirdle"]} alt="" />
+                    <img src={thumbnails["larrybirdle"]} alt="" style={{
+                        width: "100%",
+                    }}/>
                 </CRT>
             </div>
         </Section>

@@ -32,7 +32,7 @@
 }
 
 #crt-shadow {
-    background-image: radial-gradient(at 50% 45%, transparent 0%, black 65%);
+    background-image: radial-gradient(at 50% 45%, transparent 0%, black 90%);
 }
 
 #crt-screen-door-rows {
@@ -71,6 +71,10 @@
     width: calc(100% - var(--_pad) * 2);
     height: calc(100% - var(--_pad) * 2);
 
+}
+
+#crt-content {
+    /* width: 100%; */
 }
 
 @keyframes row-flicker {
