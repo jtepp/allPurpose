@@ -116,15 +116,15 @@
 }
 .project-icon-container {
     position: absolute;
-    top: -70px;
+    top: calc(-70px + 30px); /* had to take out the translate switching */
     left: 50%;
-    transform: translate(-50%, 0%) scale(1);
+    transform: translate(-50%, -50%);
     width: 60px;
     height: 60px;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    transition: top 300ms ease, transform 300ms ease,
+    transition: top 300ms ease,
     width 300ms ease, height 300ms ease;
 }
 
@@ -142,7 +142,6 @@
 
 .project-container:not(.current-project-container)>.project-icon-container {
     top: 50%;
-    transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
 }
@@ -221,10 +220,15 @@
 
 
 @media (max-width: 655px) {
+    #projects-section {
+        height: fit-content;
+
+    }
     #projects-content {
         flex-direction: column-reverse;
         justify-content: flex-end;
         align-items: center;
+        height: fit-content;
     }
 
     #projects-back {
@@ -264,6 +268,8 @@
 
     #project-description {
         font-size: 16px;
+        overflow-y: visible;
+        height: max-content;
     }
 
     #project-title {
