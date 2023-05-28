@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { icons, thumbnails } from './home'
 import { scrollToIndex } from '../utils'
+import spllitIcon from '../res/projects/icons/spllit.png'
 
 function Project(props) {
 
@@ -69,7 +70,7 @@ function Project(props) {
 
             <div className="project-icon-container"
             onClick={handleIconClick}>
-                <img src={icons[props.project.short]} alt="" className="project-icon" />
+                <img src={props.project.short === "spllit" ? spllitIcon : icons[props.project.short]} alt="" className="project-icon" />
             </div>
         </section>
      );
