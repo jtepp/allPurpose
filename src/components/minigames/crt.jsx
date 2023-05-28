@@ -11,7 +11,7 @@ export default function CRT(props) {
         // console.log(padding)
         // scale the iframe down so that the longest dimension fits in the container
         // calculate a ratio to use with css scaling
-        const ratio = Math.max(Math.min((cont.offsetWidth - padding) / iframe.offsetWidth, (cont.offsetHeight - padding) / iframe.offsetHeight), 355 / iframe.offsetWidth)
+        const ratio = Math.max(Math.min((cont.offsetWidth - padding) / iframe.offsetWidth, (cont.offsetHeight - padding) / iframe.offsetHeight), 290 / iframe.offsetWidth)
 
     
         // scale the iframe
