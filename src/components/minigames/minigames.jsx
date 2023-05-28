@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import "../../css/minigames.css"
 import Section from '../section';
 import CRT from './CRT';
@@ -12,7 +12,7 @@ const gameThumbs = importAll(require.context('../../res/minigames/thumbs', false
 function Minigames(props) {
     const [currentGameIndex, setCurrentGameIndex] = useState(-1)
 
-    const resizeIframe = () => {
+    const resizeIframe = useCallback(() => {
         const iframe = document.querySelector('#game-iframe')
         const cont = document.querySelector('#crt-content')
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
@@ -30,7 +30,7 @@ function Minigames(props) {
         console.log(ratio)
 
         document.querySelector(':root').style.setProperty('--crt-width', `${cont.offsetWidth}px`)
-    }
+    }, [currentGameIndex])
 
     // useEffect(()=> {
     //     changeGame(0)
