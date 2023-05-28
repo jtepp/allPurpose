@@ -17,7 +17,7 @@
         "img": "games/thumbs/cannon.png",
         "description": "Test your aiming skills in this cannon-firing game! Fire cannonballs by clicking the mouse and aim to hit all the moving ships. Time your shots perfectly for maximum destruction.",
         "controls": "Move mouse: Aim, Click: fire cannonballs",
-        "bgColor": ""
+        "bgColor": "#000000e0"
     },
     {
         "title": "Helix Roll",
@@ -27,7 +27,7 @@
         "img": "games/thumbs/helixroll.png",
         "description": "Embark on a thrilling rolling adventure through a helix tower! Use the left and right arrow keys to navigate your ball through the green holes. Be swift to increase your multiplier but beware of the treacherous red tiles that will steal your hard-earned points.",
         "controls": "Left arrow key: Move left, Right arrow key: Move right",
-        "bgColor": ""
+        "bgColor": "#ffffff"
     },
     {
         "title": "Mario Kart",
@@ -37,7 +37,7 @@
         "img": "games/thumbs/mariokart.png",
         "description": "Experience the nostalgia of the classic arcade kart game, Mario Kart! Use the arrow keys to switch lanes as you race down the track. Collect as many coins as possible while grabbing hourglass power-ups to keep a steady speed. Check the in-game instructions for further details.",
         "controls": "Arrow keys: Switch lanes",
-        "bgColor": ""
+        "bgColor": "#FF0000"
     },
     {
         "title": "Lunar Lander",
@@ -48,7 +48,7 @@
         "img": "games/thumbs/lunarlander.png",
         "description": "Take control of a lunar lander and test your piloting skills! Press the up arrow key to boost your ship and use the left and right arrow keys to control its movements. Avoid colliding with rocks and attempt a safe landing on the designated pad. Press the down arrow key to reset if needed.",
         "controls": "Up arrow key: Boost, Left arrow key: Move left, Right arrow key: Move right, Down arrow key: Reset",
-        "bgColor": ""
+        "bgColor": "#000000"
     },
     {
         "title": "Space Invaders",
@@ -59,7 +59,7 @@
         "img": "games/thumbs/spaceinvaders.png",
         "description": "Defend your territory against an onslaught of alien invaders! Move your spaceship with the left and right arrow keys and shoot using the space bar. Eliminate all the aliens before they reach the bottom and breach your defenses.",
         "controls": "Left arrow key: Move left, Right arrow key: Move right, Space bar: Shoot",
-        "bgColor": ""
+        "bgColor": "#000000"
     },
     {
         "title": "Pong",
@@ -69,7 +69,7 @@
         "img": "games/thumbs/pong.png",
         "description": "Experience the classic game of Pong in this old-fashioned 2-player battle! Use the arrow keys to move the paddle on the left side, and the WASD keys to move the paddle on the right side. Deflect the ball and outmaneuver your opponent to score points and claim victory!",
         "controls": "Player 1: Arrow keys to move paddle, Player 2: WASD keys to move paddle",
-        "bgColor": ""
+        "bgColor": "#000000"
     },
     {
         "title": "Archery",
@@ -79,7 +79,7 @@
         "img": "games/thumbs/archery.png",
         "description": "Become a skilled archer in this precision-based game! Hold any key to look through the scope, and align the markers with the wind and distance. Aim for the bullseye and press the alt key to reset your shot if needed. Test your accuracy and hit the target!",
         "controls": "Hold any key: Look through scope, Alt key: Reset shot, Click: Shoot",
-        "bgColor": ""
+        "bgColor": "#ffffff"
     },
     {
         "title": "Stick Bridge",
@@ -89,7 +89,7 @@
         "img": "games/thumbs/stickbridge.png",
         "description": "Help Mr. Stick overcome challenging obstacles by building a sturdy bridge! Hold any key to start building the bridge and release it once it reaches the desired length. Construct a bridge that fits perfectly within the designated zone for bonus points. Test your engineering skills and guide Mr. Stick to safety!",
         "controls": "Hold any key: Start building bridge, Release key: Stop building bridge",
-        "bgColor": ""
+        "bgColor": "#141414"
     },
     {
         "title": "Ball Hop",
@@ -99,7 +99,7 @@
         "img": "games/thumbs/ballhop.png",
         "description": "Take the challenge of an endless bouncing adventure! Keep the ball alive by bouncing on the green tiles. Achieve a streak of 10 bounces in a row to earn a bonus life, but be careful not to land on the red tiles as they will cost you a life. How far can you hop?",
         "controls": "Mouse click: Start game, Arrow keys: Move ball",
-        "bgColor": ""
+        "bgColor": "#D2E6F7"
     },
     {
         "title": "Ping Pong",
@@ -109,7 +109,7 @@
         "img": "games/thumbs/pingpong.png",
         "description": "Engage in an exciting game of table tennis! Move your paddle with the mouse and try to hit the ball past your opponent. Test your reflexes, strategize your shots, and score as many points as you can to emerge as the Ping Pong champion!",
         "controls": "Mouse movement: Move paddle",
-        "bgColor": ""
+        "bgColor": "#c8c8c8"
     },
     {
         "title": "Don't Touch the Spikes",
@@ -120,7 +120,7 @@
         "img": "games/thumbs/spikes.png",
         "description": "Embark on a thrilling challenge of avoiding deadly spikes! Test your reflexes and agility as you navigate through the walls. Use the space bar to make your character hop and try to fly back and forth as many times as possible. How long can you survive without touching the spikes?",
         "controls": "Space bar: Hop",
-        "bgColor": ""
+        "bgColor": "#E0F0Fa"
     },
     {
         "title": "Paint",
@@ -130,6 +130,6 @@
         "img": "games/thumbs/paint.png",
         "description": "Unleash your creativity with this digital painting program! Press any key and move the mouse to draw on the canvas. If you wish to overwrite a saved color, press the Alt key and click on the desired area. The Alt key also serves to end a shape when using the dot connect tool. Create amazing artworks and let your imagination run wild!",
         "controls": "Hold any key: Draw, Click: Use tools, Alt key + Click: Overwrite color preset, Alt key: End shape",
-        "bgColor": ""
+        "bgColor": "#ffffffe0"
     }
 ]

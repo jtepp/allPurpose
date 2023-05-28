@@ -16,5 +16,7 @@
 #game-iframe {
     position: relative;
     translate: 0 -50%;
-    top: calc(40%);
+    top: calc(40% + 10px);
+    border: none !important;
+    outline: none !important;
 }
