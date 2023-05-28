@@ -4,7 +4,6 @@ import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
 
-
 function Header(props) {    
     
     const calculateGapSize = () => {
@@ -53,26 +52,13 @@ function Header(props) {
         
         
     }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset])
-
-    window.onresize = () => {
-        setHeaderLine()
-        
-        if (document.querySelector("#projects-section")) {
-            const root = document.querySelector(":root")
-            if (window.innerWidth > 655) {
-                root.style.setProperty("--PB-wide-height", document.querySelector("#projects-section").offsetHeight + "px")
-                root.style.setProperty("--PB-wide-top", `calc(100vh + 40px - var(--scroll-y) + ${Math.max(0, 460 - window.innerHeight)}px)`)
-            } else {
-                root.style.setProperty("--PB-narrow-height", document.querySelector("#projects-section").offsetHeight + "px")
-                root.style.setProperty("--PB-narrow-top", `calc(100vh + 80px - var(--scroll-y) + ${Math.max(0, 412 - window.innerHeight)}px)`)
-            }
-        }
-    }
     
 
     useEffect(() => {
         setHeaderLine()
-    }, [setHeaderLine])
+    }, [setHeaderLine, props.resizeState])
+    
+
 
     const headerItems = pages.map((page, index) => {
         const id = page.name.toLowerCase()+"-header-link"

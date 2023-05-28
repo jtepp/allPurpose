@@ -42,7 +42,7 @@ function Base(props) {
     return ( 
         <div id="base">
             <Header activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
-                hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex}
+                hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex} resizeState={props.resizeState} setResizeState={props.setResizeState}
             />
             <div id="content">
                 {props.children}

@@ -6,6 +6,8 @@ import { pages } from '..';
 import Minigames from './minigames/minigames';
 
 function Main() {
+    const [resizeState, setResizeState] = useState(false)
+
     const initialIndex = () => {
         const path = window.location.pathname
         for (let i = 0; i < pages.length; i++) {
@@ -22,14 +24,19 @@ function Main() {
         setActiveIndex(initialIndex())
     }, [])
 
+    window.onresize = () => {
+        setResizeState(!resizeState)
+    }
+
+
     return ( 
         <BrowserRouter>
             <Base activeIndex={activeIndex} setActiveIndex={setActiveIndex} 
-                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex}>
+                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState}>
                 <Routes>
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
-                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex}/>} />
-                <Route path="/minigames" element={<Minigames/>}/>
+                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState}/>} />
+                <Route path="/minigames" element={<Minigames resizeState={resizeState}/>}/>
                 </Routes>
             </Base>
          </BrowserRouter>
