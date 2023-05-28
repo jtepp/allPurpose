@@ -5,6 +5,9 @@ import CRT from './CRT';
 import gameData from '../../res/minigames/gameData.json'
 import Cutout from '../cutout';
 import ReactHTMLParser from 'react-html-parser';
+import { importAll } from '../../utils';
+import Cartridge from './cartridge';
+const gameThumbs = importAll(require.context('../../res/minigames/thumbs', false, /\.(png|jpe?g|svg|gif)$/))
 
 function Minigames(props) {
     const [currentGameIndex, setCurrentGameIndex] = useState(0)
@@ -38,6 +41,10 @@ function Minigames(props) {
         setCurrentGameIndex(index)
     }
 
+    const cartridges = gameData.map((game, index) => {
+        return <Cartridge img={gameThumbs[game.img]} title={game.short || game.title}/>
+    })
+
     return ( 
         <Section id="minigames">
             <div id="minigames-content">
@@ -69,6 +76,7 @@ function Minigames(props) {
                     </CRT>
                 </div>
                 <div id="game-select-container">
+                    {cartridges}
                 </div>
             </div>
         </Section>

@@ -61,17 +61,18 @@
 #game-select-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     gap: 20px;
     width: calc(100% - 2 * 40px);
     padding-inline: 40px;
     height: 100px;
-    background-color: red;
 }
 
 @media (max-width: 799px) {
     #game-container {
         flex-direction: column;
+        align-items: center;
     }
 }

@@ -1,0 +1,108 @@
+.game-cartridge-cont * {
+    user-select: none;
+}
+
+.game-cartridge-cont {
+    position: relative;
+    height: max-content;
+    transition: position 200ms;
+    margin-bottom: 20px;
+}
+
+.game-cartridge-cont:not(#current-game) {
+    cursor: pointer;
+}
+
+.game-cartridge {
+    position: relative;
+    width: 160px;
+    height: 90px;
+    background-image: linear-gradient(-45deg, #5c5d5e, #444546);
+    transition: transform 200ms, box-shadow 200ms;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 0 black;
+}
+
+.game-cartridge::before {
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 38px;
+    background-image: linear-gradient(-45deg, #565758, #3a3b3c);
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(4);
+    border-radius: 50% 50% 0 0;
+    z-index: 0;
+}
+
+.game-cartridge::after {
+    position: absolute;
+    content: attr(title);
+    font-size: 36px;
+    font-family: "CRT";
+    text-align: center;
+    line-height: 185px;
+    color: white;
+    width: 50%;
+    height: calc(100% + 16px);
+    border-left: solid 2px #1a1c1e;
+    border-right: solid 2px #1a1c1e;
+    transform: translate(-50%, -16px);
+    top: 0%;
+    left: 50%;
+}
+
+.cartridge-img {
+    position: absolute;
+    object-fit: contain;
+    object-position: center;
+    width: 40%;
+    /* z-index: 1; */
+    transform: translate(-50%, -75%);
+    top: 50%;
+    left: 50%;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.game-cartridge-cont:hover:not(#current-game, .last-game-clicked)>.game-cartridge {
+    transform: translateY(-100%) rotate(-10deg);
+    box-shadow: 0px 0px 10px 0px #ffffffF0;
+}
+
+.game-cartridge-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.game-cartridge-overlay::before, .game-cartridge-overlay::after {
+    border-top: solid 2px #1a1c1e;
+    top: 0%;
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 30px;
+    background-color: #00000050;
+}
+
+.game-cartridge-overlay::before {
+    left: 0%;
+    transform: translateY(-100%);
+    border-right: solid 2px #1a1c1e;
+    border-top-right-radius: 50px;
+}
+
+.game-cartridge-overlay::after {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 30px;
+    top: 0%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+    border-left: solid 2px #1a1c1e;
+    border-top-left-radius: 50px;
+}
