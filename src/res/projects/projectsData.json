@@ -18,7 +18,7 @@
         "url": "https://www.larrybirdle.com",
         "description": "I made this app in the summer of 2021 after discussing how to split our grocery bills with my housemates.<br><br>Everyone had said they didn't want to split all bills equally in case certain people consistently spent more money, but everyone also didn't want to be the one to say they wouldn't split bills.<br><br> We came to the conclusion that if we had an app to keep track of this, we could be more organized and fair.<br><br>Thus, 4 long nights of Xcode and Firebase later, came spllit.<br><br>Check out the source code <a href='https://github.com/jtepp/spllit'>here!</a>",
         "platform": ["ios"],
-        "short": "spllit"
+        "short": "spllitplease"
     },
     {
         "title": "Oooh",

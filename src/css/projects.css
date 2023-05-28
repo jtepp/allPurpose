@@ -97,7 +97,7 @@
     /* height: var(--project-height); */
     aspect-ratio: 240 / 440;
     color: white;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
     border-radius: 20px;
     transform: perspective(500px)
         rotateX(var(--rotate-x))
