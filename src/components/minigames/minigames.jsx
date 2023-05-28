@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import "../../css/minigames.css"
 import Section from '../section';
-import CRT from './CRT';
+import CRT from './crt';
 import gameData from '../../res/minigames/gameData.json'
 import Cutout from '../cutout';
 import ReactHTMLParser from 'react-html-parser';

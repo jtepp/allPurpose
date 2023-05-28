@@ -10,7 +10,11 @@
     padding: var(--CRT-padding);
     width: calc(100% - var(--CRT-padding) * 2);
     max-width: 600px;
-    min-width: 355px;
+    min-width: 301px;
+}
+
+#crt-container * {
+    user-select: none;
 }
 
 #crt-border {
@@ -69,7 +73,7 @@
 }
 
 #crt-text {
-    --_pad: calc(clamp(355px * 0.12, 0.12*var(--crt-width), 680px * 0.12) + 40px);
+    --_pad: calc(clamp(301px * 0.12, 0.12*var(--crt-width), 680px * 0.12) + 40px);
     /* 680px is width breakpoint */
     padding: var(--_pad);
     width: calc(100% - var(--_pad) * 2);
@@ -89,7 +93,7 @@
 
 #crt-content {
     /* z-index: 1; */
-    --_pad: max(355px * 0.10, min(10vw, calc(680px * 0.10)));
+    --_pad: max(301px * 0.10, min(10vw, calc(680px * 0.10)));
     /* 680px is width breakpoint */
     padding: var(--_pad);
     width: calc(100% - var(--_pad) * 2);
