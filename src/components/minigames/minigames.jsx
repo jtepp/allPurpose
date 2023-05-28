@@ -12,7 +12,12 @@ function Minigames(props) {
     return ( 
         <Section id="minigames">
             <div id="minigames-content">
-                <CRT currentGameIndex={currentGameIndex} resizeState={props.resizeState}>
+                <CRT currentGameIndex={currentGameIndex} resizeState={props.resizeState}
+                bgColor={gameData[currentGameIndex].bgColor} onClick={
+                    () => {
+                        setCurrentGameIndex((currentGameIndex + 1) % gameData.length)
+                    }
+                }>
                     <iframe id='game-iframe' title='game' src={`https://www.khanacademy.org/computer-programming${gameData[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`}
                     width={gameData[currentGameIndex].width}
                     height={gameData[currentGameIndex].height}                    

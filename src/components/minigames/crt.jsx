@@ -7,11 +7,11 @@ export default function CRT(props) {
         const iframe = document.querySelector('#game-iframe')
         const cont = document.querySelector('#crt-content')
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
-        const padding = 2*(0.2*cont.offsetWidth)
+        const padding = 2*(0.12*cont.offsetWidth) + 80
         // console.log(padding)
         // scale the iframe down so that the longest dimension fits in the container
         // calculate a ratio to use with css scaling
-        const ratio = Math.max(Math.min((cont.offsetWidth - padding) / iframe.offsetWidth, (cont.offsetHeight - padding) / iframe.offsetHeight), 290 / iframe.offsetWidth)
+        const ratio = Math.max(Math.min((cont.offsetWidth - padding) / iframe.offsetWidth, (cont.offsetHeight - padding) / iframe.offsetHeight), 210 / iframe.offsetWidth)
 
     
         // scale the iframe
@@ -26,9 +26,11 @@ export default function CRT(props) {
 
 
     return ( 
-        <div id='crt-container'>
+        <div id='crt-container' onClick={props.onClick}>
             <div id='crt-static' className='crt-internal'></div>
-            <div id="crt-content" className='crt-internal'>
+            <div id="crt-content" className='crt-internal' style={{
+                backgroundColor: props.bgColor,
+            }}>
                 {props.children}
             </div>
             <div className="crt-text crt-internal">Input 3</div>
