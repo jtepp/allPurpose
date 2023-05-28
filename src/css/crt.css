@@ -64,7 +64,7 @@
 }
 
 .crt-text {
-    --_pad: min(18vw, calc(680px * 0.18));
+    --_pad: calc(min(12vw, 680px * 0.12) + 40px);
     /* 680px is width breakpoint */
     padding: var(--_pad);
     width: calc(100% - var(--_pad) * 2);
@@ -76,7 +76,7 @@
     /* z-index: 1;
     background-color: red; */
     font-family: 'CRT', 'Courier New', Courier, monospace;
-    font-size: 60px;
+    font-size: clamp(50px, 13vw, 60px);
     text-align: right;
     pointer-events: none;
 
