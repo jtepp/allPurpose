@@ -69,10 +69,10 @@ function Home(props) {
     })
 
     useEffect(() => {
-        props.setActiveIndex((document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
+        props.setActiveIndex((document.querySelector("#home-main").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
 
-        document.querySelector("#home").onscroll =  () => {
-            if (document.querySelector("#home").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) {
+        document.querySelector("#home-main").onscroll =  () => {
+            if (document.querySelector("#home-main").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) {
                 props.setActiveIndex(1)
             } else {
                 props.setActiveIndex(0)
@@ -80,8 +80,8 @@ function Home(props) {
 
             const root = document.querySelector(":root")
 
-            const scrollTop = document.getElementById("home").scrollTop;
-            const scrollLeft = document.getElementById("home").scrollLeft;
+            const scrollTop = document.getElementById("home-main").scrollTop;
+            const scrollLeft = document.getElementById("home-main").scrollLeft;
 
             root.style.setProperty("--scroll-x", scrollLeft + "px")
             root.style.setProperty("--scroll-y", scrollTop + "px")
@@ -90,35 +90,31 @@ function Home(props) {
     }, [props])
 
 
-    return ( 
-        <Cutout id='home' backgroundColor="black" followScroll={true}
-            below={
-                <div id="projects-back">
-                </div>
-            }
-        >
+    return (
+        <div id="home-main">
             <Section id='home' onRender={() => {
                     props.setActiveIndex(0)
-            }}            
-            //activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
-            //</Cutout>hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex}
-                >
-            <div id='home-name'>
-                <h1>Jacob</h1>
-                <h1>Tepperman</h1>
-                <h2 id='home-name-title'>Software Engineer</h2>
-            </div>
+            }}                >
+                    <Cutout id='home' backgroundColor="black">
+                    <div id='home-name'>
+                        <h1>Jacob</h1>
+                        <h1>Tepperman</h1>
+                        <h2 id='home-name-title'>Software Engineer</h2>
+                    </div>
 
-            <div id="home-bottom">
-                    <ScrollButton target="#projects-section"/>
-                <h2>
-                    Scroll down to view my projects
-                </h2>
-            </div>
+                    <div id="home-bottom">
+                            <ScrollButton target="#projects-section"/>
+                        <h2>
+                            Scroll down to view my projects
+                        </h2>
+                    </div>
+                </Cutout>
             </Section>
 
             <Section id='projects'>
+            <Cutout id='projects-title-cutout' backgroundColor="black" offsetTop={-40}>
                 <h1 id='projects-title'>Projects</h1>
+            </Cutout>
 
                 <div id='projects-content' className={(currentProjectIndex > 0 ? 'more-left ' : '') + (currentProjectIndex < data.length - 1 ? 'more-right' : '')}>
                     <div className="projects-content-button" id='left-button'
@@ -132,9 +128,11 @@ function Home(props) {
                     ></div>
                     <div id="project-info">
                         <div id="project-title-container">
-                            <h1 id="project-title">
-                                {data[currentProjectIndex].title}
-                            </h1>
+                            <Cutout id='project-title-cutout' backgroundColor="black" offsetTop={-443} offsetLeft={-170}>
+                                <h1 id="project-title">
+                                    {data[currentProjectIndex].title}
+                                </h1>
+                            </Cutout>
                             <h3 id="project-subtitle">
                                 {data[currentProjectIndex].job ? data[currentProjectIndex].job.project : ""}
                             </h3>
@@ -149,8 +147,7 @@ function Home(props) {
                     </div>
                 </div>
             </Section>
-        </Cutout>
-
+        </div>
      );
 }
 

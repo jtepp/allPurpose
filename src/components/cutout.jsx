@@ -32,7 +32,11 @@ function Cutout(props) {
             position: 'relative'
             }}>
             <div className={"color-strip"}></div>
-            <div className={props.followScroll ? "color-accent follow-scroll" : "color-accent"}></div>
+            <div className={(props.followScroll ? "color-accent follow-scroll " : "color-accent ")
+        } style={{
+            top: props.offsetTop ? `calc(var(--accent-y) + ${props.offsetTop}px)` : '',
+            left: props.offsetLeft ? `calc(var(--accent-x) + ${props.offsetLeft}px)` : '',
+        }}></div>
             {props.upperLevel}
             <div className="cutout" id={props.id} style={
                 {
