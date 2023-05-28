@@ -106,3 +106,7 @@
     border-left: solid 2px #1a1c1e;
     border-top-left-radius: 50px;
 }
+
+.current-game {
+    display: none;
+}
