@@ -89,7 +89,7 @@
 
 #crt-content {
     /* z-index: 1; */
-    --_pad: min(10vw, calc(680px * 0.10));
+    --_pad: max(355px * 0.10, min(10vw, calc(680px * 0.10)));
     /* 680px is width breakpoint */
     padding: var(--_pad);
     width: calc(100% - var(--_pad) * 2);
