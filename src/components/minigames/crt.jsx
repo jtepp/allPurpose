@@ -3,8 +3,7 @@ import '../../css/crt.css'
 import CRTborder from '../../res/minigames/crt-border.png'
 
 export default function CRT(props) {
-
-    useEffect(() => {
+    const resizeIframe = () => {
         const iframe = document.querySelector('#game-iframe')
         const cont = document.querySelector('#crt-content')
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
@@ -12,13 +11,19 @@ export default function CRT(props) {
         // console.log(padding)
         // scale the iframe down so that the longest dimension fits in the container
         // calculate a ratio to use with css scaling
-        const ratio = Math.min((cont.offsetWidth - padding) / iframe.offsetWidth, (cont.offsetHeight - padding) / iframe.offsetHeight)
+        const ratio = Math.max(Math.min((cont.offsetWidth - padding) / iframe.offsetWidth, (cont.offsetHeight - padding) / iframe.offsetHeight), 355 / iframe.offsetWidth)
 
     
         // scale the iframe
         iframe.style.scale = `${ratio}`
         console.log(ratio)
+    }
+
+    useEffect(()=> {
+        document.querySelector('#game-iframe').onload = resizeIframe
+        resizeIframe()
     }, [props.resizeState])
+
 
     return ( 
         <div id='crt-container'>

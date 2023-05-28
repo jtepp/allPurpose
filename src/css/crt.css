@@ -5,7 +5,7 @@
     padding: var(--CRT-padding);
     width: calc(100% - var(--CRT-padding) * 2);
     max-width: 600px;
-    /* min-width: 420px; */
+    min-width: 355px;
 }
 
 #crt-border {
@@ -64,7 +64,7 @@
 }
 
 .crt-text {
-    --_pad: calc(min(12vw, 680px * 0.12) + 40px);
+    --_pad: calc(clamp(355px * 0.12, 12vw, 680px * 0.12) + 40px);
     /* 680px is width breakpoint */
     padding: var(--_pad);
     width: calc(100% - var(--_pad) * 2);
@@ -76,7 +76,7 @@
     /* z-index: 1;
     background-color: red; */
     font-family: 'CRT', 'Courier New', Courier, monospace;
-    font-size: clamp(50px, 13vw, 60px);
+    font-size: calc(var(--_pad) - 40px);
     text-align: right;
     pointer-events: none;
 
@@ -93,7 +93,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    background-color: #000;
+
 }
 
 @keyframes row-flicker {
