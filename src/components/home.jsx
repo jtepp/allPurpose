@@ -143,7 +143,9 @@ function Home(props) {
                         </h3>
                     </div>
                     <div id="projects-container">
+                        <div className="projects-container-spacing"></div>
                         {projects}
+                        <div className="projects-container-spacing"></div>
                     </div>
                 </div>
             </Section>

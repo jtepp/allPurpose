@@ -73,11 +73,23 @@
 
 
 .project-container:first-of-type {
-    margin-left: 50%;
+    /* margin-left: 50%; */
 }
 
 .project-container:last-of-type {
-    margin-right: 50%;
+    /* margin-right: 50%; */
+}
+
+.projects-container-spacing {
+    width: var(--project-width);
+}
+
+.projects-container-spacing:first-of-type {
+    padding-left: 50%;
+}
+
+.projects-container-spacing:last-of-type {
+    padding-right: 50%;
 }
 
 .project-container {
