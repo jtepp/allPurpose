@@ -22,7 +22,7 @@ function Home(props) {
         const projectsContainer = document.getElementById("projects-container")
         const scrollLeft = projectsContainer.scrollLeft
 
-        return Math.min(Math.round(scrollLeft / projectScrollWidth()), data.length - 1)
+        return Math.max(0, Math.min(Math.round(scrollLeft / projectScrollWidth()), data.length - 1))
 
     }
 
