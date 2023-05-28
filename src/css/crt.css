@@ -5,6 +5,7 @@
     padding: var(--CRT-padding);
     width: calc(100% - var(--CRT-padding) * 2);
     max-width: 600px;
+    /* min-width: 420px; */
 }
 
 #crt-border {
@@ -82,6 +83,7 @@
 }
 
 #crt-content {
+    /* z-index: 1; */
     --_pad: min(10vw, calc(680px * 0.10));
     /* 680px is width breakpoint */
     padding: var(--_pad);
@@ -91,6 +93,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    background-color: #000;
 }
 
 @keyframes row-flicker {

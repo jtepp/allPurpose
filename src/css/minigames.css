@@ -12,3 +12,9 @@
     align-items: center;
     height: 100%;
 }
+
+#game-iframe {
+    position: relative;
+    translate: 0 -50%;
+    top: calc(40%);
+}
