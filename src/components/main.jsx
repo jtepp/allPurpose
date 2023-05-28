@@ -22,7 +22,7 @@ function Main() {
     let [hoverIndex, setHoverIndex] = useState(-1)
     useEffect(() => {
         setActiveIndex(initialIndex())
-        setResizeState(!resizeState)
+        setResizeState(r => !r)
     }, [])
 
     window.onresize = () => {
