@@ -76,7 +76,7 @@ function Minigames(props) {
                         <CRT currentGameIndex={currentGameIndex} resizeState={props.resizeState}
                         bgColor={currentGameIndex === -1 ? "transparent" : gameData[currentGameIndex].bgColor} text={currentGameIndex === -1 ? "Input 3" : gameData[currentGameIndex].title}
                         onClick={()=>{
-                            changeGame((currentGameIndex + 1) % gameData.length)
+                            // changeGame((currentGameIndex + 1) % gameData.length)
                         }}>
                             <iframe id='game-iframe' title='game'
                             src={currentGameIndex === -1 ? "" : `https://www.khanacademy.org/computer-programming${gameData[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`}
