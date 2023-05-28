@@ -68,7 +68,7 @@
     width: calc(100% - 2 * 40px);
     padding-inline: 40px;
     height: 100px;
-    padding-bottom: 100px;
+    padding: 100px 0 100px 0;
 }
 
 @media (max-width: 799px) {
