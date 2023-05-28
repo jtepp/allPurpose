@@ -6,7 +6,7 @@
         "url": "/ball-fight-culminating-game/6286638934687744/",
         "img": "games/thumbs/ballfight.png",
         "description": "Engage in an intense 2-player battle as bouncing balls! Control your ball using the arrow keys and WASD, strategically attack your opponent to win. Hold shift to select a ball and choose a weapon for player 1.",
-        "controls": "Player 1: Arrow keys to move, Shift to select ball and weapon. Player 2: WASD to move",
+        "controls": "Player 1: Arrow keys to move, Shift to select ball and weapon.<br><br>Player 2: WASD to move",
         "bgColor": "#000000e0"
     },
     {
@@ -16,7 +16,7 @@
         "url": "/cannon/5646330610352128/",
         "img": "games/thumbs/cannon.png",
         "description": "Test your aiming skills in this cannon-firing game! Fire cannonballs by clicking the mouse and aim to hit all the moving ships. Time your shots perfectly for maximum destruction.",
-        "controls": "Move mouse: Aim, Click: fire cannonballs",
+        "controls": "Move mouse: Aim<br><br>Click: fire cannonballs",
         "bgColor": "#000000e0"
     },
     {
@@ -26,7 +26,7 @@
         "url": "/helixroll/5995158211952640/",
         "img": "games/thumbs/helixroll.png",
         "description": "Embark on a thrilling rolling adventure through a helix tower! Use the left and right arrow keys to navigate your ball through the green holes. Be swift to increase your multiplier but beware of the treacherous red tiles that will steal your hard-earned points.",
-        "controls": "Left arrow key: Move left, Right arrow key: Move right",
+        "controls": "Left arrow key: Move left<br><br>Right arrow key: Move right",
         "bgColor": "#ffffff"
     },
     {
@@ -47,7 +47,7 @@
         "url": "/lunar-lander/4897487385034752/",
         "img": "games/thumbs/lunarlander.png",
         "description": "Take control of a lunar lander and test your piloting skills! Press the up arrow key to boost your ship and use the left and right arrow keys to control its movements. Avoid colliding with rocks and attempt a safe landing on the designated pad. Press the down arrow key to reset if needed.",
-        "controls": "Up arrow key: Boost, Left arrow key: Move left, Right arrow key: Move right, Down arrow key: Reset",
+        "controls": "Up arrow key: Boost<br><br>Left arrow key: Move left<br><br>Right arrow key: Move right<br><br>Down arrow key: Reset",
         "bgColor": "#000000"
     },
     {
@@ -58,7 +58,7 @@
         "url": "/array-invaders/5066944437321728/",
         "img": "games/thumbs/spaceinvaders.png",
         "description": "Defend your territory against an onslaught of alien invaders! Move your spaceship with the left and right arrow keys and shoot using the space bar. Eliminate all the aliens before they reach the bottom and breach your defenses.",
-        "controls": "Left arrow key: Move left, Right arrow key: Move right, Space bar: Shoot",
+        "controls": "Left arrow key: Move left<br><br>Right arrow key: Move right<br><br>Space bar: Shoot",
         "bgColor": "#000000"
     },
     {
@@ -68,7 +68,7 @@
         "url": "/pong/6458910196137984/",
         "img": "games/thumbs/pong.png",
         "description": "Experience the classic game of Pong in this old-fashioned 2-player battle! Use the arrow keys to move the paddle on the left side, and the WASD keys to move the paddle on the right side. Deflect the ball and outmaneuver your opponent to score points and claim victory!",
-        "controls": "Player 1: Arrow keys to move paddle, Player 2: WASD keys to move paddle",
+        "controls": "Player 1: Arrow keys to move paddle<br><br>Player 2: WASD keys to move paddle",
         "bgColor": "#000000"
     },
     {
@@ -78,7 +78,7 @@
         "url": "/archery/4961238647865344/",
         "img": "games/thumbs/archery.png",
         "description": "Become a skilled archer in this precision-based game! Hold any key to look through the scope, and align the markers with the wind and distance. Aim for the bullseye and press the alt key to reset your shot if needed. Test your accuracy and hit the target!",
-        "controls": "Hold any key: Look through scope, Alt key: Reset shot, Click: Shoot",
+        "controls": "Hold any key: Look through scope<br><br>Alt key: Reset shot<br><br>Click: Shoot",
         "bgColor": "#ffffff"
     },
     {
@@ -88,7 +88,7 @@
         "url": "/stick-bridge/4811864224595968/",
         "img": "games/thumbs/stickbridge.png",
         "description": "Help Mr. Stick overcome challenging obstacles by building a sturdy bridge! Hold any key to start building the bridge and release it once it reaches the desired length. Construct a bridge that fits perfectly within the designated zone for bonus points. Test your engineering skills and guide Mr. Stick to safety!",
-        "controls": "Hold any key: Start building bridge, Release key: Stop building bridge",
+        "controls": "Hold any key: Start building bridge<br><br>Release key: Stop building bridge",
         "bgColor": "#141414"
     },
     {
@@ -98,7 +98,7 @@
         "url": "/ball-hop/4733852049244160/",
         "img": "games/thumbs/ballhop.png",
         "description": "Take the challenge of an endless bouncing adventure! Keep the ball alive by bouncing on the green tiles. Achieve a streak of 10 bounces in a row to earn a bonus life, but be careful not to land on the red tiles as they will cost you a life. How far can you hop?",
-        "controls": "Mouse click: Start game, Arrow keys: Move ball",
+        "controls": "Mouse click: Start game<br><br>Arrow keys: Move ball",
         "bgColor": "#D2E6F7"
     },
     {
@@ -129,7 +129,7 @@
         "url": "/paintprogram-v-20/5116852584349696/",
         "img": "games/thumbs/paint.png",
         "description": "Unleash your creativity with this digital painting program! Press any key and move the mouse to draw on the canvas. If you wish to overwrite a saved color, press the Alt key and click on the desired area. The Alt key also serves to end a shape when using the dot connect tool. Create amazing artworks and let your imagination run wild!",
-        "controls": "Hold any key: Draw, Click: Use tools, Alt key + Click: Overwrite color preset, Alt key: End shape",
+        "controls": "Hold any key: Draw<br><br>Click: Use tools<br><br>Alt key + Click: Overwrite color preset<br><br>Alt key: End shape",
         "bgColor": "#ffffffe0"
     }
 ]
