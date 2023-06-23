@@ -17,7 +17,7 @@ function Minigames(props) {
         const cont = document.querySelector('#crt-content')
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
         const i = currentGameIndex === -1 ? 0 : currentGameIndex
-        const padFactor = (gameData[i].height === 600 ? 0.18 : gameData[i].width === 600 ? 0.12 : 0.15)
+        const padFactor = (gameData[i].height === 600 ? 0.18 : (gameData[i].width === 600 ? 0.12 : 0.15))
         const padding = 2*(padFactor*cont.offsetWidth) + 80
         // console.log(padding)
         // scale the iframe down so that the longest dimension fits in the container
@@ -34,7 +34,8 @@ function Minigames(props) {
 
     // useEffect(()=> {
     //     changeGame(0)
-    // }
+    // }, [])
+
     useEffect(()=> {
         document.querySelector('#game-iframe').onload = resizeIframe
         resizeIframe()
@@ -55,7 +56,7 @@ function Minigames(props) {
     }
 
     const cartridges = gameData.map((game, index) => {
-        return <Cartridge index={index} onClick={()=>{
+        return <Cartridge key={game.title} index={index} onClick={()=>{
             changeGame(index)
         }} img={gameThumbs[game.img]} title={game.short || game.title} />
     })

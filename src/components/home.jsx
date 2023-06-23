@@ -65,7 +65,7 @@ function Home(props) {
 
 
     const projects = data.map((project, index) => {
-        return <Project key={index} index={index} currentProjectIndex={currentProjectIndex} project={project}/>
+        return <Project key={project.title} index={index} currentProjectIndex={currentProjectIndex} project={project}/>
     })
 
     useEffect(() => {
@@ -95,7 +95,7 @@ function Home(props) {
             <Section id='home' onRender={() => {
                     props.setActiveIndex(0)
             }}                >
-                    <Cutout id='home' backgroundColor="black">
+                <Cutout id='home' backgroundColor="black">
                     <div id='home-name'>
                         <h1>Jacob</h1>
                         <h1>Tepperman</h1>

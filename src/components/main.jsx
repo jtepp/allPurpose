@@ -4,6 +4,7 @@ import Base from './base';
 import Home from './home';
 import { pages } from '..';
 import Minigames from './minigames/minigames';
+import Contact from './contact';
 
 function Main() {
     const [resizeState, setResizeState] = useState(false)
@@ -38,6 +39,7 @@ function Main() {
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState}/>} />
                 <Route path="/minigames" element={<Minigames resizeState={resizeState}/>}/>
+                <Route path='/contact' element={<Contact resizeState={resizeState}/>} />
                 </Routes>
             </Base>
          </BrowserRouter>
