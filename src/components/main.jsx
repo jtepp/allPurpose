@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Base from './base';
 import Home from './home';
-import { pages } from '..';
+import { pages } from './header';
 import Minigames from './minigames/minigames';
 import Contact from './contact';
 

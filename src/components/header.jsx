@@ -1,8 +1,16 @@
 import React, { useCallback, useEffect } from 'react'
-import { pages } from '..';
 import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
+
+
+export const pages = [
+    {name: "Home", path: "/", scroll: '#home-section', width: 60},
+    {name: "Projects", path: "/#projects-section", scroll: '#projects-section', width: 60},
+    {name: "Minigames", path: "/minigames", width: 80},
+    {name: "Functions", path: "/functions", width: 72},
+    {name: "Contact", path: "/contact", width: 58}
+  ]
 
 function Header(props) {    
     
