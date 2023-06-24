@@ -128,7 +128,7 @@ function Home(props) {
                     ></div>
                     <div id="project-info">
                         <div id="project-title-container">
-                            <Cutout id='project-title-cutout' backgroundColor="black" offsetTop={-443} offsetLeft={-170}>
+                            <Cutout id='project-title-cutout' backgroundColor="black" offsetTop={window.innerWidth > 655 ? -160 : -440} offsetLeft={window.innerWidth > 655 ? -40 : -105}>
                                 <h1 id="project-title">
                                     {data[currentProjectIndex].title}
                                 </h1>
