@@ -63,16 +63,25 @@ function Main() {
         }
     }, [resizeState, headerSizeState])
 
+    const loadBigPages = useCallback(() => {
+        setActiveIndex(bigPageIndices[pages[activeIndex].name])
+        if (pages.length !== pagesMaster.length - 1)
+            setPages(pagesMaster.slice(0, pagesMaster.length - 1))
+    }, [activeIndex, pages])
+
+    const loadSmallPages = useCallback(() => {
+        setActiveIndex(smallPageIndices[pages[activeIndex].name])
+        if (pages.length !== 4)
+            setPages([...pagesMaster.slice(0, 2), ...pagesMaster.slice(4, pagesMaster.length)])
+    }, [activeIndex, pages])
+
     useEffect(() => {
         if (headerSizeState === 'big') {
-            setActiveIndex(bigPageIndices[pages[activeIndex].name])
-            setPages(pagesMaster.slice(0, pagesMaster.length - 1))
+            loadBigPages()
         } else if (headerSizeState === 'small') {
-            setActiveIndex(smallPageIndices[pages[activeIndex].name])
-
-            setPages([...pagesMaster.slice(0, 2), ...pagesMaster.slice(4, pagesMaster.length)])
+            loadSmallPages()
         }
-    }, [headerSizeState, activeIndex, pages])
+    }, [headerSizeState, loadBigPages, loadSmallPages])
 
     const initialIndex = useCallback(() => {
         const path = window.location.pathname

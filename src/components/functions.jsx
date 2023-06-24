@@ -14,11 +14,15 @@ function Functions(props) {
 
                 <div className="functions-description">
                         <h3>
-                            What is a function?
+                            What is a (cloud) function?
                         </h3>
                         <p>
-                            A function is a block of code that is executed when a certain event occurs.
-                            Functions are often used to handle events that occur on the backend, such as a user clicking a button.
+                            A function is a block of code that runs a group of calculations, can have variable parameters, and can return a result.
+                            Functions are a concept used in every coding language, but these functions are more specifically cloud functions.
+                            Cloud functions are functions that run on a server, rather than on your device. This means that any device connected to the internet can trigger this function 
+                            and recieve the same calculated result, regardless of the device. This can be useful for applications that require a lot of processing power, or for applications that
+                            need a unified set of data. I personally like to use them when I need to run some computations that can be written much more simply in the language of the server
+                            (e.g. JavaScript) than the language of the application on the device (e.g. Swift).
                         </p>
                     </div>
                 </div>
