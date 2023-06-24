@@ -1,8 +1,11 @@
 import '../css/cutout.css'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
   
 
 function Cutout(props) {
+
+    const containerRef = useRef(null)
+    const mainRef = useRef(null)
 
     const moveAccent = (e) => {
         const root = document.querySelector(":root")
@@ -14,31 +17,31 @@ function Cutout(props) {
     const moveScroll = useCallback((e) => {
         const root = document.querySelector(":root")
 
-        const scrollTop = document.getElementById(props.id).scrollTop;
-        const scrollLeft = document.getElementById(props.id).scrollLeft;
+        const scrollTop = mainRef.current?.scrollTop;
+        const scrollLeft = mainRef.current?.scrollLeft;
 
         root.style.setProperty("--scroll-x", scrollLeft + "px")
         root.style.setProperty("--scroll-y", scrollTop + "px")
-    }, [props.id])
+    }, [])
     
     useEffect(() => {
         document.body.onmousemove = moveAccent
-        document.getElementById(props.id).onscroll = moveScroll
+        mainRef.current.onscroll = moveScroll
     }, [props.id, moveScroll])
 
     return ( 
-        <div id={props.id + "-container"} style={{
+        <div id={props.id + "-container"} ref={containerRef} style={{
             zIndex: 10,
             position: 'relative'
             }}>
             <div className={"color-strip"}></div>
             <div className={(props.followScroll ? "color-accent follow-scroll " : "color-accent ")
         } style={{
-            top: props.offsetTop ? `calc(var(--accent-y) + ${props.offsetTop}px)` : '',
-            left: props.offsetLeft ? `calc(var(--accent-x) + ${props.offsetLeft}px)` : '',
+            top: `calc(var(--accent-y) + ${-containerRef.current?.getBoundingClientRect().y}px)`,
+            left: `calc(var(--accent-x) + ${containerRef.current?.getBoundingClientRect().x - containerRef.current?.offsetLeft * 2}px)`,
         }}></div>
             {props.upperLevel}
-            <div className="cutout" id={props.id} style={
+            <div className="cutout" ref={mainRef} id={props.id} style={
                 {
                     backgroundColor: props.backgroundColor,
                     zIndex: 10,
