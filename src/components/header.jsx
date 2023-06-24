@@ -10,7 +10,8 @@ function Header(props) {
     const headerLine = useRef(null)
     const headerLineBack = useRef(null)
 
-    const calculateGapSize = () => {
+
+    const calculateHeaderLineOffset = useCallback(() => {
         const full = window.innerWidth
         const taken = props.pages.reduce((result, page) => {
             return result + page.width
@@ -18,18 +19,15 @@ function Header(props) {
         const nGaps = props.pages.length;
 
 
-        return (full - taken) / nGaps
-        
-    }
+        const gap =  (full - taken) / nGaps
 
-    const calculateHeaderLineOffset = useCallback(() => {
+
         let index = 0;
         if (props.hoverIndex > -1) {
             index = props.hoverIndex
         } else {
             index = props.activeIndex
         }
-        const gap = calculateGapSize()
         let offset = gap/2
         offset += index * gap
         for (let i = 0; i < index; i++) {
@@ -37,7 +35,7 @@ function Header(props) {
         }
 
         return offset
-    }, [props.activeIndex, props.hoverIndex, props.resizeState])    
+    }, [props.activeIndex, props.hoverIndex, props.pages])    
 
     const setHeaderLine = useCallback(() => {
         let index = 0;
@@ -53,7 +51,7 @@ function Header(props) {
         headerLine.current.style.width = props.pages[index].width + "px"
         
         
-    }, [props.activeIndex, props.hoverIndex, props.pages, calculateHeaderLineOffset, props.resizeState])
+    }, [props.activeIndex, props.hoverIndex, props.pages, calculateHeaderLineOffset])
     
 
     useEffect(() => {

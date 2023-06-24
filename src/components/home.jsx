@@ -42,10 +42,7 @@ function Home(props) {
 
 
     useEffect(() => {
-
-        // console.log(thumbnails)
         if (window.location.hash === "#projects-section") {
-            props.setResizeState(r => !r)
             if (document.querySelector("#projects-section"))
                 document.querySelector("#projects-section").scrollIntoView({
                     behavior: "smooth"

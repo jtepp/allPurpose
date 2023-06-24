@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Base from './base';
 import Home from './home';
@@ -61,7 +61,7 @@ function Main() {
         } else if (window.innerWidth <= 655 && headerSizeState === 'big') {
             setHeaderSizeState('small')
         }
-    }, [resizeState])
+    }, [resizeState, headerSizeState])
 
     useEffect(() => {
         if (headerSizeState === 'big') {
@@ -72,9 +72,9 @@ function Main() {
 
             setPages([...pagesMaster.slice(0, 2), ...pagesMaster.slice(4, pagesMaster.length)])
         }
-    }, [headerSizeState])
+    }, [headerSizeState, activeIndex, pages])
 
-    const initialIndex = () => {
+    const initialIndex = useCallback(() => {
         const path = window.location.pathname
         for (let i = 0; i < pages.length; i++) {
             if (pages[i].path === path) {
@@ -83,12 +83,12 @@ function Main() {
         }
         return 0
 
-    }
+    }, [pages])
 
     useEffect(() => {
         setActiveIndex(initialIndex())
         setResizeState(r => !r)
-    }, [])
+    }, [initialIndex])
 
     window.onresize = () => {
         setResizeState(r => !r)
