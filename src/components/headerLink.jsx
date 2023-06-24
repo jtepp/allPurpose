@@ -10,10 +10,9 @@ function HeaderLink(props) {
 
             props.onClick()
           }
-        } onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} style={() => {
-            return {
+        } onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} style={{
               width: props.width
-            }
+            
           }} className="header-link">
             {props.name}    
         </NavLink>

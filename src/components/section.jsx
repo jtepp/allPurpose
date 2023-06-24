@@ -5,7 +5,7 @@ import '../css/home.css'
 function Section(props) {
 
     return ( 
-        <section id={props.id+'-section'} className='react-section'>
+        <section id={props.id+'-section'} onScroll={props.onScroll} className='react-section'>
             {props.children}
         </section>
      );

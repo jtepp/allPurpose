@@ -16,7 +16,7 @@
     font-size: 80px;
 }
 
-#home-main {
+.page-main {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
@@ -79,7 +79,7 @@
 }
 
 #projects-title-cutout-container, #project-title-cutout-container {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 

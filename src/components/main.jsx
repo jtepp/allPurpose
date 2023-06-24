@@ -34,7 +34,7 @@ function Main() {
     return ( 
         <BrowserRouter>
             <Base activeIndex={activeIndex} setActiveIndex={setActiveIndex} 
-                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState}>
+                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}>
                 <Routes>
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}/>} />

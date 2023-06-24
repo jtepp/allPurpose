@@ -61,44 +61,42 @@ function Minigames(props) {
     })
 
     return ( 
-        <Section id="minigames">
-            <div id="minigames-content">
-                <div id="game-container">
-                    <div id="game-info">
-                        <Cutout id="minigame-cutout" >
-                            <h1 id="game-title">{currentGameIndex === -1 ? "Minigames" : gameData[currentGameIndex].title}</h1>
-                        </Cutout>
-                            <h3 id="game-description">{currentGameIndex === -1 ? "Click on a game cartdrige below to play!" : gameData[currentGameIndex].description}</h3>
-                            <br />
-                            <h2 id='game-controls-heading'>{currentGameIndex === -1 ? "" : "Controls"}</h2>
-                            <h3 id="game-controls">{ReactHTMLParser(currentGameIndex === -1 ? "" : gameData[currentGameIndex].controls)}</h3>
-                        </div>
-                        <CRT currentGameIndex={currentGameIndex} resizeState={props.resizeState}
-                        bgColor={currentGameIndex === -1 ? "transparent" : gameData[currentGameIndex].bgColor} text={currentGameIndex === -1 ? "Input 3" : gameData[currentGameIndex].title}
-                        onClick={()=>{
-                            // changeGame((currentGameIndex + 1) % gameData.length)
-                        }}>
-                            <iframe id='game-iframe' title='game'
-                            src={currentGameIndex === -1 ? "" : `https://www.khanacademy.org/computer-programming${gameData[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`}
-                            width={currentGameIndex === -1 ? 0 : gameData[currentGameIndex].width}
-                            height={currentGameIndex === -1 ? 0 : gameData[currentGameIndex].height}                    
-                            frameborder="0" scrolling="no" border="0"
-                            style={{
-                                minWidth: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].width,
-                                minHeight: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].height,
-                            }}
-                            />
-                        </CRT>
+        <div className="page-main" id='minigames-main' onScroll={console.log}>
+            <Section id="minigames" onScroll={console.log}>
+                <div id="minigames-content">
+                    <div id="game-container">
+                        <div id="game-info">
+                            <Cutout id="minigame-cutout" >
+                                <h1 id="game-title">{currentGameIndex === -1 ? "Minigames" : gameData[currentGameIndex].title}</h1>
+                            </Cutout>
+                                <h3 id="game-description">{currentGameIndex === -1 ? "Click on a game cartdrige below to play!" : gameData[currentGameIndex].description}</h3>
+                                <br />
+                                <h2 id='game-controls-heading'>{currentGameIndex === -1 ? "" : "Controls"}</h2>
+                                <h3 id="game-controls">{ReactHTMLParser(currentGameIndex === -1 ? "" : gameData[currentGameIndex].controls)}</h3>
+                            </div>
+                            <CRT currentGameIndex={currentGameIndex} resizeState={props.resizeState}
+                            bgColor={currentGameIndex === -1 ? "transparent" : gameData[currentGameIndex].bgColor} text={currentGameIndex === -1 ? "Input 3" : gameData[currentGameIndex].title}
+                            onClick={()=>{
+                                // changeGame((currentGameIndex + 1) % gameData.length)
+                            }}>
+                                <iframe id='game-iframe' title='game'
+                                src={currentGameIndex === -1 ? "" : `https://www.khanacademy.org/computer-programming${gameData[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`}
+                                width={currentGameIndex === -1 ? 0 : gameData[currentGameIndex].width}
+                                height={currentGameIndex === -1 ? 0 : gameData[currentGameIndex].height}                    
+                                frameborder="0" scrolling="no" border="0"
+                                style={{
+                                    minWidth: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].width,
+                                    minHeight: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].height,
+                                }}
+                                />
+                            </CRT>
+                    </div>
+                    <div id="game-select-container">
+                        {cartridges}
+                    </div>
                 </div>
-                <div id="stupid" style={{
-                    height: 1000
-                }}
-                >test</div>
-                {/* <div id="game-select-container">
-                    {cartridges}
-                </div> */}
-            </div>
-        </Section>
+            </Section>
+        </div>
      );
 }
 

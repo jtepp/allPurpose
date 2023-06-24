@@ -8,6 +8,43 @@
     text-align: center;
 }
 
+.header-menu {
+    transition: color var(--transition);
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.header-menu-container {
+    position: relative;
+}
+
+.header-menu-dropdown {
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: red;
+}
+
+.header-menu-container:hover .header-menu-dropdown {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.header-menu-arrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
 #header {
@@ -29,11 +66,9 @@
     position: fixed !important;
     width: 100%;
     top: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 12 !important;
 }
-
-
 
 #header-line-back {
     width: 10px;

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
+import HeaderMenu from './headerMenu';
 
 
 export const pages = [
@@ -9,8 +10,19 @@ export const pages = [
     {name: "Projects", path: "/#projects-section", scroll: '#projects-section', width: 60},
     {name: "Minigames", path: "/minigames", width: 80},
     {name: "Functions", path: "/functions", width: 72},
-    {name: "Contact", path: "/contact", width: 58}
+    {name: "Contact", path: "/contact", width: 74, menu: true}
   ]
+
+  const subPages = {
+        "Contact": [
+            {name: "Contact Form", path: "/contact", width: 74},
+            {name: "Email", path: "mailto:jtepp+site@icloud.com", width: 74},
+            {name: "Resume", path: "/resume", width: 74}
+        ]
+    }
+
+
+
 
 function Header(props) {    
     const headerLine = useRef(null)
@@ -65,22 +77,43 @@ function Header(props) {
     useEffect(() => {
         setHeaderLine()
     }, [setHeaderLine, props.resizeState])
-    
+
 
 
     const headerItems = pages.map((page, index) => {
-        const id = page.name.toLowerCase()+"-header-link"
-        return (
-            <HeaderLink name={page.name} scroll={page.scroll} onClick={() => {
-                props.setActiveIndex(index)
-                props.setHoverIndex(-1)
-            }} onMouseEnter={() => {
-                props.setHoverIndex(index)
-            }} onMouseLeave={() => {
-                props.setHoverIndex(-1)
-            }} path={page.path} width={page.width} id={id} key={id}/>
-        )
-    })
+        const id = page.name.toLowerCase()+"-header-item"
+
+        if (page.menu) {
+            return (
+                <HeaderMenu name={page.name} path={page.path} width={page.width} id={id} onMouseEnter={() => {
+                    props.setHoverIndex(index)
+                }} onMouseLeave={() => {
+                    props.setHoverIndex(-1)
+                }} key={page.name}>
+                    {subPages[page.name].map((subPage, ) => 
+                        <HeaderLink name={subPage.name} path={subPage.path} width={subPage.width} id={id} key={subPage.name}
+                        onClick={() => {
+                            props.setActiveIndex(index)
+                            props.setHoverIndex(-1)
+                        }} onMouseEnter={() => {
+                        }} onMouseLeave={() => {
+                        }} />
+                    )}
+                </HeaderMenu>
+            )
+        } else {
+            return (
+                <HeaderLink name={page.name} scroll={page.scroll} onClick={() => {
+                    props.setActiveIndex(index)
+                    props.setHoverIndex(-1)
+                }} onMouseEnter={() => {
+                    props.setHoverIndex(index)
+                }} onMouseLeave={() => {
+                    props.setHoverIndex(-1)
+                }} path={page.path} width={page.width} id={id} key={page.name}/>
+            )
+        }
+})
 
 
 

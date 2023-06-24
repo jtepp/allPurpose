@@ -33,13 +33,16 @@ function Cutout(props) {
         <div id={props.id + "-container"} ref={containerRef} style={{
             zIndex: 10,
             position: 'relative'
-            }}>
+            }} className='cutout-container'>
             <div className={"color-strip"}></div>
-            <div className={(props.followScroll ? "color-accent follow-scroll " : "color-accent ")
-        } style={{
-            top: `calc(var(--accent-y) + ${-containerRef.current?.getBoundingClientRect().y }px)`,
-            left: `calc(var(--accent-x) + ${containerRef.current?.getBoundingClientRect().x - containerRef.current?.offsetLeft * 2}px)`,
-        }}></div>
+            <div className="cutout-color-accent-container">
+                <div className={(props.followScroll ? "color-accent follow-scroll " : "color-accent ")
+                } style={{
+                    top: `calc(var(--accent-y) + ${-containerRef.current?.getBoundingClientRect().y }px)`,
+                    left: `calc(var(--accent-x) + ${containerRef.current?.getBoundingClientRect().x - containerRef.current?.offsetLeft * 2}px)`,
+                }}></div>
+            </div>
+
             {props.upperLevel}
             <div className="cutout" ref={mainRef} id={props.id} style={
                 {

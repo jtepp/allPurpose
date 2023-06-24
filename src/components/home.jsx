@@ -92,7 +92,7 @@ function Home(props) {
 
 
     return (
-        <div id="home-main" ref={homeMain} onScroll={() => props.setResizeState(r => !r)}>
+        <div id="home-main" className='page-main' ref={homeMain} onMouseMove={() => props.setResizeState(r => !r)}>
             <Section id='home' onRender={() => {
                     props.setActiveIndex(0)
             }}                >
