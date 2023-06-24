@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { icons, thumbnails } from './home'
 import { scrollToIndex } from '../utils'
 
 function Project(props) {
+    const container = useRef(null)
+    const el = useRef(null)
 
     const handleMouseMove = (e) => {
         if (!e.target.className.includes('project-icon')) {
-            const container = document.getElementById('project-' + props.index + '-container')
-            const el = document.getElementById('project-' + props.index)
-
-            const mouseX = e.clientX - container.offsetLeft + container.parentNode.scrollLeft - container.parentNode.offsetLeft
-            const mouseY = e.clientY - container.offsetTop
-            const width = container.offsetWidth 
-            const height = container.offsetHeight 
+            const mouseX = e.clientX - container.current.offsetLeft + container.current.parentNode.scrollLeft - container.current.parentNode.offsetLeft
+            const mouseY = e.clientY - container.current.offsetTop
+            const width = container.current.offsetWidth 
+            const height = container.current.offsetHeight 
             const percentY = Math.round(mouseX / width * 100)
             const percentX = -1*(Math.round(mouseY / height * 100) - 50)
 
@@ -36,33 +35,32 @@ function Project(props) {
 
             // console.log(x, y)
 
-            el.style.setProperty('--rotate-x', x + 'deg')
-            el.style.setProperty('--rotate-y', y + 'deg')
+            el.current.style.setProperty('--rotate-x', x + 'deg')
+            el.current.style.setProperty('--rotate-y', y + 'deg')
         }
     }
 
     const handleMouseLeave = (e) => {
-        const el = document.getElementById('project-' + props.index)
-        el.style.setProperty('--rotate-x', '0deg')
-        el.style.setProperty('--rotate-y', '0deg')
+        el.current.style.setProperty('--rotate-x', '0deg')
+        el.current.style.setProperty('--rotate-y', '0deg')
     }
 
     useEffect(() => {
-        document.querySelector('#project-' + props.index + '-container').classList.toggle('current-project-container', props.currentProjectIndex === props.index)
+        container.current.classList.toggle('current-project-container', props.currentProjectIndex === props.index)
     }, [props.currentProjectIndex, props.index])
 
     
 
     const handleIconClick = (e) => {
-        const projectIndex = [...document.querySelectorAll(".project-container")].findIndex((el) => el.id === 'project-' + props.index + '-container')
+        const projectIndex = [...document.querySelectorAll(".project-container")].findIndex((e) => e.id === 'project-' + props.index + '-container')
         scrollToIndex(projectIndex)
     }
 
 
     return ( 
-        <section id={'project-' + props.index + '-container'} className={"project-container"}
+        <section id={'project-' + props.index + '-container'} ref={container} className={"project-container"}
         onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-            <div id={'project-' + props.index} className="project" style={{
+            <div id={'project-' + props.index} ref={el} className="project" style={{
                 backgroundImage: `url(${thumbnails[props.project.short]})`
             }}>
             </div>

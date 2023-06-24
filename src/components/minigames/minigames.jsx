@@ -27,7 +27,6 @@ function Minigames(props) {
     
         // scale the iframe
         iframe.style.scale = `${ratio}`
-        console.log(ratio)
 
         document.querySelector(':root').style.setProperty('--crt-width', `${cont.offsetWidth}px`)
     }, [currentGameIndex])
@@ -66,7 +65,7 @@ function Minigames(props) {
             <div id="minigames-content">
                 <div id="game-container">
                     <div id="game-info">
-                        <Cutout id="minigame-cutout">
+                        <Cutout id="minigame-cutout" >
                             <h1 id="game-title">{currentGameIndex === -1 ? "Minigames" : gameData[currentGameIndex].title}</h1>
                         </Cutout>
                             <h3 id="game-description">{currentGameIndex === -1 ? "Click on a game cartdrige below to play!" : gameData[currentGameIndex].description}</h3>
@@ -89,11 +88,15 @@ function Minigames(props) {
                                 minHeight: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].height,
                             }}
                             />
-                    </CRT>
+                        </CRT>
                 </div>
-                <div id="game-select-container">
+                <div id="stupid" style={{
+                    height: 1000
+                }}
+                >test</div>
+                {/* <div id="game-select-container">
                     {cartridges}
-                </div>
+                </div> */}
             </div>
         </Section>
      );

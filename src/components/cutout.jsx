@@ -17,8 +17,8 @@ function Cutout(props) {
     const moveScroll = useCallback((e) => {
         const root = document.querySelector(":root")
 
-        const scrollTop = mainRef.current?.scrollTop;
-        const scrollLeft = mainRef.current?.scrollLeft;
+        const scrollTop = mainRef.current.scrollTop;
+        const scrollLeft = mainRef.current.scrollLeft;
 
         root.style.setProperty("--scroll-x", scrollLeft + "px")
         root.style.setProperty("--scroll-y", scrollTop + "px")
@@ -37,7 +37,7 @@ function Cutout(props) {
             <div className={"color-strip"}></div>
             <div className={(props.followScroll ? "color-accent follow-scroll " : "color-accent ")
         } style={{
-            top: `calc(var(--accent-y) + ${-containerRef.current?.getBoundingClientRect().y}px)`,
+            top: `calc(var(--accent-y) + ${-containerRef.current?.getBoundingClientRect().y }px)`,
             left: `calc(var(--accent-x) + ${containerRef.current?.getBoundingClientRect().x - containerRef.current?.offsetLeft * 2}px)`,
         }}></div>
             {props.upperLevel}

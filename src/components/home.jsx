@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactHTMLParser from 'react-html-parser';
 import Section from './section';
 import Cutout from './cutout';
@@ -16,11 +16,11 @@ const data = require('../res/projects/projectsData.json')
 
 function Home(props) {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
-
+    const projectsContainer = useRef(null)
+    const homeMain = useRef(null)
 
     const getCurrentProjectIndex = () => {
-        const projectsContainer = document.getElementById("projects-container")
-        const scrollLeft = projectsContainer.scrollLeft
+        const scrollLeft = projectsContainer.current.scrollLeft
 
         return Math.max(0, Math.min(Math.round(scrollLeft / projectScrollWidth()), data.length - 1))
 
@@ -45,6 +45,7 @@ function Home(props) {
 
         // console.log(thumbnails)
         if (window.location.hash === "#projects-section") {
+            props.setResizeState(r => !r)
             if (document.querySelector("#projects-section"))
                 document.querySelector("#projects-section").scrollIntoView({
                     behavior: "smooth"
@@ -55,7 +56,7 @@ function Home(props) {
     }, [])
 
     useEffect(() => {
-        document.querySelector("#projects-container").onscroll = () => {
+        projectsContainer.current.onscroll = () => {
             const index = getCurrentProjectIndex()
             if (index !== currentProjectIndex) {
                 setCurrentProjectIndex(index)
@@ -69,10 +70,10 @@ function Home(props) {
     })
 
     useEffect(() => {
-        props.setActiveIndex((document.querySelector("#home-main").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
+        props.setActiveIndex((homeMain.current.scrollTop >= document.querySelector("#home-section").scrollHeight / 2) ? 1 : 0)
 
-        document.querySelector("#home-main").onscroll =  () => {
-            if (document.querySelector("#home-main").scrollTop >= document.querySelector("#home-section").scrollHeight / 2) {
+        homeMain.current.onscroll =  () => {
+            if (homeMain.current.scrollTop >= document.querySelector("#home-section").scrollHeight / 2) {
                 props.setActiveIndex(1)
             } else {
                 props.setActiveIndex(0)
@@ -80,8 +81,8 @@ function Home(props) {
 
             const root = document.querySelector(":root")
 
-            const scrollTop = document.getElementById("home-main").scrollTop;
-            const scrollLeft = document.getElementById("home-main").scrollLeft;
+            const scrollTop = homeMain.current.scrollTop;
+            const scrollLeft = homeMain.current.scrollLeft;
 
             root.style.setProperty("--scroll-x", scrollLeft + "px")
             root.style.setProperty("--scroll-y", scrollTop + "px")
@@ -91,7 +92,7 @@ function Home(props) {
 
 
     return (
-        <div id="home-main">
+        <div id="home-main" ref={homeMain} onScroll={() => props.setResizeState(r => !r)}>
             <Section id='home' onRender={() => {
                     props.setActiveIndex(0)
             }}                >
@@ -112,7 +113,7 @@ function Home(props) {
             </Section>
 
             <Section id='projects'>
-            <Cutout id='projects-title-cutout' backgroundColor="black" offsetTop={-40}>
+            <Cutout id='projects-title-cutout' backgroundColor="black">
                 <h1 id='projects-title'>Projects</h1>
             </Cutout>
 
@@ -128,7 +129,7 @@ function Home(props) {
                     ></div>
                     <div id="project-info">
                         <div id="project-title-container">
-                            <Cutout id='project-title-cutout' backgroundColor="black" offsetTop={window.innerWidth > 655 ? -160 : -440} offsetLeft={window.innerWidth > 655 ? -40 : -105}>
+                            <Cutout id='project-title-cutout' backgroundColor="black" >
                                 <h1 id="project-title">
                                     {data[currentProjectIndex].title}
                                 </h1>
@@ -142,7 +143,7 @@ function Home(props) {
                             {ReactHTMLParser(data[currentProjectIndex].description)}
                         </h3>
                     </div>
-                    <div id="projects-container">
+                    <div id="projects-container" ref={projectsContainer}>
                         <div className="projects-container-spacing"></div>
                         {projects}
                         <div className="projects-container-spacing"></div>

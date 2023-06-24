@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
@@ -13,7 +13,9 @@ export const pages = [
   ]
 
 function Header(props) {    
-    
+    const headerLine = useRef(null)
+    const headerLineBack = useRef(null)
+
     const calculateGapSize = () => {
         const full = window.innerWidth
         const taken = pages.reduce((result, page) => {
@@ -50,13 +52,11 @@ function Header(props) {
         } else {
             index = props.activeIndex
 
-            const headerLineBack = document.getElementById("header-line-back")
-            headerLineBack.style.left = calculateHeaderLineOffset() + "px"
-            headerLineBack.style.width = pages[index].width + "px"
+            headerLineBack.current.style.left = calculateHeaderLineOffset() + "px"
+            headerLineBack.current.style.width = pages[index].width + "px"
         }
-        const headerLine = document.getElementById("header-line")
-        headerLine.style.left = calculateHeaderLineOffset() + "px"
-        headerLine.style.width = pages[index].width + "px"
+        headerLine.current.style.left = calculateHeaderLineOffset() + "px"
+        headerLine.current.style.width = pages[index].width + "px"
         
         
     }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset])
@@ -89,10 +89,10 @@ function Header(props) {
 
     return (
         <Cutout id="header" upperLevel={
-            <div id="header-line-back"></div>
+            <div id="header-line-back" ref={headerLineBack}></div>
         } backgroundColor="black">
             {headerItems}
-            <div id="header-line">
+            <div id="header-line" ref={headerLine}>
             </div>
         </Cutout>
      );

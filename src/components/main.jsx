@@ -27,7 +27,7 @@ function Main() {
     }, [])
 
     window.onresize = () => {
-        setResizeState(!resizeState)
+        setResizeState(r => !r)
     }
 
 
@@ -37,7 +37,7 @@ function Main() {
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState}>
                 <Routes>
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
-                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState}/>} />
+                hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}/>} />
                 <Route path="/minigames" element={<Minigames resizeState={resizeState}/>}/>
                 <Route path='/contact' element={<Contact resizeState={resizeState}/>} />
                 </Routes>
