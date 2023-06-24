@@ -53,7 +53,7 @@ function Home(props) {
         }
 
 
-    }, [])
+    }, [props])
 
     useEffect(() => {
         projectsContainer.current.onscroll = () => {
