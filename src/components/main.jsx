@@ -2,12 +2,44 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Base from './base';
 import Home from './home';
-import { pages } from './header';
 import Minigames from './minigames/minigames';
 import Contact from './contact';
 
+const pagesMaster = [
+    {name: "Home", path: "/", scroll: '#home-section', width: 60},
+    {name: "Projects", path: "/#projects-section", scroll: '#projects-section', width: 60},
+    {name: "Minigames", path: "/minigames", width: 80},
+    {name: "Functions", path: "/functions", width: 72},
+    {name: "Contact", path: "/contact", width: 74, menu: true},
+    {name: "More", path: "", width: 54, menu: true}
+  ]
+
+export const subPages = {
+"Contact": [
+    {name: "Resume", path: "/resume", width: 74},
+    {name: "Email", path: "mailto:jtepp+site@icloud.com", width: 74},
+    {name: "Form", path: "/contact", width: 74}
+], 
+"More": [
+    {name: "Minigames", path: "/minigames", width: 80},
+    {name: "Functions", path: "/functions", width: 72}
+]
+}
+
+
 function Main() {
     const [resizeState, setResizeState] = useState(false)
+
+    const [pages, setPages] = useState(pagesMaster)
+
+
+    useEffect(() => {
+        if (window.innerWidth > 655) {
+            setPages(pagesMaster.slice(0, pagesMaster.length - 1))
+        } else {
+            setPages([...pagesMaster.slice(0, 2), ...pagesMaster.slice(4, pagesMaster.length)])
+        }
+    }, [resizeState])
 
     const initialIndex = () => {
         const path = window.location.pathname
@@ -33,7 +65,7 @@ function Main() {
 
     return ( 
         <BrowserRouter>
-            <Base activeIndex={activeIndex} setActiveIndex={setActiveIndex} 
+            <Base pages={pages} setPages={setPages} activeIndex={activeIndex} setActiveIndex={setActiveIndex} 
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}>
                 <Routes>
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}

@@ -6,9 +6,12 @@
     transition: color var(--transition);
     text-decoration: none;
     text-align: center;
+    padding-block: 10px;
+
 }
 
 .header-menu {
+    padding-block: 10px;
     transition: color var(--transition);
     text-decoration: none;
     text-align: center;
@@ -27,15 +30,34 @@
     pointer-events: none;
     opacity: 0;
     position: absolute;
-    top: 10px;
-    left: 0;
+    isolation: isolate;
+    top: 100%;
+    left: 50%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background-color: red;
+    height: fit-content;
+    z-index: 2;
+    background-color: #161616;
+    padding: 10px 15px;
+    translate: -50%;
+    /* gap: 10px; */
+    border-radius: 20px;
+
+    transition: opacity 100ms linear;
 }
 
-.header-menu-container:hover .header-menu-dropdown {
+.header-menu-dropdown .header-link {
+    transition: color 100ms linear;
+
+}
+
+.header-menu-dropdown .header-link:hover {
+    /* background-color: black; */
+    color: var(--primary);
+
+}
+
+.header-menu-container:hover .header-menu-dropdown, .header-menu-dropdown:hover {
     pointer-events: all;
     opacity: 1;
 }
@@ -48,8 +70,6 @@
 
 
 #header {
-    padding-block: 10px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,7 +77,7 @@
 
     position: relative;
     top: 0;
-    height: 20px;
+    height: 40px;
 
     box-shadow: 0px 0px 100px 10px #ffffff10;
 }
@@ -86,6 +106,7 @@
     bottom: 4px;
     left: 0;
     width: 10px;
+    z-index: 1;
     height: 2px;
     background-color: white;
     transition: left var(--transition), width var(--transition);

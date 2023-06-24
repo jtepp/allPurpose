@@ -3,25 +3,7 @@ import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
 import HeaderMenu from './headerMenu';
-
-
-export const pages = [
-    {name: "Home", path: "/", scroll: '#home-section', width: 60},
-    {name: "Projects", path: "/#projects-section", scroll: '#projects-section', width: 60},
-    {name: "Minigames", path: "/minigames", width: 80},
-    {name: "Functions", path: "/functions", width: 72},
-    {name: "Contact", path: "/contact", width: 74, menu: true}
-  ]
-
-  const subPages = {
-        "Contact": [
-            {name: "Contact Form", path: "/contact", width: 74},
-            {name: "Email", path: "mailto:jtepp+site@icloud.com", width: 74},
-            {name: "Resume", path: "/resume", width: 74}
-        ]
-    }
-
-
+import { subPages } from './main';
 
 
 function Header(props) {    
@@ -30,10 +12,10 @@ function Header(props) {
 
     const calculateGapSize = () => {
         const full = window.innerWidth
-        const taken = pages.reduce((result, page) => {
+        const taken = props.pages.reduce((result, page) => {
             return result + page.width
         }, 0)
-        const nGaps = pages.length;
+        const nGaps = props.pages.length;
 
 
         return (full - taken) / nGaps
@@ -51,11 +33,11 @@ function Header(props) {
         let offset = gap/2
         offset += index * gap
         for (let i = 0; i < index; i++) {
-            offset += pages[i].width
+            offset += props.pages[i].width
         }
 
         return offset
-    }, [props.activeIndex, props.hoverIndex])    
+    }, [props.activeIndex, props.hoverIndex, props.resizeState])    
 
     const setHeaderLine = useCallback(() => {
         let index = 0;
@@ -65,13 +47,13 @@ function Header(props) {
             index = props.activeIndex
 
             headerLineBack.current.style.left = calculateHeaderLineOffset() + "px"
-            headerLineBack.current.style.width = pages[index].width + "px"
+            headerLineBack.current.style.width = props.pages[index].width + "px"
         }
         headerLine.current.style.left = calculateHeaderLineOffset() + "px"
-        headerLine.current.style.width = pages[index].width + "px"
+        headerLine.current.style.width = props.pages[index].width + "px"
         
         
-    }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset])
+    }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset, props.resizeState])
     
 
     useEffect(() => {
@@ -80,7 +62,7 @@ function Header(props) {
 
 
 
-    const headerItems = pages.map((page, index) => {
+    const headerItems = props.pages.map((page, index) => {
         const id = page.name.toLowerCase()+"-header-item"
 
         if (page.menu) {
@@ -102,6 +84,7 @@ function Header(props) {
                 </HeaderMenu>
             )
         } else {
+
             return (
                 <HeaderLink name={page.name} scroll={page.scroll} onClick={() => {
                     props.setActiveIndex(index)
