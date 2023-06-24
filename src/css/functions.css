@@ -2,7 +2,24 @@
     color: white;
 }
 
+#functions-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 #functions-content {
     margin-left: 40px;
     padding-block: 5px;
+}
+
+#functions-description {
+    display: flex;
+    flex-direction: column;
+    
+    width: 300px;
+    padding: 20px;
+    background-color: #161616;
+    border-radius: 20px;
+    margin: 20px 40px 0 0;
 }

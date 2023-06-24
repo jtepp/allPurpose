@@ -30,10 +30,6 @@
     height: max-content;
 }
 
-#minigame-cutout-container {
-    /* overflow: hidden; */
-}
-
 #minigames-main {
     scroll-snap-type: none;
 }
