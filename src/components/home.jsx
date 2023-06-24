@@ -115,7 +115,7 @@ function Home(props) {
 
             <Section id='projects'>
             <Cutout id='projects-title-cutout' backgroundColor="black">
-                <h1 id='projects-title'>Projects</h1>
+                <h1 id='projects-title' className='page-title'>Projects</h1>
             </Cutout>
 
                 <div id='projects-content' className={(currentProjectIndex > 0 ? 'more-left ' : '') + (currentProjectIndex < data.length - 1 ? 'more-right' : '')}>

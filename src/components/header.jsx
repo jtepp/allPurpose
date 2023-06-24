@@ -53,7 +53,7 @@ function Header(props) {
         headerLine.current.style.width = props.pages[index].width + "px"
         
         
-    }, [props.activeIndex, props.hoverIndex, calculateHeaderLineOffset, props.resizeState])
+    }, [props.activeIndex, props.hoverIndex, props.pages, calculateHeaderLineOffset, props.resizeState])
     
 
     useEffect(() => {

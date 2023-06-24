@@ -38,7 +38,7 @@
     height: fit-content;
     z-index: 2;
     background-color: #161616;
-    padding: 10px 15px;
+    padding-inline: 15px;
     translate: -50%;
     /* gap: 10px; */
     border-radius: 20px;
@@ -47,13 +47,12 @@
 }
 
 .header-menu-dropdown .header-link {
-    transition: color 100ms linear;
+    transition: color var(--transition);
 
 }
 
 .header-menu-dropdown .header-link:hover {
-    /* background-color: black; */
-    color: var(--primary);
+    color: var(--secondary);
 
 }
 
