@@ -5,7 +5,9 @@
 #functions-header {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
 
 #functions-content {
@@ -15,11 +17,20 @@
 
 #functions-description {
     display: flex;
+    position: relative;
     flex-direction: column;
     
     width: 300px;
     padding: 20px;
     background-color: #161616;
     border-radius: 20px;
-    margin: 20px 40px 0 0;
+    margin: 20px 40px 0 40px;
+}
+
+@media (min-width: 689px) {
+    #functions-description {
+        position: absolute;
+        top: 40px;
+        right: 0px;
+    }
 }

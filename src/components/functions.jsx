@@ -7,42 +7,49 @@ import FunctionItem from './functionItem';
 
 const functionItems = [
     {
-        title: "Missions",
-        description: "test",
-        input: false
+        "title": "Space Launches",
+        "description": "Retrieve information about past and upcoming space launches, including details about the rockets, payloads, and launch dates.",
+        "input": false,
+        "used": ["rocketeer"]
     },
     {
-        title: "Coordinates",
-        description: "test",
-        input: true
+        "title": "Text to Coordinates",
+        "description": "Convert textual addresses or location descriptions into geographical coordinates (latitude and longitude) for mapping and navigation.",
+        "input": true,
+        "used": ["rocketeer"]
     },
     {
-        title: "NBA Player",
-        description: "test",
-        input: false
+        "title": "NBA Player Bios",
+        "description": "Access information and statistics for NBA players, including team, height, position, etc.",
+        "input": false,
+        "used": ["larrybirdle"]
     },
     {
-        title: "Google Images",
-        description: "test",
-        input: true
+        "title": "Quick Google Images",
+        "description": "Retrieve a collection of low-res images from Google, based on specific keywords or search queries.",
+        "input": true,
+        "used": ["rocketeer"]
     },
     {
-        title: "Dateparser",
-        description: "test",
-        input: true
+        "title": "Date Parser",
+        "description": "Parse and interpret various date formats to ensure accurate and consistent handling of date and time information.",
+        "input": true,
+        "used": ["rocketeer", "widgit"]
     },
     {
-        title: "Reddit",
-        description: "test",
-        input: true
+        "title": "Subreddit Scraper",
+        "description": "Gather posts, upvotes, and other data from Reddit subreddits, enabling you to view a subreddit at a glance. This widget only displays the JSON data for the first post for simplicity",
+        "input": true,
+        "used": ["widgit"]
     },
     {
-        title: "Amazon Products",
-        description: "test",
-        input: true
-    },
-
+        "title": "Amazon Product Search",
+        "description": "Search and retrieve information about products available on Amazon, including prices, images, and specifications. This widget only shows images for simplicity.",
+        "input": true,
+        "used": ["oooh"]
+    }
 ]
+
 
 function Functions(props) {
     return ( 
