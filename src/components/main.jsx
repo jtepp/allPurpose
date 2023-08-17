@@ -71,14 +71,10 @@ function Main() {
     }, [resizeState, headerSizeState])
 
     const loadBigPages = useCallback(() => {
-        document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.remove('display-none'))
-        document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.add('display-none'))    
         setActiveIndex(bigPageIndices[pages[activeIndex]?.name])
     }, [activeIndex])
 
     const loadSmallPages = useCallback(() => {
-        document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.remove('display-none'))    
-        document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.add('display-none'))    
         let temp = activeIndex
         if (temp === 2 || temp === 3)
             temp += 2

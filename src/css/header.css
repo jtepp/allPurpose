@@ -7,7 +7,8 @@
     text-decoration: none;
     text-align: center;
     padding-block: 10px;
-
+    display: flex;
+    justify-content: center;
 }
 
 .header-menu {
@@ -24,6 +25,8 @@
 
 .header-menu-container {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .header-menu-dropdown {
@@ -128,4 +131,24 @@
     height: 2px;
     background-color: white;
     transition: left var(--transition), width var(--transition);
+}
+
+.header-size-big {
+    & *:is(#functions-header-item, #minigames-header-item) {
+        display: flex;
+    }
+
+    & *:is(#more-header-item, #header-menu-container-more-header-item) {
+        display: none;
+    }
+}
+
+.header-size-small {
+    & *:is(#functions-header-item, #minigames-header-item) {
+        display: none;
+    }
+
+    & *:is(#more-header-item, #header-menu-container-more-header-item) {
+        display: flex;
+    }
 }

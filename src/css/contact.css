@@ -94,3 +94,10 @@
     position: absolute;
     left: -1000px;
 }
+
+@media (max-width: 414px) {
+    .page-title {
+        width: min-content;
+        height: max-content;
+    }
+}

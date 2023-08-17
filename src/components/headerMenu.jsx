@@ -1,7 +1,9 @@
 import React from 'react'
 import { GoChevronDown } from 'react-icons/go'
+import { useNavigate } from 'react-router-dom';
 
 function HeaderMenu(props) {
+    const navigate = useNavigate()
     return ( 
         <div className="header-menu-container" id={`header-menu-container-${props.id}`} onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} >
             <div to={props.path} id={props.id} 
@@ -9,7 +11,12 @@ function HeaderMenu(props) {
                 width: props.width
             }
             } className="header-menu">
-                <div className="header-menu-title">
+                <div className="header-menu-title" onMouseDown={() => {
+                    console.log(props)
+                    if (props.name === "Contact") {
+                        navigate(props.children[0].props.path)
+                    }
+                }}>
                     {props.name}    
                 </div>
                 <div className="header-menu-arrow">

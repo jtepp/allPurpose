@@ -44,7 +44,7 @@ function Cutout(props) {
             </div>
 
             {props.upperLevel}
-            <div className="cutout" ref={mainRef} id={props.id} style={
+            <div className={`cutout ${props.headerSizeState ? 'header-size-'+props.headerSizeState : '' }`} ref={mainRef} id={props.id} style={
                 {
                     backgroundColor: props.backgroundColor,
                     zIndex: 10,

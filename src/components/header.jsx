@@ -130,7 +130,7 @@ function Header(props) {
     return (
         <Cutout id="header" upperLevel={
             <div id="header-line-back" ref={headerLineBack}></div>
-        } backgroundColor="black">
+        } backgroundColor="black" headerSizeState={props.headerSizeState}>
             {headerItems}
             <div id="header-line" ref={headerLine}>
             </div>
