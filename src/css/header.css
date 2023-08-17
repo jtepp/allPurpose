@@ -57,7 +57,25 @@
 
 }
 
-.header-menu-container:hover .header-menu-dropdown, .header-menu-dropdown:hover {
+.header-menu-dropdown-trigger-booster {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    padding-inline: 20px;
+}
+
+.header-menu-container:hover .header-menu-dropdown-trigger-booster,
+.header-menu-dropdown-trigger-booster:hover {
+    padding-bottom: 20px;
+}
+
+.header-menu-container:hover .header-menu-dropdown,
+.header-menu-dropdown:hover,
+.header-menu-dropdown-trigger-booster:hover + .header-menu-dropdown {
     pointer-events: all;
     opacity: 1;
 }

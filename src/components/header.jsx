@@ -33,7 +33,6 @@ function Header(props) {
         } else {
             index = props.activeIndex
         }
-        console.log(true, index, props.hoverIndex, props.activeIndex)
         let offset = gap/2
         offset += index * gap
         for (let i = 0; i < index; i++) {
@@ -79,7 +78,9 @@ function Header(props) {
                 <HeaderMenu name={page.name} path={page.path} width={page.width} id={id} onMouseEnter={() => {
                     let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
                     props.setHoverIndex(i)
+                    console.log(true)
                 }} onMouseLeave={() => {
+                    console.log(false)
                     props.setHoverIndex(-1)
                 }} key={page.name}>
                     {subPages[page.name].map((subPage) => 
