@@ -12,6 +12,9 @@ export function importAll(r) {
   return images
  }
 
+export async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
 export const projectScrollWidth = () => {
   return (window.innerWidth > 655 ? 240 + 100 : 120 + 50)

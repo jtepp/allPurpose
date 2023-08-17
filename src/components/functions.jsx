@@ -4,6 +4,9 @@ import Cutout from './cutout';
 import '../css/functions.css'
 import ReadMore from './readMore';
 import FunctionItem from './functionItem';
+import { importAll, randomElement } from '../utils';
+
+export const clouds = importAll(require.context('../res/clouds', false, /\.(png)$/))
 
 const functionItems = [
     {
@@ -76,13 +79,14 @@ function Functions(props) {
                         <div id="function-items-container">
                             
                             {functionItems.map((item) => 
-                                <FunctionItem key={item.title} title={item.title} description={item.description} input={item.input}/>
+                                <FunctionItem key={item.title} item={item} cloud={randomElement(Object.values(clouds))}/>
                             )}
 
                         </div>
                    
                     </div>
                 
+                    <a href="https://www.freepik.com/free-vector/set-twelve-different-clouds-blue-background_1149278.htm#query=cloud%20svg&position=0&from_view=keyword&track=ais">Cloud Images by alliesinteractive</a> on Freepik
             </Section>
         </div>
      );
