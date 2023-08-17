@@ -11,13 +11,11 @@ function FunctionCloud(props) {
                 { props.state === 1 &&
                     <BiLoader className='function-cloud-loader' />
                 }
-                { props.state === 0 && 
                     <div className="function-cloud-used-images-container">
                         {props.used.map((name) => 
                             <img src={icons[name]} key={name} className='function-cloud-used-image' alt="" srcset="" />
                         )}
                     </div>
-                }
             </div>
             <p className={`function-cloud-result ${props.smallText ? 'small-text' : ''}`}>
                 { props.result }

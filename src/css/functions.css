@@ -143,12 +143,17 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    transition: opacity var(--transition)
 }
 
 .function-cloud-used-image {
     width: 30px;
     height: 30px;
     border-radius: 8px;
+}
+
+.function-cloud-main.cloud-pulsing .function-cloud-used-images-container {
+    opacity: 0.3;
 }
 
 .function-cloud-main {
