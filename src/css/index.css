@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   -ms-overflow-style: none;
+  font-family: BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+
 }
 
 a, a:visited, a:hover, a:active {
@@ -13,7 +15,7 @@ body {
   font-family: BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #161616;
+  background-color: var(--accent-gray);
   
 }
 

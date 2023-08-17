@@ -23,7 +23,7 @@
     z-index: 10;
     width: 300px;
     padding: 20px;
-    background-color: #161616;
+    background-color: var(--accent-gray);
     border-radius: 20px;
     margin: 20px 40px 0 40px;
     box-shadow: 0px 4px 4px 4px #00000040;
@@ -41,7 +41,7 @@
 
 .function-item {
     padding: 20px;
-    background-color: #161616;
+    background-color: var(--accent-gray);
     border-radius: 20px;
     display: flex;
     flex-direction: row;

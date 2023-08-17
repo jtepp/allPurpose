@@ -37,7 +37,7 @@
     flex-direction: column;
     height: fit-content;
     z-index: 2;
-    background-color: #161616;
+    background-color: var(--accent-gray);
     padding-inline: 15px;
     translate: -50%;
     /* gap: 10px; */
