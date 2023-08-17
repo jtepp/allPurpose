@@ -110,7 +110,7 @@ function Header(props) {
         } else {
 
             return (
-                <HeaderLink name={page.name} scroll={page.scroll} onClick={() => {
+                <HeaderLink name={page.name} scroll={page.scroll} activeIndex={props.activeIndex} onClick={() => {
                     props.setActiveIndex(index)
                     props.setHoverIndex(-1)
                 }} onMouseEnter={() => {

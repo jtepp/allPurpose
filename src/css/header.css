@@ -8,7 +8,25 @@
     text-align: center;
     padding-block: 10px;
     display: flex;
+    position: relative;
     justify-content: center;
+}
+
+#home-favicon {
+    position: absolute;
+    top: 4px;
+    width: 60px;
+    height: 20px;
+    background-color: black;
+    padding: 0 10px 10px 5px;
+    pointer-events: none;
+    font-size: 12px;
+    text-align: start;
+    transition: top var(--transition);
+}
+
+.header-link.hide-favicon #home-favicon {
+    top: -30px;
 }
 
 .header-menu {
