@@ -32,6 +32,13 @@ export const bigPageIndices = {
     "Contact": 4,
 }
 
+export const smallHoverIndices = {
+    0: 0,
+    1: 1,
+    4: 2,
+    5: 3
+}
+
 export const subPages = {
 "Contact": [
     {name: "Form", path: "/contact", width: 74},
@@ -65,13 +72,17 @@ function Main() {
     const loadBigPages = useCallback(() => {
         document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.remove('display-none'))
         document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.add('display-none'))    
-        setActiveIndex(bigPageIndices[pages[activeIndex].name])
+        setActiveIndex(bigPageIndices[pages[activeIndex]?.name])
     }, [activeIndex])
 
     const loadSmallPages = useCallback(() => {
         document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.remove('display-none'))    
         document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.add('display-none'))    
-        setActiveIndex(smallPageIndices[pages[activeIndex]?.name])
+        let temp = activeIndex
+        if (temp === 2 || temp === 3)
+            temp += 2
+
+        setActiveIndex(smallPageIndices[pages[temp]?.name])
     }, [activeIndex])
 
 

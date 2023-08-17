@@ -3,7 +3,7 @@ import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
 import HeaderMenu from './headerMenu';
-import { bigPageIndices, smallPageIndices, subPages } from './main';
+import { bigPageIndices, smallHoverIndices, smallPageIndices, subPages } from './main';
 
 
 function Header(props) {    
@@ -33,11 +33,18 @@ function Header(props) {
         } else {
             index = props.activeIndex
         }
+        console.log(true, index, props.hoverIndex, props.activeIndex)
         let offset = gap/2
         offset += index * gap
         for (let i = 0; i < index; i++) {
             offset += props.pages[i].width
         }
+
+        if (props.headerSizeState === 'small')
+        {
+            offset += index === 0 ? 3 : 10
+        }
+
         return offset
     }, [props.activeIndex, props.hoverIndex, props.pages, props.headerSizeState])    
 
@@ -70,14 +77,16 @@ function Header(props) {
         if (page.menu) {
             return (
                 <HeaderMenu name={page.name} path={page.path} width={page.width} id={id} onMouseEnter={() => {
-                    props.setHoverIndex(index)
+                    let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
+                    props.setHoverIndex(i)
                 }} onMouseLeave={() => {
                     props.setHoverIndex(-1)
                 }} key={page.name}>
                     {subPages[page.name].map((subPage) => 
                         <HeaderLink name={subPage.name} path={subPage.path} width={subPage.width} id={id} key={subPage.name}
                         onClick={() => {
-                            props.setActiveIndex(index)
+                            let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
+                            props.setActiveIndex(i)
                             props.setHoverIndex(-1)
                         }} onMouseEnter={() => {
                         }} onMouseLeave={() => {
