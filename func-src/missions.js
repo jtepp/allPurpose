@@ -49,7 +49,7 @@ exports.handler = async (event, context) => {
 };
 
 function special(input){
-    return String(input).split('&#8220;').join('\"').split('&#8221;').join('\"').split('&#8217;').join('\'').split('<U>').join('').split('</U>').join('').split('))').join(')')
+    return String(input).split('&#8220;').join('\"').split('&#8221;').join('\"').split('&#8217;').join('\'').split('<U>').join('').split('</U>').join('').split('))').join(')').replace(/<.+?>/g, '')
 }
 
 function imgName(name) {
