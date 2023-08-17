@@ -16,6 +16,13 @@ export async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+export function temporaryClass(element, className, ms) {
+  element.classList.add(className)
+  setTimeout(() => {
+    element.classList.remove(className)
+  }, ms)
+}
+
 export const projectScrollWidth = () => {
   return (window.innerWidth > 655 ? 240 + 100 : 120 + 50)
 }

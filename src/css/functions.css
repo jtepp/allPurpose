@@ -64,10 +64,20 @@
 
 .function-item-input {
     position: absolute;
+    display: block;
     bottom: -40px;
     border-radius: 10px;
     height: 24px;
-    padding-inline: 4px;
+    padding-inline: 8px;
+    border: none;
+    background-color: white;
+    transition: background-color 200ms;
+}
+
+.function-item-input.reject-shake {
+    background-color: #ff6161ce;
+    color: white;
+    animation: reject-shake 200ms ease-in-out infinite;
 }
 
 .function-item-details {
@@ -138,6 +148,7 @@
     min-height: 120px;
     max-height: 120px;
     overflow-y: scroll;
+    word-break: break-all;
     border-radius: 10px;
     padding: 10px 14px;
     background-color: black;
@@ -176,5 +187,15 @@
 
     100% {
         scale: 1;
+    }
+}
+
+@keyframes reject-shake {
+    0% {
+        translate: -10px;
+    }
+
+    100% {
+        translate: 10px;
     }
 }
