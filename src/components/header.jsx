@@ -4,12 +4,14 @@ import Cutout from './cutout';
 import '../css/header.css'
 import HeaderMenu from './headerMenu';
 import { bigPageIndices, smallHoverIndices, smallPageIndices, subPages } from './main';
+import { useLocation } from 'react-router-dom';
+import { getCurrentPageName } from '../utils';
 
 
 function Header(props) {    
     const headerLine = useRef(null)
     const headerLineBack = useRef(null)
-
+    const location = useLocation();
 
     const calculateHeaderLineOffset = useCallback(() => {
         const full = window.innerWidth
@@ -28,11 +30,23 @@ function Header(props) {
 
 
         let index = 0;
+
+        let stupidActiveIndex = props.activeIndex
+        if (stupidActiveIndex === undefined) {
+            // find .name for current path
+            const name = getCurrentPageName(props.pages, location)
+            const indexMap = props.headerSizeState === "big" ? bigPageIndices : smallPageIndices
+            stupidActiveIndex = indexMap[name]
+        }
+
         if (props.hoverIndex > -1) {
             index = props.hoverIndex
         } else {
-            index = props.activeIndex
+            index = stupidActiveIndex
         }
+
+        console.log(index, props.hoverIndex, props.activeIndex, stupidActiveIndex)
+
         let offset = gap/2
         offset += index * gap
         for (let i = 0; i < index; i++) {
@@ -45,7 +59,7 @@ function Header(props) {
         }
 
         return offset
-    }, [props.activeIndex, props.hoverIndex, props.pages, props.headerSizeState])    
+    }, [props.activeIndex, props.hoverIndex, props.pages, props.headerSizeState, location])    
 
     const setHeaderLine = useCallback(() => {
         let index = 0;
@@ -78,15 +92,14 @@ function Header(props) {
                 <HeaderMenu name={page.name} path={page.path} width={page.width} id={id} onMouseEnter={() => {
                     let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
                     props.setHoverIndex(i)
-                    console.log(true)
                 }} onMouseLeave={() => {
-                    console.log(false)
                     props.setHoverIndex(-1)
                 }} key={page.name}>
                     {subPages[page.name].map((subPage) => 
                         <HeaderLink name={subPage.name} path={subPage.path} width={subPage.width} id={id} key={subPage.name}
                         onClick={() => {
                             let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
+                            console.log('i', i)
                             props.setActiveIndex(i)
                             props.setHoverIndex(-1)
                         }} onMouseEnter={() => {

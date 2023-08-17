@@ -41,3 +41,11 @@ export const scrollToPreviousProject = () => {
   const projectsContainer = document.getElementById("projects-container")
   projectsContainer.scrollBy({'left': -projectScrollWidth(), 'behavior': 'smooth'})
 }
+
+export const getCurrentPageName = (pages, location) => {
+  for (let p of pages.slice(1, -1)) {
+    if (location.pathname.includes(p.path))
+      return p.name
+  }
+  return pages[0].name
+}

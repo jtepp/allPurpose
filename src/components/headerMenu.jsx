@@ -17,7 +17,8 @@ function HeaderMenu(props) {
                 </div>
             </div>
             <div className="header-menu-dropdown-trigger-booster"></div>
-            <div className={"header-menu-dropdown"} onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} >
+            <div className={"header-menu-dropdown"} // onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave}
+             >
                 {props.children}
             </div>
         </div>
