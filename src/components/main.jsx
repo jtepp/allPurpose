@@ -7,7 +7,7 @@ import Contact from './contact';
 import Functions from './functions';
 import Resume from './resume'
 
-const pagesMaster = [
+const pages = [
     {name: "Home", path: "/", scroll: '#home-section', width: 60},
     {name: "Projects", path: "/#projects-section", scroll: '#projects-section', width: 60},
     {name: "Minigames", path: "/minigames", width: 80},
@@ -16,7 +16,7 @@ const pagesMaster = [
     {name: "More", path: "", width: 54, menu: true}
   ]
 
-const smallPageIndices = {
+export const smallPageIndices = {
     "Home": 0,
     "Projects": 1,
     "Contact": 2,
@@ -24,7 +24,7 @@ const smallPageIndices = {
     "Minigames": 3,
 }
 
-const bigPageIndices = {
+export const bigPageIndices = {
     "Home": 0,
     "Projects": 1,
     "Minigames": 2,
@@ -51,8 +51,6 @@ function Main() {
     
     let [activeIndex, setActiveIndex] = useState(0)
     let [hoverIndex, setHoverIndex] = useState(-1)
-    
-    const [pages, setPages] = useState(pagesMaster)
     // const prevPages = useRef(null)
 
 
@@ -65,16 +63,18 @@ function Main() {
     }, [resizeState, headerSizeState])
 
     const loadBigPages = useCallback(() => {
+        document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.remove('display-none'))
+        document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.add('display-none'))    
         setActiveIndex(bigPageIndices[pages[activeIndex].name])
-        if (pages.length !== pagesMaster.length - 1)
-            setPages(pagesMaster.slice(0, pagesMaster.length - 1))
-    }, [activeIndex, pages])
+    }, [activeIndex])
 
     const loadSmallPages = useCallback(() => {
+        document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.remove('display-none'))    
+        document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.add('display-none'))    
         setActiveIndex(smallPageIndices[pages[activeIndex].name])
-        if (pages.length !== 4)
-            setPages([...pagesMaster.slice(0, 2), ...pagesMaster.slice(4, pagesMaster.length)])
-    }, [activeIndex, pages])
+    }, [activeIndex])
+
+
 
     useEffect(() => {
         if (headerSizeState === 'big') {
@@ -93,7 +93,7 @@ function Main() {
         }
         return 0
 
-    }, [pages])
+    }, [])
 
     useEffect(() => {
         setActiveIndex(initialIndex())
@@ -107,7 +107,7 @@ function Main() {
 
     return ( 
         <BrowserRouter>
-            <Base pages={pages} setPages={setPages} activeIndex={activeIndex} setActiveIndex={setActiveIndex} 
+            <Base pages={pages} activeIndex={activeIndex} setActiveIndex={setActiveIndex} headerSizeState={headerSizeState}
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}>
                 <Routes>
                 <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}

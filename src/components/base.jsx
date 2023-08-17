@@ -41,7 +41,7 @@ function Base(props) {
 
     return ( 
         <div id="base">
-            <Header pages={props.pages} setPages={props.setPages} activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex}
+            <Header pages={props.pages} activeIndex={props.activeIndex} setActiveIndex={props.setActiveIndex} headerSizeState={props.headerSizeState}
                 hoverIndex={props.hoverIndex} setHoverIndex={props.setHoverIndex} resizeState={props.resizeState} setResizeState={props.setResizeState}
             />
             <div id="content">

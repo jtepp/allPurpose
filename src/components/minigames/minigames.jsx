@@ -83,7 +83,7 @@ function Minigames(props) {
                                 src={currentGameIndex === -1 ? "" : `https://www.khanacademy.org/computer-programming${gameData[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`}
                                 width={currentGameIndex === -1 ? 0 : gameData[currentGameIndex].width}
                                 height={currentGameIndex === -1 ? 0 : gameData[currentGameIndex].height}                    
-                                frameborder="0" scrolling="no" border="0"
+                                frameBorder="0" scrolling="no" border="0"
                                 style={{
                                     minWidth: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].width,
                                     minHeight: currentGameIndex === -1 ? "100%" : gameData[currentGameIndex].height,

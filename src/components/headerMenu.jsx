@@ -3,7 +3,7 @@ import { GoChevronDown } from 'react-icons/go'
 
 function HeaderMenu(props) {
     return ( 
-        <div className="header-menu-container">
+        <div className="header-menu-container" id={`header-menu-container-${props.id}`}>
             <div to={props.path} id={props.id} 
             onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} style={{
                 width: props.width

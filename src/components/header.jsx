@@ -3,7 +3,7 @@ import HeaderLink from './headerLink';
 import Cutout from './cutout';
 import '../css/header.css'
 import HeaderMenu from './headerMenu';
-import { subPages } from './main';
+import { bigPageIndices, smallPageIndices, subPages } from './main';
 
 
 function Header(props) {    
@@ -13,10 +13,15 @@ function Header(props) {
 
     const calculateHeaderLineOffset = useCallback(() => {
         const full = window.innerWidth
-        const taken = props.pages.reduce((result, page) => {
-            return result + page.width
+        let pageIndicesToUse = props.headerSizeState === "big" ? Array.from(new Set(Object.values(bigPageIndices))) : Array.from(new Set(Object.values(smallPageIndices))) 
+        let taken = pageIndicesToUse.reduce((result, index) => {
+            // console.log(index)
+            return result + props.pages[index].width
         }, 0)
-        const nGaps = props.pages.length;
+
+
+
+        const nGaps = pageIndicesToUse.length;
 
 
         const gap =  (full - taken) / nGaps
@@ -34,8 +39,9 @@ function Header(props) {
             offset += props.pages[i].width
         }
 
+        console.log(offset, props.headerSizeState)
         return offset
-    }, [props.activeIndex, props.hoverIndex, props.pages])    
+    }, [props.activeIndex, props.hoverIndex, props.pages, props.headerSizeState])    
 
     const setHeaderLine = useCallback(() => {
         let index = 0;
@@ -61,12 +67,6 @@ function Header(props) {
 
 
     const headerItems = props.pages.map((page, index) => {
-        if (page == undefined)
-        {
-            console.log(false)
-            return
-        }
-
         const id = page.name.toLowerCase()+"-header-item"
 
         if (page.menu) {
