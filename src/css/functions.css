@@ -127,13 +127,33 @@
 }
 
 
-.function-cloud img {
+.function-cloud .cloud-img {
     width: 200px;
     height: 140px;
     object-fit: contain;
     object-position: center;
 }
 
+.function-cloud .function-cloud-used-images-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.function-cloud-used-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+.function-cloud-main {
+    position: relative;
+}
 
 .function-cloud-main.cloud-pulsing {
     animation: cloud-pulsing 2000ms ease-in-out infinite;

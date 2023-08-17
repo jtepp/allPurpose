@@ -24,10 +24,10 @@ function FunctionItem(props) {
                 if (props.item.images) {
                     setChildren(
                         props.item.b64 ?
-                        [<img alt='result' src={`data:image/jpeg;charset=utf-8;base64,${data}`} />]
+                        [<img key={props.item.name} alt='result' src={`data:image/jpeg;charset=utf-8;base64,${data}`} />]
                         :
                         data.images.map((url) => {
-                            return <img alt='result' src={url} className='function-cloud-result-image' />
+                            return <img key={props.item.name} alt='result' src={url} className='function-cloud-result-image' />
                         })    
                     )
                     return
@@ -87,7 +87,7 @@ function FunctionItem(props) {
                 }
             </div>
 
-            <FunctionCloud state={state} result={result} cloud={props.cloud} children={children} smallText={props.item.json} />
+            <FunctionCloud state={state} result={result} cloud={props.cloud} children={children} smallText={props.item.json} used={props.item.used} />
                 
 
 
