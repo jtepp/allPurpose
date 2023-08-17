@@ -5,7 +5,8 @@ import Home from './home';
 import Minigames from './minigames/minigames';
 import Contact from './contact';
 import Functions from './functions';
-import Resume from './resume'
+import resumePDF from "../res/Resume/Resume-Jacob-Tepperman.pdf"
+
 
 const pages = [
     {name: "Home", path: "/", scroll: '#home-section', width: 60},
@@ -42,7 +43,7 @@ export const smallHoverIndices = {
 export const subPages = {
 "Contact": [
     {name: "Form", path: "/contact", width: 74},
-    {name: "Resume", path: "/resume", width: 74},
+    {name: "Resume", path: resumePDF, external: true, width: 74},
     {name: "Email", path: "mailto:jtepp+site@icloud.com", width: 74},
 ], 
 "More": [
@@ -121,12 +122,10 @@ function Main() {
             <Base pages={pages} activeIndex={activeIndex} setActiveIndex={setActiveIndex} headerSizeState={headerSizeState}
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}>
                 <Routes>
-                <Route path="/" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
+                <Route path="*" element={<Home activeIndex={activeIndex} setActiveIndex={setActiveIndex}
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}/>} />
                 <Route path="/minigames" element={<Minigames resizeState={resizeState}/>}/>
-                <Route path='/contact' element={<Contact resizeState={resizeState}/>} />
-                <Route path='/resume' element={<Resume resizeState={resizeState}/>} />
-                <Route path='/functions' element={<Functions resizeState={resizeState}/>} />
+                <Route path='/contact' element={<Contact resizeState={resizeState}/>} />                <Route path='/functions' element={<Functions resizeState={resizeState}/>} />
                 </Routes>
             </Base>
          </BrowserRouter>

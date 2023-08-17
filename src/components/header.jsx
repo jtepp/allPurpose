@@ -45,7 +45,7 @@ function Header(props) {
             index = stupidActiveIndex
         }
 
-        console.log(index, props.hoverIndex, props.activeIndex, stupidActiveIndex)
+        // console.log(index, props.hoverIndex, props.activeIndex, stupidActiveIndex)
 
         let offset = gap/2
         offset += index * gap
@@ -96,10 +96,9 @@ function Header(props) {
                     props.setHoverIndex(-1)
                 }} key={page.name}>
                     {subPages[page.name].map((subPage) => 
-                        <HeaderLink name={subPage.name} path={subPage.path} width={subPage.width} id={id} key={subPage.name}
+                        <HeaderLink name={subPage.name} path={subPage.path} external={subPage.external} width={subPage.width} id={id} key={subPage.name}
                         onClick={() => {
                             let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
-                            console.log('i', i)
                             props.setActiveIndex(i)
                             props.setHoverIndex(-1)
                         }} onMouseEnter={() => {
