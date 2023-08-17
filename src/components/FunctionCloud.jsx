@@ -10,11 +10,11 @@ function FunctionCloud(props) {
                     <BiLoader className='function-cloud-loader' />
                 }
             </div>
-            <p className="function-cloud-result">
+            <p className={`function-cloud-result ${props.smallText ? 'small-text' : ''}`}>
                 { props.result }
-                { props.images.length > 0 ?
+                { props.children.length > 0 ?
                     <div className="function-cloud-result-image-container">
-                        {props.images}
+                        {props.children}
                     </div>
                 : null }
             </p>

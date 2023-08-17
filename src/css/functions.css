@@ -154,6 +154,25 @@
     background-color: black;
 }
 
+.function-cloud-result.small-text {
+    font-size: 12px;
+}
+
+.function-cloud-result {
+    & table{
+        border-collapse: collapse;
+    }
+
+    & *:is(tr, th) {
+        border: 1px solid white;
+        padding-block: 2px;
+    }
+
+    & th {
+        width: 60px;
+    }
+}
+
 .function-cloud-result-image-container {
     display: flex;
     flex-direction: column;

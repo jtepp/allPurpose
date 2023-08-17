@@ -7,7 +7,7 @@ function FunctionItem(props) {
     const input = useRef()
     const [result, setResult] = useState('')
     const [state, setState] = useState(0)
-    const [images, setImages] = useState([])
+    const [children, setChildren] = useState([])
 
     const startSearch = async () => {
         if (props.item.input && input.current.value.length === 0) {
@@ -21,30 +21,44 @@ function FunctionItem(props) {
 
             await fetch(url)
             .then((res) => {
-                return (props.item.images && !props.item.b64) ? res.json() : res.text()
+                return props.item.json ? res.json() : res.text()
             }).then((data) => {
                 console.log(data)
-                if (!props.item.images) {
-                    setResult(data)
+                if (props.item.images) {
+                    setChildren(
+                        props.item.b64 ?
+                        [<img alt='result' src={`data:image/jpeg;charset=utf-8;base64,${data}`} />]
+                        :
+                        data.images.map((url) => {
+                            return <img alt='result' src={url} className='function-cloud-result-image' />
+                        })    
+                    )
                     return
                 }
                 
-                setImages(
-                    props.item.b64 ?
-                    [<img alt='result' src={`data:image/jpeg;charset=utf-8;base64,${data}`} />]
-                    :
-                    data.images.map((url) => {
-                        return <img alt='result' src={url} className='function-cloud-result-image' />
+                if (props.item.json) {
+                    const rows = []
+                    Object.entries(props.item.key ? data[props.item.key] : data).forEach(([key, value]) => {
+                        console.log(key, value)
+                        rows.push(<tr><th>{key}</th><td>{value}</td></tr>)
                     })
+                    const table = <table>
+                        {rows}
+                    </table>
+                    setChildren([table])
+                    return
+                }
+
+                setResult(data)
+                return
                 
-                )
             })
             .catch((err) => {
                 console.warn(err)
                 setResult("Invalid result. Try another query...")
             })
             
-            setTimeout(() => setState(2), 2000)
+            setTimeout(() => setState(2), Math.random() * 1000 + 1000)
         }
     }
             
@@ -77,7 +91,7 @@ function FunctionItem(props) {
                 }
             </div>
 
-            <FunctionCloud state={state} result={result} cloud={props.cloud} images={images} />
+            <FunctionCloud state={state} result={result} cloud={props.cloud} children={children} smallText={props.item.json} />
                 
 
 

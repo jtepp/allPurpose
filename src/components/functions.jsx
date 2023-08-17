@@ -15,6 +15,7 @@ const functionItems = [
         "description": "Retrieve information about past and upcoming space launches, including details about the rockets, payloads, and launch dates.",
         "input": false,
         "images": false,
+        "json": true,
         "used": ["rocketeer"]
     },
     {
@@ -23,6 +24,7 @@ const functionItems = [
         "description": "Convert textual addresses or location descriptions into geographical coordinates (latitude and longitude) for mapping and navigation.",
         "input": true,
         "images": false,
+        "json": false,
         "used": ["rocketeer"]
     },
     {
@@ -31,6 +33,8 @@ const functionItems = [
         "description": "Access information and statistics for NBA players, including team, height, position, etc.",
         "input": false,
         "images": false,
+        "json": true,
+        "key": "player",
         "used": ["larrybirdle"]
     },
     {
@@ -40,6 +44,7 @@ const functionItems = [
         "input": true,
         "images": true,
         "b64": true,
+        "json": false,
         "used": ["rocketeer"]
     },
     {
@@ -56,6 +61,7 @@ const functionItems = [
         "description": "Gather posts, upvotes, and other data from Reddit subreddits, enabling you to view a subreddit at a glance. This widget only displays the JSON data for the first post for simplicity",
         "input": true,
         "images": false,
+        "json": false,
         "used": ["widgit"]
     },
     {
@@ -64,6 +70,7 @@ const functionItems = [
         "description": "Search and retrieve information about products available on Amazon, including prices, images, and specifications. This widget only shows images for simplicity.",
         "input": true,
         "images": true,
+        "json": true,
         "used": ["oooh"]
     }
 ]
@@ -71,8 +78,7 @@ const functionItems = [
 
 function Functions(props) {
     return ( 
-        <div id="functions-main" className="page-main">
-            <Section id="functions">
+            <Section id="functions" className="no-container-for-section-page-main">
                 <div id="functions-header">
                     <div>
                         <Cutout id="functions">
@@ -109,7 +115,6 @@ function Functions(props) {
                     <a href="https://www.freepik.com/free-vector/set-twelve-different-clouds-blue-background_1149278.htm#query=cloud%20svg&position=0&from_view=keyword&track=ais">Cloud Images by alliesinteractive</a> on Freepik
                 </div>
             </Section>
-        </div>
      );
 }
 export default Functions;

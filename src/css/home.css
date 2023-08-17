@@ -16,8 +16,9 @@
     font-size: 80px;
 }
 
-.page-main {
+.page-main, section.no-container-for-section-page-main {
     height: 100vh;
+    color: white;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     background-color: black;
