@@ -32,10 +32,10 @@
 
 #function-items-container {
     display: flex;
-    width: 100%;
+    width: calc(100% - 40px);
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     gap: 40px;
 }
 
@@ -48,6 +48,7 @@
     justify-content: space-between;
     align-items: center;
     width: calc(100% - 80px);
+    max-width: 1000px;
     max-height: 146px;
     overflow: hidden;
 }
@@ -237,10 +238,10 @@
     }
 
     #function-items-container {
-        width: calc(100% - 40px);
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: flex-start;
     }
 }
 
