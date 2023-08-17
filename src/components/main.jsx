@@ -71,7 +71,7 @@ function Main() {
     const loadSmallPages = useCallback(() => {
         document.querySelectorAll('#more-header-item, #header-menu-container-more-header-item').forEach(el => el.classList.remove('display-none'))    
         document.querySelectorAll('#functions-header-item, #minigames-header-item').forEach(el => el.classList.add('display-none'))    
-        setActiveIndex(smallPageIndices[pages[activeIndex].name])
+        setActiveIndex(smallPageIndices[pages[activeIndex]?.name])
     }, [activeIndex])
 
 

@@ -16,7 +16,7 @@ function Header(props) {
         let pageIndicesToUse = props.headerSizeState === "big" ? Array.from(new Set(Object.values(bigPageIndices))) : Array.from(new Set(Object.values(smallPageIndices))) 
         let taken = pageIndicesToUse.reduce((result, index) => {
             // console.log(index)
-            return result + props.pages[index].width
+            return result + props?.pages?.[index]?.width
         }, 0)
 
 
@@ -38,8 +38,6 @@ function Header(props) {
         for (let i = 0; i < index; i++) {
             offset += props.pages[i].width
         }
-
-        console.log(offset, props.headerSizeState)
         return offset
     }, [props.activeIndex, props.hoverIndex, props.pages, props.headerSizeState])    
 
@@ -51,10 +49,10 @@ function Header(props) {
             index = props.activeIndex
 
             headerLineBack.current.style.left = calculateHeaderLineOffset() + "px"
-            headerLineBack.current.style.width = props.pages[index].width + "px"
+            headerLineBack.current.style.width = props?.pages?.[index]?.width + "px"
         }
         headerLine.current.style.left = calculateHeaderLineOffset() + "px"
-        headerLine.current.style.width = props.pages[index].width + "px"
+        headerLine.current.style.width = props?.pages?.[index]?.width + "px"
         
         
     }, [props.activeIndex, props.hoverIndex, props.pages, calculateHeaderLineOffset])

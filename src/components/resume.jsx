@@ -1,8 +1,8 @@
 import React from 'react'
 import Section from './section';
-import PDFViewer from './pdfViewer';
 import Cutout from './cutout';
-import resumePDF from "../res/Resume/Resume-Jacob-Tepperman.pdf"
+// import PDFViewer from './pdfViewer';
+// import resumePDF from "../res/Resume/Resume-Jacob-Tepperman.pdf"
 
 function Resume(props) {
     return (         
@@ -12,7 +12,7 @@ function Resume(props) {
                 <Cutout id="resume">
                     <h1 className='page-title'>Resume</h1>
                 </Cutout>
-                <PDFViewer src={resumePDF}/>
+                {/* <PDFViewer src={resumePDF}/> */}
             </div>
         </Section>
         </div>
