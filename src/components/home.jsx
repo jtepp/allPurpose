@@ -6,10 +6,7 @@ import ScrollButton from './scrollButton';
 import '../css/projects.css'
 import Project from './project';
 import { projectScrollWidth, importAll, scrollToNextProject, scrollToPreviousProject } from '../utils';
-import jtLogo from '../res/JT logo.png'
 
-
-export const favicon = jtLogo
 export const icons = importAll(require.context('../res/projects/icons', false, /\.(png|jpe?g|svg|gif)$/))
 export const thumbnails = importAll(require.context('../res/projects/thumbnails', false, /\.(png|jpe?g|svg|gif)$/))
 

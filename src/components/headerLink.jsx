@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { favicon } from './home';
 
 function HeaderLink(props) {
     return ( 
