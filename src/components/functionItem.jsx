@@ -7,6 +7,7 @@ function FunctionItem(props) {
     const input = useRef()
     const [result, setResult] = useState('')
     const [state, setState] = useState(0)
+    const [images, setImages] = useState([])
 
     const startSearch = async () => {
         if (props.item.input && input.current.value.length === 0) {
@@ -15,11 +16,30 @@ function FunctionItem(props) {
         } else {
             setState(1)
             
-            const url = props.item.url.includes('https://') ? props.item.url : `https://allpurpose.netlify.app/.netlify/functions/${props.item.url}${input.current?.value ? input.current?.value : ''}`
+            const url = props.item.url.includes('https://') ? props.item.url : `https://allpurpose.netlify.app/.netlify/functions/${props.item.url}${input.current?.value ? input.current?.value.replace(' ', '%20') : ''}`
             console.log(url)
 
             await fetch(url)
-            .then((res) => res.text()).then(setResult).catch((err) => {
+            .then((res) => {
+                return (props.item.images && !props.item.b64) ? res.json() : res.text()
+            }).then((data) => {
+                console.log(data)
+                if (!props.item.images) {
+                    setResult(data)
+                    return
+                }
+                
+                setImages(
+                    props.item.b64 ?
+                    [<img alt='result' src={`data:image/jpeg;charset=utf-8;base64,${data}`} />]
+                    :
+                    data.images.map((url) => {
+                        return <img alt='result' src={url} className='function-cloud-result-image' />
+                    })
+                
+                )
+            })
+            .catch((err) => {
                 console.warn(err)
                 setResult("Invalid result. Try another query...")
             })
@@ -57,7 +77,7 @@ function FunctionItem(props) {
                 }
             </div>
 
-            <FunctionCloud state={state} result={result} cloud={props.cloud} />
+            <FunctionCloud state={state} result={result} cloud={props.cloud} images={images} />
                 
 
 

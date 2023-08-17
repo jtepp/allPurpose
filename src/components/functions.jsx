@@ -35,10 +35,11 @@ const functionItems = [
     },
     {
         "title": "Quick Google Images",
-        "url": "images?q=",
-        "description": "Retrieve a collection of low-res images from Google, based on specific keywords or search queries.",
+        "url": "images?b64&q=",
+        "description": "Retrieve an image thumbnail from Google Images based on specific keywords or search queries.",
         "input": true,
         "images": true,
+        "b64": true,
         "used": ["rocketeer"]
     },
     {
@@ -100,7 +101,13 @@ function Functions(props) {
                    
                     </div>
                 
+                <div style={{
+                        color: 'white',
+                        float: 'right',
+                        margin: 40
+                    }}>
                     <a href="https://www.freepik.com/free-vector/set-twelve-different-clouds-blue-background_1149278.htm#query=cloud%20svg&position=0&from_view=keyword&track=ais">Cloud Images by alliesinteractive</a> on Freepik
+                </div>
             </Section>
         </div>
      );

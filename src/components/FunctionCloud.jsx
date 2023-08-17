@@ -12,6 +12,11 @@ function FunctionCloud(props) {
             </div>
             <p className="function-cloud-result">
                 { props.result }
+                { props.images.length > 0 ?
+                    <div className="function-cloud-result-image-container">
+                        {props.images}
+                    </div>
+                : null }
             </p>
         </div>
     );

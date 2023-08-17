@@ -154,6 +154,17 @@
     background-color: black;
 }
 
+.function-cloud-result-image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.function-cloud-result-image {
+    width: 100%;
+    object-fit: contain;
+}
+
 @media (min-width: 689px) {
     #functions-description {
         position: absolute;
