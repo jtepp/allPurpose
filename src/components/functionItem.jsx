@@ -70,12 +70,12 @@ function FunctionItem(props) {
                 </div>
             </div>
 
-            <div className="function-item-execute-button">
+            <div className={`function-item-execute-button ${props.item.input ? 'has-input' : ''}`}>
                 <FaArrowCircleRight onClick={() => {
                     startSearch()
             }} style={{
-                    width: '100%',
-                    height: '100%'
+                    minWidth: '100%',
+                    minHeight: '100%'
                 }}/>
                 { props.item.input && 
                     <input type="text" onKeyDown={(e) => {

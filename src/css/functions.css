@@ -32,6 +32,7 @@
 
 #function-items-container {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -54,20 +55,27 @@
 .function-item-execute-button {
     position: relative;
     cursor: pointer;
-    width: 50px;
+    min-width: 150px;
     height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    padding-inline: 20px;
 }
 
+.function-item-execute-button.has-input {
+    top: 20px;
+}
+
+
 .function-item-input {
-    position: absolute;
     display: block;
-    bottom: -40px;
+    /* position: absolute; */
     border-radius: 10px;
-    height: 24px;
+    min-height: 24px;
+    min-width: calc(100% - 20px);
     padding-inline: 8px;
     border: none;
     background-color: white;
@@ -105,7 +113,8 @@
     height: fit-content;
     scale: 1;
     top: 0px;
-    transition: top 400ms ease;
+    left: 0px;
+    transition: top 400ms ease, left 400ms ease;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -118,11 +127,12 @@
 
 
 .function-cloud img {
-    width: 100%;
+    width: 200px;
     height: 140px;
     object-fit: contain;
     object-position: center;
 }
+
 
 .function-cloud-main.cloud-pulsing {
     animation: cloud-pulsing 2000ms ease-in-out infinite;
@@ -193,6 +203,42 @@
 
     #functions-header {
         margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 720px) {
+    .function-item {
+        flex-direction: column;
+        max-height: none;
+        max-width: 200px;
+    }   
+    
+    .function-cloud {
+        flex-direction: row;
+        width: max-content;
+        translate: 120px 0;
+    }
+
+    .function-item-execute-button {
+        margin: 20px 0 10px 0;
+
+        & svg {
+            rotate: 90deg;
+        }
+    }
+
+    .function-item-execute-button.has-input {
+        margin: 20px 0 50px 0;
+    }
+
+    .function-cloud.function-cloud-show-result {
+        top: 0;
+        left: -240px;
+    }
+
+    #function-items-container {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }
 
