@@ -4,7 +4,7 @@ import Section from '../section';
 import CRT from './crt';
 import gameData from '../../res/minigames/gameData.json'
 import Cutout from '../cutout';
-import ReactHTMLParser from 'react-html-parser';
+import parser from 'html-react-parser';
 import { importAll } from '../../utils';
 import Cartridge from './cartridge';
 const gameThumbs = importAll(require.context('../../res/minigames/thumbs', false, /\.(png|jpe?g|svg|gif)$/))
@@ -72,7 +72,7 @@ function Minigames(props) {
                                 <h3 id="game-description">{currentGameIndex === -1 ? "Click on a game cartdrige below to play!" : gameData[currentGameIndex].description}</h3>
                                 <br />
                                 <h2 id='game-controls-heading'>{currentGameIndex === -1 ? "" : "Controls"}</h2>
-                                <h3 id="game-controls">{ReactHTMLParser(currentGameIndex === -1 ? "" : gameData[currentGameIndex].controls)}</h3>
+                                <h3 id="game-controls">{parser(currentGameIndex === -1 ? "" : gameData[currentGameIndex].controls)}</h3>
                             </div>
                             <CRT currentGameIndex={currentGameIndex} resizeState={props.resizeState}
                             bgColor={currentGameIndex === -1 ? "transparent" : gameData[currentGameIndex].bgColor} text={currentGameIndex === -1 ? "Input 3" : gameData[currentGameIndex].title}

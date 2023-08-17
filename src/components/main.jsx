@@ -5,6 +5,7 @@ import Home from './home';
 import Minigames from './minigames/minigames';
 import Contact from './contact';
 import Functions from './functions';
+import Resume from './resume'
 
 const pagesMaster = [
     {name: "Home", path: "/", scroll: '#home-section', width: 60},
@@ -113,6 +114,7 @@ function Main() {
                 hoverIndex={hoverIndex} setHoverIndex={setHoverIndex} resizeState={resizeState} setResizeState={setResizeState}/>} />
                 <Route path="/minigames" element={<Minigames resizeState={resizeState}/>}/>
                 <Route path='/contact' element={<Contact resizeState={resizeState}/>} />
+                <Route path='/resume' element={<Resume resizeState={resizeState}/>} />
                 <Route path='/functions' element={<Functions resizeState={resizeState}/>} />
                 </Routes>
             </Base>

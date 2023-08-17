@@ -61,6 +61,12 @@ function Header(props) {
 
 
     const headerItems = props.pages.map((page, index) => {
+        if (page == undefined)
+        {
+            console.log(false)
+            return
+        }
+
         const id = page.name.toLowerCase()+"-header-item"
 
         if (page.menu) {
@@ -70,7 +76,7 @@ function Header(props) {
                 }} onMouseLeave={() => {
                     props.setHoverIndex(-1)
                 }} key={page.name}>
-                    {subPages[page.name].map((subPage, ) => 
+                    {subPages[page.name].map((subPage) => 
                         <HeaderLink name={subPage.name} path={subPage.path} width={subPage.width} id={id} key={subPage.name}
                         onClick={() => {
                             props.setActiveIndex(index)
