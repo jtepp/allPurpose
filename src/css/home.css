@@ -23,6 +23,9 @@
     scroll-snap-type: y mandatory;
     background-color: black;
 }
+section.no-container-for-section-page-main {
+    margin-top: 20px;
+}
 
 #home {
     /* height: 100vh;
