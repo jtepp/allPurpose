@@ -7,8 +7,7 @@ function HeaderLink(props) {
           () => {
 
             if (props.external) {
-              window.history.replaceState(null, 'Resume-Jacob-Tepperman', props.path)
-              window.history.go()
+              window.history.pushState(props.path)
             }
 
             if (props.scroll && document.querySelector(props.scroll)) 
