@@ -17,13 +17,10 @@ function FunctionItem(props) {
             setState(1)
             
             const url = props.item.url.includes('https://') ? props.item.url : `https://allpurpose.netlify.app/.netlify/functions/${props.item.url}${input.current?.value ? input.current?.value.replace(' ', '%20') : ''}`
-            console.log(url)
-
             await fetch(url)
             .then((res) => {
                 return props.item.json ? res.json() : res.text()
             }).then((data) => {
-                console.log(data)
                 if (props.item.images) {
                     setChildren(
                         props.item.b64 ?
@@ -39,7 +36,6 @@ function FunctionItem(props) {
                 if (props.item.json) {
                     const rows = []
                     Object.entries(props.item.key ? data[props.item.key] : data).forEach(([key, value]) => {
-                        console.log(key, value)
                         rows.push(<tr><th>{key}</th><td>{value}</td></tr>)
                     })
                     const table = <table>

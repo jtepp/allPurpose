@@ -61,7 +61,8 @@ const functionItems = [
         "description": "Gather posts, upvotes, and other data from Reddit subreddits, enabling you to view a subreddit at a glance. This widget only displays the JSON data for the first post for simplicity",
         "input": true,
         "images": false,
-        "json": false,
+        "json": true,
+        "key": 1,
         "used": ["widgit"]
     },
     {
