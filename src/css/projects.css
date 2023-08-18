@@ -280,7 +280,8 @@
 
     #project-description {
         font-size: 16px;
-        overflow-y: visible;
+        overflow-y: scroll;
+        height: 200px;
         height: max-content;
     }
 
