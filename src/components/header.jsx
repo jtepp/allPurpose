@@ -89,7 +89,11 @@ function Header(props) {
 
         if (page.menu) {
             return (
-                <HeaderMenu name={page.name} path={page.path} width={page.width} id={id} onMouseEnter={() => {
+                <HeaderMenu name={page.name} path={page.path} width={page.width} id={id} onClick={() => {
+                    let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
+                    props.setActiveIndex(i)
+                    props.setHoverIndex(-1)
+                }} onMouseEnter={() => {
                     let i = props.headerSizeState === "big" ? index : smallHoverIndices[index]
                     props.setHoverIndex(i)
                 }} onMouseLeave={() => {

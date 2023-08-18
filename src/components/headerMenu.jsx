@@ -14,6 +14,7 @@ function HeaderMenu(props) {
                 <div className="header-menu-title" onMouseDown={() => {
                     console.log(props)
                     if (props.name === "Contact") {
+                        props.onClick()
                         navigate(props.children[0].props.path)
                     }
                 }}>
