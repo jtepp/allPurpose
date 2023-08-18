@@ -67,7 +67,7 @@
     font-size: 20px;
     border-radius: 10px;
     background-color: var(--secondary);
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color var(--transition);
 }
