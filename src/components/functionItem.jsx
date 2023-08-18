@@ -73,10 +73,7 @@ function FunctionItem(props) {
             <div className={`function-item-execute-button ${props.item.input ? 'has-input' : ''}`}>
                 <FaArrowCircleRight onClick={() => {
                     startSearch()
-            }} style={{
-                    minWidth: '100%',
-                    minHeight: '100%'
-                }}/>
+            }} className="function-item-execute-button-image"/>
                 { props.item.input && 
                     <input type="text" onKeyDown={(e) => {
                         if (e.keyCode === 13) {

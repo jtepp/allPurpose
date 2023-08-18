@@ -13,7 +13,7 @@ function FunctionCloud(props) {
                 }
                     <div className="function-cloud-used-images-container">
                         {props.used.map((name) => 
-                            <img src={icons[name]} key={name} className='function-cloud-used-image' alt="" srcset="" />
+                            <img src={icons[name]} key={name} className='function-cloud-used-image' alt="" srcSet="" />
                         )}
                     </div>
             </div>
