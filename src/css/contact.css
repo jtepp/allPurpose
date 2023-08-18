@@ -97,7 +97,14 @@
 
 @media (max-width: 414px) {
     .page-title {
-        width: min-content;
+        font-size: 40px;
+        width: fit-content;
         height: max-content;
+    }
+}
+
+@media (max-width: 495px) {
+    .form-item>*:last-child:not(textarea) {
+        font-size: 11px;
     }
 }
