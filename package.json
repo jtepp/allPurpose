@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build && netlify-lambda build functions",
+        "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
         "serve": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda serve functions",
         "start": "react-scripts start",
         "test": "react-scripts test",
@@ -44,6 +44,9 @@
         "string.prototype.matchall": "^4.0.7",
         "web-vitals": "^2.1.4"
     },
+    "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^4.3.0"
+    },
     "eslintConfig": {
         "extends": [
             "react-app",
@@ -56,7 +59,7 @@
             "not dead",
             "not op_mini all"
         ],
-        "development": [
+        " elopment": [
             "last 1 chrome version",
             "last 1 firefox version",
             "last 1 safari version"
