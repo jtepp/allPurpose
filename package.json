@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build && netlify-lambda build func-src",
-        "serve": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda serve func-src",
+        "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build && netlify-lambda build functions",
+        "serve": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda serve functions",
         "start": "react-scripts start",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
