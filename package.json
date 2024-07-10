@@ -44,9 +44,6 @@
         "string.prototype.matchall": "^4.0.7",
         "web-vitals": "^2.1.4"
     },
-    "devDependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^4.3.0"
-    },
     "eslintConfig": {
         "extends": [
             "react-app",
