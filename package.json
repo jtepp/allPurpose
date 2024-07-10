@@ -1,60 +1,65 @@
 {
-  "name": "allpurpose",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build && netlify-lambda build func-src",
-    "serve": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda serve func-src",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "coinbase": "^2.0.8",
-    "email": "^0.2.6",
-    "encoding": "^0.1.13",
-    "html-react-parser": "^4.2.1",
-    "js-ago": "^1.0.2",
-    "mlb-scores": "^1.0.3",
-    "netlify-lambda": "^2.0.16",
-    "node-fetch": "^2.6.1",
-    "node-html-parser": "^5.3.3",
-    "nodemailer": "^6.4.17",
-    "nodemailer-smtp-transport": "^2.7.4",
-    "openssl": "^2.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
-    "react-pdf": "^7.3.3",
-    "react-router-dom": "^6.11.1",
-    "react-scripts": "5.0.1",
-    "sendmail": "^1.6.1",
-    "string.prototype.matchall": "^4.0.7",
-    "web-vitals": "^2.1.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "allpurpose",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build && netlify-lambda build func-src",
+        "serve": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda serve func-src",
+        "start": "react-scripts start",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@sparticuz/chromium": "113.0.1",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "coinbase": "^2.0.8",
+        "dotenv": "^16.4.5",
+        "email": "^0.2.6",
+        "encoding": "^0.1.13",
+        "html-react-parser": "^4.2.1",
+        "js-ago": "^1.0.2",
+        "mlb-scores": "^1.0.3",
+        "netlify-cli": "^17.33.0",
+        "netlify-lambda": "^2.0.16",
+        "node-fetch": "^2.6.1",
+        "node-html-parser": "^5.3.3",
+        "nodemailer": "^6.4.17",
+        "nodemailer-smtp-transport": "^2.7.4",
+        "openssl": "^2.0.0",
+        "puppeteer": "^22.12.1",
+        "puppeteer-core": "20.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.10.1",
+        "react-pdf": "^7.3.3",
+        "react-router-dom": "^6.11.1",
+        "react-scripts": "5.0.1",
+        "sendmail": "^1.6.1",
+        "string.prototype.matchall": "^4.0.7",
+        "web-vitals": "^2.1.4"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }
