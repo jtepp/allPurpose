@@ -2,6 +2,27 @@ import fetch from "node-fetch";
 import { CookieJar } from "tough-cookie";
 import fetchCookie from "fetch-cookie";
 
+// Helper to fetch HTML with cookies (handles redirects and session state)
+async function fetchWithCookies(url) {
+    const jar = new CookieJar();
+    const fetchWithJar = fetchCookie(fetch, jar);
+
+    const browserHeaders = {
+        "User-Agent":
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate, br",
+        Referer: "https://www.google.com/",
+        "Upgrade-Insecure-Requests": "1",
+    };
+
+    const response = await fetchWithJar(url, {
+        headers: browserHeaders,
+    });
+    return await response.text();
+}
+
 exports.handler = async (event, context) => {
     const API_ENDPOINT =
         "https://www.google.com/search?q=" +
@@ -9,7 +30,7 @@ exports.handler = async (event, context) => {
         "&tbm=isch&safe=active";
     var slyce = 0;
     var offset = 0;
-    if (event.queryStringParameters["offset"] != undefined) {
+    if (event.queryStringParameters["offset"] !== undefined) {
         if (event.queryStringParameters["offset"] < 0) {
             offset = 0;
             slyce = -1;
@@ -17,7 +38,7 @@ exports.handler = async (event, context) => {
     }
 
     //         //give img
-    //     if (event.queryStringParameters["img"]!=undefined)
+    //     if (event.queryStringParameters["img"]!==undefined)
     //   return fetch(API_ENDPOINT, { headers: {} })
     //     .then(response => response.text())
     //     .then(data => {
@@ -29,28 +50,7 @@ exports.handler = async (event, context) => {
     //         })
     //     .catch(error => ({ statusCode: 422, body: String(error) }));
 
-    // Helper to fetch HTML with cookies (handles redirects and session state)
-    async function fetchWithCookies(url) {
-        const jar = new CookieJar();
-        const fetchWithJar = fetchCookie(fetch, jar);
-
-        const browserHeaders = {
-            "User-Agent":
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-            Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.5",
-            "Accept-Encoding": "gzip, deflate, br",
-            Referer: "https://www.google.com/",
-            "Upgrade-Insecure-Requests": "1",
-        };
-
-        const response = await fetchWithJar(url, {
-            headers: browserHeaders,
-        });
-        return await response.text();
-    }
-
-    if (event.queryStringParameters["debug"] != undefined) {
+    if (event.queryStringParameters["debug"] !== undefined) {
         // Debug mode: return raw HTML snippet
         try {
             const html = await fetchWithCookies(API_ENDPOINT);
@@ -76,12 +76,12 @@ exports.handler = async (event, context) => {
             };
         }
     }
-    if (event.queryStringParameters["b64"] != undefined) {
+    if (event.queryStringParameters["b64"] !== undefined) {
         //give b64
         try {
             const data = await fetchWithCookies(API_ENDPOINT);
             const matches = data.match(
-                /(?<=data:image\/jpeg\;base64,).+?(?='|")/g,
+                /(?<=data:image\/jpeg;base64,).+?(?='|")/g,
             );
             if (!matches || matches.length === 0) {
                 return {
@@ -134,7 +134,7 @@ exports.handler = async (event, context) => {
 };
 //repush
 
-// if (event.queryStringParameters["url"] != undefined) {
+// if (event.queryStringParameters["url"] !== undefined) {
 //     //give url
 //     try {
 //         const data = await fetchWithCookies(API_ENDPOINT);
