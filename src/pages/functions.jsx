@@ -61,17 +61,17 @@ const functionItems = [
         images: false,
         used: ["rocketeer", "widgit"],
     },
-    {
-        title: "Subreddit Scraper",
-        url: "reddit?sort=top&limit=1&sub=",
-        description:
-            "Gather posts, upvotes, and other data from Reddit subreddits, enabling you to view a subreddit at a glance. This widget only displays the JSON data for the first post for simplicity",
-        input: true,
-        images: false,
-        json: true,
-        key: 1,
-        used: ["widgit"],
-    },
+    // {
+    //     title: "Subreddit Scraper",
+    //     url: "reddit?sort=top&limit=1&sub=",
+    //     description:
+    //         "Gather posts, upvotes, and other data from Reddit subreddits, enabling you to view a subreddit at a glance. This widget only displays the JSON data for the first post for simplicity",
+    //     input: true,
+    //     images: false,
+    //     json: true,
+    //     key: 1,
+    //     used: ["widgit"],
+    // },
     {
         title: "Amazon Product Search",
         url: "amazon?q=",
