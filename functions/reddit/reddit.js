@@ -1,102 +1,130 @@
-import js_ago from 'js-ago'
-import fetch from "node-fetch"
-
+import js_ago from "js-ago";
+import fetch from "node-fetch";
 
 exports.handler = async (event, context) => {
-    const verify = event.queryStringParameters["verify"] 
-    const offset = event.queryStringParameters["offset"] || 0
-    const limit = event.queryStringParameters["limit"] || 1
-const sub = event.queryStringParameters["sub"]
-const sort = event.queryStringParameters["sort"].replace('!','?').split('?')
-// const firstImg = event.queryStringParameters["firstImg"]
-    const API_ENDPOINT = "https://reddit.com/r/"+sub+"/"+sort[0]+".json?"+sort[1]
-    
+    const verify = event.queryStringParameters["verify"];
+    const offset = event.queryStringParameters["offset"] || 0;
+    const limit = event.queryStringParameters["limit"] || 1;
+    const sub = event.queryStringParameters["sub"];
+    const sort = event.queryStringParameters["sort"]
+        .replace("!", "?")
+        .split("?");
+    // const firstImg = event.queryStringParameters["firstImg"]
+    const API_ENDPOINT =
+        "https://reddit.com/r/" + sub + "/" + sort[0] + ".json?" + sort[1];
+
     return fetch(API_ENDPOINT, { headers: {} })
-    .then(response => response.json())
-    .then(data => {
-        // console.log(firstImg)
-        var posts = []
-        var d = data["data"]
-        if (verify) return ({ //checks if subreddit returns more than 0 children
-            statusCode: 200,
-            headers: {
-              "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-              "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-            },
-            body: `${d["dist"] != 0}`
-        })
-        var r = d["children"]
-        var fImg = undefined;
-            for (let i = offset; i<d["dist"]; i++){
-                if (posts.length >= limit && fImg != undefined) {
-                    posts.unshift(fImg)
-                    return ({
+        .then((response) => response.json())
+        .then((data) => {
+            // console.log(firstImg)
+            var posts = [];
+            var d = data["data"];
+            if (verify)
+                return {
+                    //checks if subreddit returns more than 0 children
                     statusCode: 200,
                     headers: {
-                        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-                        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+                        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                        "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
                     },
-                    body: JSON.stringify(posts)
-                })}
+                    body: `${d["dist"] != 0}`,
+                };
+            var r = d["children"];
+            var fImg = undefined;
+            for (let i = offset; i < d["dist"]; i++) {
+                if (posts.length >= limit && fImg != undefined) {
+                    posts.unshift(fImg);
+                    return {
+                        statusCode: 200,
+                        headers: {
+                            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                            "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+                        },
+                        body: JSON.stringify(posts),
+                    };
+                }
 
-               const p = r[i]["data"]
-            //     if (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))
-            //     {
-                    
-            //     }
-            //    var col;
+                const p = r[i]["data"];
+                //     if (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))
+                //     {
 
+                //     }
+                //    var col;
 
-            //         col = "#000000"
+                //         col = "#000000"
 
-           
+                const post = new Post(
+                    p.title,
+                    p["author"],
+                    p.subreddit,
+                    String(p.score),
+                    p.selftext,
+                    p.url,
+                    String(
+                        p.url.includes(".jpg") ||
+                            p.url.includes(".png") ||
+                            p.url.includes(".gif"),
+                    ),
+                    "://reddit.com" + p.permalink,
+                    js_ago(p.created_utc),
+                    p.thumbnail,
+                );
 
-               const post = new Post(p.title, p["author"], p.subreddit, String(p.score), p.selftext, p.url, String(p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')), "://reddit.com"+p.permalink, js_ago(p.created_utc), p.thumbnail)
-               
-                if ((p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif')) && fImg == undefined)
-                    fImg = post
-               if(!r.pinned) posts.push(post)
-            //    if (firstImg && (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))) return ({
-            //     statusCode: 200,
-            //     body: JSON.stringify([post])
-            // })
-            if(i == d["dist"]-1) return ({
+                if (
+                    (p.url.includes(".jpg") ||
+                        p.url.includes(".png") ||
+                        p.url.includes(".gif")) &&
+                    fImg == undefined
+                )
+                    fImg = post;
+                if (!r.pinned) posts.push(post);
+                //    if (firstImg && (p.url.includes('.jpg') || p.url.includes('.png') || p.url.includes('.gif'))) return ({
+                //     statusCode: 200,
+                //     body: JSON.stringify([post])
+                // })
+                if (i == d["dist"] - 1)
+                    return {
+                        statusCode: 200,
+                        headers: {
+                            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                            "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+                        },
+                        body: JSON.stringify([fImg, post]),
+                    };
+            }
+            return {
                 statusCode: 200,
                 headers: {
-                    "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-                    "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+                    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                    "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
                 },
-                body: JSON.stringify([fImg,post])
-            }) 
-           }
-        return ({
-            statusCode: 200,
-            headers: {
-                "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-                "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-            },
-            body: JSON.stringify(posts)
+                body: JSON.stringify(posts),
+            };
         })
-    }
-            )
-    .catch(error => ({ statusCode: 422, body: String(error) }));
+        .catch((error) => ({
+            statusCode: 422,
+            body: String(error),
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+            },
+        }));
 };
 
 class Post {
-    constructor(title, author, sub, ups, text, url, image, link, time, thumb){
-        this.title = title
-        this.author = author
-        this.sub = sub
-        this.ups = ups
-        this.text = text
-        this.url = url
-        this.image = image
-        this.link = link
-        this.short = "u/"+author
-        this.long = "r/"+sub+" • u/"+author
-        this.time = time
-        this.hasThumb = String(thumb != "self" && thumb != "default")
-        this.thumb = thumb
+    constructor(title, author, sub, ups, text, url, image, link, time, thumb) {
+        this.title = title;
+        this.author = author;
+        this.sub = sub;
+        this.ups = ups;
+        this.text = text;
+        this.url = url;
+        this.image = image;
+        this.link = link;
+        this.short = "u/" + author;
+        this.long = "r/" + sub + " • u/" + author;
+        this.time = time;
+        this.hasThumb = String(thumb != "self" && thumb != "default");
+        this.thumb = thumb;
     }
-
 }
