@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "../css/base.css";
 import Header from "./header";
 import { randomElement } from "../utils";

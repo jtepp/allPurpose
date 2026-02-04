@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "../css/minigames.css";
 import Section from "../components/section";
 import CRT from "../components/minigames/crt";

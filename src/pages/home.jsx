@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import parser from "html-react-parser";
 import Section from "../components/section";
 import Cutout from "../components/cutout";

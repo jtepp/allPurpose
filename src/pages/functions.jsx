@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "../components/section";
 import Cutout from "../components/cutout";
 import "../css/functions.css";

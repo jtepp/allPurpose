@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { icons, thumbnails } from "../pages/home";
 import { scrollToIndex } from "../utils";
 
