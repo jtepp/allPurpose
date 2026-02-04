@@ -1,6 +1,15 @@
-# allPurpose
-> The repository for most of my backend
+# Jacob Tepperman's Portfolio Website
 
-allPurpose is one of my greatests creations. It's my all-purpose API, a site which provides endpoints for tons of my other projects.
+> formerly known as allpurpose, or allpurpose.netlify.app, now at jacobtepperman.com
 
-[allPurpose](allpurpose.netlify.com) is also hosted on [my website](jacobtepperman.com), and you can see some of its functions in action [here](jacobtepperman.com/functions).
+This is the source code for my personal portfolio website, showcasing my projects, some minigames and serverless functions I've built, my resume, and ways to contact me.
+
+## Important Files
+
+### main.jsx
+
+- This component contains the browser router as well as some global state management for the fancy header component.
+
+### base.jsx
+
+- This component is the base layout for all routes, containing the header and the routes' children. It also contains the logic for the interactive color changing system.
