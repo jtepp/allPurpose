@@ -4,7 +4,7 @@ import Cutout from "../components/cutout";
 import "../css/functions.css";
 import ReadMore from "../components/readMore";
 import FunctionItem from "../components/functionItem";
-import { importAll, randomElement } from "../utils";
+import { importAll } from "../utils";
 
 export const clouds = importAll(
     require.context("../res/clouds", false, /\.(png)$/),
@@ -107,11 +107,15 @@ function Functions(props) {
             </div>
             <div id="functions-content">
                 <div id="function-items-container">
-                    {functionItems.map((item) => (
+                    {functionItems.map((item, index) => (
                         <FunctionItem
                             key={item.title}
                             item={item}
-                            cloud={randomElement(Object.values(clouds))}
+                            cloud={
+                                Object.values(clouds)[
+                                    index % Object.values(clouds).length
+                                ]
+                            }
                         />
                     ))}
                 </div>
