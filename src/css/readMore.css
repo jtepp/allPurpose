@@ -1,0 +1,18 @@
+.read-more-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: gap 100ms ease;
+}
+
+.read-more-container.use-gap {
+    gap: 10px;
+}
+
+.read-more-toggle {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--secondary);
+    transition: color var(--color-transition-time) ease;
+}
+
