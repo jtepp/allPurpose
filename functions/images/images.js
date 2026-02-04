@@ -1,4 +1,5 @@
-import fetch from "node-fetch";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 exports.handler = async (event, context) => {
     const API_ENDPOINT =
@@ -27,79 +28,133 @@ exports.handler = async (event, context) => {
     //         })
     //     .catch(error => ({ statusCode: 422, body: String(error) }));
 
-    const browserHeaders = {
-        "User-Agent":
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
-        Referer: "https://www.google.com/",
-    };
+    // Helper to fetch HTML with a real browser (handles cookies, JS, redirects)
+    async function fetchWithBrowser(url) {
+        const browser = await puppeteer.launch({
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath(),
+            headless: chromium.headless,
+        });
+        try {
+            const page = await browser.newPage();
+            await page.setUserAgent(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+            );
+            await page.goto(url, { waitUntil: "networkidle2" });
+            const html = await page.content();
+            return html;
+        } finally {
+            await browser.close();
+        }
+    }
+
+    if (event.queryStringParameters["debug"] != undefined) {
+        // Debug mode: return raw HTML snippet
+        try {
+            const html = await fetchWithBrowser(API_ENDPOINT);
+            return {
+                statusCode: 200,
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": true,
+                },
+                body: JSON.stringify({
+                    snippet: html.slice(0, 500),
+                    length: html.length,
+                }),
+            };
+        } catch (error) {
+            return {
+                statusCode: 422,
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": true,
+                },
+                body: String(error),
+            };
+        }
+    }
 
     if (event.queryStringParameters["url"] != undefined) {
         //give url
-        return fetch(API_ENDPOINT, { headers: browserHeaders })
-            .then((response) => response.text())
-            .then((data) => {
-                offset %= [
-                    ...data.match(/(?<=<img.+?alt.+?src=").+?(?='|")/g),
-                ][0].slice(slyce)[offset].length;
+        try {
+            const data = await fetchWithBrowser(API_ENDPOINT);
+            const matches = data.match(/(?<=<img.+?alt.+?src=").+?(?='|")/g);
+            if (!matches || matches.length === 0) {
                 return {
-                    statusCode: 200,
+                    statusCode: 404,
                     headers: {
-                        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-                        "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Credentials": true,
                     },
-                    body: [
-                        ...data.match(/(?<=<img.+?alt.+?src=").+?(?='|")/g),
-                    ][0].slice(slyce)[offset],
+                    body: "No images found",
                 };
-            })
-            .catch((error) => ({
+            }
+            offset %= matches.length;
+            return {
+                statusCode: 200,
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": true,
+                },
+                body: matches[offset],
+            };
+        } catch (error) {
+            return {
                 statusCode: 422,
                 headers: {
-                    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-                    "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": true,
                 },
                 body: String(error),
-            }));
+            };
+        }
     } else if (event.queryStringParameters["b64"] != undefined) {
         //give b64
-        return fetch(
-            "https://www.google.com/search?q=" +
-                event.queryStringParameters["q"],
-            { headers: browserHeaders },
-        )
-            .then((response) => response.text())
-            .then((data) => {
-                offset %= [
-                    ...data.match(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g),
-                ].length;
+        try {
+            const data = await fetchWithBrowser(
+                "https://www.google.com/search?q=" +
+                    event.queryStringParameters["q"],
+            );
+            const matches = data.match(
+                /(?<=data:image\/jpeg\;base64,).+?(?='|")/g,
+            );
+            if (!matches || matches.length === 0) {
                 return {
-                    statusCode: 200,
+                    statusCode: 404,
                     headers: {
-                        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-                        "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Credentials": true,
                     },
-                    body: [
-                        ...data.match(
-                            /(?<=data:image\/jpeg\;base64,).+?(?='|")/g,
-                        ),
-                    ]
-                        .slice(slyce)
-                        [offset][0].split("\\x3d")
-                        .join("")
-                        .split("\\")
-                        .join(""),
+                    body: "No base64 images found",
                 };
-            })
-            .catch((error) => ({
+            }
+            offset %= matches.length;
+            const cleanedB64 = matches
+                .slice(slyce)
+                [offset].split("\\x3d")
+                .join("")
+                .split("\\")
+                .join("");
+            return {
+                statusCode: 200,
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": true,
+                },
+                body: cleanedB64,
+            };
+        } catch (error) {
+            return {
                 statusCode: 422,
                 headers: {
-                    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-                    "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": true,
                 },
                 body: String(error),
-            }));
+            };
+        }
     } else {
         return {
             statusCode: 422,
