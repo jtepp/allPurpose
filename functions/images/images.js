@@ -27,13 +27,21 @@ exports.handler = async (event, context) => {
     //         })
     //     .catch(error => ({ statusCode: 422, body: String(error) }));
 
-    if (event.queryStringParameters["url"] != undefined)
+    const browserHeaders = {
+        "User-Agent":
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        Referer: "https://www.google.com/",
+    };
+
+    if (event.queryStringParameters["url"] != undefined) {
         //give url
-        return fetch(API_ENDPOINT, { headers: {} })
+        return fetch(API_ENDPOINT, { headers: browserHeaders })
             .then((response) => response.text())
             .then((data) => {
                 offset %= [
-                    ...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?='|")/g),
+                    ...data.match(/(?<=<img.+?alt.+?src=").+?(?='|")/g),
                 ][0].slice(slyce)[offset].length;
                 return {
                     statusCode: 200,
@@ -42,7 +50,7 @@ exports.handler = async (event, context) => {
                         "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
                     },
                     body: [
-                        ...data.matchAll(/(?<=<img.+?alt.+?src=").+?(?='|")/g),
+                        ...data.match(/(?<=<img.+?alt.+?src=").+?(?='|")/g),
                     ][0].slice(slyce)[offset],
                 };
             })
@@ -54,19 +62,17 @@ exports.handler = async (event, context) => {
                 },
                 body: String(error),
             }));
-    else if (event.queryStringParameters["b64"] != undefined)
+    } else if (event.queryStringParameters["b64"] != undefined) {
         //give b64
         return fetch(
             "https://www.google.com/search?q=" +
                 event.queryStringParameters["q"],
-            { headers: {} },
+            { headers: browserHeaders },
         )
             .then((response) => response.text())
             .then((data) => {
                 offset %= [
-                    ...data.matchAll(
-                        /(?<=data:image\/jpeg\;base64,).+?(?='|")/g,
-                    ),
+                    ...data.match(/(?<=data:image\/jpeg\;base64,).+?(?='|")/g),
                 ].length;
                 return {
                     statusCode: 200,
@@ -75,7 +81,7 @@ exports.handler = async (event, context) => {
                         "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
                     },
                     body: [
-                        ...data.matchAll(
+                        ...data.match(
                             /(?<=data:image\/jpeg\;base64,).+?(?='|")/g,
                         ),
                     ]
@@ -94,5 +100,15 @@ exports.handler = async (event, context) => {
                 },
                 body: String(error),
             }));
+    } else {
+        return {
+            statusCode: 422,
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+            },
+            body: "Please specify output as ?b64 or ?url",
+        };
+    }
 };
 //repush
