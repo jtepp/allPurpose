@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
         .split("?");
     // const firstImg = event.queryStringParameters["firstImg"]
     const API_ENDPOINT =
-        "https://reddit.com/r/" + sub + "/" + sort[0] + ".json?" + sort[1];
+        "https://reddit.com/r/" + sub + "/" + sort[0] + ".json?" + sort?.[1];
 
     return fetch(API_ENDPOINT, { headers: {} })
         .then((response) => response.json())
