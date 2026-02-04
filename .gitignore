@@ -9,3 +9,6 @@ yarn-error.log
 
 //Ignore lambda functions build output
 /functions
+.env
+/.netlify
+/build
