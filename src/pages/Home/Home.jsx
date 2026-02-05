@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import parser from "html-react-parser";
-import Section from "../components/Section";
-import Cutout from "../components/Cutout";
-import ScrollButton from "../components/ScrollButton";
-import "../css/projects.css";
-import ProjectCard from "../components/ProjectCard";
+import Section from "../../components/Section/Section";
+import Cutout from "../../components/Cutout/Cutout";
+import ScrollButton from "../../components/ScrollButton/ScrollButton";
+import "../../css/projects.css";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import {
     projectScrollWidth,
     scrollToNextProject,
     scrollToPreviousProject,
-} from "../utils";
-import { useAppContext } from "../components/AppProvider";
-import useWindowSize from "../hooks/useWindowSize";
-import { projectsData } from "../data/projects";
+} from "../../utils";
+import { useAppContext } from "../../components/AppProvider/AppProvider";
+import useWindowSize from "../../hooks/useWindowSize";
+import { projectsData } from "../../data/projects";
 
 function Home() {
     const { setActiveIndex } = useAppContext();

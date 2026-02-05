@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import "../css/minigames.css";
-import Section from "../components/Section";
-import Crt from "../components/minigames/Crt";
-import Cutout from "../components/Cutout";
+import "../../css/minigames.css";
+import Section from "../../components/Section/Section";
+import Crt from "../../components/Minigames/Crt/Crt";
+import Cutout from "../../components/Cutout/Cutout";
 import parser from "html-react-parser";
-import Cartridge from "../components/minigames/Cartridge";
-import { minigamesData } from "../data/minigames";
-import useWindowSize from "../hooks/useWindowSize";
+import Cartridge from "../../components/Minigames/Cartridge/Cartridge";
+import { minigamesData } from "../../data/minigames";
+import useWindowSize from "../../hooks/useWindowSize";
 
 function Minigames(props) {
     const [currentGameIndex, setCurrentGameIndex] = useState(-1);

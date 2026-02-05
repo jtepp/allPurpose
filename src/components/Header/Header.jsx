@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useRef } from "react";
-import HeaderLink from "./HeaderLink.jsx";
-import Cutout from "./Cutout.jsx";
-import "../css/header.css";
-import HeaderMenu from "./HeaderMenu.jsx";
+import HeaderLink from "../HeaderLink/HeaderLink.jsx";
+import Cutout from "../Cutout/Cutout.jsx";
+import "../../css/header.css";
+import HeaderMenu from "../HeaderMenu/HeaderMenu.jsx";
 import {
     desktopNavItemIndices,
     smallHoverIndices,
     mobileNavItemIndices,
     subPages,
     navItems,
-} from "../data/navigation.js";
+} from "../../data/navigation.js";
 import { useLocation } from "react-router-dom";
-import { getCurrentPageName } from "../utils.js";
-import { useAppContext } from "./AppProvider.jsx";
-import useWindowSize from "../hooks/useWindowSize.js";
+import { getCurrentPageName } from "../../utils.js";
+import { useAppContext } from "../AppProvider/AppProvider.jsx";
+import useWindowSize from "../../hooks/useWindowSize.js";
 
 function Header() {
     const {

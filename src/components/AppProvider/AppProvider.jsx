@@ -10,8 +10,8 @@ import {
     desktopNavItemIndices,
     mobileNavItemIndices,
     navItems,
-} from "../data/navigation";
-import useWindowSize from "../hooks/useWindowSize";
+} from "../../data/navigation";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const AppContext = createContext();
 

@@ -1,9 +1,9 @@
-import Section from "../components/Section";
-import Cutout from "../components/Cutout";
-import "../css/functions.css";
-import ReadMore from "../components/ReadMore";
-import FunctionItem from "../components/FunctionItem";
-import { functionsData } from "../data/functions";
+import Section from "../../components/Section/Section";
+import Cutout from "../../components/Cutout/Cutout";
+import "../../css/functions.css";
+import ReadMore from "../../components/ReadMore/ReadMore";
+import FunctionItem from "../../components/FunctionItem/FunctionItem";
+import { functionsData } from "../../data/functions";
 
 const numClouds = 12;
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { scrollToIndex } from "../utils";
+import { scrollToIndex } from "../../utils";
 
 function ProjectCard({ index, currentProjectIndex, project }) {
     const container = useRef(null);

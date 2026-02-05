@@ -1,4 +1,4 @@
-import "../../css/cartridge.css";
+import "../../../css/cartridge.css";
 
 function Cartridge({ onClick, index, className, img, title }) {
     return (

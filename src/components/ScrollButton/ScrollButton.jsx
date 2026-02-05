@@ -1,4 +1,4 @@
-import roundedChevronDown from "../assets/rounded-chevron-down.png";
+import roundedChevronDown from "../../assets/rounded-chevron-down.png";
 
 function ScrollButton({ target }) {
     return (

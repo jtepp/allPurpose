@@ -1,4 +1,4 @@
-import "../css/home.css";
+import "../../css/home.css";
 
 function Section({ id, className, onScroll, children }) {
     return (

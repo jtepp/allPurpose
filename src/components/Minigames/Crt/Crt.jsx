@@ -1,5 +1,5 @@
-import "../../css/crt.css";
-import CRTborder from "../../assets/minigames/crt-border.png";
+import "../../../css/crt.css";
+import CRTborder from "../../../assets/minigames/crt-border.png";
 
 function Crt({ bgColor, text, onClick, children }) {
     return (

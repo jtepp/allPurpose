@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import "../css/base.css";
-import Header from "./Header";
-import { setRandomColor } from "../utils";
+import "../..//css/base.css";
+import Header from "../Header/Header";
+import { setRandomColor } from "../../utils";
 
 // layout
 function BaseLayout({ children }) {

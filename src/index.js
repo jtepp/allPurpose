@@ -3,13 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./css/index.css";
 import "./css/fonts.css";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BaseLayout from "./components/BaseLayout";
-import Functions from "./pages/Functions";
-import Contact from "./pages/Contact";
-import Minigames from "./pages/Minigames";
-import AppProvider from "./components/AppProvider";
+import BaseLayout from "./components/BaseLayout/BaseLayout";
+import Functions from "./pages/Functions/Functions";
+import Contact from "./pages/Contact/Contact";
+import Minigames from "./pages/Minigames/Minigames";
+import AppProvider from "./components/AppProvider/AppProvider";
 
 function Root() {
     return (

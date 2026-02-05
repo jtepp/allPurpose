@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../css/readMore.css";
-import "../css/collapsible.css";
+import "../../css/readMore.css";
+import "../../css/collapsible.css";
 
 function ReadMore({ id, title, hiddenText, hoverText, show }) {
     const [open, setOpen] = useState(false);

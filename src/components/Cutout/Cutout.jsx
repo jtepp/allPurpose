@@ -1,4 +1,4 @@
-import "../css/cutout.css";
+import "../../css/cutout.css";
 import { useCallback, useEffect, useRef } from "react";
 
 function Cutout({

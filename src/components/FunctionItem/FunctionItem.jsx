@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
-import FunctionCloud from "./FunctionCloud";
-import { temporaryClass } from "../utils";
+import FunctionCloud from "../FunctionCloud/FunctionCloud";
+import { temporaryClass } from "../../utils";
 
 function FunctionItem({ cloudSrc, functionData }) {
     const input = useRef();

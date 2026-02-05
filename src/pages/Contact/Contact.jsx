@@ -1,8 +1,8 @@
-import Section from "../components/Section";
-import "../css/contact.css";
-import Cutout from "../components/Cutout";
+import Section from "../../components/Section/Section";
+import "../../css/contact.css";
+import Cutout from "../../components/Cutout/Cutout";
 
-function Contact(props) {
+function Contact() {
     return (
         <div id="contacts-main" className="page-main">
             <Section id="contact">
