@@ -18,7 +18,7 @@ function BaseLayout({ children }) {
     return (
         <div id="base">
             <Header />
-            <div id="content">{children}</div>
+            <main id="content">{children}</main>
         </div>
     );
 }
