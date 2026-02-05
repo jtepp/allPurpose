@@ -1,4 +1,3 @@
-import React from "react";
 import { BiLoader } from "react-icons/bi";
 import { icons } from "../pages/home";
 
