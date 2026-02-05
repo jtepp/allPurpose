@@ -2,34 +2,34 @@ import { useCallback, useEffect, useState } from "react";
 import "../css/minigames.css";
 import Section from "../components/Section";
 import Crt from "../components/minigames/Crt";
-import gameData from "../assets/minigames/gameData.json";
 import Cutout from "../components/Cutout";
 import parser from "html-react-parser";
-import { importAll } from "../utils";
 import Cartridge from "../components/minigames/Cartridge";
-const gameThumbs = importAll(
-    require.context(
-        "../assets/minigames/thumbs",
-        false,
-        /\.(png|jpe?g|svg|gif)$/,
-    ),
-);
+import { minigames } from "../data/minigames";
 
 function Minigames(props) {
     const [currentGameIndex, setCurrentGameIndex] = useState(-1);
+
+    const getPadFactor = useCallback((height, width) => {
+        if (height === 600) {
+            return 0.18;
+        } else if (width === 600) {
+            return 0.12;
+        } else {
+            return 0.15;
+        }
+    }, []);
 
     const resizeIframe = useCallback(() => {
         const iframe = document.querySelector("#game-iframe");
         const cont = document.querySelector("#crt-content");
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
         const i = currentGameIndex === -1 ? 0 : currentGameIndex;
-        const padFactor =
-            gameData[i].height === 600
-                ? 0.18
-                : gameData[i].width === 600
-                  ? 0.12
-                  : 0.15;
-        const padding = 2 * (padFactor * cont.offsetWidth) + 80;
+        const padding =
+            2 *
+                (getPadFactor(minigames[i].width, minigames[i].height) *
+                    cont.offsetWidth) +
+            80;
         // console.log(padding)
         // scale the iframe down so that the longest dimension fits in the container
         // calculate a ratio to use with css scaling
@@ -47,7 +47,7 @@ function Minigames(props) {
         document
             .querySelector(":root")
             .style.setProperty("--crt-width", `${cont.offsetWidth}px`);
-    }, [currentGameIndex]);
+    }, [currentGameIndex, getPadFactor]);
 
     // useEffect(()=> {
     //     changeGame(0)
@@ -72,7 +72,7 @@ function Minigames(props) {
         setCurrentGameIndex(index);
     };
 
-    const cartridges = gameData.map((game, index) => {
+    const cartridges = minigames.map((game, index) => {
         return (
             <Cartridge
                 key={game.title}
@@ -80,7 +80,7 @@ function Minigames(props) {
                 onClick={() => {
                     changeGame(index);
                 }}
-                img={gameThumbs[game.img]}
+                img={`/images/minigame-thumbnails/${game.img}.png`}
                 title={game.short || game.title}
             />
         );
@@ -96,13 +96,13 @@ function Minigames(props) {
                                 <h1 id="game-title">
                                     {currentGameIndex === -1
                                         ? "Minigames"
-                                        : gameData[currentGameIndex].title}
+                                        : minigames[currentGameIndex].title}
                                 </h1>
                             </Cutout>
                             <h3 id="game-description">
                                 {currentGameIndex === -1
                                     ? "Click on a game cartdrige below to play!"
-                                    : gameData[currentGameIndex].description}
+                                    : minigames[currentGameIndex].description}
                             </h3>
                             <br />
                             <h2 id="game-controls-heading">
@@ -112,7 +112,7 @@ function Minigames(props) {
                                 {parser(
                                     currentGameIndex === -1
                                         ? ""
-                                        : gameData[currentGameIndex].controls,
+                                        : minigames[currentGameIndex].controls,
                                 )}
                             </h3>
                         </div>
@@ -122,15 +122,15 @@ function Minigames(props) {
                             bgColor={
                                 currentGameIndex === -1
                                     ? "transparent"
-                                    : gameData[currentGameIndex].bgColor
+                                    : minigames[currentGameIndex].bgColor
                             }
                             text={
                                 currentGameIndex === -1
                                     ? "Input 3"
-                                    : gameData[currentGameIndex].title
+                                    : minigames[currentGameIndex].title
                             }
                             onClick={() => {
-                                // changeGame((currentGameIndex + 1) % gameData.length)
+                                // changeGame((currentGameIndex + 1) % minigames.length)
                             }}
                         >
                             <iframe
@@ -139,17 +139,17 @@ function Minigames(props) {
                                 src={
                                     currentGameIndex === -1
                                         ? ""
-                                        : `https://www.khanacademy.org/computer-programming${gameData[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`
+                                        : `https://www.khanacademy.org/computer-programming${minigames[currentGameIndex].url}embedded?editor=no&buttons=no&author=no&embed=yes`
                                 }
                                 width={
                                     currentGameIndex === -1
                                         ? 0
-                                        : gameData[currentGameIndex].width
+                                        : minigames[currentGameIndex].width
                                 }
                                 height={
                                     currentGameIndex === -1
                                         ? 0
-                                        : gameData[currentGameIndex].height
+                                        : minigames[currentGameIndex].height
                                 }
                                 frameBorder="0"
                                 scrolling="no"
@@ -158,11 +158,12 @@ function Minigames(props) {
                                     minWidth:
                                         currentGameIndex === -1
                                             ? "100%"
-                                            : gameData[currentGameIndex].width,
+                                            : minigames[currentGameIndex].width,
                                     minHeight:
                                         currentGameIndex === -1
                                             ? "100%"
-                                            : gameData[currentGameIndex].height,
+                                            : minigames[currentGameIndex]
+                                                  .height,
                                 }}
                             />
                         </Crt>

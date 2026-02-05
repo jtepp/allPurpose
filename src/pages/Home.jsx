@@ -4,7 +4,7 @@ import Section from "../components/Section";
 import Cutout from "../components/Cutout";
 import ScrollButton from "../components/ScrollButton";
 import "../css/projects.css";
-import Project from "../components/Project";
+import ProjectCard from "../components/ProjectCard";
 import {
     projectScrollWidth,
     importAll,
@@ -94,7 +94,7 @@ function Home(props) {
 
     const projects = data.map((project, index) => {
         return (
-            <Project
+            <ProjectCard
                 key={project.title}
                 index={index}
                 currentProjectIndex={currentProjectIndex}
