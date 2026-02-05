@@ -5,56 +5,11 @@ import Home from "../pages/home";
 import Minigames from "../pages/minigames";
 import Contact from "../pages/contact";
 import Functions from "../pages/functions";
-import resumePDF from "../assets/Resume/Resume-Jacob-Tepperman.pdf";
-
-const pages = [
-    { name: "Home", path: "/", scroll: "#home-section", width: 60 },
-    {
-        name: "Projects",
-        path: "/#projects-section",
-        scroll: "#projects-section",
-        width: 60,
-    },
-    { name: "Minigames", path: "/minigames", width: 80 },
-    { name: "Functions", path: "/functions", width: 72 },
-    { name: "Contact", path: "/contact", width: 74, menu: true },
-    { name: "More", path: "", width: 54, menu: true },
-];
-
-export const smallPageIndices = {
-    Home: 0,
-    Projects: 1,
-    Contact: 2,
-    Functions: 3,
-    Minigames: 3,
-};
-
-export const bigPageIndices = {
-    Home: 0,
-    Projects: 1,
-    Minigames: 2,
-    Functions: 3,
-    Contact: 4,
-};
-
-export const smallHoverIndices = {
-    0: 0,
-    1: 1,
-    4: 2,
-    5: 3,
-};
-
-export const subPages = {
-    Contact: [
-        { name: "Form", path: "/contact", width: 74 },
-        { name: "Resume", path: resumePDF, external: true, width: 74 },
-        { name: "Email", path: "mailto:jtepp+site@icloud.com", width: 74 },
-    ],
-    More: [
-        { name: "Minigames", path: "/minigames", width: 80 },
-        { name: "Functions", path: "/functions", width: 72 },
-    ],
-};
+import {
+    desktopNavItemIndices,
+    navItems,
+    mobileNavItemIndices,
+} from "../data/navigation";
 
 // router + states
 function Main() {
@@ -73,29 +28,29 @@ function Main() {
         }
     }, [resizeState, headerSizeState]);
 
-    const loadBigPages = useCallback(() => {
-        setActiveIndex(bigPageIndices[pages[activeIndex]?.name]);
+    const loadDesktopNavItems = useCallback(() => {
+        setActiveIndex(desktopNavItemIndices[navItems[activeIndex]?.name]);
     }, [activeIndex]);
 
-    const loadSmallPages = useCallback(() => {
+    const loadMobileNavItems = useCallback(() => {
         let temp = activeIndex;
         if (temp === 2 || temp === 3) temp += 2;
 
-        setActiveIndex(smallPageIndices[pages[temp]?.name]);
+        setActiveIndex(mobileNavItemIndices[navItems[temp]?.name]);
     }, [activeIndex]);
 
     useEffect(() => {
         if (headerSizeState === "big") {
-            loadBigPages();
+            loadDesktopNavItems();
         } else if (headerSizeState === "small") {
-            loadSmallPages();
+            loadMobileNavItems();
         }
-    }, [headerSizeState, loadBigPages, loadSmallPages]);
+    }, [headerSizeState, loadDesktopNavItems, loadMobileNavItems]);
 
     const initialIndex = useCallback(() => {
         const path = window.location.pathname;
-        for (let i = 0; i < pages.length; i++) {
-            if (pages[i].path === path) {
+        for (let i = 0; i < navItems.length; i++) {
+            if (navItems[i].path === path) {
                 return i;
             }
         }
@@ -114,7 +69,7 @@ function Main() {
     return (
         <BrowserRouter>
             <BaseLayout
-                pages={pages}
+                pages={navItems}
                 activeIndex={activeIndex}
                 setActiveIndex={setActiveIndex}
                 headerSizeState={headerSizeState}
