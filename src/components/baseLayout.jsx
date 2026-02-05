@@ -14,7 +14,7 @@ const colorPairs = [
 ];
 
 // layout
-function Base(props) {
+function BaseLayout(props) {
     function setRandomColor() {
         // sets --primary and --secondary
         Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
@@ -58,4 +58,4 @@ function Base(props) {
     );
 }
 
-export default Base;
+export default BaseLayout;

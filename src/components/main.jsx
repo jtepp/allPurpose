@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Base from "./base";
+import BaseLayout from "./baseLayout";
 import Home from "../pages/home";
 import Minigames from "../pages/minigames";
 import Contact from "../pages/contact";
@@ -113,7 +113,7 @@ function Main() {
 
     return (
         <BrowserRouter>
-            <Base
+            <BaseLayout
                 pages={pages}
                 activeIndex={activeIndex}
                 setActiveIndex={setActiveIndex}
@@ -150,7 +150,7 @@ function Main() {
                         element={<Functions resizeState={resizeState} />}
                     />
                 </Routes>
-            </Base>
+            </BaseLayout>
         </BrowserRouter>
     );
 }
