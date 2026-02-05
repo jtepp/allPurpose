@@ -8,15 +8,6 @@ export function constrain(value, max, min) {
     return Math.max(Math.min(value, max), min);
 }
 
-export function importAll(r) {
-    let images = {};
-    r.keys().forEach((item, index) => {
-        images[item.replace("./", "").replace(/\.(png|jpe?g|svg|gif)$/, "")] =
-            r(item);
-    });
-    return images;
-}
-
 export async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }

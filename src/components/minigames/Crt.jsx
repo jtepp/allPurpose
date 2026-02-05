@@ -1,21 +1,21 @@
 import "../../css/crt.css";
 import CRTborder from "../../assets/minigames/crt-border.png";
 
-function Crt(props) {
+function Crt({ bgColor, text, onClick, children }) {
     return (
-        <div id="crt-container" onClick={props.onClick}>
+        <div id="crt-container" onClick={onClick}>
             <div id="crt-static" className="crt-internal"></div>
             <div
                 id="crt-content"
                 className="crt-internal"
                 style={{
-                    backgroundColor: props.bgColor,
+                    backgroundColor: bgColor,
                 }}
             >
-                {props.children}
+                {children}
             </div>
             <div id="crt-text" className="crt-internal">
-                {props.text}
+                {text}
             </div>
             <div id="crt-shadow" className="crt-internal"></div>
             <div id="crt-screen-door-rows" className="crt-internal"></div>

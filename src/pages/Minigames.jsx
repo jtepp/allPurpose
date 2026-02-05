@@ -120,7 +120,6 @@ function Minigames(props) {
                             </h3>
                         </div>
                         <Crt
-                            currentGameIndex={currentGameIndex}
                             bgColor={
                                 currentGameIndex === -1
                                     ? "transparent"

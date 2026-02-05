@@ -1,13 +1,13 @@
 import "../css/home.css";
 
-function Section(props) {
+function Section({ id, className, onScroll, children }) {
     return (
         <section
-            id={props.id + "-section"}
-            onScroll={props.onScroll}
-            className={`react-section ${props.className ? props.className : ""}`}
+            id={id + "-section"}
+            onScroll={onScroll}
+            className={`react-section ${className ?? ""}`}
         >
-            {props.children}
+            {children}
         </section>
     );
 }

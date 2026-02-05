@@ -1,31 +1,44 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
-function HeaderLink(props) {
-    return ( 
-        <NavLink to={props.path} id={props.id} onClick={
-          () => {
+function HeaderLink({
+    name,
+    scroll,
+    activeIndex,
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+    path,
+    width,
+    id,
+    external,
+}) {
+    return (
+        <NavLink
+            to={path}
+            id={id}
+            onClick={() => {
+                if (external) {
+                    window.history.pushState(path);
+                }
 
-            if (props.external) {
-              window.history.pushState(props.path)
-            }
+                if (scroll && document.querySelector(scroll))
+                    document
+                        .querySelector(scroll)
+                        .scrollIntoView({ behavior: "smooth" });
 
-            if (props.scroll && document.querySelector(props.scroll)) 
-              document.querySelector(props.scroll).scrollIntoView({behavior: 'smooth'})
-
-            props.onClick()
-
-          }
-        } onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} style={{
-              width: props.width
-            
-          }} className={`header-link ${(props.activeIndex < 1) ? 'hide-favicon' : ''}`}>
-            {props.name}   
-            { props.name === "Home" &&
-              <h3 id='home-favicon'>Jacob Tepperman</h3>
-            }
+                onClick();
+            }}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            style={{
+                width,
+            }}
+            className={`header-link ${activeIndex < 1 ? "hide-favicon" : ""}`}
+        >
+            {name}
+            {name === "Home" && <h3 id="home-favicon">Jacob Tepperman</h3>}
         </NavLink>
-     );
+    );
 }
 
 export default HeaderLink;

@@ -1,19 +1,26 @@
 import { BiLoader } from "react-icons/bi";
 
-function FunctionCloud(props) {
+function FunctionCloud({
+    cloudState,
+    result,
+    cloudSrc,
+    children,
+    smallText,
+    used,
+}) {
     return (
         <div
-            className={`function-cloud ${props.state === 2 ? "function-cloud-show-result" : ""}`}
+            className={`function-cloud ${cloudState === 2 ? "function-cloud-show-result" : ""}`}
         >
             <div
-                className={`function-cloud-main ${props.state === 1 ? "cloud-pulsing" : ""}`}
+                className={`function-cloud-main ${cloudState === 1 ? "cloud-pulsing" : ""}`}
             >
-                <img src={props.cloud} className="cloud-img" alt="" />
-                {props.state === 1 && (
+                <img src={cloudSrc} className="cloud-img" alt="" />
+                {cloudState === 1 && (
                     <BiLoader className="function-cloud-loader" />
                 )}
                 <div className="function-cloud-used-images-container">
-                    {props.used.map((name) => (
+                    {used.map((name) => (
                         <img
                             src={`/images/projects/icons/${name}.png`}
                             key={name}
@@ -25,12 +32,12 @@ function FunctionCloud(props) {
                 </div>
             </div>
             <p
-                className={`function-cloud-result ${props.smallText ? "small-text" : ""}`}
+                className={`function-cloud-result ${smallText ? "small-text" : ""}`}
             >
-                {props.result}
-                {props.children.length > 0 ? (
+                {result}
+                {children.length > 0 ? (
                     <div className="function-cloud-result-image-container">
-                        {props.children}
+                        {children}
                     </div>
                 ) : null}
             </p>

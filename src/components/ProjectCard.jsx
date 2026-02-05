@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { scrollToIndex } from "../utils";
 
-function ProjectCard(props) {
+function ProjectCard({ index, currentProjectIndex, project }) {
     const container = useRef(null);
     const el = useRef(null);
 
@@ -51,37 +51,37 @@ function ProjectCard(props) {
     useEffect(() => {
         container.current.classList.toggle(
             "current-project-container",
-            props.currentProjectIndex === props.index,
+            currentProjectIndex === index,
         );
-    }, [props.currentProjectIndex, props.index]);
+    }, [currentProjectIndex, index]);
 
     const handleIconClick = (e) => {
         const projectIndex = [
             ...document.querySelectorAll(".project-container"),
-        ].findIndex((e) => e.id === "project-" + props.index + "-container");
+        ].findIndex((e) => e.id === "project-" + index + "-container");
         scrollToIndex(projectIndex);
     };
 
     return (
         <section
-            id={"project-" + props.index + "-container"}
+            id={"project-" + index + "-container"}
             ref={container}
             className={"project-container"}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
             <div
-                id={"project-" + props.index}
+                id={"project-" + index}
                 ref={el}
                 className="project"
                 style={{
-                    backgroundImage: `url(/images/projects/thumbnails/${props.project.short}.png)`,
+                    backgroundImage: `url(/images/projects/thumbnails/${project.short}.png)`,
                 }}
             ></div>
 
             <div className="project-icon-container" onClick={handleIconClick}>
                 <img
-                    src={`/images/projects/icons/${props.project.short}.png`}
+                    src={`/images/projects/icons/${project.short}.png`}
                     alt=""
                     className="project-icon"
                 />

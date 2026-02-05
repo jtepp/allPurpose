@@ -1,14 +1,13 @@
-import React from "react";
 import roundedChevronDown from "../assets/rounded-chevron-down.png";
 
-function ScrollButton(props) {
+function ScrollButton({ target }) {
     return (
         <div
             id="scroll-button"
             onClick={() => {
-                if (document.querySelector(props.target))
+                if (document.querySelector(target))
                     document
-                        .querySelector(props.target)
+                        .querySelector(target)
                         .scrollIntoView({ behavior: "smooth" });
             }}
         >
