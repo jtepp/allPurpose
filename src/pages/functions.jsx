@@ -1,8 +1,8 @@
-import Section from "../components/section";
-import Cutout from "../components/cutout";
+import Section from "../components/Section";
+import Cutout from "../components/Cutout";
 import "../css/functions.css";
-import ReadMore from "../components/readMore";
-import FunctionItem from "../components/functionItem";
+import ReadMore from "../components/ReadMore";
+import FunctionItem from "../components/FunctionItem";
 import { importAll } from "../utils";
 
 export const clouds = importAll(

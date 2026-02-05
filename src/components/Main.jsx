@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BaseLayout from "./baseLayout";
+import BaseLayout from "./BaseLayout";
 import Home from "../pages/home";
 import Minigames from "../pages/minigames";
 import Contact from "../pages/contact";

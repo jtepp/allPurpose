@@ -1,6 +1,6 @@
-import Section from "../components/section";
+import Section from "../components/Section";
 import "../css/contact.css";
-import Cutout from "../components/cutout";
+import Cutout from "../components/Cutout";
 
 function Contact(props) {
     return (

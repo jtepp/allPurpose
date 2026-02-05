@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import parser from "html-react-parser";
-import Section from "../components/section";
-import Cutout from "../components/cutout";
-import ScrollButton from "../components/scrollButton";
+import Section from "../components/Section";
+import Cutout from "../components/Cutout";
+import ScrollButton from "../components/ScrollButton";
 import "../css/projects.css";
-import Project from "../components/project";
+import Project from "../components/Project";
 import {
     projectScrollWidth,
     importAll,

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "../css/base.css";
-import Header from "./header";
+import Header from "./Header";
 import { randomElement } from "../utils";
 
 const colorPairs = [

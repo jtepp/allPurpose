@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
-import FunctionCloud from "./functionCloud";
+import FunctionCloud from "./FunctionCloud";
 import { temporaryClass } from "../utils";
 
 function FunctionItem(props) {

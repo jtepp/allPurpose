@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import "../css/minigames.css";
-import Section from "../components/section";
-import CRT from "../components/minigames/crt";
+import Section from "../components/Section";
+import CRT from "../components/minigames/Crt";
 import gameData from "../assets/minigames/gameData.json";
-import Cutout from "../components/cutout";
+import Cutout from "../components/Cutout";
 import parser from "html-react-parser";
 import { importAll } from "../utils";
-import Cartridge from "../components/minigames/cartridge";
+import Cartridge from "../components/minigames/Cartridge";
 const gameThumbs = importAll(
     require.context(
         "../assets/minigames/thumbs",

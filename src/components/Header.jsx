@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from "react";
-import HeaderLink from "./headerLink";
-import Cutout from "./cutout";
+import HeaderLink from "./HeaderLink.jsx";
+import Cutout from "./Cutout.jsx";
 import "../css/header.css";
-import HeaderMenu from "./headerMenu";
+import HeaderMenu from "./HeaderMenu.jsx";
 import {
     desktopNavItemIndices,
     smallHoverIndices,
@@ -10,7 +10,7 @@ import {
     subPages,
 } from "../data/navigation.js";
 import { useLocation } from "react-router-dom";
-import { getCurrentPageName } from "../utils";
+import { getCurrentPageName } from "../utils.js";
 
 function Header(props) {
     const headerLine = useRef(null);
