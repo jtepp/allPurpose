@@ -1,8 +1,7 @@
-import React from "react";
 import "../../css/crt.css";
 import CRTborder from "../../assets/minigames/crt-border.png";
 
-function CRT(props) {
+function Crt(props) {
     return (
         <div id="crt-container" onClick={props.onClick}>
             <div id="crt-static" className="crt-internal"></div>
@@ -27,4 +26,4 @@ function CRT(props) {
     );
 }
 
-export default CRT;
+export default Crt;

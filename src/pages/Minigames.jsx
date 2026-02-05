@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "../css/minigames.css";
 import Section from "../components/Section";
-import CRT from "../components/minigames/Crt";
+import Crt from "../components/minigames/Crt";
 import gameData from "../assets/minigames/gameData.json";
 import Cutout from "../components/Cutout";
 import parser from "html-react-parser";
@@ -116,7 +116,7 @@ function Minigames(props) {
                                 )}
                             </h3>
                         </div>
-                        <CRT
+                        <Crt
                             currentGameIndex={currentGameIndex}
                             resizeState={props.resizeState}
                             bgColor={
@@ -165,7 +165,7 @@ function Minigames(props) {
                                             : gameData[currentGameIndex].height,
                                 }}
                             />
-                        </CRT>
+                        </Crt>
                     </div>
                     <div id="game-select-container">{cartridges}</div>
                 </div>
