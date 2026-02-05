@@ -37,7 +37,7 @@
     position: fixed;
     z-index: 9;
     /* opacity: .5; */
-    clip-path: polygon(100% 0px, 100% 100% , 0% 100%, 0% 195px, 50% 195px, 50% 0px);
+    clip-path: polygon(100% 0px, 100% 100%, 0% 100%, 0% 195px, 50% 195px, 50% 0px);
 }
 
 
@@ -111,12 +111,10 @@
     color: white;
     /* background-color: var(--primary); */
     border-radius: 20px;
-    transform: perspective(500px)
-        rotateX(var(--rotate-x))
-        rotateY(var(--rotate-y));
+    transform: perspective(500px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
     opacity: 1;
     transition: background-color var(--color-transition-time) ease,
-    transform 300ms ease-out, scale 600ms ease, opacity 300ms ease;
+        transform 300ms ease-out, scale 600ms ease, opacity 300ms ease;
 
     background-size: cover;
     background-position: top center;
@@ -126,9 +124,11 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+
 .project-icon-container {
     position: absolute;
-    top: calc(-70px + 30px); /* had to take out the translate switching */
+    top: calc(-70px + 30px);
+    /* had to take out the translate switching */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60px;
@@ -137,7 +137,7 @@
     overflow: hidden;
     cursor: pointer;
     transition: top 300ms ease,
-    width 300ms ease, height 300ms ease;
+        width 300ms ease, height 300ms ease;
 }
 
 .project-icon {
@@ -198,7 +198,8 @@
     top: calc(70px + var(--project-width) * 440 / 240 / 2);
 }
 
-#projects-content.more-left>#left-button, #projects-content.more-right>#right-button {
+#projects-content.more-left>#left-button,
+#projects-content.more-right>#right-button {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -219,14 +220,14 @@
     background-position-x: 60%;
     left: calc(75% + (var(--project-width) + var(--project-gap) / 2) / 2);
     /* left: calc(50% + (var(--project-width) + var(--project-gap)) / 2); */
-    background-image: url('../res/rounded-chevron-right.png');
+    background-image: url('../assets/rounded-chevron-right.png');
 }
 
 #projects-content.more-left>#left-button {
     background-position-x: 40%;
     left: calc(75% - (var(--project-width) + var(--project-gap) / 2) / 2);
     /* left: calc(50% - (var(--project-width) + var(--project-gap)) / 2); */
-    background-image: url('../res/rounded-chevron-left.png');
+    background-image: url('../assets/rounded-chevron-left.png');
 }
 
 
@@ -236,6 +237,7 @@
         height: fit-content;
 
     }
+
     #projects-content {
         flex-direction: column-reverse;
         justify-content: flex-end;
@@ -252,9 +254,9 @@
         --clip-in-bottom: calc(var(--clip-in-top) + 33px);
 
         clip-path: polygon(0% 70px, 230px 70px, 230px 0%, 100% 0%,
-         100% 100%, 0% 100%, 0% var(--clip-in-bottom),
-         100% var(--clip-in-bottom), 100% var(--clip-in-top),
-         0% var(--clip-in-top));
+                100% 100%, 0% 100%, 0% var(--clip-in-bottom),
+                100% var(--clip-in-bottom), 100% var(--clip-in-top),
+                0% var(--clip-in-top));
     }
 
     :root {
@@ -290,19 +292,20 @@
         text-align: center;
         max-height: 33px;
     }
-    
+
     #project-subtitle {
         text-align: center;
     }
 
-    #projects-content.more-left>#left-button, #projects-content.more-right>#right-button {
+    #projects-content.more-left>#left-button,
+    #projects-content.more-right>#right-button {
         top: calc((330px + 35px) / 2);
     }
-    
+
     #projects-content.more-right>#right-button {
         left: calc(50% + (var(--project-width) + var(--project-gap)) / 2);
     }
-    
+
     #projects-content.more-left>#left-button {
         left: calc(50% - (var(--project-width) + var(--project-gap)) / 2);
     }

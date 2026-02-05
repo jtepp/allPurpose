@@ -2,13 +2,17 @@ import { useCallback, useEffect, useState } from "react";
 import "../css/minigames.css";
 import Section from "../components/section";
 import CRT from "../components/minigames/crt";
-import gameData from "../res/minigames/gameData.json";
+import gameData from "../assets/minigames/gameData.json";
 import Cutout from "../components/cutout";
 import parser from "html-react-parser";
 import { importAll } from "../utils";
 import Cartridge from "../components/minigames/cartridge";
 const gameThumbs = importAll(
-    require.context("../res/minigames/thumbs", false, /\.(png|jpe?g|svg|gif)$/),
+    require.context(
+        "../assets/minigames/thumbs",
+        false,
+        /\.(png|jpe?g|svg|gif)$/,
+    ),
 );
 
 function Minigames(props) {

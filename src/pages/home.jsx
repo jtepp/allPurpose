@@ -13,17 +13,21 @@ import {
 } from "../utils";
 
 export const icons = importAll(
-    require.context("../res/projects/icons", false, /\.(png|jpe?g|svg|gif)$/),
+    require.context(
+        "../assets/projects/icons",
+        false,
+        /\.(png|jpe?g|svg|gif)$/,
+    ),
 );
 export const thumbnails = importAll(
     require.context(
-        "../res/projects/thumbnails",
+        "../assets/projects/thumbnails",
         false,
         /\.(png|jpe?g|svg|gif)$/,
     ),
 );
 
-const data = require("../res/projects/projectsData.json");
+const data = require("../assets/projects/projectsData.json");
 
 function Home(props) {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);

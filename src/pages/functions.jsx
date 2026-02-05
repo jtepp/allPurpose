@@ -6,7 +6,7 @@ import FunctionItem from "../components/functionItem";
 import { importAll } from "../utils";
 
 export const clouds = importAll(
-    require.context("../res/clouds", false, /\.(png)$/),
+    require.context("../assets/clouds", false, /\.(png)$/),
 );
 
 const functionItems = [

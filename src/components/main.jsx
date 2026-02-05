@@ -5,7 +5,7 @@ import Home from "../pages/home";
 import Minigames from "../pages/minigames";
 import Contact from "../pages/contact";
 import Functions from "../pages/functions";
-import resumePDF from "../res/Resume/Resume-Jacob-Tepperman.pdf";
+import resumePDF from "../assets/Resume/Resume-Jacob-Tepperman.pdf";
 
 const pages = [
     { name: "Home", path: "/", scroll: "#home-section", width: 60 },
