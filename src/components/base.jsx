@@ -16,6 +16,7 @@ const colorPairs = [
 // layout
 function Base(props) {
     function setRandomColor() {
+        // sets --primary and --secondary
         Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
             document
                 .querySelector(":root")

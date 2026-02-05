@@ -14,9 +14,9 @@
     mix-blend-mode: multiply;
 }
 
-.cutout-container {
-    /* overflow: hidden; */
-}
+/* .cutout-container {
+    overflow: hidden;
+} */
 
 .cutout-color-accent-container {
     position: absolute;
@@ -47,7 +47,7 @@
     box-shadow: 0px 0px 80px 80px var(--secondary);
     translate: -50% -50%;
     transition: background-color var(--color-transition-time) ease,
-    box-shadow var(--color-transition-time) ease;
+        box-shadow var(--color-transition-time) ease;
 }
 
 @media only screen and (max-width: 450px) {
