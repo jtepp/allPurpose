@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BaseLayout from "./BaseLayout";
-import Home from "../pages/home";
-import Minigames from "../pages/minigames";
-import Contact from "../pages/contact";
-import Functions from "../pages/functions";
+import Home from "../pages/Home";
+import Minigames from "../pages/Minigames";
+import Contact from "../pages/Contact";
+import Functions from "../pages/Functions";
 import {
     desktopNavItemIndices,
     navItems,

@@ -1,5 +1,5 @@
 import { BiLoader } from "react-icons/bi";
-import { icons } from "../pages/home";
+import { icons } from "../pages/Home";
 
 function FunctionCloud(props) {
     return (

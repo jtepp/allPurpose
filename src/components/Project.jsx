@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { icons, thumbnails } from "../pages/home";
+import { icons, thumbnails } from "../pages/Home";
 import { scrollToIndex } from "../utils";
 
 function Project(props) {
