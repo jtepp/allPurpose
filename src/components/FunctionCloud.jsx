@@ -1,5 +1,4 @@
 import { BiLoader } from "react-icons/bi";
-import { icons } from "../pages/Home";
 
 function FunctionCloud(props) {
     return (
@@ -16,7 +15,7 @@ function FunctionCloud(props) {
                 <div className="function-cloud-used-images-container">
                     {props.used.map((name) => (
                         <img
-                            src={icons[name]}
+                            src={`/images/projects/icons/${name}.png`}
                             key={name}
                             className="function-cloud-used-image"
                             alt=""

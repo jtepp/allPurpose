@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { icons, thumbnails } from "../pages/Home";
 import { scrollToIndex } from "../utils";
 
 function ProjectCard(props) {
@@ -76,13 +75,13 @@ function ProjectCard(props) {
                 ref={el}
                 className="project"
                 style={{
-                    backgroundImage: `url(${thumbnails[props.project.short]})`,
+                    backgroundImage: `url(/images/projects/thumbnails/${props.project.short}.png)`,
                 }}
             ></div>
 
             <div className="project-icon-container" onClick={handleIconClick}>
                 <img
-                    src={icons[props.project.short]}
+                    src={`/images/projects/icons/${props.project.short}.png`}
                     alt=""
                     className="project-icon"
                 />

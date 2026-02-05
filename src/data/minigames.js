@@ -1,4 +1,4 @@
-export const minigames = [
+export const minigamesData = [
     {
         title: "Ball Fight",
         width: 600,

@@ -7,29 +7,12 @@ import "../css/projects.css";
 import ProjectCard from "../components/ProjectCard";
 import {
     projectScrollWidth,
-    importAll,
     scrollToNextProject,
     scrollToPreviousProject,
 } from "../utils";
 import { useAppContext } from "../components/AppProvider";
 import useWindowSize from "../hooks/useWindowSize";
-
-export const icons = importAll(
-    require.context(
-        "../assets/projects/icons",
-        false,
-        /\.(png|jpe?g|svg|gif)$/,
-    ),
-);
-export const thumbnails = importAll(
-    require.context(
-        "../assets/projects/thumbnails",
-        false,
-        /\.(png|jpe?g|svg|gif)$/,
-    ),
-);
-
-const data = require("../assets/projects/projectsData.json");
+import { projectsData } from "../data/projects";
 
 function Home() {
     const { setActiveIndex } = useAppContext();
@@ -45,7 +28,7 @@ function Home() {
             0,
             Math.min(
                 Math.round(scrollLeft / projectScrollWidth()),
-                data.length - 1,
+                projectsData.length - 1,
             ),
         );
     };
@@ -96,7 +79,7 @@ function Home() {
         };
     }, [currentProjectIndex]);
 
-    const projects = data.map((project, index) => {
+    const projects = projectsData.map((project, index) => {
         return (
             <ProjectCard
                 key={project.title}
@@ -168,7 +151,7 @@ function Home() {
                     id="projects-content"
                     className={
                         (currentProjectIndex > 0 ? "more-left " : "") +
-                        (currentProjectIndex < data.length - 1
+                        (currentProjectIndex < projectsData.length - 1
                             ? "more-right"
                             : "")
                     }
@@ -194,18 +177,21 @@ function Home() {
                                 backgroundColor="black"
                             >
                                 <h1 id="project-title">
-                                    {data[currentProjectIndex].title}
+                                    {projectsData[currentProjectIndex].title}
                                 </h1>
                             </Cutout>
                             <h3 id="project-subtitle">
-                                {data[currentProjectIndex].job
-                                    ? data[currentProjectIndex].job.project
+                                {projectsData[currentProjectIndex].job
+                                    ? projectsData[currentProjectIndex].job
+                                          .project
                                     : ""}
                             </h3>
                         </div>
 
                         <h3 id="project-description">
-                            {parser(data[currentProjectIndex].description)}
+                            {parser(
+                                projectsData[currentProjectIndex].description,
+                            )}
                         </h3>
                     </div>
                     <div id="projects-container" ref={projectsContainer}>
