@@ -1,17 +1,11 @@
-import '../css/shinyText.css'
-import React from 'react'
-
-
-
-  
+import "../css/shinyText.css";
 
 function ShinyText(props) {
-
-    return ( 
+    return (
         <div className="shiny-text" id={props.id}>
             {props.children}
         </div>
-     )
+    );
 }
 
 export default ShinyText;
