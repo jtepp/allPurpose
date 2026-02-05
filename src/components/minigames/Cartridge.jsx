@@ -1,11 +1,9 @@
-import React from "react";
 import "../../css/cartridge.css";
 
 function Cartridge(props) {
     return (
         <div
             onClick={props.onClick}
-            index={props.index}
             style={{
                 order: props.index,
             }}
