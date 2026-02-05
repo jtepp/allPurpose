@@ -11,6 +11,8 @@ import {
     scrollToNextProject,
     scrollToPreviousProject,
 } from "../utils";
+import { useAppContext } from "../components/AppProvider";
+import useWindowSize from "../hooks/useWindowSize";
 
 export const icons = importAll(
     require.context(
@@ -29,7 +31,9 @@ export const thumbnails = importAll(
 
 const data = require("../assets/projects/projectsData.json");
 
-function Home(props) {
+function Home() {
+    const { setActiveIndex } = useAppContext();
+    const { width } = useWindowSize();
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
     const projectsContainer = useRef(null);
     const homeMain = useRef(null);
@@ -50,7 +54,7 @@ function Home(props) {
         // projects
         if (document.querySelector("#projects-section")) {
             const root = document.querySelector(":root");
-            if (window.innerWidth > 655) {
+            if (width > 655) {
                 root.style.setProperty(
                     "--PB-wide-height",
                     document.querySelector("#projects-section").offsetHeight +
@@ -72,7 +76,7 @@ function Home(props) {
                 );
             }
         }
-    }, [props.resizeState]);
+    }, [width]);
 
     useEffect(() => {
         if (window.location.hash === "#projects-section") {
@@ -81,7 +85,7 @@ function Home(props) {
                     behavior: "smooth",
                 });
         }
-    }, [props]);
+    }, []);
 
     useEffect(() => {
         projectsContainer.current.onscroll = () => {
@@ -104,7 +108,7 @@ function Home(props) {
     });
 
     useEffect(() => {
-        props.setActiveIndex(
+        setActiveIndex(
             homeMain.current.scrollTop >=
                 document.querySelector("#home-section").scrollHeight / 2
                 ? 1
@@ -116,9 +120,9 @@ function Home(props) {
                 homeMain.current.scrollTop >=
                 document.querySelector("#home-section").scrollHeight / 2
             ) {
-                props.setActiveIndex(1);
+                setActiveIndex(1);
             } else {
-                props.setActiveIndex(0);
+                setActiveIndex(0);
             }
 
             const root = document.querySelector(":root");
@@ -129,19 +133,14 @@ function Home(props) {
             root.style.setProperty("--scroll-x", scrollLeft + "px");
             root.style.setProperty("--scroll-y", scrollTop + "px");
         };
-    }, [props]);
+    }, [setActiveIndex]);
 
     return (
-        <div
-            id="home-main"
-            className="page-main"
-            ref={homeMain}
-            onLoad={() => props.setResizeState((r) => !r)}
-        >
+        <div id="home-main" className="page-main" ref={homeMain}>
             <Section
                 id="home"
                 onRender={() => {
-                    props.setActiveIndex(0);
+                    setActiveIndex(0);
                 }}
             >
                 <Cutout id="home" backgroundColor="black">

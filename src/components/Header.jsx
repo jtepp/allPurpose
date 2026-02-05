@@ -8,96 +8,96 @@ import {
     smallHoverIndices,
     mobileNavItemIndices,
     subPages,
+    navItems,
 } from "../data/navigation.js";
 import { useLocation } from "react-router-dom";
 import { getCurrentPageName } from "../utils.js";
+import { useAppContext } from "./AppProvider.jsx";
+import useWindowSize from "../hooks/useWindowSize.js";
 
-function Header(props) {
+function Header() {
+    const {
+        activeIndex,
+        setActiveIndex,
+        hoverIndex,
+        setHoverIndex,
+        headerSizeState,
+    } = useAppContext();
+    const { width } = useWindowSize();
+
     const headerLine = useRef(null);
     const headerLineBack = useRef(null);
     const location = useLocation();
 
     const calculateHeaderLineOffset = useCallback(() => {
-        const full = window.innerWidth;
         let pageIndicesToUse =
-            props.headerSizeState === "big"
+            headerSizeState === "big"
                 ? Array.from(new Set(Object.values(desktopNavItemIndices)))
                 : Array.from(new Set(Object.values(mobileNavItemIndices)));
         let taken = pageIndicesToUse.reduce((result, index) => {
             // console.log(index)
-            return result + props?.pages?.[index]?.width;
+            return result + navItems?.[index]?.width;
         }, 0);
 
         const nGaps = pageIndicesToUse.length;
 
-        const gap = (full - taken) / nGaps;
+        const gap = (width - taken) / nGaps;
 
         let index = 0;
 
-        let stupidActiveIndex = props.activeIndex;
-        if (stupidActiveIndex === undefined) {
+        let tempActiveIndex = activeIndex;
+        if (tempActiveIndex === undefined) {
             // find .name for current path
-            const name = getCurrentPageName(props.pages, location);
+            const name = getCurrentPageName(navItems, location);
             const indexMap =
-                props.headerSizeState === "big"
+                headerSizeState === "big"
                     ? desktopNavItemIndices
                     : mobileNavItemIndices;
-            stupidActiveIndex = indexMap[name];
+            tempActiveIndex = indexMap[name];
         }
 
-        if (props.hoverIndex > -1) {
-            index = props.hoverIndex;
+        if (hoverIndex > -1) {
+            index = hoverIndex;
         } else {
-            index = stupidActiveIndex;
+            index = tempActiveIndex;
         }
 
-        // console.log(index, props.hoverIndex, props.activeIndex, stupidActiveIndex)
+        // console.log(index, hoverIndex, activeIndex, stupidActiveIndex)
 
         let offset = gap / 2;
         offset += index * gap;
         for (let i = 0; i < index; i++) {
-            offset += props.pages[i].width;
+            offset += navItems[i].width;
         }
 
-        if (props.headerSizeState === "small") {
+        if (headerSizeState === "small") {
             offset += index === 0 ? 3 : 10;
         }
 
         return offset;
-    }, [
-        props.activeIndex,
-        props.hoverIndex,
-        props.pages,
-        props.headerSizeState,
-        location,
-    ]);
+    }, [headerSizeState, width, activeIndex, hoverIndex, location]);
 
     const setHeaderLine = useCallback(() => {
         let index = 0;
-        if (props.hoverIndex > -1) {
-            index = props.hoverIndex;
+        if (hoverIndex > -1) {
+            index = hoverIndex;
         } else {
-            index = props.activeIndex;
+            index = activeIndex;
 
             headerLineBack.current.style.left =
                 calculateHeaderLineOffset() + "px";
             headerLineBack.current.style.width =
-                props?.pages?.[index]?.width + "px";
+                navItems?.[index]?.width + "px";
         }
         headerLine.current.style.left = calculateHeaderLineOffset() + "px";
-        headerLine.current.style.width = props?.pages?.[index]?.width + "px";
-    }, [
-        props.activeIndex,
-        props.hoverIndex,
-        props.pages,
-        calculateHeaderLineOffset,
-    ]);
+        headerLine.current.style.width = navItems?.[index]?.width + "px";
+    }, [hoverIndex, calculateHeaderLineOffset, activeIndex]);
 
     useEffect(() => {
         setHeaderLine();
-    }, [setHeaderLine, props.resizeState]);
+    }, [setHeaderLine]);
 
-    const headerItems = props.pages.map((page, index) => {
+    const headerItems = navItems.map((page, index) => {
         const id = page.name.toLowerCase() + "-header-item";
 
         if (page.menu) {
@@ -109,21 +109,21 @@ function Header(props) {
                     id={id}
                     onClick={() => {
                         let i =
-                            props.headerSizeState === "big"
+                            headerSizeState === "big"
                                 ? index
                                 : smallHoverIndices[index];
-                        props.setActiveIndex(i);
-                        props.setHoverIndex(-1);
+                        setActiveIndex(i);
+                        setHoverIndex(-1);
                     }}
                     onMouseEnter={() => {
                         let i =
-                            props.headerSizeState === "big"
+                            headerSizeState === "big"
                                 ? index
                                 : smallHoverIndices[index];
-                        props.setHoverIndex(i);
+                        setHoverIndex(i);
                     }}
                     onMouseLeave={() => {
-                        props.setHoverIndex(-1);
+                        setHoverIndex(-1);
                     }}
                     key={page.name}
                 >
@@ -137,11 +137,11 @@ function Header(props) {
                             key={subPage.name}
                             onClick={() => {
                                 let i =
-                                    props.headerSizeState === "big"
+                                    headerSizeState === "big"
                                         ? index
                                         : smallHoverIndices[index];
-                                props.setActiveIndex(i);
-                                props.setHoverIndex(-1);
+                                setActiveIndex(i);
+                                setHoverIndex(-1);
                             }}
                             onMouseEnter={() => {}}
                             onMouseLeave={() => {}}
@@ -154,16 +154,16 @@ function Header(props) {
                 <HeaderLink
                     name={page.name}
                     scroll={page.scroll}
-                    activeIndex={props.activeIndex}
+                    activeIndex={activeIndex}
                     onClick={() => {
-                        props.setActiveIndex(index);
-                        props.setHoverIndex(-1);
+                        setActiveIndex(index);
+                        setHoverIndex(-1);
                     }}
                     onMouseEnter={() => {
-                        props.setHoverIndex(index);
+                        setHoverIndex(index);
                     }}
                     onMouseLeave={() => {
-                        props.setHoverIndex(-1);
+                        setHoverIndex(-1);
                     }}
                     path={page.path}
                     width={page.width}
@@ -179,7 +179,7 @@ function Header(props) {
             id="header"
             upperLevel={<div id="header-line-back" ref={headerLineBack}></div>}
             backgroundColor="black"
-            headerSizeState={props.headerSizeState}
+            headerSizeState={headerSizeState}
         >
             {headerItems}
             <div id="header-line" ref={headerLine}></div>

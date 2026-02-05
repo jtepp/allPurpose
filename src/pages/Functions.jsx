@@ -84,7 +84,7 @@ const functionItems = [
     },
 ];
 
-function Functions(props) {
+function Functions() {
     return (
         <Section id="functions" className="no-container-for-section-page-main">
             <div id="functions-header">

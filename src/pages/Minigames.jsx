@@ -6,9 +6,11 @@ import Cutout from "../components/Cutout";
 import parser from "html-react-parser";
 import Cartridge from "../components/minigames/Cartridge";
 import { minigames } from "../data/minigames";
+import useWindowSize from "../hooks/useWindowSize";
 
 function Minigames(props) {
     const [currentGameIndex, setCurrentGameIndex] = useState(-1);
+    const { width } = useWindowSize();
 
     const getPadFactor = useCallback((height, width) => {
         if (height === 600) {
@@ -54,9 +56,8 @@ function Minigames(props) {
     // }, [])
 
     useEffect(() => {
-        document.querySelector("#game-iframe").onload = resizeIframe;
         resizeIframe();
-    }, [props.resizeState, currentGameIndex, resizeIframe]);
+    }, [width, currentGameIndex, resizeIframe]);
 
     const changeGame = (index) => {
         const current = document.querySelector(".current-game");
@@ -118,7 +119,6 @@ function Minigames(props) {
                         </div>
                         <Crt
                             currentGameIndex={currentGameIndex}
-                            resizeState={props.resizeState}
                             bgColor={
                                 currentGameIndex === -1
                                     ? "transparent"

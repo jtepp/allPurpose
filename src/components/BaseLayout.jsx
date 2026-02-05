@@ -1,36 +1,10 @@
 import { useEffect } from "react";
 import "../css/base.css";
 import Header from "./Header";
-import { randomElement } from "../utils";
-
-const colorPairs = [
-    { primary: "firebrick", secondary: "darkorange" },
-    { primary: "darkorange", secondary: "yellow" },
-    { primary: "darkgoldenrod", secondary: "gold" },
-    { primary: "seagreen", secondary: "limegreen" },
-    { primary: "royalblue", secondary: "mediumturquoise" },
-    { primary: "blueviolet", secondary: "orchid" },
-    { primary: "teal", secondary: "skyblue" },
-];
+import { setRandomColor } from "../utils";
 
 // layout
-function BaseLayout(props) {
-    function setRandomColor() {
-        // sets --primary and --secondary
-        Object.entries(randomElement(colorPairs)).forEach(([key, value]) => {
-            document
-                .querySelector(":root")
-                .style.setProperty(`--${key}`, value);
-            // console.log(`--${key}: ${value}`)
-        });
-
-        setTimeout(() => {
-            document
-                .querySelector(":root")
-                .style.setProperty("--color-transition-time", "3s");
-        }, 1000);
-    }
-
+function BaseLayout({ children }) {
     useEffect(() => {
         setRandomColor();
     }, []);
@@ -43,17 +17,8 @@ function BaseLayout(props) {
 
     return (
         <div id="base">
-            <Header
-                pages={props.pages}
-                activeIndex={props.activeIndex}
-                setActiveIndex={props.setActiveIndex}
-                headerSizeState={props.headerSizeState}
-                hoverIndex={props.hoverIndex}
-                setHoverIndex={props.setHoverIndex}
-                resizeState={props.resizeState}
-                setResizeState={props.setResizeState}
-            />
-            <div id="content">{props.children}</div>
+            <Header />
+            <div id="content">{children}</div>
         </div>
     );
 }
