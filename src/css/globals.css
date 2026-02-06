@@ -46,3 +46,36 @@ a:active {
     display: flex;
     flex-direction: column;
 }
+
+#home-container>.cutout {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    justify-content: space-between;
+}
+
+.cutout {
+    background-color: black;
+    color: white;
+    mix-blend-mode: multiply;
+}
+
+.header-size-big {
+    & *:is(#functions-header-item, #minigames-header-item) {
+        display: flex;
+    }
+
+    & *:is(#more-header-item, #header-menu-container-more-header-item) {
+        display: none;
+    }
+}
+
+.header-size-small {
+    & *:is(#functions-header-item, #minigames-header-item) {
+        display: none;
+    }
+
+    & *:is(#more-header-item, #header-menu-container-more-header-item) {
+        display: flex;
+    }
+}

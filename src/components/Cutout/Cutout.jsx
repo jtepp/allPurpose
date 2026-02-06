@@ -1,5 +1,5 @@
-import "../../css/cutout.css";
 import { useCallback, useEffect, useRef } from "react";
+import styles from "./Cutout.module.css";
 
 function Cutout({
     headerSizeState,
@@ -7,7 +7,6 @@ function Cutout({
     below,
     upperLevel,
     backgroundColor,
-    followScroll,
     children,
 }) {
     const containerRef = useRef(null);
@@ -43,16 +42,11 @@ function Cutout({
                 zIndex: 10,
                 position: "relative",
             }}
-            className="cutout-container"
         >
-            <div className={"color-strip"}></div>
-            <div className="cutout-color-accent-container">
+            <div className={styles.color_strip}></div>
+            <div className={styles.cutout_color_accent_container}>
                 <div
-                    className={
-                        followScroll
-                            ? "color-accent follow-scroll "
-                            : "color-accent "
-                    }
+                    className={styles.color_accent}
                     style={{
                         top: `calc(var(--accent-y) + ${-containerRef.current?.getBoundingClientRect().y}px)`,
                         left: `calc(var(--accent-x) + ${containerRef.current?.getBoundingClientRect().x - containerRef.current?.offsetLeft * 2}px)`,
@@ -62,7 +56,10 @@ function Cutout({
 
             {upperLevel}
             <div
-                className={`cutout ${headerSizeState ? "header-size-" + headerSizeState : ""}`}
+                className={[
+                    "cutout",
+                    headerSizeState ? "header-size-" + headerSizeState : "",
+                ].join(" ")}
                 ref={mainRef}
                 id={id}
                 style={{

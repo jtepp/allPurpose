@@ -8,23 +8,16 @@
     --blend-transition: 0s;
 }
 
-.cutout {
-    background-color: black;
-    color: white;
-    mix-blend-mode: multiply;
-}
 
-/* .cutout-container {
-    overflow: hidden;
-} */
 
-.cutout-color-accent-container {
+
+.cutout_color_accent_container {
     position: absolute;
     inset: 0;
     overflow: hidden;
 }
 
-.color-strip {
+.color_strip {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -35,7 +28,7 @@
     transition: background-color var(--color-transition-time) ease;
 }
 
-.color-accent {
+.color_accent {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -48,17 +41,4 @@
     translate: -50% -50%;
     transition: background-color var(--color-transition-time) ease,
         box-shadow var(--color-transition-time) ease;
-}
-
-@media only screen and (max-width: 450px) {
-    .color-accent {
-        /* transition: background-color var(--color-transition-time) ease,
-        box-shadow var(--color-transition-time) ease,
-        top 100ms ease, left 100ms ease; */
-    }
-}
-
-.color-accent.follow-scroll {
-    /* top: calc(var(--accent-y) + var(--scroll-y));
-    left: calc(var(--accent-x) + var(--scroll-x)); */
 }
