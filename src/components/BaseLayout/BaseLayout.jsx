@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import "../..//css/base.css";
 import Header from "../Header/Header";
 import { setRandomColor } from "../../utils";
+import styles from "./BaseLayout.module.css";
 
 // layout
 function BaseLayout({ children }) {
@@ -16,7 +16,7 @@ function BaseLayout({ children }) {
     }, []);
 
     return (
-        <div id="base">
+        <div id={styles.base}>
             <Header />
             <main id="content">{children}</main>
         </div>

@@ -1,0 +1,48 @@
+:root {
+    scrollbar-width: none;
+    --accent-gray: #161616;
+    --primary: 'white';
+    --secondary: 'grey';
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none;
+    font-family: BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+
+}
+
+body {
+    font-family: BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--accent-gray);
+    overflow-y: hidden;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: white;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
