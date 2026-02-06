@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
 import FunctionCloud from "../FunctionCloud/FunctionCloud";
 import { temporaryClass } from "../../utils";
+import styles from "./FunctionItem.module.css";
 
 function FunctionItem({ cloudSrc, functionData }) {
     const input = useRef();
@@ -40,7 +41,9 @@ function FunctionItem({ cloudSrc, functionData }) {
                                               key={url}
                                               alt="result"
                                               src={url}
-                                              className="function-cloud-result-image"
+                                              className={
+                                                  styles.cloud_result_image
+                                              }
                                           />
                                       );
                                   }),
@@ -81,22 +84,25 @@ function FunctionItem({ cloudSrc, functionData }) {
     };
 
     return (
-        <div className="function-item">
-            <div className="function-item-details">
-                <div className="function-item-title">{functionData.title}</div>
-                <div className="function-item-description">
+        <div className={styles.function_item}>
+            <div className={styles.details}>
+                <div className={styles.title}>{functionData.title}</div>
+                <div className={styles.description}>
                     {functionData.description}
                 </div>
             </div>
 
             <div
-                className={`function-item-execute-button ${functionData.input ? "has-input" : ""}`}
+                className={[
+                    styles.execute_button,
+                    functionData.input ? styles.has_input : "",
+                ].join(" ")}
             >
                 <FaArrowCircleRight
                     onClick={() => {
                         startSearch();
                     }}
-                    className="function-item-execute-button-image"
+                    className={styles.execute_button_image}
                 />
                 {functionData.input && (
                     <input
@@ -107,7 +113,7 @@ function FunctionItem({ cloudSrc, functionData }) {
                                 startSearch();
                             }
                         }}
-                        className="function-item-input"
+                        className={styles.input}
                         ref={input}
                         placeholder="Search..."
                     />

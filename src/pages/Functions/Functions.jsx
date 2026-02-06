@@ -1,23 +1,23 @@
 import Section from "../../components/Section/Section";
 import Cutout from "../../components/Cutout/Cutout";
-import "../../css/functions.css";
 import ReadMore from "../../components/ReadMore/ReadMore";
 import FunctionItem from "../../components/FunctionItem/FunctionItem";
 import { functionsData } from "../../data/functions";
+import styles from "./Functions.module.css";
 
 const numClouds = 12;
 
 function Functions() {
     return (
-        <Section id="functions" className="no-container-for-section-page-main">
-            <div id="functions-header">
+        <Section className="no-container-for-section-page-main">
+            <div id={styles.header}>
                 <div>
-                    <Cutout id="functions">
-                        <h1 className="page-title">Functions</h1>
+                    <Cutout>
+                        <h1>Functions</h1>
                     </Cutout>
                 </div>
                 <ReadMore
-                    id="functions-description"
+                    id={styles.description}
                     title={<h3>What is a (cloud) function?</h3>}
                     hoverText={`A function is a block of code that runs a group of calculations, can have variable parameters, and can return a result.
                             Functions are a concept used in every coding language, but these functions are more specifically cloud functions.`}
@@ -27,8 +27,8 @@ function Functions() {
                                 (e.g. JavaScript) than the language of the application on the device (e.g. Swift).`}
                 />
             </div>
-            <div id="functions-content">
-                <div id="function-items-container">
+            <div id={styles.functions_content}>
+                <div id={styles.function_items_container}>
                     {functionsData.map((data, index) => (
                         <FunctionItem
                             key={data.title}

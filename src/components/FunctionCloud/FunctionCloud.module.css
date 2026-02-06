@@ -61,6 +61,7 @@
 }
 
 .result {
+
     width: 180px;
     font-family: 'Courier New',
         Courier,
@@ -75,25 +76,28 @@
     border-radius: 10px;
     padding: 10px 14px;
     background-color: black;
+
+    & table {
+        border-collapse: collapse;
+    }
+
+    & *:is(td, th) {
+        border: 1px solid white;
+        padding: 2px;
+    }
+
+    & th {
+        width: 56px;
+    }
+
+
+    &.small_text {
+        font-size: 12px;
+    }
 }
 
-.result table {
-    border-collapse: collapse;
-}
-
-.result *:is(td, th) {
-    border: 1px solid white;
-    padding: 2px;
-}
-
-.result th {
-    width: 56px;
-}
 
 
-.result.small_text {
-    font-size: 12px;
-}
 
 .loader {
     position: absolute;
