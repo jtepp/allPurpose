@@ -79,3 +79,20 @@ a:active {
         display: flex;
     }
 }
+
+.reject-shake {
+    background-color: #ff6161ce !important;
+    color: white;
+    animation: reject-shake 200ms ease-in-out infinite;
+}
+
+
+@keyframes reject-shake {
+    0% {
+        translate: -10px;
+    }
+
+    100% {
+        translate: 10px;
+    }
+}

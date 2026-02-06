@@ -29,7 +29,7 @@ function FunctionItem({ cloudSrc, functionData }) {
                             functionData.b64
                                 ? [
                                       <img
-                                          key={functionData.name}
+                                          key={url}
                                           alt="result"
                                           src={`data:image/jpeg;charset=utf-8;base64,${data}`}
                                       />,
@@ -37,7 +37,7 @@ function FunctionItem({ cloudSrc, functionData }) {
                                 : data.images.map((url) => {
                                       return (
                                           <img
-                                              key={functionData.name}
+                                              key={url}
                                               alt="result"
                                               src={url}
                                               className="function-cloud-result-image"
@@ -52,21 +52,24 @@ function FunctionItem({ cloudSrc, functionData }) {
                         const rows = [];
                         Object.entries(
                             functionData.key ? data[functionData.key] : data,
-                        ).forEach(([key, value]) => {
+                        ).forEach(([key, value], index) => {
                             rows.push(
-                                <tr>
+                                <tr key={index}>
                                     <th>{key}</th>
                                     <td>{value}</td>
                                 </tr>,
                             );
                         });
-                        const table = <table>{rows}</table>;
+                        const table = (
+                            <table>
+                                <tbody>{rows}</tbody>
+                            </table>
+                        );
                         setChildren([table]);
                         return;
                     }
 
                     setResult(data);
-                    return;
                 })
                 .catch((err) => {
                     console.warn(err);
@@ -112,7 +115,7 @@ function FunctionItem({ cloudSrc, functionData }) {
             </div>
 
             <FunctionCloud
-                state={cloudState}
+                cloudState={cloudState}
                 result={result}
                 cloudSrc={cloudSrc}
                 smallText={functionData.json}

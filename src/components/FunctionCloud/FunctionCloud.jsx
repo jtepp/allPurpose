@@ -1,4 +1,6 @@
 import { BiLoader } from "react-icons/bi";
+import styles from "./FunctionCloud.module.css";
+import { useEffect } from "react";
 
 function FunctionCloud({
     cloudState,
@@ -8,39 +10,49 @@ function FunctionCloud({
     smallText,
     used,
 }) {
+    useEffect(() => {
+        console.log(cloudState);
+    }, [cloudState]);
     return (
         <div
-            className={`function-cloud ${cloudState === 2 ? "function-cloud-show-result" : ""}`}
+            className={[
+                styles.function_cloud,
+                cloudState === 2 ? styles.show_result : "",
+            ].join(" ")}
         >
             <div
-                className={`function-cloud-main ${cloudState === 1 ? "cloud-pulsing" : ""}`}
+                className={[
+                    styles.main,
+                    cloudState === 1 ? styles.cloud_pulsing : "",
+                ].join(" ")}
             >
-                <img src={cloudSrc} className="cloud-img" alt="" />
-                {cloudState === 1 && (
-                    <BiLoader className="function-cloud-loader" />
-                )}
-                <div className="function-cloud-used-images-container">
+                <img src={cloudSrc} className={styles.cloud_img} alt="" />
+                {cloudState === 1 && <BiLoader className={styles.loader} />}
+                <div className={styles.used_images_container}>
                     {used.map((name) => (
                         <img
                             src={`/images/projects/icons/${name}.png`}
                             key={name}
-                            className="function-cloud-used-image"
+                            className={styles.used_image}
                             alt=""
                             srcSet=""
                         />
                     ))}
                 </div>
             </div>
-            <p
-                className={`function-cloud-result ${smallText ? "small-text" : ""}`}
+            <div
+                className={[
+                    styles.result,
+                    smallText ? styles.small_text : "",
+                ].join(" ")}
             >
                 {result}
                 {children.length > 0 ? (
-                    <div className="function-cloud-result-image-container">
+                    <div className={styles.result_image_container}>
                         {children}
                     </div>
                 ) : null}
-            </p>
+            </div>
         </div>
     );
 }
