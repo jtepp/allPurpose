@@ -1,5 +1,6 @@
 import { GoChevronDown } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
+import styles from "./HeaderMenu.module.css";
 
 function HeaderMenu({
     name,
@@ -14,7 +15,7 @@ function HeaderMenu({
     const navigate = useNavigate();
     return (
         <div
-            className="header-menu-container"
+            className={styles.container}
             id={`header-menu-container-${id}`}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -25,10 +26,10 @@ function HeaderMenu({
                 style={{
                     width: width,
                 }}
-                className="header-menu"
+                className={styles.header_menu}
             >
                 <div
-                    className="header-menu-title"
+                    className={styles.title}
                     onMouseDown={() => {
                         if (name === "Contact") {
                             onClick();
@@ -38,13 +39,13 @@ function HeaderMenu({
                 >
                     {name}
                 </div>
-                <div className="header-menu-arrow">
+                <div className={styles.arrow}>
                     <GoChevronDown />
                 </div>
             </div>
-            <div className="header-menu-dropdown-trigger-booster"></div>
+            <div className={styles.dropdown_trigger_booster}></div>
             <div
-                className={"header-menu-dropdown"} // onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+                className={styles.dropdown} // onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
             >
                 {children}
             </div>

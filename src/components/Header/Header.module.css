@@ -31,4 +31,5 @@
     height: 2px;
     background-color: white;
     transition: left var(--transition), width var(--transition);
+    pointer-events: none;
 }
