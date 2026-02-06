@@ -1,0 +1,39 @@
+:root {
+    --transition: 0.5s ease-out;
+}
+
+
+.header_link {
+    transition: color var(--transition);
+    text-decoration: none;
+    text-align: center;
+    padding-block: 10px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.hide_favicon #home_favicon {
+    top: -30px;
+}
+
+#home_favicon {
+    position: absolute;
+    top: 4px;
+    width: 60px;
+    height: 20px;
+    background-color: black;
+    padding: 0 10px 10px 5px;
+    pointer-events: none;
+    font-size: 12px;
+    text-align: start;
+    transition: top var(--transition);
+}
+
+.header_link.in_dropdown {
+    transition: color var(--transition);
+}
+
+.header_link.in_dropdown:hover {
+    color: var(--secondary);
+}

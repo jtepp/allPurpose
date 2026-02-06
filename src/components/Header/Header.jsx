@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import { getCurrentPageName } from "../../utils.js";
 import { useAppContext } from "../AppProvider/AppProvider.jsx";
 import useWindowSize from "../../hooks/useWindowSize.js";
+import styles from "./Header.module.css";
 
 function Header() {
     const {
@@ -133,6 +134,7 @@ function Header() {
                             path={subPage.path}
                             external={subPage.external}
                             width={subPage.width}
+                            inDropdown={true}
                             id={id}
                             key={subPage.name}
                             onClick={() => {
@@ -176,13 +178,15 @@ function Header() {
 
     return (
         <Cutout
-            id="header"
-            upperLevel={<div id="header-line-back" ref={headerLineBack}></div>}
+            id={styles.header}
+            upperLevel={
+                <div id={styles.header_line_back} ref={headerLineBack}></div>
+            }
             backgroundColor="black"
             headerSizeState={headerSizeState}
         >
             {headerItems}
-            <div id="header-line" ref={headerLine}></div>
+            <div id={styles.header_line} ref={headerLine}></div>
         </Cutout>
     );
 }

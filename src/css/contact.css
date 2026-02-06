@@ -95,13 +95,6 @@
     left: -1000px;
 }
 
-@media (max-width: 414px) {
-    .page-title {
-        font-size: 40px;
-        width: fit-content;
-        height: max-content;
-    }
-}
 
 @media (max-width: 495px) {
     .form-item>*:last-child:not(textarea) {

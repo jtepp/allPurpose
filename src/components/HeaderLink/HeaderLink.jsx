@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import styles from "./HeaderLink.module.css";
 
 function HeaderLink({
     name,
@@ -11,6 +12,7 @@ function HeaderLink({
     width,
     id,
     external,
+    inDropdown = false,
 }) {
     return (
         <NavLink
@@ -33,10 +35,16 @@ function HeaderLink({
             style={{
                 width,
             }}
-            className={`header-link ${activeIndex < 1 ? "hide-favicon" : ""}`}
+            className={[
+                styles.header_link,
+                inDropdown ? styles.in_dropdown : "",
+                activeIndex < 1 ? styles.hide_favicon : "",
+            ].join(" ")}
         >
             {name}
-            {name === "Home" && <h3 id="home-favicon">Jacob Tepperman</h3>}
+            {name === "Home" && (
+                <h3 id={styles.home_favicon}>Jacob Tepperman</h3>
+            )}
         </NavLink>
     );
 }

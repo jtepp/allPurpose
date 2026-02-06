@@ -11,7 +11,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    z-index: 10;
+    z-index: 1;
     width: 300px;
     padding: 20px;
     background-color: var(--accent-gray);
@@ -30,7 +30,7 @@
     margin-bottom: 40px;
 }
 
-#functions-content {
+#functions_content {
     margin-left: 40px;
     padding-block: 5px;
 }

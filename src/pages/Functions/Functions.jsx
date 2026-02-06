@@ -9,11 +9,14 @@ const numClouds = 12;
 
 function Functions() {
     return (
-        <Section className="no-container-for-section-page-main">
+        <Section
+            className="no-container-for-section-page-main"
+            id={"functions"}
+        >
             <div id={styles.header}>
                 <div>
                     <Cutout>
-                        <h1>Functions</h1>
+                        <h1 className="page-title">Functions</h1>
                     </Cutout>
                 </div>
                 <ReadMore

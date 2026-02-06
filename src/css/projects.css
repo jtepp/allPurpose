@@ -21,13 +21,6 @@
 
 
 
-.page-title {
-    font-size: 50px;
-    height: 60px;
-    margin-left: 40px;
-    padding-block: 5px;
-}
-
 #projects-back {
     width: 100vw;
     height: var(--PB-wide-height);

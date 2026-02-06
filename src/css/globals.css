@@ -87,6 +87,24 @@ a:active {
 }
 
 
+
+.page-title {
+    font-size: 50px;
+    height: 60px;
+    margin-left: 40px;
+    padding-block: 5px;
+}
+
+
+@media (max-width: 414px) {
+    .page-title {
+        font-size: 40px;
+        width: fit-content;
+        height: max-content;
+    }
+}
+
+
 @keyframes reject-shake {
     0% {
         translate: -10px;
