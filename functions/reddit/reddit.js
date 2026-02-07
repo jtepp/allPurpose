@@ -27,12 +27,12 @@ exports.handler = async (event, context) => {
                         "Access-Control-Allow-Origin": "*", // Required for CORS support to work
                         "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
                     },
-                    body: `${d["dist"] != 0}`,
+                    body: `${d["dist"] !== 0}`,
                 };
             var r = d["children"];
             var fImg = undefined;
             for (let i = offset; i < d["dist"]; i++) {
-                if (posts.length >= limit && fImg != undefined) {
+                if (posts.length >= limit && fImg !== undefined) {
                     posts.unshift(fImg);
                     return {
                         statusCode: 200,
@@ -74,7 +74,7 @@ exports.handler = async (event, context) => {
                     (p.url.includes(".jpg") ||
                         p.url.includes(".png") ||
                         p.url.includes(".gif")) &&
-                    fImg == undefined
+                    fImg === undefined
                 )
                     fImg = post;
                 if (!r.pinned) posts.push(post);
@@ -82,7 +82,7 @@ exports.handler = async (event, context) => {
                 //     statusCode: 200,
                 //     body: JSON.stringify([post])
                 // })
-                if (i == d["dist"] - 1)
+                if (i === d["dist"] - 1)
                     return {
                         statusCode: 200,
                         headers: {
@@ -124,7 +124,7 @@ class Post {
         this.short = "u/" + author;
         this.long = "r/" + sub + " • u/" + author;
         this.time = time;
-        this.hasThumb = String(thumb != "self" && thumb != "default");
+        this.hasThumb = String(thumb !== "self" && thumb !== "default");
         this.thumb = thumb;
     }
 }

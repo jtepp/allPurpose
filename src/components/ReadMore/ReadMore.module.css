@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: gap 100ms ease;
+}
+
+.gap {
+    gap: 10px;
+}
+
+.toggle {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--secondary);
+    transition: color var(--color-transition-time) ease;
+}
+
+.collapsible_wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 200ms;
+}
+
+.collapsible_content {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.collapsible_wrapper.open {
+    grid-template-rows: 1fr
+}

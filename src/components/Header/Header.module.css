@@ -1,0 +1,35 @@
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    position: relative;
+    top: 0;
+    height: 40px;
+
+    box-shadow: 0px 0px 100px 10px #ffffff10;
+}
+
+#header_line_back {
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left var(--transition), width var(--transition);
+    background-color: white;
+    z-index: 3;
+}
+
+#header_line {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 10px;
+    z-index: 1;
+    height: 2px;
+    background-color: white;
+    transition: left var(--transition), width var(--transition);
+    pointer-events: none;
+}
