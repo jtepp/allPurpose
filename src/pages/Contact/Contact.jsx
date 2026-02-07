@@ -1,28 +1,32 @@
 import Section from "../../components/Section/Section";
-import "../../css/contact.css";
 import Cutout from "../../components/Cutout/Cutout";
+import styles from "./Contact.module.css";
 
 function Contact() {
     return (
-        <div id="contacts-main" className="page-main">
+        <div className="page-main">
             <Section id="contact">
-                <div id="contact-content">
+                <div>
                     <Cutout id="contact">
                         <h1 className="page-title">Contact Jacob</h1>
                     </Cutout>
 
-                    <div className="form-container">
+                    <div className={styles.form_container}>
                         <form
                             action="/"
                             method="post"
                             name="contact"
                             data-netlify="true"
                             netlify-honeypot="honeypot"
-                            id="contact-form"
+                            className={styles.contact_form}
                         >
-                            <input type="text" name="honeypot" id="honeypot" />
+                            <input
+                                type="text"
+                                name="honeypot"
+                                className={styles.honeypot}
+                            />
 
-                            <div id="nm" className="form-item">
+                            <div id="nm" className={styles.form_item}>
                                 <h3>
                                     <label htmlFor="name">Name</label>
                                 </h3>
@@ -34,7 +38,7 @@ function Contact() {
                                 />
                             </div>
 
-                            <div id="em" className="form-item">
+                            <div id="em" className={styles.form_item}>
                                 <h3>
                                     <label htmlFor="email">Email</label>
                                 </h3>
@@ -47,7 +51,11 @@ function Contact() {
                                 />
                             </div>
 
-                            <div className="form-item long">
+                            <div
+                                className={[styles.form_item, styles.long].join(
+                                    " ",
+                                )}
+                            >
                                 <h3>
                                     <label htmlFor="subject">Subject</label>
                                 </h3>
@@ -74,13 +82,18 @@ function Contact() {
                                 </select>
                             </div>
 
-                            <div id="msg" className="form-item long">
+                            <div
+                                id="msg"
+                                className={[styles.form_item, styles.long].join(
+                                    " ",
+                                )}
+                            >
                                 <h3>
                                     <label htmlFor="message">Message</label>
                                 </h3>
                                 <textarea
                                     name="message"
-                                    id="contact-message"
+                                    className={styles.contact_message}
                                     cols="30"
                                     rows="10"
                                     required
@@ -88,15 +101,27 @@ function Contact() {
                                 ></textarea>
                             </div>
 
-                            <div className="form-item long mid">
+                            <div
+                                className={[
+                                    styles.form_item,
+                                    styles.long,
+                                    styles.mid,
+                                ].join(" ")}
+                            >
                                 <div data-netlify-recaptcha></div>
                             </div>
 
-                            <div className="form-item long mid">
+                            <div
+                                className={[
+                                    styles.form_item,
+                                    styles.long,
+                                    styles.mid,
+                                ].join(" ")}
+                            >
                                 <input
                                     type="submit"
                                     value="Submit"
-                                    id="contact-submit"
+                                    className={styles.contact_submit}
                                 />
                             </div>
                         </form>
