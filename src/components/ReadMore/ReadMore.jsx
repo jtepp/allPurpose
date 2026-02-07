@@ -1,39 +1,39 @@
 import { useState } from "react";
-import "../../css/readMore.css";
-import "../../css/collapsible.css";
+import styles from "./ReadMore.module.css";
 
 function ReadMore({ id, title, hiddenText, hoverText, show }) {
     const [open, setOpen] = useState(false);
     const [hover, setHover] = useState(false);
     return (
         <div
-            className={
-                "read-more-container " + (hover || open ? "use-gap" : "")
-            }
+            className={[styles.container, hover || open ? styles.gap : ""].join(
+                " ",
+            )}
             id={id || ""}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
             {title || null}
-            {show ? <p className="read-more-show">{show}</p> : null}
+            {show ? <p>{show}</p> : null}
 
             {hoverText ? (
                 <div
-                    className={
-                        "collapsible-wrapper " + (hover || open ? "open" : "")
-                    }
+                    className={[
+                        styles.collapsible_wrapper,
+                        hover || open ? styles.open : "",
+                    ].join(" ")}
                 >
-                    <div className="collapsible-content">{hoverText}</div>
+                    <div className={styles.collapsible_content}>
+                        {hoverText}
+                    </div>
                 </div>
             ) : null}
 
-            <div className="read-more-container">
-                {open && hiddenText ? (
-                    <p className="read-more-hide">{hiddenText}</p>
-                ) : null}
+            <div className={styles.read_more_container}>
+                {open && hiddenText ? <p>{hiddenText}</p> : null}
 
                 <span
-                    className="read-more-toggle"
+                    className={styles.toggle}
                     onClick={() => setOpen((o) => !o)}
                 >
                     {open ? "Read less" : "Read more"}
