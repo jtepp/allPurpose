@@ -119,21 +119,24 @@ function Home() {
     }, [setActiveIndex]);
 
     return (
-        <div id="home-main" className="page-main" ref={homeMain}>
+        <div className="page-main" ref={homeMain}>
             <Section
                 id="home"
                 onRender={() => {
                     setActiveIndex(0);
                 }}
+                className={styles.home_section}
             >
                 <Cutout id="home" backgroundColor="black">
-                    <div id="home-name">
+                    <div className={styles.home_name}>
                         <h1>Jacob</h1>
                         <h1>Tepperman</h1>
-                        <h2 id="home-name-title">Software Engineer</h2>
+                        <h2 className={styles.home_name_title}>
+                            Software Engineer
+                        </h2>
                     </div>
 
-                    <div id="home-bottom">
+                    <div className={styles.home_bottom}>
                         <ScrollButton target="#projects-section" />
                         <h2>Scroll down to view my projects</h2>
                     </div>

@@ -1,11 +1,11 @@
-import "../../css/home.css";
+import styles from "./Section.module.css";
 
 function Section({ id, className, onScroll, children }) {
     return (
         <section
             id={id + "-section"}
             onScroll={onScroll}
-            className={`react-section ${className ?? ""}`}
+            className={[styles.section, className ?? ""].join(" ")}
         >
             {children}
         </section>

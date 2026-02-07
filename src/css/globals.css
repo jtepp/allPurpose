@@ -86,6 +86,18 @@ a:active {
     animation: reject-shake 200ms ease-in-out infinite;
 }
 
+.page-main,
+section.no-container-for-section-page-main {
+    height: 100vh;
+    color: white;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    background-color: black;
+}
+
+/* section.no-container-for-section-page-main {
+    margin-top: 20px;
+} */
 
 
 .page-title {
