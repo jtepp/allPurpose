@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import HeaderLink from "../HeaderLink/HeaderLink.jsx";
 import Cutout from "../Cutout/Cutout.jsx";
-import "../../css/header.css";
 import HeaderMenu from "../HeaderMenu/HeaderMenu.jsx";
 import {
     desktopNavItemIndices,

@@ -24,7 +24,7 @@ function Minigames(props) {
 
     const resizeIframe = useCallback(() => {
         const iframe = document.querySelector("#game-iframe");
-        const cont = document.querySelector("#crt-content");
+        const cont = document.querySelector("#crt-content"); // todo: change to use ref?
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
         const i = currentGameIndex === -1 ? 0 : currentGameIndex;
         const padding =
@@ -60,15 +60,19 @@ function Minigames(props) {
     }, [width, currentGameIndex, resizeIframe]);
 
     const changeGame = (index) => {
-        const current = document.querySelector(".current-game");
-        const next = document.querySelector("[index='" + index + "']");
+        const current = document.querySelector("[data-current-game]");
+        const next = document.querySelector("[data-index='" + index + "']");
         let order = 0;
         if (current) {
             order = Number(current.getAttribute("index"));
-            current.classList.remove("current-game");
+            current.removeAttribute("data-current-game");
         }
-        next.classList.add("current-game");
-        next.style.order = order;
+        if (next) {
+            next.setAttribute("data-current-game", "true");
+            next.style.order = order;
+        } else {
+            console.log("no next", current, next, index);
+        }
 
         setCurrentGameIndex(index);
     };

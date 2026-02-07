@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import { scrollToIndex } from "../../utils";
+import styles from "./ProjectCard.module.css";
 
 function ProjectCard({ index, currentProjectIndex, project }) {
     const container = useRef(null);
     const el = useRef(null);
 
     const handleMouseMove = (e) => {
-        if (!e.target.className.includes("project-icon")) {
+        if (!e.target.className.includes(styles.icon)) {
             const mouseX =
                 e.clientX -
                 container.current.offsetLeft +
@@ -50,14 +51,14 @@ function ProjectCard({ index, currentProjectIndex, project }) {
 
     useEffect(() => {
         container.current.classList.toggle(
-            "current-project-container",
+            styles.current_project_container,
             currentProjectIndex === index,
         );
     }, [currentProjectIndex, index]);
 
     const handleIconClick = (e) => {
         const projectIndex = [
-            ...document.querySelectorAll(".project-container"),
+            ...document.querySelectorAll(`.${styles.container}`),
         ].findIndex((e) => e.id === "project-" + index + "-container");
         scrollToIndex(projectIndex);
     };
@@ -66,24 +67,24 @@ function ProjectCard({ index, currentProjectIndex, project }) {
         <section
             id={"project-" + index + "-container"}
             ref={container}
-            className={"project-container"}
+            className={styles.container}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
             <div
                 id={"project-" + index}
                 ref={el}
-                className="project"
+                className={styles.project}
                 style={{
                     backgroundImage: `url(/images/projects/thumbnails/${project.short}.png)`,
                 }}
             ></div>
 
-            <div className="project-icon-container" onClick={handleIconClick}>
+            <div className={styles.icon_container} onClick={handleIconClick}>
                 <img
                     src={`/images/projects/icons/${project.short}.png`}
                     alt=""
-                    className="project-icon"
+                    className={styles.icon}
                 />
             </div>
         </section>

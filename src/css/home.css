@@ -74,12 +74,6 @@ section.no-container-for-section-page-main {
     object-fit: contain;
 }
 
-#projects-title-cutout-container,
-#project-title-cutout-container {
-    /* overflow: hidden; */
-}
-
-
 @media (max-width: 655px) {
     #home-name h1 {
         font-size: 60px;

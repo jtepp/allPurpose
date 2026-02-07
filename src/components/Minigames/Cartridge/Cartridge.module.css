@@ -1,19 +1,19 @@
-.game-cartridge-cont * {
+.container * {
     user-select: none;
 }
 
-.game-cartridge-cont {
+.container {
     position: relative;
     height: max-content;
     transition: position 200ms;
     margin-bottom: 20px;
 }
 
-.game-cartridge-cont:not(#current-game) {
+.container:not([data-current-game]) {
     cursor: pointer;
 }
 
-.game-cartridge {
+.cartridge {
     position: relative;
     width: 160px;
     height: 90px;
@@ -23,7 +23,7 @@
     box-shadow: 0 0 0 black;
 }
 
-.game-cartridge::before {
+.cartridge::before {
     position: absolute;
     content: '';
     width: 40px;
@@ -36,7 +36,7 @@
     z-index: 0;
 }
 
-.game-cartridge::after {
+.cartridge::after {
     position: absolute;
     content: attr(title);
     font-size: 36px;
@@ -53,7 +53,7 @@
     left: 50%;
 }
 
-.cartridge-img {
+.image {
     position: absolute;
     object-fit: contain;
     object-position: center;
@@ -66,19 +66,15 @@
     pointer-events: none;
 }
 
-.game-cartridge-cont:hover:not(#current-game, .last-game-clicked)>.game-cartridge {
-    transform: translateY(-100%) rotate(-10deg);
-    box-shadow: 0px 0px 10px 0px #ffffffF0;
-}
-
-.game-cartridge-overlay {
+.overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 
-.game-cartridge-overlay::before, .game-cartridge-overlay::after {
+.overlay::before,
+.overlay::after {
     border-top: solid 2px #1a1c1e;
     top: 0%;
     position: absolute;
@@ -88,14 +84,14 @@
     background-color: #00000050;
 }
 
-.game-cartridge-overlay::before {
+.overlay::before {
     left: 0%;
     transform: translateY(-100%);
     border-right: solid 2px #1a1c1e;
     border-top-right-radius: 50px;
 }
 
-.game-cartridge-overlay::after {
+.overlay::after {
     position: absolute;
     content: '';
     width: 10px;
@@ -107,6 +103,11 @@
     border-top-left-radius: 50px;
 }
 
-.current-game {
+.container:hover:not([data-current-game])>.cartridge {
+    transform: translateY(-100%) rotate(-10deg);
+    box-shadow: 0px 0px 10px 0px #ffffffF0;
+}
+
+[data-current-game] {
     display: none;
 }

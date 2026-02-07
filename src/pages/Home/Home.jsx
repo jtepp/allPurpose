@@ -3,7 +3,6 @@ import parser from "html-react-parser";
 import Section from "../../components/Section/Section";
 import Cutout from "../../components/Cutout/Cutout";
 import ScrollButton from "../../components/ScrollButton/ScrollButton";
-import "../../css/projects.css";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import {
     projectScrollWidth,
@@ -13,6 +12,7 @@ import {
 import { useAppContext } from "../../components/AppProvider/AppProvider";
 import useWindowSize from "../../hooks/useWindowSize";
 import { projectsData } from "../../data/projects";
+import styles from "./Home.module.css";
 
 function Home() {
     const { setActiveIndex } = useAppContext();
@@ -35,7 +35,7 @@ function Home() {
 
     useEffect(() => {
         // projects
-        if (document.querySelector("#projects-section")) {
+        if (document.querySelector(`#${styles.projects_section}`)) {
             const root = document.querySelector(":root");
             if (width > 655) {
                 root.style.setProperty(
@@ -140,7 +140,7 @@ function Home() {
                 </Cutout>
             </Section>
 
-            <Section id="projects">
+            <Section id="projects" className={styles.projects_section}>
                 <Cutout id="projects-title-cutout" backgroundColor="black">
                     <h1 id="projects-title" className="page-title">
                         Projects
@@ -148,39 +148,39 @@ function Home() {
                 </Cutout>
 
                 <div
-                    id="projects-content"
-                    className={
-                        (currentProjectIndex > 0 ? "more-left " : "") +
-                        (currentProjectIndex < projectsData.length - 1
-                            ? "more-right"
-                            : "")
-                    }
+                    className={[
+                        styles.projects_content,
+                        currentProjectIndex > 0 ? styles.more_left : "",
+                        currentProjectIndex < projectsData.length - 1
+                            ? styles.more_right
+                            : "",
+                    ].join(" ")}
                 >
                     <div
-                        className="projects-content-button"
-                        id="left-button"
+                        className={styles.projects_content_button}
+                        id={styles.left_button}
                         onClick={() => {
                             scrollToPreviousProject();
                         }}
                     ></div>
                     <div
-                        className="projects-content-button"
-                        id="right-button"
+                        className={styles.projects_content_button}
+                        id={styles.right_button}
                         onClick={() => {
                             scrollToNextProject();
                         }}
                     ></div>
-                    <div id="project-info">
-                        <div id="project-title-container">
+                    <div className={styles.project_info}>
+                        <div>
                             <Cutout
                                 id="project-title-cutout"
                                 backgroundColor="black"
                             >
-                                <h1 id="project-title">
+                                <h1 className={styles.project_title}>
                                     {projectsData[currentProjectIndex].title}
                                 </h1>
                             </Cutout>
-                            <h3 id="project-subtitle">
+                            <h3 className={styles.project_subtitle}>
                                 {projectsData[currentProjectIndex].job
                                     ? projectsData[currentProjectIndex].job
                                           .project
@@ -188,16 +188,23 @@ function Home() {
                             </h3>
                         </div>
 
-                        <h3 id="project-description">
+                        <h3 className={styles.project_description}>
                             {parser(
                                 projectsData[currentProjectIndex].description,
                             )}
                         </h3>
                     </div>
-                    <div id="projects-container" ref={projectsContainer}>
-                        <div className="projects-container-spacing"></div>
+                    <div
+                        className={styles.projects_container}
+                        ref={projectsContainer}
+                    >
+                        <div
+                            className={styles.projects_container_spacing}
+                        ></div>
                         {projects}
-                        <div className="projects-container-spacing"></div>
+                        <div
+                            className={styles.projects_container_spacing}
+                        ></div>
                     </div>
                 </div>
             </Section>

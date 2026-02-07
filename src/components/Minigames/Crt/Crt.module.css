@@ -2,7 +2,7 @@
     --crt-width: 600px;
 }
 
-#crt-container {
+.container {
     --CRT-padding: 40px;
 
     position: relative;
@@ -12,42 +12,30 @@
     min-width: 301px;
 }
 
-#crt-container * {
+.container * {
     user-select: none;
 }
 
-#crt-border {
+.border {
     width: 100%;
     position: relative;
     pointer-events: none;
 }
 
-.crt-internal {
+.internal {
     position: absolute;
 
     width: 100%;
     height: 100%;
     top: 0px;
     left: 0px;
-    mask-image: url(../assets/minigames/crt-mask.png);
+    mask-image: url(../../../assets/minigames/crt-mask.png);
     mask-repeat: no-repeat;
     mask-size: calc(100% - var(--CRT-padding) * 2) calc(100% - var(--CRT-padding) * 2);
     mask-position: center;
 }
 
-#crt-static {
-    background-image: url(../assets/minigames/static.gif);
-    background-position: top left;
-    background-size: 200px;
-    pointer-events: none;
-}
-
-#crt-shadow {
-    background-image: radial-gradient(at 50% 45%, transparent 0%, black 70%);
-    pointer-events: none;
-}
-
-#crt-screen-door-rows {
+.screen_door_rows {
     background-image:
         repeating-linear-gradient(to bottom,
             white 0px, white 1px,
@@ -57,7 +45,7 @@
     pointer-events: none;
 }
 
-#crt-screen-door-cols {
+.screen_door_cols {
     background-image:
         repeating-linear-gradient(to right,
             red 8px, green 16px, blue 24px);
@@ -65,13 +53,30 @@
     pointer-events: none;
 }
 
-#crt-scan-bar {
-    background-image: linear-gradient(to bottom, blue 0, blue 15%, transparent 15%, transparent 100%);
-    animation: scan-bar 600ms infinite;
+
+.content {
+    /* z-index: 1; */
+    --_pad: max(301px * 0.10, min(10vw, calc(680px * 0.10)));
+    /* 680px is width breakpoint */
+    padding: var(--_pad);
+    width: calc(100% - var(--_pad) * 2);
+    height: calc(100% - var(--_pad) * 2);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    /* transition: background-color 100ms linear; */
+}
+
+.static {
+    background-image: url(../../../assets/minigames/static.gif);
+    background-position: top left;
+    background-size: 200px;
     pointer-events: none;
 }
 
-#crt-text {
+
+.text {
     --_pad: calc(clamp(301px * 0.12, 0.12*var(--crt-width), 680px * 0.12) + 40px);
     /* 680px is width breakpoint */
     padding: var(--_pad);
@@ -90,19 +95,18 @@
 
 }
 
-#crt-content {
-    /* z-index: 1; */
-    --_pad: max(301px * 0.10, min(10vw, calc(680px * 0.10)));
-    /* 680px is width breakpoint */
-    padding: var(--_pad);
-    width: calc(100% - var(--_pad) * 2);
-    height: calc(100% - var(--_pad) * 2);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    /* transition: background-color 100ms linear; */
+.shadow {
+    background-image: radial-gradient(at 50% 45%, transparent 0%, black 70%);
+    pointer-events: none;
 }
+
+/* .scan_bar {
+    background-image: linear-gradient(to bottom, blue 0, blue 15%, transparent 15%, transparent 100%);
+    animation: scan-bar 600ms infinite;
+    pointer-events: none;
+} */
+
+
 
 @keyframes row-flicker {
     0% {

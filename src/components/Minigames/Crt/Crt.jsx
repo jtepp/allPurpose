@@ -1,27 +1,34 @@
-import "../../../css/crt.css";
 import CRTborder from "../../../assets/minigames/crt-border.png";
+import styles from "./Crt.module.css";
 
 function Crt({ bgColor, text, onClick, children }) {
     return (
-        <div id="crt-container" onClick={onClick}>
-            <div id="crt-static" className="crt-internal"></div>
+        <div className={styles.container} onClick={onClick}>
+            <div className={[styles.internal, styles.static].join(" ")}></div>
             <div
                 id="crt-content"
-                className="crt-internal"
+                className={[styles.internal, styles.content].join(" ")}
                 style={{
                     backgroundColor: bgColor,
                 }}
             >
                 {children}
             </div>
-            <div id="crt-text" className="crt-internal">
+            <div className={[styles.internal, styles.text].join(" ")}>
                 {text}
             </div>
-            <div id="crt-shadow" className="crt-internal"></div>
-            <div id="crt-screen-door-rows" className="crt-internal"></div>
-            <div id="crt-screen-door-cols" className="crt-internal"></div>
-            {/* <div id="crt-scan-bar" className="crt-internal"></div> */}
-            <img draggable="false" id="crt-border" src={CRTborder} alt="" />
+            <div className={[styles.internal, styles.shadow].join(" ")}></div>
+            <div className={[styles.internal, styles.screen_door_rows]}></div>
+            <div className={[styles.internal, styles.screen_door_cols]}></div>
+
+            {/* <div className={[styles.internal, styles.scan_bar].join(" ")}
+></div> */}
+            <img
+                draggable="false"
+                className={styles.border}
+                src={CRTborder}
+                alt=""
+            />
         </div>
     );
 }
