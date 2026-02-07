@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import "../../css/minigames.css";
 import Section from "../../components/Section/Section";
 import Crt from "../../components/Minigames/Crt/Crt";
 import Cutout from "../../components/Cutout/Cutout";
@@ -7,8 +6,9 @@ import parser from "html-react-parser";
 import Cartridge from "../../components/Minigames/Cartridge/Cartridge";
 import { minigamesData } from "../../data/minigames";
 import useWindowSize from "../../hooks/useWindowSize";
+import styles from "./Minigames.module.css";
 
-function Minigames(props) {
+function Minigames() {
     const [currentGameIndex, setCurrentGameIndex] = useState(-1);
     const { width } = useWindowSize();
 
@@ -23,7 +23,7 @@ function Minigames(props) {
     }, []);
 
     const resizeIframe = useCallback(() => {
-        const iframe = document.querySelector("#game-iframe");
+        const iframe = document.querySelector(`#${styles.game_iframe}`);
         const cont = document.querySelector("#crt-content"); // todo: change to use ref?
         // const calcPad = getComputedStyle(cont).padding.replace('px', '')
         const i = currentGameIndex === -1 ? 0 : currentGameIndex;
@@ -92,29 +92,32 @@ function Minigames(props) {
     });
 
     return (
-        <div className="page-main" id="minigames-main" onScroll={console.log}>
+        <div
+            className={["page-main", styles.minigames_main].join(" ")}
+            onScroll={console.log}
+        >
             <Section id="minigames" onScroll={console.log}>
-                <div id="minigames-content">
-                    <div id="game-container">
-                        <div id="game-info">
+                <div className={styles.minigames_content}>
+                    <div className={styles.game_container}>
+                        <div className={styles.game_info}>
                             <Cutout id="minigame-cutout">
-                                <h1 id="game-title">
+                                <h1 className={styles.game_title}>
                                     {currentGameIndex === -1
                                         ? "Minigames"
                                         : minigamesData[currentGameIndex].title}
                                 </h1>
                             </Cutout>
-                            <h3 id="game-description">
+                            <h3 className={styles.game_description}>
                                 {currentGameIndex === -1
                                     ? "Click on a game cartdrige below to play!"
                                     : minigamesData[currentGameIndex]
                                           .description}
                             </h3>
                             <br />
-                            <h2 id="game-controls-heading">
+                            <h2 id={styles.game_controls_heading}>
                                 {currentGameIndex === -1 ? "" : "Controls"}
                             </h2>
-                            <h3 id="game-controls">
+                            <h3>
                                 {parser(
                                     currentGameIndex === -1
                                         ? ""
@@ -139,7 +142,7 @@ function Minigames(props) {
                             }}
                         >
                             <iframe
-                                id="game-iframe"
+                                id={styles.game_iframe}
                                 title="game"
                                 src={
                                     currentGameIndex === -1
@@ -174,7 +177,9 @@ function Minigames(props) {
                             />
                         </Crt>
                     </div>
-                    <div id="game-select-container">{cartridges}</div>
+                    <div className={styles.game_select_container}>
+                        {cartridges}
+                    </div>
                 </div>
             </Section>
         </div>
