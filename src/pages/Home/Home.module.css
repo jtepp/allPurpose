@@ -151,6 +151,8 @@
     scroll-snap-align: start;
     min-height: 100vh;
     height: fit-content;
+    position: relative;
+    z-index: 0;
 }
 
 
