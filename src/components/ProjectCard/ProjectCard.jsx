@@ -61,9 +61,6 @@ function ProjectCard({
     }, [currentProjectIndex, index]);
 
     const handleIconClick = (e) => {
-        const projectIndex = [
-            ...document.querySelectorAll(`.${styles.container}`),
-        ].findIndex((e) => e.id === "project-" + index + "-container");
         scrollToThisIndex();
     };
 
