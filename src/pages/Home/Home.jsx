@@ -6,6 +6,7 @@ import ScrollButton from "../../components/ScrollButton/ScrollButton";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import {
     projectScrollWidth,
+    scrollToIndex,
     scrollToNextProject,
     scrollToPreviousProject,
 } from "../../utils";
@@ -86,6 +87,9 @@ function Home() {
                 index={index}
                 currentProjectIndex={currentProjectIndex}
                 project={project}
+                scrollToThisIndex={() =>
+                    scrollToIndex(index, projectsContainer.current)
+                }
             />
         );
     });
@@ -163,14 +167,14 @@ function Home() {
                         className={styles.projects_content_button}
                         id={styles.left_button}
                         onClick={() => {
-                            scrollToPreviousProject();
+                            scrollToPreviousProject(projectsContainer.current);
                         }}
                     ></div>
                     <div
                         className={styles.projects_content_button}
                         id={styles.right_button}
                         onClick={() => {
-                            scrollToNextProject();
+                            scrollToNextProject(projectsContainer.current);
                         }}
                     ></div>
                     <div className={styles.project_info}>

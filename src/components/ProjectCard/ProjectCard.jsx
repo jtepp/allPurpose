@@ -1,8 +1,12 @@
 import { useEffect, useRef } from "react";
-import { scrollToIndex } from "../../utils";
 import styles from "./ProjectCard.module.css";
 
-function ProjectCard({ index, currentProjectIndex, project }) {
+function ProjectCard({
+    index,
+    currentProjectIndex,
+    project,
+    scrollToThisIndex = () => {},
+}) {
     const container = useRef(null);
     const el = useRef(null);
 
@@ -60,7 +64,7 @@ function ProjectCard({ index, currentProjectIndex, project }) {
         const projectIndex = [
             ...document.querySelectorAll(`.${styles.container}`),
         ].findIndex((e) => e.id === "project-" + index + "-container");
-        scrollToIndex(projectIndex);
+        scrollToThisIndex();
     };
 
     return (
@@ -83,8 +87,9 @@ function ProjectCard({ index, currentProjectIndex, project }) {
             <div className={styles.icon_container} onClick={handleIconClick}>
                 <img
                     src={`/images/projects/icons/${project.short}.png`}
-                    alt=""
+                    alt={project.title + " icon"}
                     className={styles.icon}
+                    draggable={false}
                 />
             </div>
         </section>

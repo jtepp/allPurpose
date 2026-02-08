@@ -23,25 +23,22 @@ export const projectScrollWidth = (width) => {
     return window.innerWidth > 655 ? 240 + 100 : 120 + 50;
 };
 
-export const scrollToIndex = (index) => {
-    const projectsContainer = document.getElementById("projects-container");
-    projectsContainer.scrollTo({
+export const scrollToIndex = (index, container) => {
+    container.scrollTo({
         left: index * projectScrollWidth(),
         behavior: "smooth",
     });
 };
 
-export const scrollToNextProject = () => {
-    const projectsContainer = document.getElementById("projects-container");
-    projectsContainer.scrollBy({
+export const scrollToNextProject = (container) => {
+    container.scrollBy({
         left: projectScrollWidth(),
         behavior: "smooth",
     });
 };
 
-export const scrollToPreviousProject = () => {
-    const projectsContainer = document.getElementById("projects-container");
-    projectsContainer.scrollBy({
+export const scrollToPreviousProject = (container) => {
+    container.scrollBy({
         left: -projectScrollWidth(),
         behavior: "smooth",
     });
