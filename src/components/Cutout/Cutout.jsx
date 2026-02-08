@@ -8,6 +8,7 @@ function Cutout({
     upperLevel,
     backgroundColor,
     children,
+    style,
 }) {
     const containerRef = useRef(null);
     const mainRef = useRef(null);
@@ -41,6 +42,7 @@ function Cutout({
             style={{
                 zIndex: 10,
                 position: "relative",
+                ...style,
             }}
         >
             <div className={styles.color_strip}></div>

@@ -183,6 +183,12 @@ function Header() {
             }
             backgroundColor="black"
             headerSizeState={headerSizeState}
+            style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100%",
+            }}
         >
             {headerItems}
             <div id={styles.header_line} ref={headerLine}></div>
