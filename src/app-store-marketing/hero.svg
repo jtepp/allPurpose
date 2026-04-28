@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <rect width="720" height="480" fill="#0b74ff" rx="16" />
+  <g transform="translate(28,28)" fill="#fff" font-family="sans-serif">
+    <rect x="20" y="20" width="360" height="240" rx="12" fill="#fff" opacity="0.06"/>
+    <text x="40" y="70" font-size="28" fill="#fff">Commute Copilot</text>
+    <text x="40" y="110" font-size="16" fill="#fff">Smart directions • Live updates • Reminders</text>
+  </g>
+</svg>

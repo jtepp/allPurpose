@@ -9,6 +9,8 @@ import BaseLayout from "./components/BaseLayout/BaseLayout";
 import Functions from "./pages/Functions/Functions";
 import Contact from "./pages/Contact/Contact";
 import Minigames from "./pages/Minigames/Minigames";
+import AppStoreMarketing from "./pages/AppStoreMarketing/AppStoreMarketing";
+import AppStoreSupport from "./pages/AppStoreSupport/AppStoreSupport";
 import AppProvider from "./components/AppProvider/AppProvider";
 
 function Root() {
@@ -18,10 +20,18 @@ function Root() {
                 <AppProvider>
                     <BaseLayout>
                         <Routes>
-                            <Route path="*" element={<Home />} />
+                            <Route
+                                path="/app"
+                                element={<AppStoreMarketing />}
+                            />
+                            <Route
+                                path="/support"
+                                element={<AppStoreSupport />}
+                            />
                             <Route path="/minigames" element={<Minigames />} />
-                            <Route path="/contact" element={<Contact />} />{" "}
+                            <Route path="/contact" element={<Contact />} />
                             <Route path="/functions" element={<Functions />} />
+                            <Route path="*" element={<Home />} />
                         </Routes>
                     </BaseLayout>
                 </AppProvider>
