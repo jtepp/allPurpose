@@ -9,8 +9,8 @@ import BaseLayout from "./components/BaseLayout/BaseLayout";
 import Functions from "./pages/Functions/Functions";
 import Contact from "./pages/Contact/Contact";
 import Minigames from "./pages/Minigames/Minigames";
-import AppStoreMarketing from "./pages/AppStoreMarketing/AppStoreMarketing";
-import AppStoreSupport from "./pages/AppStoreSupport/AppStoreSupport";
+import TimeTrialsAppStoreMarketing from "./pages/TimeTrialsAppStoreMarketing/TimeTrialsAppStoreMarketing";
+import TimeTrialsAppStoreSupport from "./pages/TimeTrialsAppStoreSupport/TimeTrialsAppStoreSupport";
 import AppProvider from "./components/AppProvider/AppProvider";
 
 function Root() {
@@ -21,12 +21,12 @@ function Root() {
                     <BaseLayout>
                         <Routes>
                             <Route
-                                path="/app"
-                                element={<AppStoreMarketing />}
+                                path="/time-trials/support"
+                                element={<TimeTrialsAppStoreSupport />}
                             />
                             <Route
-                                path="/support"
-                                element={<AppStoreSupport />}
+                                path="/time-trials"
+                                element={<TimeTrialsAppStoreMarketing />}
                             />
                             <Route path="/minigames" element={<Minigames />} />
                             <Route path="/contact" element={<Contact />} />
