@@ -35,7 +35,7 @@ export default function TimeTrialsAppStoreMarketing() {
                 <div className="tt-nav-links">
                     <a href="#how-it-works">How it works</a>
                     <a href="#features">Features</a>
-                    <Link className="tt-nav-cta" to="/support">
+                    <Link className="tt-nav-cta" to="/time-trials/support">
                         Get support <span aria-hidden="true">↗</span>
                     </Link>
                 </div>

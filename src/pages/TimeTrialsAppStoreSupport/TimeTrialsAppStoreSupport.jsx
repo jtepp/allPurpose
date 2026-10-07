@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import icon from "../../assets/TimeTrialsAppStoreSupport/icon.png";
 import "./TimeTrialsAppStoreSupport.css";
 
-const supportEmail = "jtepp+site@icloud.com";
-
 export default function TimeTrialsAppStoreSupport() {
-    const [message, setMessage] = useState("");
-    const subject = encodeURIComponent("Time Trials support");
-    const body = encodeURIComponent(
-        message ||
-            "Hi, I need help with Time Trials.\n\nApp version:\niPhone model and iOS version:\nWhat happened:",
-    );
-    const mailto = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
     useEffect(() => {
         document.querySelector("body").classList.add("skip");
     }, []);
@@ -146,24 +137,51 @@ export default function TimeTrialsAppStoreSupport() {
                             directly to the developer
                         </div>
                     </div>
-                    <div className="contact-form">
-                        <label htmlFor="message">WHAT CAN WE HELP WITH?</label>
-                        <textarea
-                            id="message"
-                            placeholder="Tell us what happened…"
-                            value={message}
-                            onChange={(event) => setMessage(event.target.value)}
+                    <form
+                        className="contact-form"
+                        name="time-trials-support"
+                        method="post"
+                        action="/"
+                        data-netlify="true"
+                        netlify-honeypot="honeypot"
+                    >
+                        <input
+                            type="hidden"
+                            name="form-name"
+                            value="time-trials-support"
                         />
-                        <a className="send-button" href={mailto}>
-                            Email support <span aria-hidden="true">↗</span>
-                        </a>
-                        <a
-                            className="email-address"
-                            href={`mailto:${supportEmail}`}
-                        >
-                            {supportEmail}
-                        </a>
-                    </div>
+                        <input
+                            type="text"
+                            name="honeypot"
+                            className="honeypot"
+                            tabIndex="-1"
+                            autoComplete="off"
+                        />
+                        <label htmlFor="support-email">YOUR EMAIL</label>
+                        <input
+                            id="support-email"
+                            className="contact-email"
+                            type="email"
+                            name="email"
+                            placeholder="Your email address"
+                            autoComplete="email"
+                            required
+                        />
+                        <label htmlFor="support-message">
+                            WHAT CAN WE HELP WITH?
+                        </label>
+                        <textarea
+                            id="support-message"
+                            name="message"
+                            placeholder="Tell us what happened… Include your iPhone model, iOS version, and app version if you can."
+                            required
+                        />
+                        <div data-netlify-recaptcha></div>
+                        <button className="send-button" type="submit">
+                            Send support request{" "}
+                            <span aria-hidden="true">↗</span>
+                        </button>
+                    </form>
                 </section>
             </main>
 
