@@ -2,9 +2,13 @@ import { useEffect } from "react";
 import Header from "../Header/Header";
 import { setRandomColor } from "../../utils";
 import styles from "./BaseLayout.module.css";
+import { useLocation } from "react-router-dom";
 
 // layout
 function BaseLayout({ children }) {
+    const { pathname } = useLocation();
+    const whiteList = ["time-trials"];
+
     useEffect(() => {
         setRandomColor();
     }, []);
@@ -15,7 +19,9 @@ function BaseLayout({ children }) {
         return () => clearInterval(interval);
     }, []);
 
-    return (
+    return whiteList.some((x) => pathname.includes(x)) ? (
+        children
+    ) : (
         <div id={styles.base}>
             <Header />
             <main id="content">{children}</main>
