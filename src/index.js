@@ -11,6 +11,7 @@ import Contact from "./pages/Contact/Contact";
 import Minigames from "./pages/Minigames/Minigames";
 import TimeTrialsAppStoreMarketing from "./pages/TimeTrialsAppStoreMarketing/TimeTrialsAppStoreMarketing";
 import TimeTrialsAppStoreSupport from "./pages/TimeTrialsAppStoreSupport/TimeTrialsAppStoreSupport";
+import TimeTrialsPrivacyPolicy from "./pages/TimeTrialsPrivacyPolicy/TimeTrialsPrivacyPolicy";
 import AppProvider from "./components/AppProvider/AppProvider";
 
 function Root() {
@@ -20,6 +21,10 @@ function Root() {
                 <AppProvider>
                     <BaseLayout>
                         <Routes>
+                            <Route
+                                path="/time-trials/privacy-policy"
+                                element={<TimeTrialsPrivacyPolicy />}
+                            />
                             <Route
                                 path="/time-trials/support"
                                 element={<TimeTrialsAppStoreSupport />}

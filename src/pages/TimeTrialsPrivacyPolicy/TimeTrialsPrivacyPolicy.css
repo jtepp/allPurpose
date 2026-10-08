@@ -1,0 +1,219 @@
+.tt-policy-page {
+    --tt-policy-bg: #170420;
+    --tt-policy-ink: #eaf0e8;
+    --tt-policy-muted: #9aa89f;
+    --tt-policy-line: #583469;
+    --tt-policy-accent: #9322c7;
+
+    min-height: 100vh;
+    background: var(--tt-policy-bg);
+    color: var(--tt-policy-ink);
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.tt-policy-page *,
+.tt-policy-page *::before,
+.tt-policy-page *::after {
+    box-sizing: border-box;
+}
+
+.tt-policy-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 56px;
+}
+
+.tt-policy-nav {
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--tt-policy-line);
+}
+
+.tt-policy-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--tt-policy-ink);
+    text-decoration: none;
+    font: 500 11px "DM Mono", monospace;
+    letter-spacing: .12em;
+}
+
+.tt-policy-brand img {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+}
+
+.tt-policy-nav-link {
+    color: var(--tt-policy-ink);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.tt-policy-nav-link span {
+    margin-left: 7px;
+    color: var(--tt-policy-accent);
+}
+
+.tt-policy-main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 77px 0 100px;
+}
+
+.tt-policy-heading {
+    padding-bottom: 36px;
+    margin-bottom: 38px;
+    border-bottom: 1px solid var(--tt-policy-line);
+}
+
+.tt-policy-kicker {
+    color: #a6b4a9;
+    font: 10px "DM Mono", monospace;
+    letter-spacing: .12em;
+}
+
+.tt-policy-heading > p {
+    margin: 19px 0 0;
+    color: var(--tt-policy-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.tt-policy-content h1,
+.tt-policy-content h2,
+.tt-policy-content h3,
+.tt-policy-content h4 {
+    color: var(--tt-policy-ink);
+    font-family: Manrope, sans-serif;
+    letter-spacing: -.035em;
+}
+
+.tt-policy-content h1 {
+    margin: 0 0 12px;
+    font-size: clamp(42px, 6vw, 64px);
+    line-height: 1.05;
+}
+
+.tt-policy-content h2 {
+    margin: 52px 0 17px;
+    padding-top: 25px;
+    border-top: 1px solid var(--tt-policy-line);
+    font-size: 27px;
+    line-height: 1.2;
+}
+
+.tt-policy-content h3 {
+    margin: 31px 0 12px;
+    font-size: 19px;
+    line-height: 1.35;
+}
+
+.tt-policy-content h4 {
+    margin: 25px 0 10px;
+    font-size: 15px;
+}
+
+.tt-policy-content p,
+.tt-policy-content li {
+    color: var(--tt-policy-muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.tt-policy-content p {
+    margin: 0 0 16px;
+}
+
+.tt-policy-content ul {
+    margin: 14px 0 22px;
+    padding-left: 23px;
+}
+
+.tt-policy-content li {
+    padding-left: 4px;
+    margin: 7px 0;
+}
+
+.tt-policy-content li::marker {
+    color: var(--tt-policy-accent);
+}
+
+.tt-policy-content strong {
+    color: #dbe5dc;
+    font-weight: 600;
+}
+
+.tt-policy-content a {
+    color: #d38cf0;
+    text-decoration-color: #9322c7;
+    text-underline-offset: 3px;
+}
+
+.tt-policy-content a:hover,
+.tt-policy-nav-link:hover,
+.tt-policy-brand:hover {
+    color: #dba5f0;
+}
+
+.tt-policy-footer {
+    min-height: 94px;
+    border-top: 1px solid var(--tt-policy-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #859088;
+    font: 9px "DM Mono", monospace;
+}
+
+.tt-policy-footer .tt-policy-brand {
+    color: #bac5bb;
+    font-size: 9px;
+}
+
+.tt-policy-footer .tt-policy-brand img {
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+}
+
+@media (max-width: 680px) {
+    .tt-policy-shell {
+        padding: 0 23px;
+    }
+
+    .tt-policy-nav {
+        height: 70px;
+    }
+
+    .tt-policy-main {
+        padding: 58px 0 70px;
+    }
+
+    .tt-policy-heading {
+        padding-bottom: 27px;
+        margin-bottom: 29px;
+    }
+
+    .tt-policy-content h2 {
+        margin-top: 41px;
+        font-size: 23px;
+    }
+
+    .tt-policy-footer {
+        min-height: 85px;
+        flex-wrap: wrap;
+        padding: 18px 0;
+        gap: 10px;
+    }
+
+    .tt-policy-footer > span:nth-child(2) {
+        display: none;
+    }
+}
